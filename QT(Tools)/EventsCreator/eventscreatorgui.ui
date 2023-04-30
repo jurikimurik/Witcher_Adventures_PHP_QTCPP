@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EventsCreatorGui</class>
+ <widget class="QMainWindow" name="EventsCreatorGui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Events Creator GUI for WAofC</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QWidget" name="dataWidget" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="databaseTextLabel">
+         <property name="text">
+          <string>Baza danych</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="databaseBox">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="currentText">
+          <string>/Users/urijmakovskij/Documents/GitHub/Witcher_Adventures_PHP_QTCPP/RAW_DATA</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>/Users/urijmakovskij/Documents/GitHub/Witcher_Adventures_PHP_QTCPP/RAW_DATA</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="eventIdTextLabel">
+         <property name="text">
+          <string>Wydarzenie ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="eventIdBox">
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>*STWORZ NOWE*</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="eventWidget">
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
+      <widget class="QWidget" name="tab_1">
+       <attribute name="title">
+        <string>OPIS</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_1">
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="descriptionTextEdit_1"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_1">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="createButton_1">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>WYBOR</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_2">
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0">
+            <widget class="QComboBox" name="choiceBox_2_1">
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="choiceEdit_2_1"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="choiceBox_2_2">
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="choiceEdit_2_2"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="removeButton_2">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QPushButton" name="addButton_2">
+             <property name="text">
+              <string>+</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_2">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="createButton_2">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>DO</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_3">
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_3" native="true">
+          <widget class="QComboBox" name="toBox_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>100</y>
+             <width>736</width>
+             <height>32</height>
+            </rect>
+           </property>
+           <item>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>3</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>5</string>
+            </property>
+           </item>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_3">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="createButton_3">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>WALKA</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_4">
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_4" native="true">
+          <layout class="QFormLayout" name="formLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="enemyLabel_4_1">
+             <property name="text">
+              <string>Wilk</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="enemyCountBox_4_1">
+             <property name="value">
+              <number>2</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="enemyLabel_4_2">
+             <property name="text">
+              <string>Bandyta</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="enemyCountBox_4_2">
+             <property name="value">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="enemyBox_4">
+             <item>
+              <property name="text">
+               <string>*WYBIERZ ZEBY DODAC*</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Wilk</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bandyta</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Wiking</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Kikimora</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="removeButton_4">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_4">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="addButton_4">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>NAGRODA</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_5">
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget_5" native="true">
+          <layout class="QFormLayout" name="formLayout_4">
+           <item row="0" column="0">
+            <widget class="QLabel" name="itemTextLabel_5_1">
+             <property name="text">
+              <string>Porcja zdrowia</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="itemCountBox_5_1">
+             <property name="value">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="itemTextLabel_5_2">
+             <property name="text">
+              <string>Skora wilka</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="itemCountBox_5_2">
+             <property name="value">
+              <number>2</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="itemBox_5">
+             <item>
+              <property name="text">
+               <string>*WYBIERZ ZEBY DODAC*</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Porcja zdrowia</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Skora wilka</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Zloto</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rdzawy Miecz</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="removeButton_5">
+             <property name="text">
+              <string>-</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_5">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="createButton_5">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

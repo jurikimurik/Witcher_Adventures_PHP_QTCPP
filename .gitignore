@@ -52,3 +52,6 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+QT(Tools)/.DS_Store
+PHP/.DS_Store
+.DS_Store
