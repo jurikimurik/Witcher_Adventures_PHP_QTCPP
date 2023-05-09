@@ -96,11 +96,11 @@
     <item>
      <widget class="QTabWidget" name="eventWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_1">
        <attribute name="title">
-        <string>OPIS</string>
+        <string>OPIS - 1</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
@@ -136,6 +136,16 @@
          <widget class="QTextEdit" name="descriptionTextEdit_1"/>
         </item>
         <item>
+         <widget class="QPushButton" name="addImageButton_1">
+          <property name="text">
+           <string>DODAJ ZDJECIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="imageView_1"/>
+        </item>
+        <item>
          <widget class="QPushButton" name="deleteButton_1">
           <property name="text">
            <string>USUN WYDARZENIE</string>
@@ -153,7 +163,7 @@
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>WYBOR</string>
+        <string>WYBOR - 2</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -287,7 +297,7 @@
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>DO</string>
+        <string>DO - 3</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
@@ -376,7 +386,7 @@
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>WALKA</string>
+        <string>WALKA - 4</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
@@ -496,7 +506,7 @@
       </widget>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
-        <string>NAGRODA</string>
+        <string>NAGRODA - 5</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
@@ -607,6 +617,168 @@
         </item>
         <item>
          <widget class="QPushButton" name="createButton_5">
+          <property name="text">
+           <string>STWORZ NOWA CZESC WYDARZENIA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>KONSEKWENCJE - 6</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QComboBox" name="eventTypeBox_6">
+          <item>
+           <property name="text">
+            <string>KONSEKWENCJE</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WALKA</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>OPIS</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>WYBOR</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>DO</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>NAGRODA</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QFormLayout" name="formLayout_5">
+           <item row="0" column="1">
+            <widget class="QComboBox" name="turnBox_6_1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>ON</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>OFF</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QComboBox" name="choiceBox_6_1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>1 - ZABICIE TROLLA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2 - URATOWANIE GERALTA</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="choiceBox_6_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>1 - ZABICIE TROLLA</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2 - URATOWANIE GERALTA</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="turnBox_6_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>ON</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>OFF</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QComboBox" name="choiceBox_6_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <item>
+              <property name="text">
+               <string>*WYBIERZ ZEBY DODAC NOWE*</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="deleteButton_6">
+          <property name="text">
+           <string>USUN WYDARZENIE</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="createButton_6">
           <property name="text">
            <string>STWORZ NOWA CZESC WYDARZENIA</string>
           </property>
