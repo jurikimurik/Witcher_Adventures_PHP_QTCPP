@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{cadc7144-2b2b-49d2-863a-07d5ed06a894}</object>
                          <name>Event</name>
-                         <pos>x:370;y:535</pos>
+                         <pos>x:410;y:535</pos>
                          <rect>x:-175;y:-85;w:350;h:170</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -92,7 +92,7 @@
                          </base-DElement>
                          <object>{3b881399-eada-44ed-8bb2-75be9619f4f4}</object>
                          <name>ChoiceAction</name>
-                         <pos>x:405;y:15</pos>
+                         <pos>x:410;y:15</pos>
                          <rect>x:-120;y:-50;w:240;h:100</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -134,7 +134,7 @@
                          </base-DElement>
                          <object>{fbf7b1e1-df35-4025-aa87-6a173dc78096}</object>
                          <name>BattleAction</name>
-                         <pos>x:720;y:15</pos>
+                         <pos>x:715;y:20</pos>
                          <rect>x:-120;y:-50;w:240;h:100</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -155,7 +155,7 @@
                          </base-DElement>
                          <object>{1095aa33-a3ab-4a23-ba2e-974f4b094d13}</object>
                          <name>RewardAction</name>
-                         <pos>x:695;y:165</pos>
+                         <pos>x:710;y:170</pos>
                          <rect>x:-115;y:-70;w:230;h:140</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -176,7 +176,7 @@
                          </base-DElement>
                          <object>{4aef40a1-0944-4bc2-86a2-bc61505b0d0a}</object>
                          <name>ConsequencesAction</name>
-                         <pos>x:770;y:320</pos>
+                         <pos>x:780;y:325</pos>
                          <rect>x:-185;y:-50;w:370;h:100</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -218,7 +218,7 @@
                          </base-DElement>
                          <object>{61668f30-8d34-4ddd-a6c3-0125ee034450}</object>
                          <name>EventsModel</name>
-                         <pos>x:355;y:715</pos>
+                         <pos>x:410;y:715</pos>
                          <rect>x:-45;y:-50;w:90;h:100</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -397,7 +397,7 @@
                          </base-DElement>
                          <object>{f601a03c-f081-46b8-ab08-0ebcae2c41c3}</object>
                          <name>Item</name>
-                         <pos>x:940;y:155</pos>
+                         <pos>x:990;y:165</pos>
                          <rect>x:-90;y:-85;w:180;h:170</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -418,7 +418,7 @@
                          </base-DElement>
                          <object>{bf6a6aaf-a95f-4b64-8ad1-8ad03d9bfcfb}</object>
                          <name>Enemy</name>
-                         <pos>x:700;y:-270</pos>
+                         <pos>x:675;y:-265</pos>
                          <rect>x:-80;y:-170;w:160;h:340</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -439,7 +439,7 @@
                          </base-DElement>
                          <object>{03379131-af4f-435d-8535-967077a39793}</object>
                          <name>Choice</name>
-                         <pos>x:405;y:-135</pos>
+                         <pos>x:410;y:-135</pos>
                          <rect>x:-85;y:-70;w:170;h:140</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -460,7 +460,7 @@
                          </base-DElement>
                          <object>{ca2d7d56-8ea0-4e73-b0a7-34fe773033c8}</object>
                          <name>Consequence</name>
-                         <pos>x:760;y:480</pos>
+                         <pos>x:670;y:485</pos>
                          <rect>x:-75;y:-70;w:150;h:140</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -579,7 +579,7 @@
                          </base-DElement>
                          <object>{4e3b9658-e71d-4c59-b939-680dd9d81b43}</object>
                          <name>QPair&lt;QString, int&gt;</name>
-                         <pos>x:415;y:-280</pos>
+                         <pos>x:410;y:-280</pos>
                          <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -617,7 +617,7 @@
                          </base-DElement>
                          <object>{a1bc7763-5195-4f1b-b3fa-372bb8c1b529}</object>
                          <name>QVector&lt;QVariant&gt;</name>
-                         <pos>x:945;y:-415</pos>
+                         <pos>x:995;y:-235</pos>
                          <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -711,7 +711,7 @@
                          </base-DElement>
                          <object>{25a18ccb-e13a-4517-8337-8485ef4e0d13}</object>
                          <name>QVector&lt;Action*&gt;</name>
-                         <pos>x:220;y:365</pos>
+                         <pos>x:190;y:365</pos>
                          <rect>x:-60;y:-30;w:120;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -739,7 +739,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1683732486065</last-modified>
+                  <last-modified>1683840814855</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -827,7 +827,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{972b36d0-24b3-4b9e-9f0f-7722d682f6f3}</uid>
+                    <uid>{1a7c7ccb-ad09-404c-8d2e-210381e48339}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int mc_id</declaration>
@@ -835,7 +835,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0b9ddd2d-1be2-4c5f-b763-1e3eab931e5b}</uid>
+                    <uid>{578850f2-a026-4eb4-9ecd-9ac806e49699}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ActionType getActionType(int which)</declaration>
@@ -843,7 +843,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8a4c0731-2577-4981-ac5c-4e7b1090d0fb}</uid>
+                    <uid>{0ee442c4-dcc4-4a6f-80c6-8a0a31049340}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ToAction getAsToAction(int which)</declaration>
@@ -851,7 +851,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{afc2b49d-7f28-494f-8863-be33ad2194d6}</uid>
+                    <uid>{dd087508-090b-41ad-aa46-afd9d39f8f00}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>DescriptionAction getAsDescriptionAction(int which)</declaration>
@@ -859,7 +859,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f3f009cc-8075-4b7f-9d6b-d5f9707f38d0}</uid>
+                    <uid>{46a4672e-552e-4ae7-a1ab-6bbbc6a999f7}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ChoiceAction getAsChoiceAction(int which)</declaration>
@@ -867,7 +867,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e9132e95-1cab-4b03-870e-a72e6de9fbee}</uid>
+                    <uid>{4fb9a700-e201-427a-af5b-ded8b5c6ac1b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>BattleAction getAsBattleAction(int which)</declaration>
@@ -875,7 +875,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c1c00de4-fc71-45be-8f52-97ca61f3624f}</uid>
+                    <uid>{43b4c9f5-960a-4c6b-b1b8-159c736eacf9}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>RewardAction getAsRewardAction(int which)</declaration>
@@ -883,7 +883,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8398c84b-d9f3-4b96-a7d9-923a890a2256}</uid>
+                    <uid>{2db379ed-ebcf-4638-97af-c6cad6257865}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ConsequencesAction getAsConsequencesAction(int which)</declaration>
@@ -997,7 +997,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{eb18128e-3800-49c8-bcc7-367528fc0cb5}</uid>
+                    <uid>{e7a716f6-0f6b-4c6d-b4bc-2f0a0c4e1f55}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Choice&gt; m_choicesTexts</declaration>
@@ -1005,7 +1005,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{332619ad-dcb9-4838-9d95-6ea424f3a65d}</uid>
+                    <uid>{0df662fd-1a7c-4a43-8689-ab8beea3ad26}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;Choice&gt; getChoices()</declaration>
@@ -1013,7 +1013,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b70b35e5-5e79-4a24-9fb6-0331c5755d88}</uid>
+                    <uid>{8ed02d20-14a8-4843-b570-bfc4b4aeaeb7}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>setChoices(QVector&lt;Choice&gt; choices)</declaration>
@@ -1155,7 +1155,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7511d615-b580-4ce3-9392-3fb2bf59c7ec}</uid>
+                    <uid>{495731ae-dc84-4e21-b2f7-f4b532828782}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;int&gt; m_enemies</declaration>
@@ -1163,7 +1163,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0929e909-3df3-427e-8a55-c94b2512c203}</uid>
+                    <uid>{5cf61fa7-2681-4e0d-9ebf-ef069099ae73}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;int&gt; getEnemiesIds()</declaration>
@@ -1171,7 +1171,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6359630e-9e9e-408c-a206-507ad92cd3a9}</uid>
+                    <uid>{6a25b596-6d87-47a9-b48f-4d148fe8dd7f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setEnemies(QVector&lt;int&gt; enemies)</declaration>
@@ -1337,7 +1337,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{659c1a7e-7531-4dba-903e-19c4322f5bb1}</uid>
+                    <uid>{bc216805-2af4-4821-bf06-23ec0d0cce13}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Consequence&gt; m_consequences</declaration>
@@ -1345,7 +1345,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{adc140e4-f530-41e3-a288-a36cf311ee68}</uid>
+                    <uid>{37a194aa-d101-4700-a488-ba95c30bb09d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;Consequence&gt; getConsequences()</declaration>
@@ -1353,7 +1353,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{16aea557-2b56-479d-a6d5-7f27781ab446}</uid>
+                    <uid>{d40454dd-eaf9-4e8a-98e4-f583581011e5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setConsequences(QVector&lt;Consequence&gt; consequences)</declaration>
@@ -1599,7 +1599,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7a93ee3d-8846-47b9-903e-028e76604604}</uid>
+                    <uid>{e2fcf651-4375-4c00-bf30-02358ded973c}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>const int mc_id</declaration>
@@ -1607,7 +1607,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b440ebb3-0f8a-4135-bf99-47410e2c0b16}</uid>
+                    <uid>{b8ba4b15-5172-4e8e-9cdb-14ff38b30749}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_name</declaration>
@@ -1615,7 +1615,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8c99bdba-ef50-44f9-a3ce-7b291e44bd04}</uid>
+                    <uid>{626ff5e0-9b8b-4e06-8b64-753d620a3019}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_ImagePath</declaration>
@@ -1623,7 +1623,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f212a9e8-0a93-4f26-963e-8af63e9ffac4}</uid>
+                    <uid>{8c9261c8-c072-4638-bafa-462246646a4b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;int&gt; m_increases</declaration>
@@ -1631,7 +1631,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4f9e3790-022a-4f33-a39e-4629dbf0ae57}</uid>
+                    <uid>{8d80d4c7-5fba-4082-b988-5ed8fae918e6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getId()</declaration>
@@ -1639,7 +1639,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{de2ac708-f328-4d1f-bd67-c2451edc9bea}</uid>
+                    <uid>{459fad94-61a2-40cb-9b28-af01d7ab9950}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString getName()</declaration>
@@ -1647,7 +1647,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{197ae81f-d8dd-4636-8753-10f0f3316b08}</uid>
+                    <uid>{f0152f93-96c4-4107-9e78-01213cb3332d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString getImagePath()</declaration>
@@ -1655,7 +1655,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bfbb4e96-76f6-43a6-b424-cdca0d18b602}</uid>
+                    <uid>{1583f005-ec13-405f-98b6-fb705772ad67}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;int&gt; getIncreases()</declaration>
