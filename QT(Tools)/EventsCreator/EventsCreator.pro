@@ -9,13 +9,22 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    character.cpp \
+    consequence.cpp \
+    databasemodel.cpp \
+    databaseview.cpp \
     main.cpp \
     eventscreatorgui.cpp
 
 HEADERS += \
+    character.h \
+    consequence.h \
+    databasemodel.h \
+    databaseview.h \
     eventscreatorgui.h
 
 FORMS += \
+    databaseview.ui \
     eventscreatorgui.ui
 
 TRANSLATIONS += \

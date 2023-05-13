@@ -70,8 +70,8 @@
                          </base-DElement>
                          <object>{ca2d7d56-8ea0-4e73-b0a7-34fe773033c8}</object>
                          <name>Consequence</name>
-                         <pos>x:290;y:490</pos>
-                         <rect>x:-125;y:-80;w:250;h:160</rect>
+                         <pos>x:280;y:505</pos>
+                         <rect>x:-115;y:-70;w:230;h:140</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -253,7 +253,7 @@
                          </base-DElement>
                          <object>{bf83475c-31f6-48da-bde0-35a6ef1f531c}</object>
                          <name>Buff</name>
-                         <pos>x:720;y:-15</pos>
+                         <pos>x:675;y:-35</pos>
                          <rect>x:-135;y:-85;w:270;h:170</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -289,7 +289,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1683896815390</last-modified>
+                  <last-modified>1683984381414</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -583,15 +583,15 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{2aff4e67-63aa-47ad-9132-f5106bca3a31}</uid>
+                    <uid>{83bc4212-a36e-425c-893a-216349055b51}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>int m_id</declaration>
+                    <declaration>const int m_id</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{065d8f6e-7113-4c8d-bfd6-db5ce3feeb03}</uid>
+                    <uid>{f1e28663-d0f3-457c-8bbc-9e6e48a733e1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>bool m_isOn</declaration>
@@ -599,15 +599,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8a120a09-30e5-4f12-b682-5214088e2383}</uid>
+                    <uid>{40d50364-ed00-48b9-8421-fa71fb639376}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Consequence(int m_id, bool isOn = true)</declaration>
+                    <declaration>Consequence(int id, bool isOn = true)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5a732a83-9647-47e2-97f1-097c9b798110}</uid>
+                    <uid>{938fc280-f05a-4681-a96f-be8c0126469c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getId()</declaration>
@@ -615,15 +615,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{99e725fa-1ca0-44f0-8abb-997106b548f6}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>void setId(int id)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{7a339acd-b5f9-4b80-8e22-55c45cd7ead8}</uid>
+                    <uid>{078ace27-ca3d-412b-b8b1-efbbe9563d95}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool isOn()</declaration>
@@ -631,7 +623,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{507c7949-9e3f-4f06-abf4-f67be12f202a}</uid>
+                    <uid>{8f02e917-8b03-44f5-b21d-bc3aedd70363}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setOn(bool isOn)</declaration>
@@ -935,7 +927,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{cb3bbeb0-2b74-46e2-99bf-4b99c24ca6c5}</uid>
+                    <uid>{c58a7f79-976f-435b-a6cc-902fdc7e0a17}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>const int mc_id</declaration>
@@ -943,7 +935,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f9c4c17a-9076-45cb-a01c-33eeba371fe5}</uid>
+                    <uid>{6f50cda3-7ec3-416b-81a9-faab269db4b5}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_Name</declaration>
@@ -951,7 +943,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{05f3e82d-00aa-43c9-b764-696322395022}</uid>
+                    <uid>{9cb7d59b-468f-44cb-82a0-0e2aab677867}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_imagePath</declaration>
@@ -959,23 +951,23 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1c385915-8b33-47f7-afcf-231136f400e7}</uid>
+                    <uid>{5703f4ee-4912-407c-bd4f-6be3cb819017}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>const int m_maxHP</declaration>
+                    <declaration>int m_maxHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f290191d-12ab-428d-81b3-61e398d5499a}</uid>
+                    <uid>{2c157ef7-d677-4bc6-a45b-821a28d73765}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>const int m_maxMP</declaration>
+                    <declaration>int m_maxMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a6a3c0ac-641d-4843-9d5c-083fd71fe7e6}</uid>
+                    <uid>{8c9dba41-a9f5-4902-b787-7e4d33784274}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_atk</declaration>
@@ -983,7 +975,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7f595abe-1412-4fc2-bede-43df56add43a}</uid>
+                    <uid>{b5f8a754-bd17-4adf-9cb1-023e8c2fb850}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_def</declaration>
@@ -991,7 +983,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8312f03f-d281-476c-9565-5c99f3714939}</uid>
+                    <uid>{b29c2778-3494-4b4e-830e-c91e5ca4410f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_agility</declaration>
@@ -999,7 +991,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{607b5ff5-11c7-44f2-a9ac-28a4596c26c4}</uid>
+                    <uid>{0b94a781-7b06-46dd-bc4f-911f310e8740}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_currentHp</declaration>
@@ -1007,7 +999,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d921fe49-5215-4abc-b58f-b976edbb6c7f}</uid>
+                    <uid>{a3210515-d49c-457a-ab66-e4af6669afa2}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_currentMp</declaration>
@@ -1015,7 +1007,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{829a5c51-8d59-4220-aff6-93cef72078df}</uid>
+                    <uid>{d4141a51-8fb6-4d7f-a975-37f30af09023}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Character(int id, QString name, int maxHP, int maxMP, int atk, int def, int agillity, int currentHP = 100, in currentMP = 100, QString imagePath = QString())</declaration>
@@ -1023,7 +1015,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0753f5fe-96b1-42fc-b09b-8b1f4f7b1c02}</uid>
+                    <uid>{bbdc1483-24eb-48cf-94f5-1494da716388}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getId()</declaration>
@@ -1031,7 +1023,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2bcc0d69-13ab-447d-a8f5-e788d1460c23}</uid>
+                    <uid>{fc6abb89-d791-471d-b5be-4db0d0f6ecb3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString getName()</declaration>
@@ -1039,7 +1031,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b1dfcd98-d25f-4593-a8f0-54a3640d6a46}</uid>
+                    <uid>{39bb5c66-cab6-44fd-bb4d-10b825f4c08b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString getImagePath()</declaration>
@@ -1047,7 +1039,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2b0fd3ff-f2c3-4cce-affa-83f1e90c0dfe}</uid>
+                    <uid>{1ef87ed4-d799-46f7-9743-1a2b5a2c07a7}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getMaxHP()</declaration>
@@ -1055,7 +1047,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{80e3deea-8fa5-439e-852a-04d453826df8}</uid>
+                    <uid>{4eb9eb70-97f3-4e2e-8513-48385f0aaa41}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getMaxMP()</declaration>
@@ -1063,7 +1055,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{08c7ac3e-903c-4717-a70c-7854a5ece14a}</uid>
+                    <uid>{99982515-1968-4d4d-b400-38e8502426b6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getAtk()</declaration>
@@ -1071,7 +1063,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{44cb8726-a599-455a-a450-a190c5ea6344}</uid>
+                    <uid>{95fe5646-b891-403b-9d47-3c274b2ebfc4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getDef()</declaration>
@@ -1079,7 +1071,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{73a70db2-d41d-4dcd-b703-8e5354d3d207}</uid>
+                    <uid>{e1ce4d73-8621-46d0-a460-ac026a6f6c41}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getAgil()</declaration>
@@ -1087,7 +1079,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{15d9ee12-0f77-4a8c-8ebe-670a4f1376a5}</uid>
+                    <uid>{d3a655b1-062e-4cfb-8577-be8c0ed05e63}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getCurrentHp()</declaration>
@@ -1095,7 +1087,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ca267644-41c8-4d64-b00a-4e020e55cb56}</uid>
+                    <uid>{5f13eff5-9c07-4dd9-aa66-9ea34f61ee06}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getCurrentMp()</declaration>
@@ -1103,7 +1095,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bedff413-c4f3-4453-b5a0-5db45f8c6022}</uid>
+                    <uid>{25f53c73-9429-422e-a764-47ec71e1a1ad}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>...</declaration>
@@ -1231,7 +1223,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{ff0e66b8-44dd-4200-955a-3da001e307f6}</uid>
+                    <uid>{34820215-e03a-4bce-8195-4cd805bb6f32}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>BuffType m_buffType</declaration>
@@ -1239,7 +1231,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f405272a-6862-487c-a094-c49b20f7d5c5}</uid>
+                    <uid>{20992eac-e2fc-479d-b980-6d82cb44b4e5}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_points</declaration>
@@ -1247,7 +1239,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b411a3b0-90a4-441c-adc2-f2c9e5f78ed5}</uid>
+                    <uid>{659265c4-93fe-49fc-9b13-11f5cc31eb9f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_duration</declaration>
@@ -1255,7 +1247,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{94e1efac-dabb-4d99-b90f-6316507b3c57}</uid>
+                    <uid>{b3cc24d0-1240-4fe6-b76a-36dbc195416c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Buff(BuffType type, duration = 0, points = 0)</declaration>
@@ -1263,7 +1255,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{aef509de-7194-4016-bdce-dc7b23cc3455}</uid>
+                    <uid>{85d53ea1-14c8-4b89-9437-47eb8705004d}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>enum class BuffType</declaration>
@@ -1271,7 +1263,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1e322e40-1d7b-4eb1-855f-e11a549880fa}</uid>
+                    <uid>{a5b8ac47-6dd7-4f66-acc5-dff6d9a494c8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>BuffType getType()</declaration>
@@ -1279,7 +1271,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{723b8d5f-0d2e-4562-a5d7-76138a6226e3}</uid>
+                    <uid>{db6d8b83-18f2-4fdf-919d-963a2473d20a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getPoints()</declaration>
@@ -1287,7 +1279,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0c4fb0ff-2391-48c6-baf6-11485eb29082}</uid>
+                    <uid>{195947e0-64f0-4a92-944f-d19184fa6e8c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getDuration()</declaration>
