@@ -14,6 +14,7 @@ SOURCES += \
     consequence.cpp \
     databasemodel.cpp \
     databaseview.cpp \
+    item.cpp \
     main.cpp \
     eventscreatorgui.cpp
 
@@ -24,7 +25,8 @@ HEADERS += \
     consequence.h \
     databasemodel.h \
     databaseview.h \
-    eventscreatorgui.h
+    eventscreatorgui.h \
+    item.h
 
 FORMS += \
     databaseview.ui \

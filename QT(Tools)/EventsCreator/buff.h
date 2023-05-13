@@ -11,7 +11,10 @@ private:
 public:
     Buff(Attributes plusAtr, duration = 0);
     Attributes getAttributesPlus();
-    int getDuration();
+    int duration() const;
+    Attributes attributes() const;
+    void setAttributes(const Attributes &newAttributes);
+    void setDuration(int newDuration);
 };
 
 #endif // BUFF_H
