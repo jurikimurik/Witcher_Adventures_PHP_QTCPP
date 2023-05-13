@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     action.cpp \
+    battleaction.cpp \
     buff.cpp \
     character.cpp \
     consequence.cpp \
@@ -17,18 +18,21 @@ SOURCES += \
     databaseview.cpp \
     item.cpp \
     main.cpp \
-    eventscreatorgui.cpp
+    eventscreatorgui.cpp \
+    toaction.cpp
 
 HEADERS += \
     action.h \
     attributes.h \
+    battleaction.h \
     buff.h \
     character.h \
     consequence.h \
     databasemodel.h \
     databaseview.h \
     eventscreatorgui.h \
-    item.h
+    item.h \
+    toaction.h
 
 FORMS += \
     databaseview.ui \

@@ -840,15 +840,15 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{79935c1e-ff8c-4204-818b-aaac16bb6c7a}</uid>
+                    <uid>{0c5be121-dfea-49fd-a2a7-515e3aae12c1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QVector&lt;int&gt; m_enemies</declaration>
+                    <declaration>QVector&lt;int&gt; m_enemiesIds</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8614ba68-ee8b-48ca-9d9f-397a6a76616e}</uid>
+                    <uid>{94bacf83-72ed-4a90-8ad4-d92f52db1305}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;int&gt; getEnemiesIds()</declaration>
@@ -856,7 +856,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{54439e2c-1525-4453-9732-43a13b70a6cc}</uid>
+                    <uid>{075f3376-0d06-438d-81c9-2aebf3bb717b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setEnemies(QVector&lt;int&gt; enemies)</declaration>
