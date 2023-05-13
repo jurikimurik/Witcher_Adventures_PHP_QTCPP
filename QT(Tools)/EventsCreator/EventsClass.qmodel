@@ -919,7 +919,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{fb57342d-462e-40af-9717-f009f55f5f52}</uid>
+                    <uid>{dac084d9-50a8-4bcc-beba-6cc021bec9b3}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;int&gt; m_items</declaration>
@@ -927,7 +927,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{692e699e-df02-430f-9ecc-81014d1d1339}</uid>
+                    <uid>{c73c58f3-61c2-456a-8cb9-937bfdf51d5a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_money</declaration>
@@ -935,7 +935,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b0fb2825-02cf-4fdb-8bc8-d350ae381747}</uid>
+                    <uid>{601f62a7-c4ba-4975-a413-3f4ac7cd625a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;int&gt; getItemsIds()</declaration>
@@ -943,7 +943,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{721ac323-3fc3-443e-bc54-d7f82ce389c0}</uid>
+                    <uid>{2a9f6204-5812-4ead-8aa0-2019991ceacc}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setItemsIds(QVector&lt;int&gt; items)</declaration>
@@ -951,7 +951,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3519501a-8e13-4405-ac07-bbe9b1205b6d}</uid>
+                    <uid>{2c364a50-4bba-4c23-bd0d-20fb530804ac}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getMoney()</declaration>
@@ -959,7 +959,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{02efe820-4e78-445f-9231-f7cf1e447d74}</uid>
+                    <uid>{af4c3005-ce3e-468d-9b58-55272100aef5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setMoney(int money)</declaration>
@@ -1022,7 +1022,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{cfb7a749-dd77-4cfd-8bdf-751688285430}</uid>
+                    <uid>{7abf10dd-e7e0-43b0-aa91-cdae48748199}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Consequence&gt; m_consequences</declaration>
@@ -1030,7 +1030,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c33132c5-058c-4052-9913-efe704b047a7}</uid>
+                    <uid>{2d9bb3d3-78fb-43cf-bf4f-0362fb43e1ca}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;Consequence&gt; getConsequences()</declaration>
@@ -1038,7 +1038,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{874546f1-f200-4c67-9611-32ce0f9b2c2e}</uid>
+                    <uid>{473f01b3-617e-481e-864d-c8f7d97ea4ca}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setConsequences(QVector&lt;Consequence&gt; consequences)</declaration>

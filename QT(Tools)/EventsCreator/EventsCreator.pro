@@ -14,11 +14,13 @@ SOURCES += \
     buff.cpp \
     character.cpp \
     consequence.cpp \
+    consequencesaction.cpp \
     databasemodel.cpp \
     databaseview.cpp \
     item.cpp \
     main.cpp \
     eventscreatorgui.cpp \
+    rewardaction.cpp \
     toaction.cpp
 
 HEADERS += \
@@ -28,10 +30,12 @@ HEADERS += \
     buff.h \
     character.h \
     consequence.h \
+    consequencesaction.h \
     databasemodel.h \
     databaseview.h \
     eventscreatorgui.h \
     item.h \
+    rewardaction.h \
     toaction.h
 
 FORMS += \
