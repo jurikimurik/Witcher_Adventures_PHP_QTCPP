@@ -363,7 +363,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{237fd6fb-7b2b-4319-ad46-6b8b4e84ca1b}</uid>
+                    <uid>{3a9ed8a5-2c7c-48be-8354-979a73a70505}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Event&gt; m_events</declaration>
@@ -371,7 +371,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{888e729a-d442-496f-9018-be54a7619a36}</uid>
+                    <uid>{7d55a217-d917-4f07-8601-126828458ebd}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Character&gt; m_characters</declaration>
@@ -379,7 +379,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{34d99811-3ec5-41ed-8dfe-a936361126d5}</uid>
+                    <uid>{53bdde9f-e194-48bd-9ab3-1e1fd4c3c36b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Item&gt; m_items</declaration>
@@ -387,7 +387,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1c0466f0-93be-4d24-ab84-ed608f3b3983}</uid>
+                    <uid>{7eab87bf-fded-4214-88a2-cd80a13fd91a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Consequence&gt; m_consequences</declaration>
@@ -395,7 +395,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{277f331b-fa5b-4fbb-8e79-7f760db65cae}</uid>
+                    <uid>{31cb31ba-7428-4774-a827-42e4c5a05733}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Database()</declaration>
@@ -403,7 +403,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c4fe03af-7bb9-4ecb-be35-e5ea25ff3e84}</uid>
+                    <uid>{f45944ca-8219-4383-abfa-b28e0f08f62a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool addEvent(const Event&amp; event)</declaration>
@@ -411,7 +411,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2cb0d171-c7f0-4c39-ba47-d436d317cb9d}</uid>
+                    <uid>{e9db49f0-1b86-4ef4-8778-f8eb39ce0019}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool addCharacter(const Character&amp; character)</declaration>
@@ -419,7 +419,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4d29a707-c9ab-4869-83ae-005a0e0d7e6a}</uid>
+                    <uid>{08905f73-5df0-4dac-a9d9-4c943f8e7ca4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool addItem(const Item&amp; item)</declaration>
@@ -427,7 +427,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a9226496-8f62-4960-9e4d-c9ee475dd221}</uid>
+                    <uid>{095c7b7a-8836-460c-aae1-e57497704256}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool addConsequence(const Item&amp; item)</declaration>
@@ -435,39 +435,39 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{452bcf27-7f17-4b8d-9853-76e006e07951}</uid>
+                    <uid>{b25020e7-7d7e-4476-846e-fc3f42d8022e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Event getEvent(int id)</declaration>
+                    <declaration>Event event(int id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{84b73d07-bfab-44ef-9060-16dc284627ca}</uid>
+                    <uid>{386e779e-290a-4c26-b4b4-1c8fd590c2ef}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Enemy getEnemy(int id)</declaration>
+                    <declaration>Enemy enemy(int id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bd76a597-e264-4492-826c-f1b25af90d8c}</uid>
+                    <uid>{731e734e-0c39-431e-ab34-92b4b2f94220}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Item getItem(int id)</declaration>
+                    <declaration>Item item(int id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0b5264b7-d741-4961-b048-fc3b21af1ac9}</uid>
+                    <uid>{8c1842ea-c87a-4afd-b60b-24388eeedb85}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Consequence getConsequence(int id)</declaration>
+                    <declaration>Consequence consequence(int id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a9f45a9f-c1f8-4892-bc6e-cecfeefe2c47}</uid>
+                    <uid>{60140cd3-e9cb-4bc1-a660-89b5c5453e32}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool saveToFile(QString path)</declaration>
@@ -475,7 +475,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{55c5bfaf-6335-4290-8980-7ad2bb612784}</uid>
+                    <uid>{c191c970-134a-4061-ac61-e634607123e6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>bool readFromFile(QString path)</declaration>
@@ -483,34 +483,34 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{40dd92a6-a105-47f4-a6ba-da483ddd8bf1}</uid>
+                    <uid>{76fef111-e9c1-45fc-94d2-97c6d16ed080}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>QVector&lt;Event&gt; getEvents()</declaration>
+                    <declaration>QVector&lt;Event&gt; events()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e880a789-62e3-4523-975e-700ca9c0068f}</uid>
+                    <uid>{7385babd-090a-4505-a536-4f0e3a883cd2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>QVector&lt;Event&gt; getEnemies()</declaration>
+                    <declaration>QVector&lt;Event&gt; enemies()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{55555190-27f7-4f0e-bca2-e7018b9f197e}</uid>
+                    <uid>{0ef39487-1b98-4795-aa36-d845ffb9ddc2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>QVector&lt;Event&gt; getItems()</declaration>
+                    <declaration>QVector&lt;Event&gt; items()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{53434172-c99d-44d1-b63a-3a50a0f284d7}</uid>
+                    <uid>{144b48c9-eefa-445e-8300-39b816690648}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>QVector&lt;Event&gt; getConsequences()</declaration>
+                    <declaration>QVector&lt;Event&gt; consequences()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
