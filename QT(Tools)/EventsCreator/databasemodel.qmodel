@@ -253,8 +253,8 @@
                          </base-DElement>
                          <object>{bf83475c-31f6-48da-bde0-35a6ef1f531c}</object>
                          <name>Buff</name>
-                         <pos>x:675;y:-35</pos>
-                         <rect>x:-135;y:-85;w:270;h:170</rect>
+                         <pos>x:710;y:-100</pos>
+                         <rect>x:-115;y:-65;w:230;h:130</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -334,7 +334,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1683985049324</last-modified>
+                  <last-modified>1684003004283</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1164,23 +1164,15 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{34820215-e03a-4bce-8195-4cd805bb6f32}</uid>
+                    <uid>{7301e90b-7ceb-4d9b-94e0-8e931436b8a6}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>BuffType m_buffType</declaration>
+                    <declaration>Attributes m_attrubutesPlus</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{20992eac-e2fc-479d-b980-6d82cb44b4e5}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>int m_points</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{659265c4-93fe-49fc-9b13-11f5cc31eb9f}</uid>
+                    <uid>{aa2f9ef7-ff04-479b-bd2c-1ab164675961}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_duration</declaration>
@@ -1188,39 +1180,23 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b3cc24d0-1240-4fe6-b76a-36dbc195416c}</uid>
+                    <uid>{82887a4c-8cf5-48a1-a485-d16cd9846434}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Buff(BuffType type, duration = 0, points = 0)</declaration>
+                    <declaration>Buff(Attributes plusAtr, duration = 0)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{85d53ea1-14c8-4b89-9437-47eb8705004d}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>enum class BuffType</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{a5b8ac47-6dd7-4f66-acc5-dff6d9a494c8}</uid>
+                    <uid>{31bb9f5f-6dc3-4a58-bd9d-924907ed9264}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>BuffType getType()</declaration>
+                    <declaration>Attributes getAttributesPlus()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{db6d8b83-18f2-4fdf-919d-963a2473d20a}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>int getPoints()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{195947e0-64f0-4a92-944f-d19184fa6e8c}</uid>
+                    <uid>{e8026199-84e6-48f0-a0e9-3fa18efca1cd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int getDuration()</declaration>

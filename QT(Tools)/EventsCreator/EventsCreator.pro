@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    attributes.cpp \
+    buff.cpp \
     character.cpp \
     consequence.cpp \
     databasemodel.cpp \
@@ -19,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     attributes.h \
+    buff.h \
     character.h \
     consequence.h \
     databasemodel.h \
