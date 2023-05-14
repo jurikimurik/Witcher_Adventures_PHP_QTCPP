@@ -1,4 +1,4 @@
-#include "databaseview.h"
+#include "headers/databaseview.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    /*QApplication a(argc, argv);
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -19,5 +19,5 @@ int main(int argc, char *argv[])
     }
     DatabaseView w;
     w.show();
-    return a.exec();
+    return a.exec();*/
 }
