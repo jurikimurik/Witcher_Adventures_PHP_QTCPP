@@ -1,0 +1,12 @@
+1. Implement Item and ItemsModel. ()
+2. Implement Character and CharactersModel. ()
+3. Implement Consequence and ConsequencesModel. ()
+4. Implement ItemView and connect it to ItemsModel. ()
+5. Implement CharacterView and connect it to CharactersModel. ()
+6. Implement ConsequencesView and connect it to ConsequencesModel. ()
+7. Connect ItemModel, CharacterModel and ConsequencesModel to DatabaseModel. ()
+8. Connect ItemsView, CharactersView and ConsequencesView to DatabaseView. ()
+9. Create saveToFile method for DatabaseModel. ()
+10. Create readFromFile method for DatabaseModel. ()
+
+------- EVENTS PART (HARD ONE) -------

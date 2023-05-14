@@ -35,4 +35,5 @@ DISTFILES += \
     drafts/consequences.qmodel \
     drafts/databaseomodeldraft.qmodel \
     drafts/databaseview.qmodel \
-    drafts/items.qmodel
+    drafts/items.qmodel \
+    notes/TODO
