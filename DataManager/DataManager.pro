@@ -31,6 +31,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    drafts/attributes.qmodel \
     drafts/characters.qmodel \
     drafts/consequences.qmodel \
     drafts/databaseomodeldraft.qmodel \
