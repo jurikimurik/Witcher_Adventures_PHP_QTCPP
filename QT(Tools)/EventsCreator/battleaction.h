@@ -2,6 +2,7 @@
 #define BATTLEACTION_H
 
 #include "action.h"
+#include <QVector>
 
 class BattleAction : public Action
 {

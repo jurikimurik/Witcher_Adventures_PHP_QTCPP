@@ -1,10 +1,5 @@
 #include "consequencesaction.h"
 
-ConsequencesAction::ConsequencesAction()
-{
-
-}
-
 QVector<Consequence> ConsequencesAction::consequences() const
 {
     return m_consequences;

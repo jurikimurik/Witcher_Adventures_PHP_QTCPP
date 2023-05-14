@@ -313,7 +313,7 @@
                          <object>{03379131-af4f-435d-8535-967077a39793}</object>
                          <name>Choice</name>
                          <pos>x:410;y:-135</pos>
-                         <rect>x:-85;y:-70;w:170;h:140</rect>
+                         <rect>x:-150;y:-85;w:300;h:170</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -682,7 +682,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{e7a716f6-0f6b-4c6d-b4bc-2f0a0c4e1f55}</uid>
+                    <uid>{581f3671-c4c7-47cc-8285-cdc649176a60}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Choice&gt; m_choicesTexts</declaration>
@@ -690,7 +690,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0df662fd-1a7c-4a43-8689-ab8beea3ad26}</uid>
+                    <uid>{8431ddcf-1628-4fb9-ad11-afe1a8ade185}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QVector&lt;Choice&gt; getChoices()</declaration>
@@ -698,7 +698,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8ed02d20-14a8-4843-b570-bfc4b4aeaeb7}</uid>
+                    <uid>{bb0cd6a1-d48b-4603-a978-37dc0f16b9ba}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>setChoices(QVector&lt;Choice&gt; choices)</declaration>
@@ -1683,50 +1683,68 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{5d7e0c73-a2d0-4694-8212-0f9f805ca8de}</uid>
+                    <uid>{359ba700-2989-42e7-9b8c-ec0ac1602b75}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QString m_choiceText</declaration>
+                    <declaration>QString* m_choiceText</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{736e0b27-c9f6-4f7e-89a6-8a7affc4d683}</uid>
+                    <uid>{d97b3e14-a559-4c93-b338-5052ded96cf2}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>int m_choiceId</declaration>
+                    <declaration>int* m_choiceId</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b87888ee-6536-46ea-ac07-419a47c40137}</uid>
+                    <uid>{5a560b39-d475-4b9d-886b-73b1c6bbe138}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>QString getText()</declaration>
+                    <declaration>Choice()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e36038e3-de25-4746-8248-6d169c5ab9b1}</uid>
+                    <uid>{5161bef3-3e4f-4210-a935-880aa589945a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>int getId()</declaration>
+                    <declaration>Choice(QString text, int id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6f681b8d-5871-4165-962c-1a32de43b191}</uid>
+                    <uid>{b4cf101d-272e-442d-8fa3-8adf905d1dc5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void setText(QString text)</declaration>
+                    <properties>4</properties>
+                    <declaration>QString *choiceText()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ec509b27-267e-4aa8-a9be-d2ee6ed41af6}</uid>
+                    <uid>{8e6214cb-0916-4b31-818c-ce1f66dd3ea2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void setId(int id)</declaration>
+                    <declaration>void setChoiceText(const QString &amp;newChoiceText)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c0cd808a-1803-4e8d-9c2d-4635afe2b561}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int *choiceId()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1ea5cdd9-1333-42ee-89de-2fbb00ceea55}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setChoiceId(const int &amp;newChoiceId)</declaration>
                    </MClassMember>
                   </item>
                  </qlist>

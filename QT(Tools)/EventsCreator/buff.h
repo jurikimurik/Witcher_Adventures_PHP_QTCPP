@@ -9,7 +9,7 @@ private:
     Attributes m_attributes;
     int m_duration;
 public:
-    Buff(Attributes plusAtr, duration = 0);
+    Buff(Attributes plusAtr, int duration = 0);
     Attributes getAttributesPlus();
     int duration() const;
     Attributes attributes() const;

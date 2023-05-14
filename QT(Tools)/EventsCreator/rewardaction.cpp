@@ -1,10 +1,5 @@
 #include "rewardaction.h"
 
-RewardAction::RewardAction()
-{
-
-}
-
 QVector<int> RewardAction::items() const
 {
     return m_items;

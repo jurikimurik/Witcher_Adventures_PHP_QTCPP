@@ -1,9 +1,5 @@
 #include "battleaction.h"
 
-BattleAction::BattleAction()
-{
-
-}
 
 QVector<int> BattleAction::enemiesIds() const
 {

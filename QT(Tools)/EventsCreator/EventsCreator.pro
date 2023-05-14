@@ -13,6 +13,8 @@ SOURCES += \
     battleaction.cpp \
     buff.cpp \
     character.cpp \
+    choice.cpp \
+    choiceaction.cpp \
     consequence.cpp \
     consequencesaction.cpp \
     databasemodel.cpp \
@@ -29,6 +31,8 @@ HEADERS += \
     battleaction.h \
     buff.h \
     character.h \
+    choice.h \
+    choiceaction.h \
     consequence.h \
     consequencesaction.h \
     databasemodel.h \

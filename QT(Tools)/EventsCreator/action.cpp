@@ -1,15 +1,5 @@
 #include "action.h"
 
-Action::Action()
-{
-
-}
-
-QString Action::descriptionText() const
-{
-    return m_descriptionText;
-}
-
 void Action::setDescriptionText(const QString &newDescriptionText)
 {
     m_descriptionText = newDescriptionText;
@@ -18,11 +8,6 @@ void Action::setDescriptionText(const QString &newDescriptionText)
 QString Action::descriptionText() const
 {
     return m_descriptionText;
-}
-
-void Action::setDescriptionText(const QString &newDescriptionText)
-{
-    m_descriptionText = newDescriptionText;
 }
 
 QString Action::imagePath() const
