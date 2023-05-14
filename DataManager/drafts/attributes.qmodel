@@ -60,7 +60,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684081421680</last-modified>
+                  <last-modified>1684083152696</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -89,51 +89,90 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{bcba9c0a-f058-4ac9-b0f0-8b14ca158016}</uid>
+                    <uid>{a6c54443-77f3-472b-beaa-0a844ae09349}</uid>
                     <type>1</type>
                     <declaration>int maxHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1ca7b846-b2b0-4a8c-9095-28eb6ecf1513}</uid>
+                    <uid>{150aee87-2c26-485d-9247-e11051f455c4}</uid>
                     <type>1</type>
                     <declaration>int maxMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{831afcab-c5db-4f00-a232-8f46c7937d60}</uid>
+                    <uid>{1a3d3987-8d5f-42bd-b17b-0c05659e8d0a}</uid>
                     <type>1</type>
                     <declaration>int currentHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d33b8aaa-c79d-48b5-9dc1-b38c31f26ce9}</uid>
+                    <uid>{b3309cf3-fa6f-44ad-94af-1cb7de58db12}</uid>
                     <type>1</type>
                     <declaration>int currentMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{404ca6af-8aee-4c15-ba01-43ca837d47f8}</uid>
+                    <uid>{55230107-79a0-4cdf-aaa2-7471eeadbd7b}</uid>
                     <type>1</type>
                     <declaration>int attack</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{85db0374-d3cc-4716-94dc-934d37130cd1}</uid>
+                    <uid>{af852103-b92f-4785-8247-3eb515150afa}</uid>
                     <type>1</type>
                     <declaration>int defense</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ad2bbe73-2582-4585-8138-852e67340808}</uid>
+                    <uid>{52cdbb20-ed92-4332-89d5-6b7fde8a8fc0}</uid>
                     <type>1</type>
                     <declaration>int agility</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{414cd6c6-44dc-4f20-8034-beb388bd4615}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{414cd6c6-44dc-4f20-8034-beb388bd4615}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>State</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{67abaa37-7ebb-464c-bcd3-f46b5e89b42b}</uid>
+                    <type>1</type>
+                    <declaration>int duration</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1dc6f257-b9c6-49c3-9fb4-9bc25baabfc0}</uid>
+                    <type>1</type>
+                    <declaration>Attributes attributesChange</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
