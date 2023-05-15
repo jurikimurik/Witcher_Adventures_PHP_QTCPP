@@ -91,8 +91,8 @@
                          </base-DElement>
                          <object>{8bbf7de7-699d-4ff5-aae7-30f163714a2d}</object>
                          <name>Item</name>
-                         <pos>x:215;y:420</pos>
-                         <rect>x:-340;y:-85;w:680;h:170</rect>
+                         <pos>x:230;y:525</pos>
+                         <rect>x:-340;y:-170;w:680;h:340</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -320,7 +320,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684145309107</last-modified>
+                  <last-modified>1684145614165</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -614,7 +614,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{ddda1599-8928-4642-bca5-edd6ab2d34c1}</uid>
+                    <uid>{a5a7e38c-6c7b-4931-bf74-8433a7805c6f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>const int id</declaration>
@@ -622,7 +622,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{38ec0db4-e9ab-48c1-a9b5-a22937a86134}</uid>
+                    <uid>{5e3c8db2-c939-4dfb-a95e-e5ed8aad5b37}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_name</declaration>
@@ -630,7 +630,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{87c04d2e-8201-47b7-82f0-eb2fc10952c2}</uid>
+                    <uid>{eeb2bfe6-98d3-4cb7-ab24-ab1f8ab78c93}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ItemType m_type</declaration>
@@ -638,7 +638,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b22dcca2-2a73-404f-b386-587437ae3312}</uid>
+                    <uid>{00d61d5c-45b3-4b27-b34c-4445b73d9d17}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_description</declaration>
@@ -646,7 +646,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ff4b3a15-990a-4fcd-ad05-c584d7a91c44}</uid>
+                    <uid>{eb85318d-eb49-405e-aa19-6cfe1f78e83d}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_imageName</declaration>
@@ -654,7 +654,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{72487768-220e-49a4-8de9-fb616133ca9b}</uid>
+                    <uid>{c8cd0e9f-e81f-49fa-af41-faf4d7224940}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_money</declaration>
@@ -662,7 +662,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b70b9f00-669e-4f71-9f41-90680177e0e4}</uid>
+                    <uid>{f580b4a9-c24e-468d-ac9b-218b96122019}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Buff&gt; m_buffs</declaration>
@@ -670,10 +670,121 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{74561e2f-d6c8-4afc-9731-4f24148e56cc}</uid>
+                    <uid>{813ea924-434d-41e4-8739-5920d00297c7}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item(const int&amp; id, QString name, ItemType type, int money, QVector&lt;Buff&gt; buffs, QString description, QString imageName)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{03ce9ac5-afd8-440c-b1c5-eef23cfc7dcb}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int getId()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{76516e9a-9403-4437-bd7c-886d13b77c20}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString name()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b16651f4-75b6-4aef-90de-04bdcdbb5c0a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setName(const QString &amp;newName)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d436e3f2-93c2-44b1-abbd-4ae5fcdf19f4}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>ItemType type()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{cbe27bef-3941-4702-991d-3fef199b8ab8}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setType(const ItemType &amp;newType)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{16df6d50-3944-4c49-b9c4-69cf68605c73}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString description()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{f06ef35f-6ea2-4977-9a30-394b51e16795}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setDescription(const QString &amp;newDescription)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5790eba4-9f47-4084-999c-138601be724c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString imageName()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9004d4f9-c404-4f16-b215-24ce5537b8ad}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setImageName(const QString &amp;newImageName)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8ca25b27-477e-403e-98ce-aa9654fe4d5b}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int money()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c6bfd8f3-11dc-4ad7-9bf3-1d8a6f7abeeb}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setMoney(int newMoney)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{f066c38c-cd0d-4295-8a66-89e48da5b713}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QVector&lt;Buff&gt; buffs()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{98612db5-8532-4ecb-9c5f-1d2d914cfc3a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setBuffs(const QVector&lt;Buff&gt; &amp;newBuffs)</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
