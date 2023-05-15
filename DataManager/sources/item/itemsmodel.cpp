@@ -51,3 +51,14 @@ QStringList ItemsModel::getEveryItemType()
     types.removeDuplicates();
     return types;
 }
+
+void ItemsModel::addItem(Item newItem)
+{
+    insert(newItem.getId(), newItem);
+}
+
+void ItemsModel::addItems(QVector<Item> newItems)
+{
+    for(Item& item : newItems)
+        insert(item.getId(), item);
+}

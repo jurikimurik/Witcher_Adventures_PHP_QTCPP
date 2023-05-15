@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QMap>
+#include <QVector>
 #include "item.h"
 
 #include <QStringList>
@@ -17,6 +18,8 @@ public:
     QStringList getEveryItemName();
     QStringList getEveryItemIdStr();
     QStringList getEveryItemType();
+    void addItem(Item newItem);
+    void addItems(QVector<Item> newItems);
 
 //public slots:
    // void dataChanged(Item newItem);

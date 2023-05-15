@@ -9,7 +9,7 @@
 class Item
 {
 private:
-    const int id;
+    int id;
     QString m_name;
     ItemType m_type;
     QString m_description;
@@ -34,6 +34,10 @@ public:
     void setMoney(int newMoney);
     QVector<Buff> buffs() const;
     void setBuffs(const QVector<Buff> &newBuffs);
+    void setId(int newId);
+
+
+    Item &operator=(const Item& newItem);
 };
 
 #endif // ITEM_H

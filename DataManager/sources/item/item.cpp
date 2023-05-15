@@ -5,6 +5,25 @@ Item::Item() : id(-1)
 
 }
 
+void Item::setId(int newId)
+{
+    if(id < 0)
+        id = newId;
+    else
+        throw std::runtime_error("Can't change ID. Reason: ID has been already changed.");
+}
+
+Item &Item::operator=(const Item &newItem)
+{
+    setId(newItem.getId());
+    setName(newItem.name());
+    setType(newItem.type());
+    setDescription(newItem.description());
+    setImageName(newItem.imageName());
+    setMoney(newItem.money());
+    setBuffs(newItem.buffs());
+}
+
 Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName) : id(id), m_name(name), m_type(type),
     m_description(description), m_imageName(imageName), m_money(money),  m_buffs(buffs)
 {
