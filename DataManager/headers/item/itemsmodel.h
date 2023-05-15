@@ -21,8 +21,11 @@ public:
     void addItem(Item newItem);
     void addItems(QVector<Item> newItems);
 
-//public slots:
-   // void dataChanged(Item newItem);
+public slots:
+    void dataChanged(Item newItem);
+
+signals:
+    void dataSaved();
 };
 
 #endif // ITEMSMODEL_H

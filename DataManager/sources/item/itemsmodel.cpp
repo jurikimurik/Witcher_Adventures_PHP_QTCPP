@@ -62,3 +62,9 @@ void ItemsModel::addItems(QVector<Item> newItems)
     for(Item& item : newItems)
         insert(item.getId(), item);
 }
+
+void ItemsModel::dataChanged(Item newItem)
+{
+    addItem(newItem);
+    emit dataSaved();
+}

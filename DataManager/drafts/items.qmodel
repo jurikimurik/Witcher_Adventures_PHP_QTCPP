@@ -71,7 +71,7 @@
                          <object>{ee7513d2-af65-4cd4-8786-063a3ea90a8e}</object>
                          <name>ItemsModel</name>
                          <pos>x:215;y:230</pos>
-                         <rect>x:-245;y:-85;w:490;h:170</rect>
+                         <rect>x:-245;y:-90;w:490;h:180</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -557,14 +557,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{3f78759e-4f09-4dca-adcc-bd114b49f098}</uid>
+                    <uid>{6ad1345c-7bf9-45fa-b818-fd3b0a4d4804}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0a56b21b-b2d5-43d5-b9d2-86f86332c3fb}</uid>
+                    <uid>{243fa38f-ccea-4253-9288-a37a48eeeebd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ItemsModel(QObject* parent = nullptr, QMap&lt;int, Item&gt; database = QMap&lt;int, Item&gt;())</declaration>
@@ -572,7 +572,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{28c81966-373b-4ea0-8672-f1ad97053825}</uid>
+                    <uid>{2da31eac-652c-4aca-ae77-f959e6d5708c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item* findById(int id)</declaration>
@@ -580,7 +580,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{840c7782-92a8-467d-9818-ead2e5d1b142}</uid>
+                    <uid>{5d190577-61a1-4af6-91ee-a541ad1ed3dc}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item* findByName(QString name)</declaration>
@@ -588,7 +588,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a4635d91-8c41-46c2-8234-9f641d9f797e}</uid>
+                    <uid>{7a556e5d-4944-4588-a249-9028b501ce22}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemName()</declaration>
@@ -596,7 +596,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5a4ad7a6-ac61-4be0-a1c8-f085c2f1ce34}</uid>
+                    <uid>{9a655f0b-4f83-4556-9e3f-e6062fdde614}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemIdStr()</declaration>
@@ -604,7 +604,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b4aa68dd-afff-4d61-b399-02fe135ae475}</uid>
+                    <uid>{f2a82c54-42ef-4df1-ad7e-252e3973aaf6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemType()</declaration>
@@ -612,10 +612,18 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{42303689-87e7-4f63-9217-9d820fc2b556}</uid>
+                    <uid>{07d6babf-e223-4d45-be1c-478f62d337d0}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void dataChanged(Item newItem)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{788bd6ce-0cf6-454a-871c-cb376f99074f}</uid>
+                    <visibility>4</visibility>
+                    <type>2</type>
+                    <declaration>void dataSaved()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
