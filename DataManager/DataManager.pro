@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    sources/item/buff.cpp \
     sources/special/attributes.cpp \
     sources/databasemodel.cpp \
     sources/main.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 HEADERS += \
     headers/databaseview.h \
     headers/databasemodel.h \
+    headers/item/buff.h \
     headers/special/attributes.h
 
 FORMS += \

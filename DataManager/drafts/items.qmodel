@@ -137,7 +137,7 @@
                          </base-DElement>
                          <object>{ab5ddc48-0ffc-4378-93a2-f8ccaa474d40}</object>
                          <name>Buff</name>
-                         <pos>x:-255;y:455</pos>
+                         <pos>x:-260;y:455</pos>
                          <rect>x:-100;y:-60;w:200;h:120</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -320,7 +320,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684143295557</last-modified>
+                  <last-modified>1684143760159</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -703,7 +703,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{371534e8-cdd5-4287-98a3-a4b1df24fc53}</uid>
+                    <uid>{c9d3e56e-4d12-463d-866f-47be569e9465}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString name</declaration>
@@ -711,7 +711,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ba04a76b-8993-45fe-b2ab-4d686bcf25b3}</uid>
+                    <uid>{239c9c3d-fc81-4948-8eea-63838d669167}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_duration</declaration>
@@ -719,7 +719,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7ab5c475-d0f6-45ff-a6ba-b36fa2458627}</uid>
+                    <uid>{1de90359-5c6e-421a-ab25-5f02e3ff3a69}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Attributes m_changedAttributes</declaration>
@@ -727,7 +727,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{71765e76-461d-4a0c-9c7f-ddb0f29682b0}</uid>
+                    <uid>{7448588b-8dc0-4afa-bfd6-e3fddf342998}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Buff(int duration, Attributes attr)</declaration>

@@ -4,13 +4,13 @@
 
 struct Attributes
 {
-    int maxHP = 100;
-    int maxMP = 100;
+    int maxHP = 0;
+    int maxMP = 0;
     int currentHP = maxHP;
     int currentMP = maxMP;
-    int attack = 10;
-    int defense = 10;
-    int agility = 10;
+    int attack = 0;
+    int defense = 0;
+    int agility = 0;
 };
 
 #endif // ATTRIBUTES_H
