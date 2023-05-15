@@ -18,6 +18,7 @@ private:
     QVector<Buff> m_buffs;
 
 public:
+    Item();
     Item(const int& id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName);
 
     int getId() const;

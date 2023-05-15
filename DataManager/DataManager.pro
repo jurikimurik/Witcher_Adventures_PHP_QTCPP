@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     sources/item/buff.cpp \
     sources/item/item.cpp \
+    sources/item/itemsmodel.cpp \
     sources/item/itemtype.cpp \
     sources/special/attributes.cpp \
     sources/databasemodel.cpp \
@@ -22,6 +23,7 @@ HEADERS += \
     headers/databasemodel.h \
     headers/item/buff.h \
     headers/item/item.h \
+    headers/item/itemsmodel.h \
     headers/item/itemtype.h \
     headers/special/attributes.h
 

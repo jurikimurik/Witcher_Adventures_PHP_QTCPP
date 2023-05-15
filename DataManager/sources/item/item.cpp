@@ -1,5 +1,10 @@
 #include "../../headers/item/item.h"
 
+Item::Item() : id(-1)
+{
+
+}
+
 Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName) : id(id), m_name(name), m_type(type),
     m_description(description), m_imageName(imageName), m_money(money),  m_buffs(buffs)
 {
