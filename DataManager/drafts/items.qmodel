@@ -389,8 +389,8 @@
                          </base-DElement>
                          <object>{7a63cbab-5f07-4726-a817-9bda0aa57aa9}</object>
                          <name>BuffModel</name>
-                         <pos>x:-400;y:180</pos>
-                         <rect>x:-90;y:-70;w:180;h:140</rect>
+                         <pos>x:-480;y:215</pos>
+                         <rect>x:-205;y:-80;w:410;h:160</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -410,7 +410,7 @@
                          </base-DElement>
                          <object>{79701a50-7e99-4589-8585-cd0f7c101597}</object>
                          <name>QObject</name>
-                         <pos>x:-600;y:120</pos>
+                         <pos>x:-635;y:30</pos>
                          <rect>x:-40;y:-30;w:80;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -506,7 +506,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684226433219</last-modified>
+                  <last-modified>1684227178836</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1635,14 +1635,39 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{dc973ef3-76b1-4dad-90f5-faf2ecedf33b}</uid>
+                    <uid>{f0934244-d25e-4a9a-8700-b18efbfef86d}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{98db12fd-a07c-4470-be75-e9186d84a8be}</uid>
+                    <uid>{1c0c8008-38d7-4dc7-ae74-a682500fb2cb}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>explicit BuffModel(const Buff &amp;buff = Buff(), QObject *parent = nullptr)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7b133471-8bf0-47ae-9397-04e6ebb9a50c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>Buff buff()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{bfe434e4-c307-46ea-8cb8-182df118f662}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setBuff(const Buff &amp;newBuff)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{60267633-c577-42af-b203-88db55933796}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Buff m_buff</declaration>
@@ -1650,23 +1675,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b4fb3f4d-ba41-42cf-906b-80cad0095832}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>Buff getBuff()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{43daca0a-5b26-4925-aed4-b4204a8fa820}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>void setBuff()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{f8230984-cc26-4371-8de0-4880acad94e7}</uid>
+                    <uid>{6769fd21-c955-45c3-ab75-29ca77aef590}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateBuff(Buff buff)</declaration>
@@ -1674,7 +1683,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f06600e0-1622-4eb0-b553-00c2200b2bf2}</uid>
+                    <uid>{9d177c2c-8c86-462d-a8dd-9f7d471c3210}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataUpdated()</declaration>
