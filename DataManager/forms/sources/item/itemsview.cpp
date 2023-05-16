@@ -14,6 +14,11 @@ ItemsView::~ItemsView()
     delete ui;
 }
 
+void ItemsView::newItem()
+{
+
+}
+
 void ItemsView::deleteItem()
 {
 
@@ -43,3 +48,15 @@ void ItemsView::removeBuff()
         ptr->deleteLater();
     }
 }
+
+void ItemsView::on_itemBox_activated(int index)
+{
+
+}
+
+
+void ItemsView::on_typeBox_activated(int index)
+{
+
+}
+

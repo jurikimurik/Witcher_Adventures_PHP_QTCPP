@@ -16,6 +16,7 @@ class ItemsView : public QWidget
 public:
     explicit ItemsView(QWidget *parent = nullptr);
     ~ItemsView();
+    void newItem();
     void openItem(int id);
     void openItem(QString name);
     void searchById(int id);
@@ -31,6 +32,11 @@ public slots:
     void cancel();
     void addBuff();
     void removeBuff();
+
+private slots:
+    void on_itemBox_activated(int index);
+
+    void on_typeBox_activated(int index);
 
 private:
     Ui::ItemsView *ui;
