@@ -19,7 +19,7 @@ private:
 
 public:
     Item();
-    Item(const int& id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName);
+    Item(const int& id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description = QString(), QString imageName = QString());
 
     int getId() const;
     QString name() const;

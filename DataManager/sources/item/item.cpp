@@ -22,6 +22,7 @@ Item &Item::operator=(const Item &newItem)
     setImageName(newItem.imageName());
     setMoney(newItem.money());
     setBuffs(newItem.buffs());
+    return *this;
 }
 
 Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName) : id(id), m_name(name), m_type(type),
