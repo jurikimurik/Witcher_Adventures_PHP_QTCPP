@@ -27,9 +27,8 @@ int main(int argc, char *argv[])
     }
     //DatabaseView w;
     //w.show();
-    Buff newBuff(10,Attributes({0, 0, 0, 0, 10, 5, -3}),"Sila ataku");
-    BuffView item(newBuff);
-    item.show();
+    ItemsView window;
+    window.show();
 
     return a.exec();
 }

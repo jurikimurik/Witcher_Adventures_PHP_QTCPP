@@ -15,6 +15,7 @@ class BuffView : public QWidget
 public:
     explicit BuffView(const Buff& buff = Buff(), QWidget *parent = nullptr);
     ~BuffView();
+    Buff getBuff();
 
 public slots:
     void loadBuff();

@@ -1,4 +1,4 @@
-#include "headers/databaseview.h"
+#include "../../headers/database/databaseview.h"
 #include "ui_databaseview.h"
 
 DatabaseView::DatabaseView(QWidget *parent)

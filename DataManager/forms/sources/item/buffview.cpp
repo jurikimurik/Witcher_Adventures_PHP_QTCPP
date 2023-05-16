@@ -26,6 +26,11 @@ BuffView::~BuffView()
     delete ui;
 }
 
+Buff BuffView::getBuff()
+{
+    return m_model->buff();
+}
+
 void BuffView::loadBuff()
 {
     //CLEAR ALL

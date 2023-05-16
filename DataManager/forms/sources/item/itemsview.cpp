@@ -13,3 +13,33 @@ ItemsView::~ItemsView()
 {
     delete ui;
 }
+
+void ItemsView::deleteItem()
+{
+
+}
+
+void ItemsView::save()
+{
+
+}
+
+void ItemsView::cancel()
+{
+
+}
+
+void ItemsView::addBuff()
+{
+    BuffView* view = new BuffView(Buff(), ui->buffsWidget);
+    view->setObjectName("Buff");
+    ui->buffsWidget->layout()->addWidget(view);
+}
+
+void ItemsView::removeBuff()
+{
+    auto ptr = ui->buffsWidget->findChild<BuffView*>("Buff");
+    if(ptr != nullptr) {
+        ptr->deleteLater();
+    }
+}
