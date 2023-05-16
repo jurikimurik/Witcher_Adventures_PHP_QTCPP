@@ -1,5 +1,6 @@
 #include "headers/database/databaseview.h"
 #include "forms/headers/item/itemsview.h"
+#include "forms/headers/item/buffview.h"
 
 #include "headers/item/itemsmodel.h"
 #include "headers/item/buff.h"
@@ -26,7 +27,8 @@ int main(int argc, char *argv[])
     }
     //DatabaseView w;
     //w.show();
-    ItemsView item;
+    Buff newBuff(10,Attributes({0, 0, 0, 0, 10, 5, -3}),"Sila ataku");
+    BuffView item(newBuff);
     item.show();
 
     return a.exec();

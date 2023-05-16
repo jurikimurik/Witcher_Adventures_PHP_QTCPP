@@ -2,6 +2,7 @@
 #define ATTRIBUTES_H
 
 #include <QStringList>
+#include <QVector>
 
 struct Attributes
 {
@@ -15,7 +16,7 @@ struct Attributes
 };
 
 static const QStringList AttributesNames = {"MaxHP", "MaxMP", "Current HP", "Current MP", "Attack", "Defense", "Agility"};
-static const int Attributes::* AttributesPointers[] = {&Attributes::maxHP, &Attributes::maxMP, &Attributes::currentHP, &Attributes::currentMP, &Attributes::attack,
+static const QVector<int Attributes::*> AttributesPointers = {&Attributes::maxHP, &Attributes::maxMP, &Attributes::currentHP, &Attributes::currentMP, &Attributes::attack,
                                                       &Attributes::defense, &Attributes::agility};
 
 #endif // ATTRIBUTES_H

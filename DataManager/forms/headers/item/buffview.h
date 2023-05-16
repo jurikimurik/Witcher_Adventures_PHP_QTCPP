@@ -13,10 +13,13 @@ class BuffView : public QWidget
     Q_OBJECT
 
 public:
-    explicit BuffView(QWidget *parent = nullptr);
+    explicit BuffView(const Buff& buff = Buff(), QWidget *parent = nullptr);
     ~BuffView();
+
+public slots:
     void loadBuff();
     void saveBuff();
+    void confirmSaving();
 
 private:
     Ui::BuffView *ui;
@@ -24,6 +27,7 @@ private:
 
 signals:
     void dataChanged(Buff newBuff);
+    void dataUpdated();
 
 };
 
