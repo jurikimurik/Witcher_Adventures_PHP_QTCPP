@@ -15,6 +15,10 @@ struct Attributes
     int agility = 0;
 };
 
+//If new attribute added, AttributesNames and AttributesPointers NEEDS TO BE UPDATED!!!
+//  - AttributeNames represents QString names for every field of attributes.
+//  - AttributePointers represents pointers to data for each Attribute object.
+//  - ALL OF THIS IS NEEDED FOR BUFFVIEW TO GENERATE NEW FIELDS
 static const QStringList AttributesNames = {"MaxHP", "MaxMP", "Current HP", "Current MP", "Attack", "Defense", "Agility"};
 static const QVector<int Attributes::*> AttributesPointers = {&Attributes::maxHP, &Attributes::maxMP, &Attributes::currentHP, &Attributes::currentMP, &Attributes::attack,
                                                       &Attributes::defense, &Attributes::agility};

@@ -4,6 +4,7 @@
 #include <QObject>
 #include "../../headers/item/buff.h"
 
+//BuffModel is needed for connection between one Buff class and BuffView (for editing purposes)
 class BuffModel : public QObject
 {
     Q_OBJECT
