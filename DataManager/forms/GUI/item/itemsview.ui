@@ -1,22 +1,266 @@
-<?xml version='1.0'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>ItemsView</class>
- <widget name="ItemsView" class="QWidget">
+ <widget class="QWidget" name="ItemsView">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
-    <height>320</height>
+    <width>515</width>
+    <height>498</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QComboBox" name="comboBox">
+     <item>
+      <property name="text">
+       <string>1 - Miecz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2 - Kostur</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>*NEW ITEM*</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="1" column="0">
+       <widget class="QLabel" name="idLabel">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="idEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="nameEdit"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="typeLabel">
+        <property name="text">
+         <string>Type</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="typeBox">
+        <item>
+         <property name="text">
+          <string>Bron biala</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>*NEW TYPE*</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="descLabel">
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="descEdit"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="costLabel">
+        <property name="text">
+         <string>Cost</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="costEdit"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="imageLabel">
+        <property name="text">
+         <string>Image</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QComboBox" name="imageBox"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="buffLabel">
+        <property name="text">
+         <string>Buffs</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QWidget" name="buffsWidget" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QWidget" name="attrWidget_1" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="plusButton">
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="minusButton">
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QPushButton" name="cancelButton">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>DELETE ITEM</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <pixmapfunction/>
- <connections/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ItemsView</receiver>
+   <slot>deleteItem()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>357</x>
+     <y>7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ItemsView</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>466</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>78</x>
+     <y>490</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ItemsView</receiver>
+   <slot>cancel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>290</x>
+     <y>473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>327</x>
+     <y>489</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>plusButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ItemsView</receiver>
+   <slot>addBuff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>428</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>503</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>minusButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ItemsView</receiver>
+   <slot>removeBuff()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>465</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>468</x>
+     <y>487</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>deleteItem()</slot>
+  <slot>save()</slot>
+  <slot>cancel()</slot>
+  <slot>addBuff()</slot>
+  <slot>removeBuff()</slot>
+ </slots>
 </ui>
