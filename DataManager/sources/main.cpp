@@ -1,4 +1,5 @@
-#include "headers/databaseview.h"
+#include "headers/database/databaseview.h"
+#include "forms/headers/item/itemsview.h"
 
 #include "headers/item/itemsmodel.h"
 #include "headers/item/buff.h"
@@ -12,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -23,11 +24,17 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    DatabaseView w;
-    w.show();
-    return a.exec();*/
+    //DatabaseView w;
+    //w.show();
+    ItemsView item;
+    item.show();
 
-    ItemsModel model;
+    return a.exec();
+}
+
+
+//MODEL TESTING
+/*ItemsModel model;
     Attributes attr;
     attr.attack = 10;
     Buff mieczBuff(-1, attr);
@@ -55,6 +62,4 @@ int main(int argc, char *argv[])
     for(const auto& elem: dane2)
     {
         qDebug() << elem;
-    }
-
-}
+    }*/

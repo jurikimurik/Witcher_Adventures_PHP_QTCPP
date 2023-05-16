@@ -424,7 +424,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{84b1ac3e-a655-494b-b79a-f3716368bd62}</uid>
+                    <uid>{206396bb-103d-49b2-b296-1252f9127d45}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ItemsModel* m_model</declaration>
@@ -432,7 +432,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{09ab71cf-b87c-4542-9609-232ef442bae4}</uid>
+                    <uid>{c0423ca3-bbb8-47d5-b78b-ba477daf6165}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void itemChanged(Item newItem)</declaration>
@@ -440,7 +440,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{44eca0ce-1201-4dad-a8c4-783ec17fb5a0}</uid>
+                    <uid>{0d3ec13a-4278-4762-93b8-baa10d8f7a97}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void openItem(int id)</declaration>
@@ -448,7 +448,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{987b8559-147b-4137-b5b4-fafb36e818a6}</uid>
+                    <uid>{a9c903ca-06b3-4fbe-bb48-0356e920d8ae}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void openItem(QString name)</declaration>
@@ -456,7 +456,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{775ffe1a-9055-48c9-86ec-e1d7f5595672}</uid>
+                    <uid>{96ae1db2-6ce0-4ecd-9b3b-95d0d3d2db05}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void searchById(int id)</declaration>
@@ -464,7 +464,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a78daab0-524b-4a63-8dcb-83e4554e98f1}</uid>
+                    <uid>{d3046d29-f4bb-4148-8cbf-a5ff29ca7a46}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void searchByName(QString name)</declaration>
@@ -472,7 +472,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ddccb7f3-3511-4d3e-ac55-5fac38eb9ae0}</uid>
+                    <uid>{6dcb3c17-e146-4162-9e98-fea81308df50}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void save()</declaration>

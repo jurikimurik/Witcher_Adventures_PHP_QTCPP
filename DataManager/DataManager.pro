@@ -9,18 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    forms/sources/item/itemsview.cpp \
     sources/item/buff.cpp \
     sources/item/item.cpp \
     sources/item/itemsmodel.cpp \
     sources/item/itemtype.cpp \
     sources/special/attributes.cpp \
-    sources/databasemodel.cpp \
+    sources/database/databasemodel.cpp \
     sources/main.cpp \
-    sources/databaseview.cpp
+    sources/database/databaseview.cpp
 
 HEADERS += \
-    headers/databaseview.h \
-    headers/databasemodel.h \
+    forms/headers/item/itemsview.h \
+    headers/database/databaseview.h \
+    headers/database/databasemodel.h \
     headers/item/buff.h \
     headers/item/item.h \
     headers/item/itemsmodel.h \
@@ -28,7 +30,8 @@ HEADERS += \
     headers/special/attributes.h
 
 FORMS += \
-    forms/databaseview.ui
+    forms/GUI/database/databaseview.ui \
+    forms/GUI/item/itemsview.ui
 
 TRANSLATIONS += \
     DataManager_pl_PL.ts
