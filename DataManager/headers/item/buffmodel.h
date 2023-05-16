@@ -2,7 +2,7 @@
 #define BUFFMODEL_H
 
 #include <QObject>
-#include "../../../headers/item/buff.h"
+#include "../../headers/item/buff.h"
 
 class BuffModel : public QObject
 {

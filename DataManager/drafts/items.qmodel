@@ -1519,7 +1519,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{45a3d5e4-8fca-4324-a69f-979447e2c941}</uid>
+                    <uid>{b34b25e1-4dae-45be-893f-78383582dbe2}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>BuffModel* m_model</declaration>
@@ -1527,7 +1527,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{87fcd7ea-eb25-4cd7-b146-246f3e278433}</uid>
+                    <uid>{62462b4c-4d36-4491-9c30-dc47fe819d56}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataChanged(Buff newBuff)</declaration>
@@ -1535,7 +1535,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2562b6da-e6ee-4a4b-8c4d-ad45e752908e}</uid>
+                    <uid>{211b2034-e7d6-401a-8a9b-763e00a113da}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void loadBuff()</declaration>
@@ -1543,7 +1543,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4934307b-22ab-47bb-b5b9-ee1c0e0d7bf6}</uid>
+                    <uid>{7bbf4a5f-73e9-4396-a644-422a1f990667}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void saveBuff()</declaration>
