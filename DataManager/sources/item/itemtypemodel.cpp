@@ -17,3 +17,23 @@ void ItemTypeModel::updateItemType(ItemType type)
 
     replace(index, type);
 }
+
+QStringList ItemTypeModel::getAllTypesNames()
+{
+    QStringList list;
+    for(const auto& elem : *this)
+    {
+        list.push_back(elem.typeName);
+    }
+    return list;
+}
+
+QStringList ItemTypeModel::getAllTypesDescriptions()
+{
+    QStringList list;
+    for(const auto& elem : *this)
+    {
+        list.push_back(elem.typeDescription);
+    }
+    return list;
+}
