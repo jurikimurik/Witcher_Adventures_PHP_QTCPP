@@ -6,6 +6,7 @@
 #include <QWidget>
 #include "../../../headers/item/itemsmodel.h"
 #include "buffview.h"
+#include "../../../headers/item/itemtypecontroller.h"
 
 namespace Ui {
 class ItemsView;
@@ -37,6 +38,8 @@ public slots:
 
     void removeAllBuffs();
     QVector<Buff> getAllBuffs();
+
+    void refreshItemTypeData();
 private slots:
     void on_itemBox_activated(int index);
 
@@ -48,6 +51,7 @@ private:
 private:
     Ui::ItemsView *ui;
     ItemsModel* m_model;
+    ItemTypeController* m_controller;
     int currentItemId;
 
 

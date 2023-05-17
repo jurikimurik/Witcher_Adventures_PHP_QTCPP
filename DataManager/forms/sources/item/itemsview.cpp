@@ -11,6 +11,10 @@ ItemsView::ItemsView(QWidget *parent) :
     ui->idEdit->setValidator(new QIntValidator(-1, 9999, ui->idEdit));
     ui->costEdit->setValidator(new QIntValidator(0, 999999999, this));
 
+    m_controller = new ItemTypeController(nullptr, nullptr, this->parent());
+    connect(m_controller, &ItemTypeController::itemTypeDataUpdated, this, &ItemsView::refreshItemTypeData);
+    refreshItemTypeData();
+
     //Some model for example
     m_model = new ItemsModel(this);
     m_model->addItem(Item(1, "Miecz Draugrow", ItemType({"Bron biala", "Zwykla bron biala."}),20,Buff()));
@@ -41,8 +45,16 @@ void ItemsView::openItem(int id)
 
     ui->nameEdit->setText(item.name());
 
+    // Working on QComboBox connected with ItemTypes
     ui->typeBox->clear();
-    ui->typeBox->addItem(item.type().typeName);
+    bool isNewType = true;
+    for(const auto& elem : m_controller->getAllTypesNames()) {
+        if(elem == item.type().typeName)
+            isNewType = false;
+        ui->typeBox->addItem(elem);
+    }
+    if(isNewType)
+        m_controller->newType(item.type());
 
     ui->descEdit->setText(item.description());
     ui->costEdit->setText(QString::number(item.money()));
@@ -76,7 +88,7 @@ void ItemsView::save()
 {
     int id = ui->idEdit->text().toInt();
     QString name = ui->nameEdit->text();
-    ItemType type = {ui->typeBox->currentText(), "something"};
+    ItemType type = m_controller->getItemType(ui->typeBox->currentText());
     QString desc = ui->descEdit->text();
     int cost = ui->costEdit->text().toInt();
     QString image = ui->imageBox->currentText();
@@ -127,6 +139,16 @@ QVector<Buff> ItemsView::getAllBuffs()
     return buffs;
 }
 
+void ItemsView::refreshItemTypeData()
+{
+    ui->typeBox->clear();
+    for(const auto& elem : m_controller->getAllTypesNames())
+    {
+        ui->typeBox->addItem(elem);
+    }
+    ui->typeBox->addItem(QTranslator::tr("*DODAJ NOWY TYP*"));
+}
+
 void ItemsView::on_itemBox_activated(int index)
 {
 
@@ -144,7 +166,10 @@ void ItemsView::on_itemBox_activated(int index)
 
 void ItemsView::on_typeBox_activated(int index)
 {
-
+    if(index+1 == ui->typeBox->count()) {
+        // If user will choose "Create New Type"
+        m_controller->openWindow();
+    }
 }
 
 void ItemsView::refreshData()

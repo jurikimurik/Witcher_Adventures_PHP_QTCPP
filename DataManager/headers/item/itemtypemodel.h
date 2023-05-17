@@ -10,6 +10,7 @@ class ItemTypeModel : public QObject, public QVector<ItemType>
     Q_OBJECT
 public:
     ItemTypeModel(QObject *parent = nullptr);
+    ItemType getItemType(QString name);
 
 public slots:
     void addItemType(ItemType type);

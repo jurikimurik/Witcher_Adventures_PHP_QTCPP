@@ -24,6 +24,8 @@ private:
 private slots:
     void addType();
     void updateType();
+    void openType(const QString& text);
+    void refresh();
 
 signals:
     void addItemType(ItemType type);

@@ -37,7 +37,17 @@ void ItemTypeController::dataHasBeenUpdated()
     emit itemTypeDataUpdated();
 }
 
+void ItemTypeController::newType(ItemType type)
+{
+     m_model->addItemType(type);
+}
+
 QStringList ItemTypeController::getAllTypesNames()
 {
-    return m_model->getAllTypesNames();
+     return m_model->getAllTypesNames();
+}
+
+ItemType ItemTypeController::getItemType(QString name)
+{
+     return m_model->getItemType(name);
 }

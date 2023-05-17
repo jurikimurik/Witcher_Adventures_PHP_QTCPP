@@ -15,8 +15,11 @@ public slots:
     void hideWindow();
     void closeWindow();
     void dataHasBeenUpdated();
+    void newType(ItemType type);
 public:
     QStringList getAllTypesNames();
+    ItemType getItemType(QString name);
+
 
 signals:
     void itemTypeDataUpdated();

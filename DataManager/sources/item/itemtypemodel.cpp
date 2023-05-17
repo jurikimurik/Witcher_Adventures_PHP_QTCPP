@@ -4,6 +4,16 @@
 ItemTypeModel::ItemTypeModel(QObject *parent) : QObject(parent)
 {}
 
+ItemType ItemTypeModel::getItemType(QString name)
+{
+    for(const auto& elem : *this)
+    {
+        if(elem.typeName == name)
+            return elem;
+    }
+    return ItemType();
+}
+
 void ItemTypeModel::addItemType(ItemType type)
 {
     push_back(type);
@@ -12,11 +22,21 @@ void ItemTypeModel::addItemType(ItemType type)
 
 void ItemTypeModel::updateItemType(ItemType type)
 {
-    int index = indexOf(type);
+    int index = -1;
+    for(int i = 0; i < size(); ++i)
+    {
+        if(type.typeName == at(i).typeName) {
+            index = i;
+            break;
+        }
+
+    }
+
     if(index == -1)
         return;
 
     replace(index, type);
+
     emit dataUpdated();
 }
 
