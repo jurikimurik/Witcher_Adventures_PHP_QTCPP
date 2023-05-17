@@ -31,6 +31,12 @@ Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> 
 
 }
 
+Item::Item(const int &id, QString name, ItemType type, int money, Buff buff, QString description, QString imageName) : id(id), m_name(name), m_type(type),
+    m_description(description), m_imageName(imageName), m_money(money), m_buffs({buff})
+{
+
+}
+
 int Item::getId() const
 {
     return id;
