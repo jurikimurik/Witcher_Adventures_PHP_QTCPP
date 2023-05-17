@@ -15,28 +15,12 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QComboBox" name="itemBox">
-     <item>
-      <property name="text">
-       <string>1 - Miecz</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>2 - Kostur</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>*NOWY PRZEDMIOT*</string>
-      </property>
-     </item>
-    </widget>
+    <widget class="QComboBox" name="itemBox"/>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="itemWidget" native="true">
      <property name="enabled">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -139,20 +123,6 @@
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
-       <widget class="QPushButton" name="saveButton">
-        <property name="text">
-         <string>Zapisz</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="QPushButton" name="cancelButton">
-        <property name="text">
-         <string>Wyzeruj</string>
-        </property>
-       </widget>
-      </item>
       <item row="7" column="1">
        <widget class="QWidget" name="buttonsBuffsWidget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -176,6 +146,20 @@
       <item row="8" column="1">
        <widget class="QWidget" name="buffsWidget" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="saveButton">
+        <property name="text">
+         <string>Zapisz</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QPushButton" name="cancelButton">
+        <property name="text">
+         <string>Wyzeruj</string>
+        </property>
        </widget>
       </item>
      </layout>
