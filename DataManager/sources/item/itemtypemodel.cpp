@@ -7,6 +7,7 @@ ItemTypeModel::ItemTypeModel(QObject *parent) : QObject(parent)
 void ItemTypeModel::addItemType(ItemType type)
 {
     push_back(type);
+    emit dataUpdated();
 }
 
 void ItemTypeModel::updateItemType(ItemType type)
@@ -16,6 +17,7 @@ void ItemTypeModel::updateItemType(ItemType type)
         return;
 
     replace(index, type);
+    emit dataUpdated();
 }
 
 QStringList ItemTypeModel::getAllTypesNames()

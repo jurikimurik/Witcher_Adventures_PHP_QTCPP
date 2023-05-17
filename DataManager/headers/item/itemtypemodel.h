@@ -16,6 +16,9 @@ public slots:
     void updateItemType(ItemType type);
     QStringList getAllTypesNames();
     QStringList getAllTypesDescriptions();
+
+signals:
+    void dataUpdated();
 };
 
 #endif // ITEMTYPEMODEL_H

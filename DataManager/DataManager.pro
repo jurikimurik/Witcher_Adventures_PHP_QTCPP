@@ -17,6 +17,7 @@ SOURCES += \
     sources/item/item.cpp \
     sources/item/itemsmodel.cpp \
     sources/item/itemtype.cpp \
+    sources/item/itemtypecontroller.cpp \
     sources/item/itemtypemodel.cpp \
     sources/special/attributes.cpp \
     sources/database/databasemodel.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     headers/item/item.h \
     headers/item/itemsmodel.h \
     headers/item/itemtype.h \
+    headers/item/itemtypecontroller.h \
     headers/item/itemtypemodel.h \
     headers/special/attributes.h
 
