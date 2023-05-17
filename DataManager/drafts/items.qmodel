@@ -2297,14 +2297,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{59d67acc-4adb-4b98-9748-b60a3ad99a7d}</uid>
+                    <uid>{da4286c9-5733-4693-bf34-06cc3435e897}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a4ace4dc-5988-4d3f-8888-7aefaa829395}</uid>
+                    <uid>{d5b7f2e8-81b6-4cd7-8d5a-55553545f23d}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void addItemType(ItemType type)</declaration>
@@ -2312,7 +2312,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{05ae8c0a-3bc1-45a8-8a48-2c8e172db707}</uid>
+                    <uid>{8d2042fa-6782-4fc4-9374-30257351d354}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateItemType(ItemType type)</declaration>
