@@ -6,7 +6,7 @@
 #include "character.h"
 
 
-class CharacterModel : public QObject, QMap<int, Character>
+class CharacterModel : public QObject, public QMap<int, Character>
 {
     Q_OBJECT
 public:
@@ -20,6 +20,7 @@ public:
 public slots:
     void addCharacter(const Character& newChar);
     void updateCharacter(const Character& updatedChar);
+    void deleteCharacter(const Character& charToDelete);
 
 signals:
     void dataUpdated();

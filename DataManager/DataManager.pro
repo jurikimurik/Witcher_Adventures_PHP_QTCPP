@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    forms/sources/character/characterview.cpp \
     forms/sources/item/itemtypeview.cpp \
     forms/sources/item/buffview.cpp \
     forms/sources/item/itemsview.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
     sources/database/databaseview.cpp
 
 HEADERS += \
+    forms/headers/character/characterview.h \
     forms/headers/item/itemtypeview.h \
     forms/headers/item/buffview.h \
     forms/headers/item/itemsview.h \
@@ -44,6 +46,7 @@ HEADERS += \
     headers/special/attributes.h
 
 FORMS += \
+    forms/GUI/character/characterview.ui \
     forms/GUI/database/databaseview.ui \
     forms/GUI/item/itemsview.ui \
     forms/GUI/item/buffview.ui \

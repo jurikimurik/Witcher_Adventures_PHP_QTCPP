@@ -31,6 +31,12 @@ Buff BuffView::getBuff()
     return m_model->buff();
 }
 
+void BuffView::setBuff(const Buff& newBuff)
+{
+    m_model->setBuff(newBuff);
+    loadBuff();
+}
+
 void BuffView::loadBuff()
 {
     //CLEAR ALL

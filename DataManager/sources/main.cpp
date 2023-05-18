@@ -1,12 +1,5 @@
 #include "headers/database/databaseview.h"
-#include "forms/headers/item/itemsview.h"
-#include "forms/headers/item/buffview.h"
-
-#include "headers/item/itemsmodel.h"
-#include "headers/item/buff.h"
-#include "headers/special/attributes.h"
-#include <QDebug>
-#include <QVector>
+#include "forms/headers/character/characterview.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -27,7 +20,14 @@ int main(int argc, char *argv[])
     }
     //DatabaseView w;
     //w.show();
-    ItemsView window;
+    Character Julian(1, "Julian");
+    Character Konrad(24, "Konrad", QString(), Buff(-1, Attributes({100, 100, 100, 100, 24, 25, 12})));
+    QMap<int, Character> mapa = {qMakePair(1, Julian), qMakePair(24, Konrad)};
+    CharacterModel* model = new CharacterModel();
+    model->swap(mapa);
+
+
+    CharacterView window(model);
     window.show();
 
     return a.exec();

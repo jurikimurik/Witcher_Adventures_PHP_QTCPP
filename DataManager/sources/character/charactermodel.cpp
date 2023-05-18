@@ -1,4 +1,5 @@
 #include "../../headers/character/charactermodel.h"
+#include <QDebug>
 
 CharacterModel::CharacterModel(QObject *parent, QMap<int, Character> database)
     : QObject{parent}
@@ -42,8 +43,12 @@ void CharacterModel::updateCharacter(const Character &updatedChar)
         insert(updatedChar.id(), updatedChar);
         emit dataUpdated();
     }
+}
 
-
+void CharacterModel::deleteCharacter(const Character &charToDelete)
+{
+    remove(charToDelete.id());
+    emit dataUpdated();
 }
 
 void CharacterModel::addCharacter(const Character &newChar)

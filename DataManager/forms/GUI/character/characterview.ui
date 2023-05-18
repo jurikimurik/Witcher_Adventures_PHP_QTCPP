@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CharacterView</class>
+ <widget class="QWidget" name="CharacterView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>361</width>
+    <height>320</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QComboBox" name="characterBox"/>
+   </item>
+   <item>
+    <widget class="QWidget" name="propWidget" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="idLabel">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="idEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>Imie</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="nameEdit"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonsWidget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addNewButton">
+        <property name="text">
+         <string>DODAJ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="updateButton">
+        <property name="text">
+         <string>ODSWIEZ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeButton">
+        <property name="text">
+         <string>USUN</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>characterBox</sender>
+   <signal>activated(int)</signal>
+   <receiver>CharacterView</receiver>
+   <slot>openCharacter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addNewButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CharacterView</receiver>
+   <slot>addNewCharacter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>312</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>updateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CharacterView</receiver>
+   <slot>updateCharacter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>247</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CharacterView</receiver>
+   <slot>deleteCharacter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>302</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addNewCharacter()</slot>
+  <slot>updateCharacter()</slot>
+  <slot>deleteCharacter()</slot>
+  <slot>openCharacter()</slot>
+ </slots>
+</ui>

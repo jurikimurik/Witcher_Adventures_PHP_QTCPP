@@ -16,6 +16,7 @@ public:
     explicit BuffView(const Buff& buff = Buff(), QWidget *parent = nullptr);
     ~BuffView();
     Buff getBuff();
+    void setBuff(const Buff& newBuff);
 
 public slots:
     void loadBuff();
