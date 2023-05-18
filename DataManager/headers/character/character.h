@@ -7,7 +7,6 @@
 class Character
 {
 public:
-    Character();
     Character(int id = -1, const QString &name = QString(), const QString &imageName = QString(), const Buff &attributes = Buff());
     int id() const;
     void setId(int newId);
