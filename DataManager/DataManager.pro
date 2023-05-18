@@ -12,6 +12,7 @@ SOURCES += \
     forms/sources/item/itemtypeview.cpp \
     forms/sources/item/buffview.cpp \
     forms/sources/item/itemsview.cpp \
+    sources/character/character.cpp \
     sources/item/buffmodel.cpp \
     sources/item/buff.cpp \
     sources/item/item.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     forms/headers/item/itemtypeview.h \
     forms/headers/item/buffview.h \
     forms/headers/item/itemsview.h \
+    headers/character/character.h \
     headers/item/buffmodel.h \
     headers/database/databaseview.h \
     headers/database/databasemodel.h \
