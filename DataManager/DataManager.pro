@@ -17,6 +17,7 @@ SOURCES += \
     sources/character/character.cpp \
     sources/character/charactermodel.cpp \
     sources/consequence/consequence.cpp \
+    sources/consequence/consequencesmodel.cpp \
     sources/item/buffmodel.cpp \
     sources/item/buff.cpp \
     sources/item/item.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     headers/character/character.h \
     headers/character/charactermodel.h \
     headers/consequence/consequence.h \
+    headers/consequence/consequencesmodel.h \
     headers/item/buffmodel.h \
     headers/database/databaseview.h \
     headers/database/databasemodel.h \
