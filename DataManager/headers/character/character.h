@@ -3,23 +3,18 @@
 
 #include <QString>
 #include "../item/buff.h"
+#include "../basic/databaseitem.h"
 
-class Character
+class Character : public DatabaseItem
 {
 public:
     Character(int id = -1, const QString &name = QString(), const QString &imageName = QString(), const Buff &attributes = Buff());
-    int id() const;
-    void setId(int newId);
-    QString name() const;
-    void setName(const QString &newName);
     QString imageName() const;
     void setImageName(const QString &newImageName);
     Buff attributes() const;
     void setAttributes(const Buff &newAttributes);
 
 private:
-    int m_id;
-    QString m_name;
     QString m_imageName;
     Buff m_attributes;
 };

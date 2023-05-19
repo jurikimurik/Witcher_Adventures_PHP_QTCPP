@@ -8,7 +8,7 @@ Item::Item()
 
 Item &Item::operator=(const Item &newItem)
 {
-    setId(newItem.id());
+    DatabaseItem::setId(newItem.id());
     setName(newItem.name());
     setType(newItem.type());
     setDescription(newItem.description());
