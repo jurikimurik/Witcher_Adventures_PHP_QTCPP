@@ -46,4 +46,9 @@ DatabaseItem::DatabaseItem(int id, const QString &name) : m_id(id),
 
 }
 
+DatabaseItem::~DatabaseItem()
+{
+
+}
+
 

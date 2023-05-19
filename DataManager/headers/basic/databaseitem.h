@@ -8,6 +8,7 @@ class DatabaseItem
 {
 public:
     DatabaseItem(int id = -1, const QString &name = QString());
+    virtual ~DatabaseItem();
 
     int id() const;
     void setId(int newId);
