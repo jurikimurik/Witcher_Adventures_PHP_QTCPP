@@ -16,6 +16,7 @@ SOURCES += \
     forms/sources/item/itemsview.cpp \
     sources/character/character.cpp \
     sources/character/charactermodel.cpp \
+    sources/consequence/consequence.cpp \
     sources/item/buffmodel.cpp \
     sources/item/buff.cpp \
     sources/item/item.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     forms/headers/item/itemsview.h \
     headers/character/character.h \
     headers/character/charactermodel.h \
+    headers/consequence/consequence.h \
     headers/item/buffmodel.h \
     headers/database/databaseview.h \
     headers/database/databasemodel.h \
