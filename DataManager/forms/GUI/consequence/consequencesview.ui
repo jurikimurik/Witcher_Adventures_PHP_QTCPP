@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConsequencesView</class>
+ <widget class="QWidget" name="ConsequencesView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>402</width>
+    <height>344</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QComboBox" name="consequenceBox"/>
+   </item>
+   <item>
+    <widget class="QWidget" name="propWidget" native="true">
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="idLabel">
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="idEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="nameLabel">
+        <property name="text">
+         <string>Nazwa</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="nameEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="stateLabel">
+        <property name="text">
+         <string>Stan</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="stateCheckBox">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="buttonsWidget" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addButton">
+        <property name="text">
+         <string>DODAJ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="updateButton">
+        <property name="text">
+         <string>ODSWIEZ</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeButton">
+        <property name="text">
+         <string>USUN</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ConsequencesView</receiver>
+   <slot>addConsequence()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>103</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>updateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ConsequencesView</receiver>
+   <slot>updateConsequence()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>206</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>233</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ConsequencesView</receiver>
+   <slot>removeConsequence()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>308</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>257</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>consequenceBox</sender>
+   <signal>textActivated(QString)</signal>
+   <receiver>ConsequencesView</receiver>
+   <slot>openConsequence()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>182</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>8</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addConsequence()</slot>
+  <slot>updateConsequence()</slot>
+  <slot>removeConsequence()</slot>
+  <slot>openConsequence()</slot>
+  <slot>refreshData()</slot>
+ </slots>
+</ui>
