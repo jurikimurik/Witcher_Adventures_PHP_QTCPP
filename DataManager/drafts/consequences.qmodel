@@ -338,7 +338,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{d1f0dbb3-c314-47f4-ab85-b1270b2f8c41}</uid>
+                    <uid>{f748d93e-28c6-4eeb-8f4b-39a267e1d9d0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit ConsequencesView(QWidget *parent = nullptr)</declaration>
@@ -346,7 +346,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{31e0d282-cb71-4353-b3c3-792870103b00}</uid>
+                    <uid>{17249834-8586-4f1c-ba2a-5054aff0745f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>~ConsequencesView()</declaration>
@@ -354,7 +354,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2f93663f-77af-429e-9ccd-76b7fb8251f7}</uid>
+                    <uid>{fab91f2c-d72f-4e29-8c40-1a35473052d9}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void addConsequence()</declaration>
@@ -362,7 +362,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{310cad02-2c7c-4acb-a14e-f9fe4013422f}</uid>
+                    <uid>{a2a56f37-aed2-48bc-ad8c-5f5b100203cc}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void updateConsequence()</declaration>
@@ -370,7 +370,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2b91429b-dff0-4493-86d7-a132851a49e5}</uid>
+                    <uid>{521e5cdb-8d7e-4877-9e10-8f6907083d5a}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void removeConsequence()</declaration>
@@ -378,7 +378,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e9a91a32-eb25-4b2c-b5e1-37c3fa4996a4}</uid>
+                    <uid>{a37076ac-1c1b-4ebb-9dbd-5cf21017ba99}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
                     <declaration>void openConsequence()</declaration>
@@ -386,7 +386,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f9932714-195e-4dd8-8b49-780b1062b438}</uid>
+                    <uid>{d1deef40-e5f5-4e24-9768-dfcce5835399}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void refreshData()</declaration>
@@ -394,7 +394,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{aa90974e-c20a-4c02-9381-acc54a19753a}</uid>
+                    <uid>{80df9503-a1dd-486e-8833-fd578c3b76fc}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Ui::ConsequencesView *ui</declaration>
@@ -402,7 +402,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{043d35fd-7e18-4cf2-841e-9445faffdd2e}</uid>
+                    <uid>{17ce8706-5d9e-4f49-a62d-50f1fe0065cc}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void consequenceChanged(const Consequence&amp; cons)</declaration>

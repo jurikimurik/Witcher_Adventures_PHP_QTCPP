@@ -2,6 +2,7 @@
 #define CONSEQUENCESVIEW_H
 
 #include <QWidget>
+#include "../../../headers/consequence/consequencesmodel.h"
 
 namespace Ui {
 class ConsequencesView;
@@ -12,7 +13,7 @@ class ConsequencesView : public QWidget
     Q_OBJECT
 
 public:
-    explicit ConsequencesView(QWidget *parent = nullptr);
+    explicit ConsequencesView(ConsequencesModel* model = nullptr, QWidget *parent = nullptr);
     ~ConsequencesView();
 
 private slots:
@@ -25,11 +26,15 @@ public slots:
     void refreshData();
 
 signals:
-    //void consequenceChanged(const Consequence& cons);
+    void consequenceChanged(const Consequence& cons);
+    void consequenceDelete(const Consequence& cons);
 
+private:
+    Consequence getConsequenceFromForm();
 
 private:
     Ui::ConsequencesView *ui;
+    ConsequencesModel* m_model;
 };
 
 #endif // CONSEQUENCESVIEW_H
