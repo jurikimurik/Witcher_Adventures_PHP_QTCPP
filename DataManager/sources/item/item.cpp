@@ -1,21 +1,14 @@
 #include "../../headers/item/item.h"
 
-Item::Item() : id(-1)
+Item::Item()
 {
 
 }
 
-void Item::setId(int newId)
-{
-    if(id < 0)
-        id = newId;
-    else
-        throw std::runtime_error("Can't change ID. Reason: ID has been already changed.");
-}
 
 Item &Item::operator=(const Item &newItem)
 {
-    setId(newItem.getId());
+    setId(newItem.id());
     setName(newItem.name());
     setType(newItem.type());
     setDescription(newItem.description());
@@ -25,32 +18,18 @@ Item &Item::operator=(const Item &newItem)
     return *this;
 }
 
-Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName) : id(id), m_name(name), m_type(type),
+Item::Item(const int &id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description, QString imageName) : DatabaseItem(id, name), m_type(type),
     m_description(description), m_imageName(imageName), m_money(money),  m_buffs(buffs)
 {
 
 }
 
-Item::Item(const int &id, QString name, ItemType type, int money, Buff buff, QString description, QString imageName) : id(id), m_name(name), m_type(type),
+Item::Item(const int &id, QString name, ItemType type, int money, Buff buff, QString description, QString imageName) : DatabaseItem(id, name), m_type(type),
     m_description(description), m_imageName(imageName), m_money(money), m_buffs({buff})
 {
 
 }
 
-int Item::getId() const
-{
-    return id;
-}
-
-QString Item::name() const
-{
-    return m_name;
-}
-
-void Item::setName(const QString &newName)
-{
-    m_name = newName;
-}
 
 ItemType Item::type() const
 {

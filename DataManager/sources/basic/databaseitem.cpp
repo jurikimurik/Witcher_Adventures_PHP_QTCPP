@@ -9,7 +9,8 @@ int DatabaseItem::id() const
 
 void DatabaseItem::setId(int newId)
 {
-    m_id = newId;
+    if(m_id < 0)
+        m_id = newId;
 }
 
 QString DatabaseItem::name() const

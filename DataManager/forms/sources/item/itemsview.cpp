@@ -31,7 +31,7 @@ void ItemsView::newItem()
 {
     Item newItem;
     m_model->addItem(newItem);
-    openItem(newItem.getId());
+    openItem(newItem.id());
 }
 
 void ItemsView::openItem(int id)
@@ -41,7 +41,7 @@ void ItemsView::openItem(int id)
     // Enabling editing
     ui->itemWidget->setEnabled(true);
 
-    ui->idEdit->setText(QString::number(item.getId()));
+    ui->idEdit->setText(QString::number(item.id()));
 
     ui->nameEdit->setText(item.name());
 
@@ -74,7 +74,7 @@ void ItemsView::openItem(QString name)
 {
     for(const auto& elem : m_model->values()) {
         if(elem.name() == name)
-            openItem(elem.getId());
+            openItem(elem.id());
     }
 }
 
@@ -181,7 +181,7 @@ void ItemsView::refreshData()
     ui->itemBox->clear();
     for(const auto& elem : m_model->values())
     {
-        QString itemNameForBox = QString::number(elem.getId()) + " - " + elem.name();
+        QString itemNameForBox = QString::number(elem.id()) + " - " + elem.name();
         ui->itemBox->addItem(itemNameForBox);
     }
     ui->itemBox->addItem(QTranslator::tr("*DODAJ NOWY PRZEDMIOT*"));

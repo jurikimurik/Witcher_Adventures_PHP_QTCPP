@@ -5,12 +5,11 @@
 #include <QString>
 #include "itemtype.h"
 #include "buff.h"
+#include "../basic/databaseitem.h"
 
-class Item
+class Item : public DatabaseItem
 {
 private:
-    int id;
-    QString m_name;
     ItemType m_type;
     QString m_description;
     QString m_imageName;
@@ -22,9 +21,6 @@ public:
     Item(const int& id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description = QString(), QString imageName = QString());
     Item(const int& id, QString name, ItemType type, int money, Buff buff, QString description = QString(), QString imageName = QString());
 
-    int getId() const;
-    QString name() const;
-    void setName(const QString &newName);
     ItemType type() const;
     void setType(const ItemType &newType);
     QString description() const;

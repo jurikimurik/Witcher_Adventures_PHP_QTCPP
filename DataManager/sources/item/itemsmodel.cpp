@@ -36,7 +36,7 @@ QStringList ItemsModel::getEveryItemIdStr()
     QStringList ids;
     for(const Item& elem : *this)
     {
-        ids.push_back(QString::number(elem.getId()));
+        ids.push_back(QString::number(elem.id()));
     }
     return ids;
 }
@@ -54,13 +54,13 @@ QStringList ItemsModel::getEveryItemType()
 
 void ItemsModel::addItem(Item newItem)
 {
-    insert(newItem.getId(), newItem);
+    insert(newItem.id(), newItem);
 }
 
 void ItemsModel::addItems(QVector<Item> newItems)
 {
     for(Item& item : newItems)
-        insert(item.getId(), item);
+        insert(item.id(), item);
 }
 
 void ItemsModel::dataChanged(Item newItem)
