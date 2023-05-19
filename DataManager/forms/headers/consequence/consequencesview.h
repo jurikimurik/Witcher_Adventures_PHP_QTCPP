@@ -1,8 +1,10 @@
 #ifndef CONSEQUENCESVIEW_H
 #define CONSEQUENCESVIEW_H
 
+#include <QTranslator>
 #include <QWidget>
 #include "../../../headers/consequence/consequencesmodel.h"
+
 
 namespace Ui {
 class ConsequencesView;
@@ -21,6 +23,8 @@ private slots:
     void updateConsequence();
     void removeConsequence();
     void openConsequence();
+
+    void on_consequenceBox_activated(int index);
 
 public slots:
     void refreshData();

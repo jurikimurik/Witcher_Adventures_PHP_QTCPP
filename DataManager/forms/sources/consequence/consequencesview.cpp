@@ -9,6 +9,11 @@ ConsequencesView::ConsequencesView(ConsequencesModel *model, QWidget *parent) :
     if(m_model == nullptr)
         m_model = new ConsequencesModel(QMap<int, Consequence>(), this->parent());
     ui->setupUi(this);
+
+    connect(this, &ConsequencesView::consequenceChanged, m_model, &ConsequencesModel::updateConsequence);
+    connect(this, &ConsequencesView::consequenceDelete, m_model, &ConsequencesModel::deleteConsequence);
+    connect(m_model, &ConsequencesModel::dataUpdated, this, &ConsequencesView::refreshData);
+
     refreshData();
 }
 
@@ -54,6 +59,8 @@ void ConsequencesView::refreshData()
     ui->consequenceBox->clear();
     for(const auto& elem : m_model->getAllNamesAndIds())
         ui->consequenceBox->addItem(elem);
+
+    ui->consequenceBox->addItem(QTranslator::tr("*DODAJ KONSEKWENCJE*"));
 }
 
 Consequence ConsequencesView::getConsequenceFromForm()
@@ -64,3 +71,14 @@ Consequence ConsequencesView::getConsequenceFromForm()
 
     return Consequence(id, name, isOn);
 }
+
+void ConsequencesView::on_consequenceBox_activated(int index)
+{
+    if(index+1 == ui->consequenceBox->count())
+    {
+        emit consequenceChanged(Consequence());
+    } else {
+        openConsequence();
+    }
+}
+
