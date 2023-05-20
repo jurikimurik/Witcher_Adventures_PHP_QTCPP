@@ -17,6 +17,11 @@ public:
 private:
     QString m_imageName;
     Buff m_attributes;
+
+    // DatabaseItem interface
+public:
+    virtual QString toString();
+    static Character fromString(QString str);
 };
 
 #endif // CHARACTER_H

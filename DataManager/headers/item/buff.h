@@ -24,7 +24,7 @@ public:
     void setChangedAttributes(const Attributes &newChangedAttributes);
 
     virtual QString toString();
-    virtual Buff fromString(QString properties);
+    static Buff fromString(QString properties);
 };
 
 #endif // BUFF_H
