@@ -2,7 +2,7 @@
 #define ITEMTYPE_H
 
 #include <QString>
-
+#include "../basic/databaseitem.h"
 struct ItemType
 {
     QString typeName;
@@ -11,6 +11,9 @@ struct ItemType
     {
         return typeName == another.typeName && typeDescription == another.typeDescription;
     }
+
+    QString toString();
+    static ItemType fromString(QString str);
 };
 
 #endif // ITEMTYPE_H

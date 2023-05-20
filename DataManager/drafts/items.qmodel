@@ -229,7 +229,7 @@
                          <object>{672747fa-1de6-4267-b2d1-980d36d1b79c}</object>
                          <name>ItemType</name>
                          <pos>x:705;y:230</pos>
-                         <rect>x:-80;y:-40;w:160;h:80</rect>
+                         <rect>x:-115;y:-65;w:230;h:130</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -1867,18 +1867,38 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7c962914-635b-4160-9ff6-6fee1acf19ee}</uid>
-                    <visibility>1</visibility>
+                    <uid>{373ffed9-3d80-4316-9826-d6cd3a890736}</uid>
                     <type>1</type>
                     <declaration>QString typeName</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d8c4dff7-7fd7-4f22-9ec7-e358604988e0}</uid>
-                    <visibility>1</visibility>
+                    <uid>{0918d49e-ffaa-4f58-bf65-e4780467c1ae}</uid>
                     <type>1</type>
                     <declaration>QString typeDescription</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{4d4cb3f3-1572-4f21-8e18-ce32490b1a8d}</uid>
+                    <type>1</type>
+                    <declaration>bool operator==</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{32ab0ec8-f5ed-4b8a-b024-d7c146d6dc54}</uid>
+                    <type>2</type>
+                    <declaration>QString toString()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1d47467a-648b-4e08-9992-e95ad93da838}</uid>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>ItemType fromString(QString str)</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
