@@ -1,6 +1,7 @@
 #ifndef BUFF_H
 #define BUFF_H
 
+#include "../basic/databaseitem.h"
 #include <QString>
 #include "../special/attributes.h"
 
@@ -13,6 +14,7 @@ private:
 
 public:
     Buff();
+    virtual ~Buff();
     Buff(int duration, Attributes attr, QString name = QString());
     QString name() const;
     void setName(const QString &newName);
@@ -20,6 +22,9 @@ public:
     void setDuration(int newDuration);
     Attributes changedAttributes() const;
     void setChangedAttributes(const Attributes &newChangedAttributes);
+
+    virtual QString toString();
+    virtual Buff fromString(QString properties);
 };
 
 #endif // BUFF_H
