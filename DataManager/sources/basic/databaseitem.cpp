@@ -25,7 +25,7 @@ void DatabaseItem::setName(const QString &newName)
 
 QString DatabaseItem::toString()
 {
-    return QString::number(m_id) + getSplitter() + m_name;
+    return QString::number(m_id) + getSplitter() + m_name + getSplitter();
 }
 
 DatabaseItem DatabaseItem::fromString(QString str)
