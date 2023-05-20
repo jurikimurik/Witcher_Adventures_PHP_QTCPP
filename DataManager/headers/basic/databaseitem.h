@@ -16,11 +16,11 @@ public:
     void setName(const QString &newName);
 
     virtual QString toString();
-    virtual DatabaseItem fromString(QString str);
+
 
     static const QString splitter;
     static QString getSplitter();
-
+    static DatabaseItem fromString(QString str);
 private:
     int m_id;
     QString m_name;
