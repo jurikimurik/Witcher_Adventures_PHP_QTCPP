@@ -17,9 +17,10 @@ Attributes Attributes::fromString(QString str)
 {
     Attributes newAttr;
     QStringList list = str.split(DatabaseItem::getSplitter());
-    for(int c = 0; c < list.size()-1; c++)
+    for(int c = 0; c < list.size(); c++)
     {
-        newAttr.*AttributesPointers[c] = list.at(c).toInt();
+        if(!list.at(c).isEmpty())
+            newAttr.*AttributesPointers[c] = list.at(c).toInt();
     }
 
     return newAttr;
