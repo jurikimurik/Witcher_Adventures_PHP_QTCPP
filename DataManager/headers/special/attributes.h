@@ -13,6 +13,9 @@ struct Attributes
     int attack = 0;
     int defense = 0;
     int agility = 0;
+
+    QString toString();
+    static Attributes fromString(QString str);
 };
 
 //If new attribute added, AttributesNames and AttributesPointers NEEDS TO BE UPDATED!!!
