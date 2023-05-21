@@ -71,7 +71,7 @@
                          <object>{5006b645-1248-40bb-9841-18263dc34355}</object>
                          <name>CharacterModel</name>
                          <pos>x:220;y:510</pos>
-                         <rect>x:-305;y:-85;w:610;h:170</rect>
+                         <rect>x:-305;y:-115;w:610;h:230</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -712,7 +712,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{0a1ed9de-a7c8-4b31-921b-ddc57cf6d812}</uid>
+                    <uid>{6e2ec592-873a-4c59-8da9-dd42d23f30f3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit CharacterModel(QObject *parent = nullptr, QMap&lt;int, Character&gt; database = QMap&lt;int, Character&gt;())</declaration>
@@ -720,7 +720,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{38bbcc70-91a9-4aeb-883c-71087457933a}</uid>
+                    <uid>{4df04160-9719-40ae-9adc-15e1785acbe6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllIdsAndNames()</declaration>
@@ -728,7 +728,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0715f1fd-2681-4700-b6bd-2283f8300759}</uid>
+                    <uid>{ed8d4bd5-c3e1-43dc-aa3d-67b9a27b4522}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllIds()</declaration>
@@ -736,7 +736,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f7bdc1a7-9319-496e-9294-d0aeeeb5f7fc}</uid>
+                    <uid>{b2bdc7c7-ce8a-4fb6-a17f-4cb88b40c4e0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllNames()</declaration>
@@ -744,7 +744,42 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f94cde4b-5256-45db-8d39-eeb4541d762f}</uid>
+                    <uid>{0fa6108a-9d9d-4bb5-9478-e9e66caa7601}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString toString()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9144c343-bf91-4005-ba1f-47ec743a720b}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>CharacterModel* fromString(QString str)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{442a08bc-73e8-459f-8a25-0681e9436787}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QString modelSplitter</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{15c4138d-b7f3-4d7e-9acd-5d5b253107a2}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>QString getModelSplitter()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{77ba6f80-c69f-4bcc-b3ac-d925370a552d}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void addCharacter(const Character&amp; newChar)</declaration>
@@ -752,7 +787,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f606a362-dbd4-4f1d-b378-5079c25ae335}</uid>
+                    <uid>{4a6a0856-6437-4138-830c-2b4c36982254}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateCharacter(const Character&amp; updatedChar)</declaration>
@@ -760,7 +795,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c39e76ce-70d5-4775-878c-7c1527f241c5}</uid>
+                    <uid>{d73fc358-1c1d-4482-9e68-1568753c09a0}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void deleteCharacter(const Character&amp; charToDelete)</declaration>
@@ -768,7 +803,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c84ca18e-779a-4fdf-915f-f1d7ba3a4e5e}</uid>
+                    <uid>{d636520d-6866-464f-8b8c-fb51b2e543ff}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataUpdated()</declaration>

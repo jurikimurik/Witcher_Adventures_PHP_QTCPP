@@ -1,6 +1,8 @@
 #include "../../headers/character/charactermodel.h"
 #include <QDebug>
 
+const QString CharacterModel::modelSplitter = "[::CHARACTERS::]";
+
 CharacterModel::CharacterModel(QObject *parent, QMap<int, Character> database)
     : QObject{parent}
 {
@@ -25,6 +27,43 @@ QStringList CharacterModel::getAllNames()
         list.push_back(elem.name());
     }
     return list;
+}
+
+CharacterModel *CharacterModel::fromString(QString str)
+{
+    CharacterModel* model = new CharacterModel();
+    QStringList info = str.split(getModelSplitter());
+    QStringList items = info.at(1).split(DatabaseItem::getItemSplitter());
+    for(const auto& elem: items)
+    {
+        if(elem.isEmpty())
+            continue;
+
+        QStringList properties = elem.split(DatabaseItem::getSplitter());
+        int mapId = properties.takeFirst().toInt();
+        Character character = Character::fromString(properties.join(DatabaseItem::getSplitter()));
+        model->insert(mapId, character);
+    }
+    return model;
+}
+
+QString CharacterModel::toString()
+{
+    QString properties = getModelSplitter();
+    QString itemSplitter = DatabaseItem::getItemSplitter();
+    QString splitter = DatabaseItem::getSplitter();
+
+    for(const auto& elem : keys())
+    {
+        properties += itemSplitter + QString::number(elem) + splitter + value(elem).toString() + itemSplitter;
+    }
+    properties += getModelSplitter();
+    return properties;
+}
+
+QString CharacterModel::getModelSplitter()
+{
+    return modelSplitter;
 }
 
 QStringList CharacterModel::getAllIdsAndNames()

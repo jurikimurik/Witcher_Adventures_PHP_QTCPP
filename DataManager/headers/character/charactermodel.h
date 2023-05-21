@@ -17,6 +17,13 @@ public:
     QStringList getAllIds();
     QStringList getAllNames();
 
+    QString toString();
+    static CharacterModel* fromString(QString str);
+
+public:
+    static const QString modelSplitter;
+    static QString getModelSplitter();
+
 public slots:
     void addCharacter(const Character& newChar);
     void updateCharacter(const Character& updatedChar);
