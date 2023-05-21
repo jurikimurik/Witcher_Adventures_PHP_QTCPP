@@ -22,7 +22,10 @@ public:
 public:
     static const QString splitter;
     static const QString arraySplitter;
+    static const QString itemSplitter;
     static QString getArraySplitter();
+
+    static QString getItemSplitter();
 
 private:
     int m_id;

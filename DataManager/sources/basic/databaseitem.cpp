@@ -2,6 +2,7 @@
 
 const QString DatabaseItem::splitter = "[::|::]";
 const QString DatabaseItem::arraySplitter = "[--|--]";
+const QString DatabaseItem::itemSplitter = "[:{:}:]";
 
 int DatabaseItem::id() const
 {
@@ -33,6 +34,11 @@ DatabaseItem DatabaseItem::fromString(QString str)
 {
     QStringList splitted = str.split(getSplitter());
     return DatabaseItem(splitted.at(0).toInt(), splitted.at(1));
+}
+
+QString DatabaseItem::getItemSplitter()
+{
+    return itemSplitter;
 }
 
 QString DatabaseItem::getArraySplitter()
