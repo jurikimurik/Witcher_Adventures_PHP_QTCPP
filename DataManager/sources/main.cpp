@@ -4,6 +4,7 @@
 #include "headers/item/itemtype.h"
 #include "headers/item/item.h"
 #include "headers/special/attributes.h"
+#include "headers/item/itemsmodel.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -45,24 +46,33 @@ int main(int argc, char *argv[])
     qDebug() << Buff().fromString(buff.toString()).toString();*/
 
     /*Character character(24, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
-    qDebug() << character.toString();
-    qDebug() << Character::fromString(character.toString()).toString();*/
+    Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
+    CharacterModel model(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));
+    qDebug() << model.toString();
+    qDebug() << CharacterModel::fromString(model.toString())->toString();*/
 
     /*Consequence consequence(13, "Troll zabity", true);
-    qDebug() << consequence.toString();
-    qDebug() << Consequence::fromString(consequence.toString()).toString();*/
+    Consequence consequence1(2, "Konrad pokonany", false);
+    ConsequencesModel model(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));
+    qDebug() << model.toString();
+    qDebug() << ConsequencesModel::fromString(model.toString())->toString();*/
 
     /*ItemType type({"bron biala.", "zwykla bron biala"});
     qDebug() << type.toString();
     qDebug() << ItemType::fromString(type.toString()).toString();*/
 
-    Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
-    Buff buff2(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "A tu sa drugie!");
+    /*Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
+    Buff buff2(20, Attributes({100, 100, 100, 100, 12, 13, 10}), "Jakies drugie!");
     QVector<Buff> buffs = {buff1, buff2};
 
-    Item item(10, "Miecz Draugrow", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Some description.", "sword.png");
-    qDebug() << item.toString();
-    qDebug() << Item::fromString(item.toString()).toString();
+    Item item1(10, "Miecz Draugrow", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Some description.", "sword.png");
+    Item item2(2, "Wlocznia", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Nawet cos.", "spear.png");
+    ItemsModel model(nullptr, QMap({qMakePair(10, item1), qMakePair(2, item2)}));
+    qDebug() << model.toString();
+    qDebug() << ItemsModel::fromString(model.toString())->toString();*/
+
+
+
     //return a.exec();
 }
 

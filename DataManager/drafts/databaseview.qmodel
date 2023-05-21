@@ -49,7 +49,7 @@
                          </base-DElement>
                          <object>{ae019aa8-937b-4d38-b8d8-4ef640783fca}</object>
                          <name>DatabaseView</name>
-                         <pos>x:245;y:80</pos>
+                         <pos>x:85;y:-50</pos>
                          <rect>x:-95;y:-55;w:190;h:110</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -60,7 +60,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684064537806</last-modified>
+                  <last-modified>1684665043246</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -89,7 +89,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{a4cdf1f5-ee30-443e-a7cd-44c127201791}</uid>
+                    <uid>{3550e188-f375-4253-bb37-d933c846109f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QWidget* ItemView</declaration>
@@ -97,7 +97,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fcadcfaa-bb66-45d3-a732-74d9fd1fe214}</uid>
+                    <uid>{c58314ed-4001-4bcc-a33a-f1052c3253de}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QWidget* CharactersView</declaration>
@@ -105,7 +105,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d50cfbaf-dff1-499f-a4cc-700af0efe843}</uid>
+                    <uid>{52e46a5f-5ab2-473a-9fc7-b12fc07e3e6d}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QWidget* EventsView</declaration>
@@ -113,7 +113,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3afb8921-8cc8-4203-a7f9-7c84d45ea00c}</uid>
+                    <uid>{cedb1751-b2c4-4c35-a125-87534aa3e061}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QWidget* ConsequencesView</declaration>
