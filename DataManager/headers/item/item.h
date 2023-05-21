@@ -18,6 +18,7 @@ private:
 
 public:
     Item();
+    virtual ~Item();
     Item(const int& id, QString name, ItemType type, int money, QVector<Buff> buffs, QString description = QString(), QString imageName = QString());
     Item(const int& id, QString name, ItemType type, int money, Buff buff, QString description = QString(), QString imageName = QString());
 
@@ -35,6 +36,11 @@ public:
 
 
     Item &operator=(const Item& newItem);
+
+    // DatabaseItem interface
+public:
+    virtual QString toString();
+    static Item fromString(QString str);
 };
 
 #endif // ITEM_H

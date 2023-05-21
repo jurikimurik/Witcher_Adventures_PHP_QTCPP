@@ -1,6 +1,9 @@
 #include "headers/database/databaseview.h"
 #include "forms/headers/character/characterview.h"
 #include "forms/headers/consequence/consequencesview.h"
+#include "headers/item/itemtype.h"
+#include "headers/item/item.h"
+#include "headers/special/attributes.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -30,11 +33,37 @@ int main(int argc, char *argv[])
 
     CharacterView window(model);
     window.show();*/
-    ConsequencesView* window = new ConsequencesView();
-    window->show();
+    /*ConsequencesView* window = new ConsequencesView();
+    window->show();*/
 
+    /*Attributes attr({100, 100, 100, 100, 55, 13, 23});
+    qDebug() << attr.toString();
+    qDebug() << Attributes::fromString(attr.toString()).toString();*/
 
-    return a.exec();
+    /*Buff buff(10, Attributes({100, 100, 100, 100, 13, 14, 15}),"A to super");
+    qDebug() << buff.toString();
+    qDebug() << Buff().fromString(buff.toString()).toString();*/
+
+    /*Character character(24, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
+    qDebug() << character.toString();
+    qDebug() << Character::fromString(character.toString()).toString();*/
+
+    /*Consequence consequence(13, "Troll zabity", true);
+    qDebug() << consequence.toString();
+    qDebug() << Consequence::fromString(consequence.toString()).toString();*/
+
+    /*ItemType type({"bron biala.", "zwykla bron biala"});
+    qDebug() << type.toString();
+    qDebug() << ItemType::fromString(type.toString()).toString();*/
+
+    Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
+    Buff buff2(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "A tu sa drugie!");
+    QVector<Buff> buffs = {buff1, buff2};
+
+    Item item(10, "Miecz Draugrow", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Some description.", "sword.png");
+    qDebug() << item.toString();
+    qDebug() << Item::fromString(item.toString()).toString();
+    //return a.exec();
 }
 
 

@@ -1,6 +1,7 @@
 #include "../../headers/basic/databaseitem.h"
 
 const QString DatabaseItem::splitter = "[::|::]";
+const QString DatabaseItem::arraySplitter = "[--|--]";
 
 int DatabaseItem::id() const
 {
@@ -32,6 +33,11 @@ DatabaseItem DatabaseItem::fromString(QString str)
 {
     QStringList splitted = str.split(getSplitter());
     return DatabaseItem(splitted.at(0).toInt(), splitted.at(1));
+}
+
+QString DatabaseItem::getArraySplitter()
+{
+    return arraySplitter;
 }
 
 QString DatabaseItem::getSplitter()

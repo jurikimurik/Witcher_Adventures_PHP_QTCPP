@@ -9,8 +9,10 @@ QString ItemType::toString()
     return properties;
 }
 
-ItemType ItemType::fromString(QString str)
+ItemType ItemType::fromString(QString& str)
 {
     QStringList list = str.split(DatabaseItem::getSplitter());
-    return ItemType({list.takeFirst(), list.takeFirst()});
+    ItemType type = ItemType({list.takeFirst(), list.takeFirst()});
+    str = list.join(DatabaseItem::getSplitter());
+    return type;
 }

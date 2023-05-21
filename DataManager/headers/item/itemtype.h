@@ -13,7 +13,7 @@ struct ItemType
     }
 
     QString toString();
-    static ItemType fromString(QString str);
+    static ItemType fromString(QString& str);
 };
 
 #endif // ITEMTYPE_H
