@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QMap>
 #include "consequence.h"
+#include "../basic/databaseitem.h"
 
 class ConsequencesModel : public QObject, public QMap<int, Consequence>
 {
@@ -15,6 +16,13 @@ public:
     QStringList getAllNamesAndIds();
     QStringList getAllNames();
     QStringList getAllIds();
+
+    QString toString();
+    static ConsequencesModel *fromString(QString str);
+
+public:
+    static const QString modelSplitter;
+    static QString getModelSplitter();
 
 public slots:
     void updateConsequence(const Consequence& cons);
