@@ -16,10 +16,13 @@ private:
     ConsequencesModel* m_consequencesModel;
 
 public:
-    DatabaseModel(ItemsModel *itemsModel = new ItemsModel(), CharacterModel *charactersModel = new CharacterModel(), ConsequencesModel *consequencesModel = new ConsequencesModel(), QObject *parent = nullptr);
+    explicit DatabaseModel(ItemsModel *itemsModel = new ItemsModel(), CharacterModel *charactersModel = new CharacterModel(), ConsequencesModel *consequencesModel = new ConsequencesModel(), QObject *parent = nullptr);
+    virtual ~DatabaseModel();
     QString toString();
     static DatabaseModel* fromString(QString str);
 
+public:
+    static const QString modelSplitter;
 
     ItemsModel *itemsModel() const;
     void setItemsModel(ItemsModel *newItemsModel);
@@ -27,6 +30,7 @@ public:
     void setCharactersModel(CharacterModel *newCharactersModel);
     ConsequencesModel *consequencesModel() const;
     void setConsequencesModel(ConsequencesModel *newConsequencesModel);
+    static QString getModelSplitter();
 };
 
 #endif // DATABASEMODEL_H

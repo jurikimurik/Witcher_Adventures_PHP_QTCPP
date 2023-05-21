@@ -1,10 +1,7 @@
 #include "../../headers/database/databasemodel.h"
 
-DatabaseModel::DatabaseModel(QObject *parent)
-    : QObject{parent}
-{
+const QString DatabaseModel::modelSplitter = "[:|:DATABASE:|:]";
 
-}
 
 ItemsModel *DatabaseModel::itemsModel() const
 {
@@ -44,4 +41,30 @@ DatabaseModel::DatabaseModel(ItemsModel *itemsModel, CharacterModel *charactersM
     m_itemsModel->setParent(this);
     m_charactersModel->setParent(this);
     m_consequencesModel->setParent(this);
+}
+
+DatabaseModel::~DatabaseModel()
+{
+    delete m_itemsModel;
+    delete m_charactersModel;
+    delete m_consequencesModel;
+}
+
+QString DatabaseModel::toString()
+{
+    return getModelSplitter() + m_itemsModel->toString() + m_charactersModel->toString() + m_consequencesModel->toString() + getModelSplitter();
+}
+
+DatabaseModel *DatabaseModel::fromString(QString str)
+{
+    ItemsModel* items = ItemsModel::fromString(str);
+    CharacterModel* character = CharacterModel::fromString(str);
+    ConsequencesModel* consequences = ConsequencesModel::fromString(str);
+
+    return new DatabaseModel(items, character, consequences);
+}
+
+QString DatabaseModel::getModelSplitter()
+{
+    return modelSplitter;
 }

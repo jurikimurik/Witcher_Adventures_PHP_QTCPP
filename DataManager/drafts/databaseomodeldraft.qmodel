@@ -49,8 +49,8 @@
                          </base-DElement>
                          <object>{2a317f49-77e2-4433-a3df-bd3084462714}</object>
                          <name>DatabaseModel</name>
-                         <pos>x:390;y:430</pos>
-                         <rect>x:-140;y:-70;w:280;h:140</rect>
+                         <pos>x:505;y:155</pos>
+                         <rect>x:-630;y:-135;w:1260;h:270</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -133,7 +133,7 @@
                          </base-DElement>
                          <object>{f0102599-d4b7-4d98-ba79-ae2ce3d964f3}</object>
                          <name>EventsModel</name>
-                         <pos>x:55;y:185</pos>
+                         <pos>x:-195;y:170</pos>
                          <rect>x:-45;y:-30;w:90;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -218,7 +218,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684665741318</last-modified>
+                  <last-modified>1684666875790</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -342,14 +342,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c0774d96-3663-441f-b902-f30774548d16}</uid>
+                    <uid>{01d3c07a-9a8d-4f18-bcda-7a0a436e0d26}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b06476e7-ffb0-4f90-b933-da09a7883912}</uid>
+                    <uid>{6419baf4-c274-4deb-b52d-e382e75bcb43}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ItemsModel* m_itemsModel</declaration>
@@ -357,23 +357,40 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{47ab8e4c-5442-477e-83dd-c8fa5d3b8b94}</uid>
+                    <uid>{1c993228-6ef4-4194-aec0-94e4e444b4e7}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>CharactersModel* m_charactersModel</declaration>
+                    <declaration>CharacterModel* m_charactersModel</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{661e095f-da00-4429-a586-164459840407}</uid>
+                    <uid>{33409ae2-206f-46d8-a0c9-ad596d8e235e}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>ConsequenceModel* m_consequencesModel</declaration>
+                    <declaration>ConsequencesModel* m_consequencesModel</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e88bb079-c889-4cfb-8556-4b4525bb0d99}</uid>
+                    <uid>{37292a6e-e1e0-49df-b22c-59d78046a54d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>explicit DatabaseModel(ItemsModel *itemsModel = new ItemsModel(), CharacterModel *charactersModel = new CharacterModel(), ConsequencesModel *consequencesModel = new ConsequencesModel(), QObject *parent = nullptr)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{cba00765-6d29-47f2-8f92-b280a7bdf585}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>1</properties>
+                    <declaration>~DatabaseModel()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9b1c5793-9b41-4f60-ab99-e5fd68cf8290}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
@@ -381,11 +398,80 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d05a7af4-6179-41dd-8b7e-aa2343096d0a}</uid>
+                    <uid>{9569475b-465f-4602-9ae6-f367e4485418}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
                     <declaration>DatabaseModel* fromString(QString str)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{98cfa5e0-0636-41a3-9cae-44500db75093}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QString modelSplitter</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7202f06e-e283-4a7c-9906-f799b75b4bc7}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>ItemsModel *itemsModel()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{22c035c8-e4f3-4b34-9a03-891324827c2e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setItemsModel(ItemsModel *newItemsModel)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{6c1f020e-466e-4163-86c9-48435357b19e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>CharacterModel *charactersModel()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{304001d5-8031-4efa-931d-9b9d4e7883cb}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setCharactersModel(CharacterModel *newCharactersModel)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{97e3a4a8-a9ea-45c3-8369-9952c7441e8e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>ConsequencesModel *consequencesModel()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{605c9daf-1f3e-4c15-b4a8-c077ce67a8f9}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setConsequencesModel(ConsequencesModel *newConsequencesModel)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d10fe39a-aece-4f6d-8ea1-4029481445b5}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>QString getModelSplitter()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
