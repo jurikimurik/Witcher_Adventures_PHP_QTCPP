@@ -21,6 +21,13 @@ public:
     void addItem(Item newItem);
     void addItems(QVector<Item> newItems);
 
+    QString toString();
+    static ItemsModel* fromString(QString str);
+
+public:
+    static const QString modelSplitter;
+    static QString getModelSplitter();
+
 public slots:
     void dataChanged(Item newItem);
 

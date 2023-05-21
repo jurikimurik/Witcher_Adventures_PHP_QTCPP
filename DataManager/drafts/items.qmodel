@@ -70,8 +70,8 @@
                          </base-DElement>
                          <object>{ee7513d2-af65-4cd4-8786-063a3ea90a8e}</object>
                          <name>ItemsModel</name>
-                         <pos>x:215;y:230</pos>
-                         <rect>x:-245;y:-90;w:490;h:180</rect>
+                         <pos>x:210;y:230</pos>
+                         <rect>x:-245;y:-125;w:490;h:250</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -91,7 +91,7 @@
                          </base-DElement>
                          <object>{8bbf7de7-699d-4ff5-aae7-30f163714a2d}</object>
                          <name>Item</name>
-                         <pos>x:230;y:525</pos>
+                         <pos>x:230;y:555</pos>
                          <rect>x:-405;y:-175;w:810;h:350</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -845,7 +845,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684587077541</last-modified>
+                  <last-modified>1684664799365</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1208,14 +1208,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{64b2e515-c2cd-4cb9-90ab-0bcecd7da944}</uid>
-                    <type>1</type>
-                    <declaration>Q_OBJECT</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{971f48a1-9d41-4aef-94f9-26d4341e1ca3}</uid>
+                    <uid>{69a2d21a-612f-48df-9bfc-98ef3479bcae}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>ItemsModel(QObject* parent = nullptr, QMap&lt;int, Item&gt; database = QMap&lt;int, Item&gt;())</declaration>
@@ -1223,7 +1216,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4450fd9b-64ed-416c-a052-08367fe16dda}</uid>
+                    <uid>{84474604-d29f-435a-bde7-6e85829c9ef6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item* findById(int id)</declaration>
@@ -1231,7 +1224,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{70a0456e-2044-4078-9e97-85114e1f77d6}</uid>
+                    <uid>{7a3e8f85-6087-470e-b51f-f6033cea9c74}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item* findByName(QString name)</declaration>
@@ -1239,7 +1232,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{723bdec1-9d1d-4c93-946b-cd5e1d79c0d5}</uid>
+                    <uid>{13111596-ba68-4f85-8c67-12b757e5f2bf}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemName()</declaration>
@@ -1247,7 +1240,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7fccda14-c083-4b1a-abef-890925e74932}</uid>
+                    <uid>{18296336-d1f1-43a0-8d02-e6417487c7b9}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemIdStr()</declaration>
@@ -1255,7 +1248,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{29baabdd-1043-475a-9699-353d6b05d590}</uid>
+                    <uid>{0627b6a6-e4b6-4945-8312-328eb81c2604}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getEveryItemType()</declaration>
@@ -1263,7 +1256,58 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9b6c1631-a9be-436c-9c18-1b80b2b5653f}</uid>
+                    <uid>{e5cc5848-eff5-43f0-b081-b3778a3a5b11}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void addItem(Item newItem)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1a57e5cc-a121-4201-afde-0f2f7e32ddd2}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void addItems(QVector&lt;Item&gt; newItems)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{69543dfa-150d-4d92-9a13-a32def5c3646}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString toString()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{4be4b806-5587-45bc-b4a1-8c979e72bf6e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>ItemsModel* fromString(QString str)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ee31ddb3-f0f4-4e6b-9054-4610d572ef86}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QString modelSplitter</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{fb2932a1-c5a7-42ef-9659-60f9c411d418}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>QString getModelSplitter()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a8968096-c7f9-4ead-b459-cb9fda2dcac1}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void dataChanged(Item newItem)</declaration>
@@ -1271,7 +1315,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{87e5de36-9ab6-4d64-92a9-ac9158492d25}</uid>
+                    <uid>{d3cdfa56-9556-4a5e-a335-5fe94b12ea85}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataSaved()</declaration>
@@ -1392,7 +1436,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c37d0a3f-b64b-43c6-9b5f-f6ce92cf7a6d}</uid>
+                    <uid>{8dac6dd5-a907-4719-892e-c93f7320a0fa}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ItemType m_type</declaration>
@@ -1400,7 +1444,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9d15fbe9-656d-4c08-9733-3453916ebf6b}</uid>
+                    <uid>{c0b21df9-970c-40fb-b280-ce1f72c9ecea}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_description</declaration>
@@ -1408,7 +1452,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a2c21c4a-8422-4675-9aa1-a9498c6da8d4}</uid>
+                    <uid>{d5b3f892-7e02-4fa2-9e89-6ed6632ea829}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_imageName</declaration>
@@ -1416,7 +1460,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{08f71b4c-0d98-4cc1-bedc-4de889e910b1}</uid>
+                    <uid>{4cea10ae-6d37-48b6-98c2-785adeed6804}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_money</declaration>
@@ -1424,7 +1468,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{dca320d2-3b5a-4ba9-a38c-60322e76fc1f}</uid>
+                    <uid>{5be7d905-4081-4664-b055-92149049950a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Buff&gt; m_buffs</declaration>
@@ -1432,7 +1476,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7d9ba031-2fef-4238-9309-9c081ef5fd29}</uid>
+                    <uid>{5ec4d02b-b925-40f5-8bd8-21e343a73595}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item()</declaration>
@@ -1440,7 +1484,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2acff52c-7ae3-4812-abea-b85bec8efa34}</uid>
+                    <uid>{966b4211-e059-40cf-a0f9-82fd54dd4e3d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -1449,7 +1493,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{753cbe9d-e6c2-43fb-99ac-9517494f013d}</uid>
+                    <uid>{d3d44453-8665-4b9e-8b51-aac31d4ba5d5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item(const int&amp; id, QString name, ItemType type, int money, QVector&lt;Buff&gt; buffs, QString description = QString(), QString imageName = QString())</declaration>
@@ -1457,7 +1501,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8225e231-81cc-4431-a555-3faa135ed1b9}</uid>
+                    <uid>{b31f6584-3f3c-4545-8e36-a59f27239398}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Item(const int&amp; id, QString name, ItemType type, int money, Buff buff, QString description = QString(), QString imageName = QString())</declaration>
@@ -1465,7 +1509,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{37209280-5378-4ce8-81f1-82ea4337137c}</uid>
+                    <uid>{5bc327e1-f253-4b86-b306-608d4e5cb57e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1474,7 +1518,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{47e01905-be7e-4809-96b6-1f5ad1c408c3}</uid>
+                    <uid>{28f40562-1df5-44e7-86f1-253534fcee38}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setType(const ItemType &amp;newType)</declaration>
@@ -1482,7 +1526,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5add1e5b-3bbe-4900-8573-26d12ff9b05d}</uid>
+                    <uid>{b8afcb32-fed2-4e62-9423-8aecabfe3c5b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1491,7 +1535,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fb335759-89bf-4a94-8aeb-60fa06ecca08}</uid>
+                    <uid>{1deab867-3f91-4ac3-87cc-49e644c1cd4e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDescription(const QString &amp;newDescription)</declaration>
@@ -1499,7 +1543,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f6538320-7a1d-497a-a4a2-0cb649904c87}</uid>
+                    <uid>{78bf66b4-009b-440a-bfb9-ebf1185c9d3c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1508,7 +1552,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8e39852f-8ea7-44ed-ac66-7572c030318b}</uid>
+                    <uid>{fd043112-82e2-4bb1-8e38-815e658cd002}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setImageName(const QString &amp;newImageName)</declaration>
@@ -1516,7 +1560,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{be62c1b7-38f7-41db-a40b-54b0922c9a8d}</uid>
+                    <uid>{878f5115-e04d-49cf-a9b0-8b57e3ed605c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1525,7 +1569,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{16cca39d-9b83-49af-b885-e5e9ea54be4f}</uid>
+                    <uid>{29b4992d-67dd-4f1b-b715-aa03f106f7cd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setMoney(int newMoney)</declaration>
@@ -1533,7 +1577,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{cd07149a-6b7b-4277-b876-999f09193991}</uid>
+                    <uid>{ec5b0f22-af95-4c57-8157-c2c8efe81a45}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1542,7 +1586,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{00d771eb-2bc5-4f05-939f-3663b49f2e0e}</uid>
+                    <uid>{ca3895f3-9c7b-4e2a-a803-0e5b6a1ca8b0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setBuffs(const QVector&lt;Buff&gt; &amp;newBuffs)</declaration>
@@ -1550,7 +1594,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2de576ab-6a02-4076-972e-614822469723}</uid>
+                    <uid>{01b90807-89e2-4ed2-b345-66db2f249641}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setId(int newId)</declaration>
@@ -1558,7 +1602,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{baadc487-55a5-4ec4-9659-d359ef4a19b7}</uid>
+                    <uid>{6dd5f553-c9e7-4426-b597-138792671f36}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -1567,7 +1611,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2a30d59d-656f-4e95-afbe-894af4df374e}</uid>
+                    <uid>{a8412cb0-5526-4d83-ac2c-459cc8e98c3c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>

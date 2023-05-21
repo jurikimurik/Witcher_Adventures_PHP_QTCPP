@@ -1,5 +1,7 @@
 #include "../../headers/item/itemsmodel.h"
 
+const QString ItemsModel::modelSplitter = "[::ITEMS::]";
+
 ItemsModel::ItemsModel(QObject *parent, QMap<int, Item> data) : QObject(parent), QMap<int, Item>(data)
 {}
 
@@ -61,6 +63,43 @@ void ItemsModel::addItems(QVector<Item> newItems)
 {
     for(Item& item : newItems)
         insert(item.id(), item);
+}
+
+QString ItemsModel::toString()
+{
+    QString properties = getModelSplitter();
+    QString itemSplitter = DatabaseItem::getItemSplitter();
+    QString splitter = DatabaseItem::getSplitter();
+
+    for(const auto& elem : keys())
+    {
+        properties += itemSplitter + QString::number(elem) + splitter + value(elem).toString() + itemSplitter;
+    }
+    properties += getModelSplitter();
+    return properties;
+}
+
+ItemsModel *ItemsModel::fromString(QString str)
+{
+    ItemsModel* model = new ItemsModel();
+    QStringList info = str.split(getModelSplitter());
+    QStringList items = info.at(1).split(DatabaseItem::getItemSplitter());
+    for(const auto& elem: items)
+    {
+        if(elem.isEmpty())
+            continue;
+
+        QStringList properties = elem.split(DatabaseItem::getSplitter());
+        int mapId = properties.takeFirst().toInt();
+        Item item = Item::fromString(properties.join(DatabaseItem::getSplitter()));
+        model->insert(mapId, item);
+    }
+    return model;
+}
+
+QString ItemsModel::getModelSplitter()
+{
+    return modelSplitter;
 }
 
 void ItemsModel::dataChanged(Item newItem)
