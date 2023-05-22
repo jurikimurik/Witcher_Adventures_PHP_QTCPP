@@ -17,7 +17,7 @@ class ItemsView : public QWidget
     Q_OBJECT
 
 public:
-    explicit ItemsView(QWidget *parent = nullptr);
+    explicit ItemsView(ItemsModel* model = new ItemsModel(), QWidget *parent = nullptr);
     ~ItemsView();
     void newItem();
     void openItem(int id);

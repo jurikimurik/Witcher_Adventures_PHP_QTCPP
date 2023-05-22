@@ -1,7 +1,7 @@
 #include "../../headers/item/itemsview.h"
 #include "ui_itemsview.h"
 
-ItemsView::ItemsView(QWidget *parent) :
+ItemsView::ItemsView(ItemsModel* model,  QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ItemsView)
 {
@@ -16,10 +16,8 @@ ItemsView::ItemsView(QWidget *parent) :
     refreshItemTypeData();
 
     //Some model for example
-    m_model = new ItemsModel(this);
-    m_model->addItem(Item(1, "Miecz Draugrow", ItemType({"Bron biala", "Zwykla bron biala."}),20,Buff()));
+    m_model = model;
     refreshData();
-
 }
 
 ItemsView::~ItemsView()
