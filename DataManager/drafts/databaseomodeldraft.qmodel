@@ -342,14 +342,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{01d3c07a-9a8d-4f18-bcda-7a0a436e0d26}</uid>
+                    <uid>{52fa4053-f279-44f9-ab7d-26c03ad133b2}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6419baf4-c274-4deb-b52d-e382e75bcb43}</uid>
+                    <uid>{54bed153-6080-49d0-b395-33cf2d42f0ad}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ItemsModel* m_itemsModel</declaration>
@@ -357,7 +357,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1c993228-6ef4-4194-aec0-94e4e444b4e7}</uid>
+                    <uid>{70b160ba-7362-453e-b708-1c2f6e0e52f1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>CharacterModel* m_charactersModel</declaration>
@@ -365,7 +365,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{33409ae2-206f-46d8-a0c9-ad596d8e235e}</uid>
+                    <uid>{653cc178-c908-44b2-b718-da06fc5cb6a7}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>ConsequencesModel* m_consequencesModel</declaration>
@@ -373,7 +373,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{37292a6e-e1e0-49df-b22c-59d78046a54d}</uid>
+                    <uid>{dbd4fea1-0aa6-47d8-aa53-18f025928d25}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit DatabaseModel(ItemsModel *itemsModel = new ItemsModel(), CharacterModel *charactersModel = new CharacterModel(), ConsequencesModel *consequencesModel = new ConsequencesModel(), QObject *parent = nullptr)</declaration>
@@ -381,7 +381,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{cba00765-6d29-47f2-8f92-b280a7bdf585}</uid>
+                    <uid>{319629bc-78bc-47fd-b7c4-45fee17f66e0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -390,7 +390,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9b1c5793-9b41-4f60-ab99-e5fd68cf8290}</uid>
+                    <uid>{10853f69-4d80-4683-98f3-3e602f0716ba}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
@@ -398,7 +398,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9569475b-465f-4602-9ae6-f367e4485418}</uid>
+                    <uid>{da5042be-8922-47cc-81e8-ff93e9239188}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -407,7 +407,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{98cfa5e0-0636-41a3-9cae-44500db75093}</uid>
+                    <uid>{0f77cd02-2f65-442b-a8de-cae20813e4ba}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <properties>64</properties>
@@ -416,7 +416,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7202f06e-e283-4a7c-9906-f799b75b4bc7}</uid>
+                    <uid>{ae49fa6d-e59b-4b31-a62c-ab26778a3a81}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -425,7 +425,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{22c035c8-e4f3-4b34-9a03-891324827c2e}</uid>
+                    <uid>{1e34307c-7f15-46d1-855a-a6baae1ada16}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setItemsModel(ItemsModel *newItemsModel)</declaration>
@@ -433,7 +433,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6c1f020e-466e-4163-86c9-48435357b19e}</uid>
+                    <uid>{d6c442f3-1f67-4e3e-8910-1c81a6d4feb3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -442,7 +442,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{304001d5-8031-4efa-931d-9b9d4e7883cb}</uid>
+                    <uid>{9287882c-bf8a-492f-b36c-9f85acdd51c0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setCharactersModel(CharacterModel *newCharactersModel)</declaration>
@@ -450,7 +450,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{97e3a4a8-a9ea-45c3-8369-9952c7441e8e}</uid>
+                    <uid>{eb144844-0718-47e0-991c-303118b3264f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -459,7 +459,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{605c9daf-1f3e-4c15-b4a8-c077ce67a8f9}</uid>
+                    <uid>{7430c3c5-f35e-40c9-b42b-4b8b190e1489}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setConsequencesModel(ConsequencesModel *newConsequencesModel)</declaration>
@@ -467,7 +467,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d10fe39a-aece-4f6d-8ea1-4029481445b5}</uid>
+                    <uid>{4694ca1e-d41e-41d4-995c-07a65e009cbe}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>

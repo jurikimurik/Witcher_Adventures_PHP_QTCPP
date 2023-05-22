@@ -29,7 +29,7 @@ SOURCES += \
     sources/special/attributes.cpp \
     sources/database/databasemodel.cpp \
     sources/main.cpp \
-    sources/database/databaseview.cpp
+    forms/sources/database/databaseview.cpp
 
 HEADERS += \
     forms/headers/consequence/consequencesview.h \
@@ -43,7 +43,7 @@ HEADERS += \
     headers/consequence/consequence.h \
     headers/consequence/consequencesmodel.h \
     headers/item/buffmodel.h \
-    headers/database/databaseview.h \
+    forms/headers/database/databaseview.h \
     headers/database/databasemodel.h \
     headers/item/buff.h \
     headers/item/item.h \

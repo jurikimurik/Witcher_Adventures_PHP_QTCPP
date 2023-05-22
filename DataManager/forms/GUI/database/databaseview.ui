@@ -18,48 +18,52 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="items">
        <attribute name="title">
         <string>Przedmioty</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QWidget" name="widget" native="true"/>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_2"/>
       </widget>
       <widget class="QWidget" name="characters">
        <attribute name="title">
         <string>Postacie</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="QWidget" name="widget_2" native="true"/>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_3"/>
       </widget>
       <widget class="QWidget" name="events">
        <attribute name="title">
         <string>Wydarzenia</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_4">
-        <item>
-         <widget class="QWidget" name="widget_3" native="true"/>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_4"/>
       </widget>
       <widget class="QWidget" name="consequences">
        <attribute name="title">
         <string>Konsekwencje</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_5">
-        <item>
-         <widget class="QWidget" name="widget_4" native="true"/>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_5"/>
       </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_5" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Zapisz</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Zaladuj</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -78,4 +82,8 @@
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <slot>save()</slot>
+  <slot>load()</slot>
+ </slots>
 </ui>
