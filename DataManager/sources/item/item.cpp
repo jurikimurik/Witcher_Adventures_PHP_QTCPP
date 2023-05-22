@@ -1,7 +1,5 @@
 #include "../../headers/item/item.h"
 
-#include <QDebug>
-
 Item::Item()
 {
 
@@ -35,7 +33,6 @@ Item Item::fromString(QString str)
     QString someStr = list.join(DatabaseItem::getSplitter());
     ItemType type = ItemType::fromString(someStr);
     list = someStr.split(DatabaseItem::getSplitter());
-
 
     QString desc = list.takeFirst();
     QString image = list.takeFirst();

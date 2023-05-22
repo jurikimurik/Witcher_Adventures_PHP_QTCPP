@@ -60,6 +60,7 @@ void ItemsView::openItem(int id)
     ui->imageBox->clear();
     ui->imageBox->addItem("BRAK");
 
+    removeAllBuffs();
     for(const auto& elem : item.buffs())
     {
         addBuff(elem);

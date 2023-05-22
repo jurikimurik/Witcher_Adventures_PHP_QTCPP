@@ -111,7 +111,7 @@
        <widget class="QComboBox" name="imageBox">
         <item>
          <property name="text">
-          <string>BRAK</string>
+          <string>123</string>
          </property>
         </item>
        </widget>
