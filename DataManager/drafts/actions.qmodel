@@ -91,8 +91,8 @@
                          </base-DElement>
                          <object>{19e837d5-87e5-47f7-9f29-3756902e4d23}</object>
                          <name>DescriptionAciton</name>
-                         <pos>x:65;y:805</pos>
-                         <rect>x:-140;y:-70;w:280;h:140</rect>
+                         <pos>x:-125;y:840</pos>
+                         <rect>x:-345;y:-125;w:690;h:250</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -501,7 +501,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684757023810</last-modified>
+                  <last-modified>1684758109348</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -818,7 +818,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c5bd12b2-ce67-4d25-a0b8-696211860a84}</uid>
+                    <uid>{22bd2acb-977e-431a-9a69-f8cc64e23773}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_textData</declaration>
@@ -826,7 +826,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{700651b3-b270-4856-ae8b-c58eb0ccd776}</uid>
+                    <uid>{342ab45b-b445-4513-b9ac-990e5d2cf1cf}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_image</declaration>
@@ -834,7 +834,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e2fad9fc-06b9-42df-9ff0-bb3052ae4331}</uid>
+                    <uid>{2d19682e-3c40-4274-9666-c6eb77936a97}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_music</declaration>
@@ -842,7 +842,24 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{55d98506-5f26-47f2-9772-6da9e65388f8}</uid>
+                    <uid>{8c08c4c4-894c-4ca8-ab0f-4fbd3abee068}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QString dataSplitter</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9b9b257a-8e68-419f-934d-04dc771485de}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>DescriptionAction(const QString &amp;textData = QString(), const QString &amp;image = QString(), const QString &amp;music = QString())</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a52aaf8d-710e-49df-89dd-0635504fa0cf}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -851,7 +868,58 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f666a21e-2338-4fcd-9bd1-a342da63b071}</uid>
+                    <uid>{fa72378b-4841-4088-a51d-93c183d773bd}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString textData()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{2dbc8044-af01-4918-9b3b-1ace3408279e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setTextData(const QString &amp;newTextData)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{971f81c9-1782-4314-8651-a383402f83d6}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString image()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{f9d0af49-e8a4-4ce6-8c65-877210e20644}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setImage(const QString &amp;newImage)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9021c0eb-684e-4d13-8607-1dc98bd6035d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QString music()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{bb4dd521-187d-4617-b8a8-09b7b785f15b}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setMusic(const QString &amp;newMusic)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{82f08094-e01f-497e-80c1-b55714f490b3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -860,7 +928,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{972e9491-0065-4bf5-bebc-bd384ef26c20}</uid>
+                    <uid>{aef0ee9f-2f73-4d1b-b3d2-3a788f5c7937}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>

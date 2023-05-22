@@ -14,6 +14,8 @@ SOURCES += \
     forms/sources/item/itemtypeview.cpp \
     forms/sources/item/buffview.cpp \
     forms/sources/item/itemsview.cpp \
+    sources/action/action.cpp \
+    sources/action/descriptionaction.cpp \
     sources/basic/databaseitem.cpp \
     sources/character/character.cpp \
     sources/character/charactermodel.cpp \
@@ -37,6 +39,8 @@ HEADERS += \
     forms/headers/item/itemtypeview.h \
     forms/headers/item/buffview.h \
     forms/headers/item/itemsview.h \
+    headers/action/action.h \
+    headers/action/descriptionaction.h \
     headers/basic/databaseitem.h \
     headers/character/character.h \
     headers/character/charactermodel.h \
@@ -72,6 +76,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    drafts/actions.qmodel \
     drafts/attributes.qmodel \
     drafts/characters.qmodel \
     drafts/consequences.qmodel \
