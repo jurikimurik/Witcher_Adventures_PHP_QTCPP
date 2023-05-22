@@ -81,7 +81,40 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>DatabaseView</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>266</x>
+     <y>533</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>565</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>DatabaseView</receiver>
+   <slot>load()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>530</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>564</x>
+     <y>566</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>save()</slot>
   <slot>load()</slot>

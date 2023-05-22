@@ -2,6 +2,8 @@
 #define DATABASEVIEW_H
 
 #include <QMainWindow>
+#include <QTextStream>
+#include <QFileDialog>
 #include "../item/itemsview.h"
 #include "../character/characterview.h"
 #include "../consequence/consequencesview.h"
@@ -29,13 +31,19 @@ public:
     DatabaseModel *model() const;
     void setModel(DatabaseModel *newModel);
 
+    void assignViewsToModels();
+
+public slots:
+    void save();
+    void load();
+
 private:
     Ui::DatabaseView *ui;
 
-    ItemsView* m_itemsView;
-    CharacterView* m_charactersView;
-    ConsequencesView* m_consequencesView;
-    DatabaseModel* m_model;
+    ItemsView* m_itemsView = nullptr;
+    CharacterView* m_charactersView = nullptr;
+    ConsequencesView* m_consequencesView = nullptr;
+    DatabaseModel* m_model = nullptr;
 
 };
 #endif // DATABASEVIEW_H
