@@ -16,7 +16,9 @@ SOURCES += \
     forms/sources/item/itemsview.cpp \
     sources/action/action.cpp \
     sources/action/agilityaction.cpp \
+    sources/action/basic/choice.cpp \
     sources/action/battleaction.cpp \
+    sources/action/choiceaction.cpp \
     sources/action/descriptionaction.cpp \
     sources/action/rewardaction.cpp \
     sources/basic/databaseitem.cpp \
@@ -44,7 +46,9 @@ HEADERS += \
     forms/headers/item/itemsview.h \
     headers/action/action.h \
     headers/action/agilityaction.h \
+    headers/action/basic/choice.h \
     headers/action/battleaction.h \
+    headers/action/choiceaction.h \
     headers/action/descriptionaction.h \
     headers/action/rewardaction.h \
     headers/basic/databaseitem.h \
