@@ -16,6 +16,7 @@ SOURCES += \
     forms/sources/item/itemsview.cpp \
     sources/action/action.cpp \
     sources/action/agilityaction.cpp \
+    sources/action/battleaction.cpp \
     sources/action/descriptionaction.cpp \
     sources/basic/databaseitem.cpp \
     sources/character/character.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     forms/headers/item/itemsview.h \
     headers/action/action.h \
     headers/action/agilityaction.h \
+    headers/action/battleaction.h \
     headers/action/descriptionaction.h \
     headers/basic/databaseitem.h \
     headers/character/character.h \
