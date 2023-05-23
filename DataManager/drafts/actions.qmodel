@@ -403,7 +403,7 @@
                          <object>{bf79ec28-520c-4176-b285-c38f58295218}</object>
                          <name>AgilityAction</name>
                          <pos>x:-90;y:545</pos>
-                         <rect>x:-130;y:-65;w:260;h:130</rect>
+                         <rect>x:-145;y:-100;w:290;h:200</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -1680,7 +1680,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{b567dc05-94cc-41b3-9692-b4bfec5eabbb}</uid>
+                    <uid>{6e23a030-7a39-40b8-ac51-6108b26ee289}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_difficulty</declaration>
@@ -1688,7 +1688,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{63b8a4fc-d77e-4440-83b6-3247b04a2957}</uid>
+                    <uid>{f2494217-003b-4705-881e-29b91a64be8e}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_timePerOne</declaration>
@@ -1696,7 +1696,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fddabe33-dc02-4f33-9442-23060aec4b9e}</uid>
+                    <uid>{78015fa7-e8f3-4f93-9e9a-863b91f2f993}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>AgilityAction(int difficulty = 1, int timePerOne = 5)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5eb0671e-657f-40b3-9a70-af81bb4566d5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -1705,7 +1713,41 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{627c3fe6-1922-43ee-90bb-8aebe4c42d38}</uid>
+                    <uid>{ea27df5c-bf11-434b-99d4-da7a73be8890}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int difficulty()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{03f08679-c185-4eda-947c-7d35c5718b11}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setDifficulty(int newDifficulty)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{11c4cc40-0af2-437b-8a3b-43c527e0f229}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int timePerOne()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7b590ad0-e349-4bef-8837-9ac5648f0eac}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setTimePerOne(int newTimePerOne)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1600a787-eadc-4ff3-80a4-70debd93aede}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -1714,7 +1756,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{478d72d7-ea92-422a-8ddf-02644ac365df}</uid>
+                    <uid>{ce20b7ce-b815-49f7-9333-e483732014f4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
