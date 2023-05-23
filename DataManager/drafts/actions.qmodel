@@ -133,8 +133,8 @@
                          </base-DElement>
                          <object>{08adab21-5904-452f-a194-e4bb46cda7d4}</object>
                          <name>RewardAction</name>
-                         <pos>x:670;y:810</pos>
-                         <rect>x:-130;y:-65;w:260;h:130</rect>
+                         <pos>x:695;y:825</pos>
+                         <rect>x:-220;y:-100;w:440;h:200</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -501,7 +501,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684839788144</last-modified>
+                  <last-modified>1684840269702</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -1141,15 +1141,15 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{4457e5c4-075e-45bc-93f2-b10a96898c32}</uid>
+                    <uid>{82d5e34c-5762-411d-8cf6-a672567eb172}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>ItemModel* m_model</declaration>
+                    <declaration>int m_money</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1f780e67-8af8-4152-94ef-79a194cb526b}</uid>
+                    <uid>{f49d630c-105d-48df-9976-64d7967e3e05}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;int&gt; m_itemsIds</declaration>
@@ -1157,7 +1157,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e40d538e-9dd3-497e-8485-17580d175e47}</uid>
+                    <uid>{b738c2ec-54ef-4210-b0d3-75a5d9013cec}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>RewardAction(int money = 0, const QVector&lt;int&gt; &amp;itemsIds = QVector&lt;int&gt;())</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{e868f584-d03a-4d69-a3a0-99da6d04bed0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -1166,7 +1174,41 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{65ff187e-52a4-4eb6-b37d-5f13e28b2c2e}</uid>
+                    <uid>{9b28d45d-558f-4957-a452-d86f0d5d18b0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int money()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a7f9c253-0917-4caf-9dc6-33846415a33c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setMoney(int newMoney)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7a58857f-8589-4130-a175-5cbf3c69730f}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>QVector&lt;int&gt; itemsIds()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{2ba46594-71c9-4590-9ab4-dbacdb84ec7c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setItemsIds(const QVector&lt;int&gt; &amp;newItemsIds)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{64d05347-9eea-479b-8b55-e7eac851fc2d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -1175,7 +1217,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{608e8a58-31c5-4644-a84c-ac4a71d7c38c}</uid>
+                    <uid>{800eaef5-29dc-4ac0-aad4-a1778c16ea3f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>

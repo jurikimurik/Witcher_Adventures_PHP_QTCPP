@@ -18,6 +18,7 @@ SOURCES += \
     sources/action/agilityaction.cpp \
     sources/action/battleaction.cpp \
     sources/action/descriptionaction.cpp \
+    sources/action/rewardaction.cpp \
     sources/basic/databaseitem.cpp \
     sources/character/character.cpp \
     sources/character/charactermodel.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     headers/action/agilityaction.h \
     headers/action/battleaction.h \
     headers/action/descriptionaction.h \
+    headers/action/rewardaction.h \
     headers/basic/databaseitem.h \
     headers/character/character.h \
     headers/character/charactermodel.h \
