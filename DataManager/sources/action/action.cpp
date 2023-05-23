@@ -1,5 +1,6 @@
 #include "../../headers/action/action.h"
 
+const QString Action::dataSplitter = "|---|";
 
 ActionType Action::type() const
 {

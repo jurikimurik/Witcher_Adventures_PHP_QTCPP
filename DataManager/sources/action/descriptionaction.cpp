@@ -1,6 +1,5 @@
 #include "../../headers/action/descriptionaction.h"
 
-const QString DescriptionAction::dataSplitter = "|---|";
 
 QString DescriptionAction::textData() const
 {

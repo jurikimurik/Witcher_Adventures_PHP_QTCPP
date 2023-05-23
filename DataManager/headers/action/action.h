@@ -21,6 +21,9 @@ private:
     QString m_data;
     int m_idToAction;
 
+protected:
+    static const QString dataSplitter;
+
 public:
     Action(ActionType type = ActionType::NONE, const QString &data = QString(), int toAction = -1);
     virtual Action toAction();

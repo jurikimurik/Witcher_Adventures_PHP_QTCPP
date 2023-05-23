@@ -10,7 +10,6 @@ private:
     QString m_image;
     QString m_music;
 
-    static const QString dataSplitter;
 
 public:
     DescriptionAction(const QString &textData = QString(), const QString &image = QString(), const QString &music = QString());
