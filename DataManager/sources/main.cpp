@@ -13,6 +13,7 @@
 #include "headers/action/battleaction.h"
 #include "headers/action/rewardaction.h"
 #include "headers/action/basic/choice.h"
+#include "headers/action/choiceaction.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -109,8 +110,13 @@ int main(int argc, char *argv[])
     qDebug() << RewardAction::fromString(action.toString()).toString();*/
 
     Choice h(-1, QString(), consequence);
-    qDebug() << h.toString();
-    qDebug() << Choice::fromString(h.toString()).toString();
+    Choice h2(2, "A cos tu jednak jest", consequence1);
+    //qDebug() << h.toString();
+    //qDebug() << Choice::fromString(h.toString()).toString();
+
+    ChoiceAction action("Musisz wybrac.", QVector<Choice>({h, h2}));
+    qDebug() << action.toString();
+    qDebug() << ChoiceAction::fromString(action.toString()).toString();
 
     //return a.exec();
 }
