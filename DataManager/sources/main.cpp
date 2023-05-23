@@ -14,6 +14,7 @@
 #include "headers/action/rewardaction.h"
 #include "headers/action/basic/choice.h"
 #include "headers/action/choiceaction.h"
+#include "headers/action/diceaction.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -58,9 +59,9 @@ int main(int argc, char *argv[])
     Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
     CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));*/
 
-    Consequence consequence(13, "Troll zabity", true);
+    /*Consequence consequence(13, "Troll zabity", true);
     Consequence consequence1(2, "Konrad pokonany", false);
-    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));
+    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));*/
 
     /*ItemType type({"bron biala.", "zwykla bron biala"});
     qDebug() << type.toString();
@@ -109,14 +110,18 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << RewardAction::fromString(action.toString()).toString();*/
 
-    Choice h(-1, QString(), consequence);
+    /*Choice h(-1, QString(), consequence);
     Choice h2(2, "A cos tu jednak jest", consequence1);
     //qDebug() << h.toString();
     //qDebug() << Choice::fromString(h.toString()).toString();
 
     ChoiceAction action("Musisz wybrac.", QVector<Choice>({h, h2}));
     qDebug() << action.toString();
-    qDebug() << ChoiceAction::fromString(action.toString()).toString();
+    qDebug() << ChoiceAction::fromString(action.toString()).toString();*/
+
+    DiceAction action(2, 2, QVector<int>({2,4,2}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
+    qDebug() << action.toString();
+    qDebug() << DiceAction::fromString(action.toString()).toString();
 
     //return a.exec();
 }

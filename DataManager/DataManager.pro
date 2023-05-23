@@ -20,6 +20,7 @@ SOURCES += \
     sources/action/battleaction.cpp \
     sources/action/choiceaction.cpp \
     sources/action/descriptionaction.cpp \
+    sources/action/diceaction.cpp \
     sources/action/rewardaction.cpp \
     sources/basic/databaseitem.cpp \
     sources/character/character.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     headers/action/battleaction.h \
     headers/action/choiceaction.h \
     headers/action/descriptionaction.h \
+    headers/action/diceaction.h \
     headers/action/rewardaction.h \
     headers/basic/databaseitem.h \
     headers/character/character.h \
