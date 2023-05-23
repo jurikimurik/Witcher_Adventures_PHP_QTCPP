@@ -41,5 +41,11 @@ AgilityAction::AgilityAction(int difficulty, int timePerOne) : Action(ActionType
 
 AgilityAction AgilityAction::fromString(QString str)
 {
+    Action base = Action::fromString(str);
+    QStringList data = base.data().split(dataSplitter);
 
+    int difficulty = data.at(1).toInt();
+    int timePerOne = data.at(2).toInt();
+
+    return AgilityAction(difficulty, timePerOne);
 }

@@ -1680,7 +1680,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{6e23a030-7a39-40b8-ac51-6108b26ee289}</uid>
+                    <uid>{6316a048-f3d9-4646-8e27-07028fb1d9e1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_difficulty</declaration>
@@ -1688,7 +1688,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f2494217-003b-4705-881e-29b91a64be8e}</uid>
+                    <uid>{24389df9-fa91-4e06-9963-1d3fc9574b97}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_timePerOne</declaration>
@@ -1696,7 +1696,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{78015fa7-e8f3-4f93-9e9a-863b91f2f993}</uid>
+                    <uid>{217073f1-cc30-42f8-9f24-154cffd0c9aa}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>AgilityAction(int difficulty = 1, int timePerOne = 5)</declaration>
@@ -1704,7 +1704,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5eb0671e-657f-40b3-9a70-af81bb4566d5}</uid>
+                    <uid>{a8ab7597-9929-4ff0-9b3a-1b97a43217e8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -1713,7 +1713,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ea27df5c-bf11-434b-99d4-da7a73be8890}</uid>
+                    <uid>{c79195b7-765a-4f35-ae21-59402d1a645e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1722,7 +1722,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{03f08679-c185-4eda-947c-7d35c5718b11}</uid>
+                    <uid>{190a3683-fac8-497a-9e78-98956ac28bb4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDifficulty(int newDifficulty)</declaration>
@@ -1730,7 +1730,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{11c4cc40-0af2-437b-8a3b-43c527e0f229}</uid>
+                    <uid>{13797dd2-8954-440f-9ece-0a37d9edc76f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1739,7 +1739,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7b590ad0-e349-4bef-8837-9ac5648f0eac}</uid>
+                    <uid>{d8449653-0e33-4d6b-ad6e-26899e116b08}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setTimePerOne(int newTimePerOne)</declaration>
@@ -1747,7 +1747,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1600a787-eadc-4ff3-80a4-70debd93aede}</uid>
+                    <uid>{e540a38a-4a02-4f82-8d22-dc7f41f71c61}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -1756,7 +1756,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ce20b7ce-b815-49f7-9333-e483732014f4}</uid>
+                    <uid>{2fba5bb1-d22b-4306-87e7-6937136f7dbd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
