@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>531</width>
-    <height>442</height>
+    <height>477</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -63,10 +63,10 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget" native="true">
+        <widget class="QWidget" name="enemiesWidget" native="true">
          <layout class="QFormLayout" name="formLayout">
           <item row="0" column="1">
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="enemyBox1">
             <property name="placeholderText">
              <string>Wrog...</string>
             </property>
@@ -78,7 +78,7 @@
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QSpinBox" name="spinBox">
+           <widget class="QSpinBox" name="spinBox1">
             <property name="minimum">
              <number>1</number>
             </property>
@@ -93,6 +93,42 @@
       <attribute name="title">
        <string>Choice</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QTextEdit" name="choiceTextEdit">
+         <property name="placeholderText">
+          <string>Tekst samego wydarzena...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="choicesWidget" native="true">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="text1Edit">
+            <property name="placeholderText">
+             <string>Tekst wyboru...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QComboBox" name="toActionIdBox1">
+            <property name="placeholderText">
+             <string>Do jakiej akcji...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QComboBox" name="consequenceBox1">
+            <property name="placeholderText">
+             <string>Skutek...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="rewardAction">
       <attribute name="title">
