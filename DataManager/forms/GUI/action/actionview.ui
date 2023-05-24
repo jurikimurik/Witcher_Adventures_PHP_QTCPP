@@ -23,7 +23,32 @@
       <attribute name="title">
        <string>Description</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="textEdit">
+         <property name="placeholderText">
+          <string>Tekst samego wydarzena...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="imageBox">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Obrazek...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="musicBox">
+         <property name="placeholderText">
+          <string>Muzyka...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="battleAction">
       <attribute name="title">
@@ -50,6 +75,19 @@
        <string>Dice</string>
       </attribute>
      </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="text">
+      <string>Zapisz</string>
+     </property>
+     <property name="icon">
+      <iconset theme="document-save"/>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
   </layout>

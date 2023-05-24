@@ -15,6 +15,7 @@
 #include "headers/action/basic/choice.h"
 #include "headers/action/choiceaction.h"
 #include "headers/action/diceaction.h"
+#include "forms/headers/action/actionview.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -119,11 +120,14 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << ChoiceAction::fromString(action.toString()).toString();*/
 
-    DiceAction action(2, 2, QVector<int>({2,4,2}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
+    /*DiceAction action(2, 2, QVector<int>({2,4,2}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
     qDebug() << action.toString();
-    qDebug() << DiceAction::fromString(action.toString()).toString();
+    qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
-    //return a.exec();
+    ActionView view;
+    view.show();
+
+    return a.exec();
 }
 
 
