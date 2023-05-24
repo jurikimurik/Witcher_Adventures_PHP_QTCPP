@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -25,14 +25,14 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTextEdit" name="textEdit">
+        <widget class="QTextEdit" name="descriptionTextEdit">
          <property name="placeholderText">
           <string>Tekst samego wydarzena...</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="imageBox">
+        <widget class="QComboBox" name="descriptionImageBox">
          <property name="toolTip">
           <string/>
          </property>
@@ -42,7 +42,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="musicBox">
+        <widget class="QComboBox" name="descriptionMusicBox">
          <property name="placeholderText">
           <string>Muzyka...</string>
          </property>
@@ -54,6 +54,40 @@
       <attribute name="title">
        <string>Battle</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTextEdit" name="battleTextEdit">
+         <property name="placeholderText">
+          <string>Tekst samego wydarzena...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget" native="true">
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboBox">
+            <property name="placeholderText">
+             <string>Wrog...</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>*DODAJ NOWEGO WROGA*</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QSpinBox" name="spinBox">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QWidget" name="choiceAction">
       <attribute name="title">
