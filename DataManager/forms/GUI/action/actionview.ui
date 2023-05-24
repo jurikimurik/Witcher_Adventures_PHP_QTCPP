@@ -16,8 +16,14 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Rounded</enum>
+     </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -116,6 +122,11 @@
             <property name="placeholderText">
              <string>Do jakiej akcji...</string>
             </property>
+            <item>
+             <property name="text">
+              <string>*DODAJ NOWY WYBOR*</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item row="0" column="2">
@@ -273,6 +284,18 @@
     </widget>
    </item>
    <item>
+    <widget class="QComboBox" name="comboBox">
+     <property name="placeholderText">
+      <string>Ustaw nastepna akcje...</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>*BRAK*</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
     <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>Zapisz</string>
@@ -290,4 +313,7 @@
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <slot>save()</slot>
+ </slots>
 </ui>
