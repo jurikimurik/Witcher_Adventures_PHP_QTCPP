@@ -56,7 +56,7 @@ void ActionView::on_itemBox1_activated(int index)
 {
     // WHEN "NEW ITEM" IN REWARD ACTION HAS BEEN CLICKED
     if(index+1 == ui->itemBox1->count()) {
-        int fields = ui->itemsWidget->findChildren<QComboBox>("itemBox").size();
+        int fields = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+")).size();
         setItemsFields(fields + 1);
     }
 }
@@ -202,7 +202,39 @@ void ActionView::setActionFields(int count)
 
 void ActionView::setItemsFields(int count)
 {
+    QList<QComboBox*> boxes = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+"));
+    int fields = boxes.size();
+    int difference = fields - count;
 
+    if(difference > 0) {
+        // TOO MANY FIELDS: DELETE FIELDS
+        QList<QSpinBox*> spinBoxes = ui->itemsWidget->findChildren<QSpinBox*>(QRegularExpression("countBox\\d+"));
+        QList<QComboBox*> boxes = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+"));
+        while(difference-- > 0) {
+            spinBoxes.takeLast()->deleteLater();
+            boxes.takeLast()->deleteLater();
+        }
+    } else if (difference < 0) {
+        // TOO LESS FIELDS: ADD NEW FIELDS
+        while(difference++ < 0) {
+            QSpinBox* spinBox = new QSpinBox(ui->itemsWidget);
+            spinBox->setObjectName("countBox" + QString::number(count+difference));
+            spinBox->setMinimum(1);
+            QComboBox* comboBox = new QComboBox(ui->enemiesWidget);
+            comboBox->setObjectName("itemBox" + QString::number(count+difference));
+            if(!boxes.empty()) {
+                for(int i = 0; i < boxes.at(0)->count(); ++i)
+                {
+                    comboBox->addItem(boxes.at(0)->itemText(i));
+                }
+                comboBox->setPlaceholderText(boxes.at(0)->placeholderText());
+            }
+
+
+            connect(comboBox, &QComboBox::activated, this, &ActionView::on_itemBox1_activated);
+            dynamic_cast<QFormLayout*>(ui->itemsWidget->layout())->addRow(comboBox, spinBox);
+        }
+    }
 }
 
 QStringList ActionView::enemies() const
@@ -292,5 +324,13 @@ void ActionView::on_choiceRemoveLastButton_clicked()
     int fields = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+")).size();
     if(fields > 1)
         setActionFields(fields - 1);
+}
+
+
+void ActionView::on_moneyRemoveLastButton_clicked()
+{
+    int fields = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+")).size();
+    if(fields > 1)
+        setItemsFields(fields - 1);
 }
 
