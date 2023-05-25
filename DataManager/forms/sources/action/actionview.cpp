@@ -46,7 +46,7 @@ void ActionView::on_toActionIdBox1_activated(int index)
 {
     // WHEN "NEW ACTION" IN CHOICE ACTION HAS BEEN CLICKED
     if(index+1 == ui->toActionIdBox1->count()) {
-        int fields = ui->choicesWidget->findChildren<QComboBox>("toActionIdBox").size();
+        int fields = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+")).size();
         setActionFields(fields + 1);
     }
 }
@@ -142,7 +142,62 @@ void ActionView::setDiceEnemiesFields(int count)
 
 void ActionView::setActionFields(int count)
 {
+    QList<QComboBox*> boxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+"));
+    QList<QComboBox*> consBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("consequenceBox\\d+"));
+    int fields = boxes.size();
+    int difference = fields - count;
 
+    if(difference > 0) {
+        // TOO MANY FIELDS: DELETE FIELDS
+        QList<QComboBox*> toIdBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+"));
+        QList<QLineEdit*> lineEdits = ui->choicesWidget->findChildren<QLineEdit*>(QRegularExpression("choiceTextEdit\\d+"));
+        QList<QComboBox*> consBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("consequenceBox\\d+"));
+        while(difference-- > 0) {
+            lineEdits.takeLast()->deleteLater();
+            toIdBoxes.takeLast()->deleteLater();
+            consBoxes.takeLast()->deleteLater();
+        }
+    } else if (difference < 0) {
+        // TOO LESS FIELDS: ADD NEW FIELDS
+        while(difference++ < 0) {
+            int row = count+difference;
+
+            QLineEdit* lineEdit = new QLineEdit(ui->choicesWidget);
+            lineEdit->setObjectName("choiceTextEdit" + QString::number(row));
+            QLineEdit* first = ui->choicesWidget->findChild<QLineEdit*>("choiceTextEdit1");
+            if(first != nullptr)
+                lineEdit->setPlaceholderText(first->placeholderText());
+
+            QComboBox* toIdBox = new QComboBox(ui->choicesWidget);
+            toIdBox->setObjectName("toActionIdBox" + QString::number(row));
+            if(!boxes.empty()) {
+                for(int i = 0; i < boxes.at(0)->count(); ++i)
+                {
+                    toIdBox->addItem(boxes.at(0)->itemText(i));
+                }
+                toIdBox->setPlaceholderText(boxes.at(0)->placeholderText());
+            }
+
+
+            QComboBox* consBox = new QComboBox(ui->choicesWidget);
+            consBox->setObjectName("consequenceBox" + QString::number(row));
+            if(!consBoxes.empty()) {
+                for(int i = 0; i < consBoxes.at(0)->count(); ++i)
+                {
+                    consBox->addItem(consBoxes.at(0)->itemText(i));
+                }
+                consBox->setPlaceholderText(consBoxes.at(0)->placeholderText());
+            }
+
+
+            connect(toIdBox, &QComboBox::activated, this, &ActionView::on_toActionIdBox1_activated);
+
+            QGridLayout* layout = dynamic_cast<QGridLayout*>(ui->choicesWidget->layout());
+            layout->addWidget(toIdBox,row,0);
+            layout->addWidget(lineEdit, row,1);
+            layout->addWidget(consBox, row, 2);
+        }
+    }
 }
 
 void ActionView::setItemsFields(int count)
@@ -229,5 +284,13 @@ void ActionView::on_diceRemoveLastButton_clicked()
     int fields = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+")).size();
     if(fields > 1)
         setDiceEnemiesFields(fields - 1);
+}
+
+
+void ActionView::on_choiceRemoveLastButton_clicked()
+{
+    int fields = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+")).size();
+    if(fields > 1)
+        setActionFields(fields - 1);
 }
 

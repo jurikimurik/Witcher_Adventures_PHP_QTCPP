@@ -62,6 +62,8 @@ private slots:
     void on_enemyRemoveLastButton_clicked();
     void on_diceRemoveLastButton_clicked();
 
+    void on_choiceRemoveLastButton_clicked();
+
 private:
     void resetTabs();
     void setEnemiesFields(int count);
