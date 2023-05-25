@@ -32,6 +32,13 @@ public:
     Action getData() const;
     void setData(const Action &newData);
 
+    QStringList enemies() const;
+    void setEnemies(const QStringList &newEnemies);
+    QStringList items() const;
+    void setItems(const QStringList &newItems);
+    QStringList actions() const;
+    void setActions(const QStringList &newActions);
+
     //---------------CONNECTION BETWEEN ACTIONVIEW AND EVENTSVIEW---------------
 public slots:
     void updateEnemies(QStringList list);
@@ -55,12 +62,17 @@ private slots:
 private:
     void resetTabs();
     void setEnemiesFields(int count);
+    void setDiceEnemiesFields(int count);
     void setItemsFields(int count);
     void setActionFields(int count);
 
 private:
     Ui::ActionView *ui;
     Action m_data;
+
+    QStringList m_enemies;
+    QStringList m_items;
+    QStringList m_actions;
 };
 
 #endif // ACTIONVIEW_H

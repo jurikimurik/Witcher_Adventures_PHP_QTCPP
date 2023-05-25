@@ -34,24 +34,41 @@ ActionView *ActionView::fromAction(Action action)
 void ActionView::on_enemyBox1_activated(int index)
 {
     //WHEN "NEW ENEMY" IN BATTLE ACTION HAS BEEN CLICKED
+    if(index+1 == ui->enemyBox1->count()) {
+        int fields = ui->enemiesWidget->findChildren("enemyBox").size();
+        setEnemiesFields(fields + 1);
+    }
+
 }
 
 
 void ActionView::on_toActionIdBox1_activated(int index)
 {
     // WHEN "NEW ACTION" IN CHOICE ACTION HAS BEEN CLICKED
+    if(index+1 == ui->toActionIdBox1->count()) {
+        int fields = ui->choicesWidget->findChildren("toActionIdBox").size();
+        setActionFields(fields + 1);
+    }
 }
 
 
 void ActionView::on_itemBox1_activated(int index)
 {
     // WHEN "NEW ITEM" IN REWARD ACTION HAS BEEN CLICKED
+    if(index+1 == ui->itemBox1->count()) {
+        int fields = ui->itemsWidget->findChildren("itemBox").size();
+        setItemsFields(fields + 1);
+    }
 }
 
 
 void ActionView::on_d_enemyBox1_activated(int index)
 {
     // WHEN "NEW ENEMY" IN DICE ACTION HAS BEEN CLICKED
+    if(index+1 == ui->diceEnemyBox1->count()) {
+        int fields = ui->itemsWidget->findChildren("diceEnemyBox").size();
+        setDiceEnemiesFields(fields+1);
+    }
 }
 
 void ActionView::resetTabs()
@@ -59,6 +76,51 @@ void ActionView::resetTabs()
     int tabCount = ui->tabWidget->count();
     for(int i = 0; i < tabCount; i++)
         ui->tabWidget->setTabEnabled(i, false);
+}
+
+void ActionView::setEnemiesFields(int count)
+{
+
+}
+
+void ActionView::setActionFields(int count)
+{
+
+}
+
+void ActionView::setItemsFields(int count)
+{
+
+}
+
+QStringList ActionView::enemies() const
+{
+    return m_enemies;
+}
+
+void ActionView::setEnemies(const QStringList &newEnemies)
+{
+    m_enemies = newEnemies;
+}
+
+QStringList ActionView::items() const
+{
+    return m_items;
+}
+
+void ActionView::setItems(const QStringList &newItems)
+{
+    m_items = newItems;
+}
+
+QStringList ActionView::actions() const
+{
+    return m_actions;
+}
+
+void ActionView::setActions(const QStringList &newActions)
+{
+    m_actions = newActions;
 }
 
 

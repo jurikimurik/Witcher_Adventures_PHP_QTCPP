@@ -84,7 +84,7 @@
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QSpinBox" name="spinBox1">
+           <widget class="QSpinBox" name="enemySpinBox1">
             <property name="minimum">
              <number>1</number>
             </property>
@@ -111,7 +111,7 @@
         <widget class="QWidget" name="choicesWidget" native="true">
          <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="1">
-           <widget class="QLineEdit" name="text1Edit">
+           <widget class="QLineEdit" name="choiceTextEdit1">
             <property name="placeholderText">
              <string>Tekst wyboru...</string>
             </property>
@@ -224,14 +224,14 @@
         <widget class="QSpinBox" name="agilityDifficultySpinBox"/>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="timePerOneLabel">
+        <widget class="QLabel" name="agilityTimePerOneLabel">
          <property name="text">
           <string>Czas na pojedynczy:</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="timePerOneSpinBox">
+        <widget class="QSpinBox" name="agilityTimePerOneSpinBox">
          <property name="maximum">
           <number>99999</number>
          </property>
@@ -265,7 +265,7 @@
            <widget class="QSpinBox" name="difficultySpinBox"/>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="d_enemyBox1">
+           <widget class="QComboBox" name="diceEnemyBox1">
             <property name="placeholderText">
              <string>Oponent...</string>
             </property>
@@ -284,7 +284,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="toActionBox">
      <property name="placeholderText">
       <string>Ustaw nastepna akcje...</string>
      </property>
@@ -296,7 +296,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="saveButton">
      <property name="text">
       <string>Zapisz</string>
      </property>
