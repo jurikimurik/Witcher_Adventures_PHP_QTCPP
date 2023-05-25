@@ -20,7 +20,7 @@ void ChoiceAction::setText(const QString &newText)
     m_text = newText;
 }
 
-Action ChoiceAction::toAction()
+Action ChoiceAction::toAction() const
 {
     QString data = dataSplitter + text() + dataSplitter;
     for(auto& elem : choices())
@@ -32,7 +32,7 @@ Action ChoiceAction::toAction()
     return Action(ActionType::NONE,data,idToAction());
 }
 
-QString ChoiceAction::toString()
+QString ChoiceAction::toString() const
 {
     return toAction().toString();
 }

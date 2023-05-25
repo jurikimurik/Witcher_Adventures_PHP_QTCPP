@@ -26,8 +26,8 @@ protected:
 
 public:
     Action(ActionType type = ActionType::NONE, const QString &data = QString(), int toAction = -1);
-    virtual Action toAction();
-    virtual QString toString();
+    virtual Action toAction() const;
+    virtual QString toString() const;
     static Action fromString(QString str);
 
     ActionType type() const;

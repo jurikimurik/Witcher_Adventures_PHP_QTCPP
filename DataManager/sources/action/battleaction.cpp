@@ -21,7 +21,7 @@ void BattleAction::setEnemiesIds(const QVector<int> &newEnemiesIds)
     m_enemiesIds = newEnemiesIds;
 }
 
-Action BattleAction::toAction()
+Action BattleAction::toAction() const
 {
     QString data = dataSplitter + textData() + dataSplitter;
     for(const auto& elem : enemiesIds())
@@ -33,7 +33,7 @@ Action BattleAction::toAction()
     return Action(ActionType::Battle, data, idToAction());
 }
 
-QString BattleAction::toString()
+QString BattleAction::toString() const
 {
     return toAction().toString();
 }

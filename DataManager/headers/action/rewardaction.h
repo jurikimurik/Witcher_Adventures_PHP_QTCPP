@@ -22,8 +22,8 @@ public:
 
     // Action interface
 public:
-    virtual Action toAction();
-    virtual QString toString();
+    virtual Action toAction() const;
+    virtual QString toString() const;
 
 };
 

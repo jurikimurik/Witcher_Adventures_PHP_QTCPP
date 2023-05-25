@@ -41,7 +41,7 @@ void DiceAction::setTextData(const QString &newTextData)
     m_textData = newTextData;
 }
 
-Action DiceAction::toAction()
+Action DiceAction::toAction() const
 {
     QString data = dataSplitter + QString::number(difficulty()) + dataSplitter + QString::number(players()) + dataSplitter;
     for(auto& elem : getEnemiesIds())
@@ -55,7 +55,7 @@ Action DiceAction::toAction()
     return Action(ActionType::NONE,data,idToAction());
 }
 
-QString DiceAction::toString()
+QString DiceAction::toString() const
 {
     return toAction().toString();
 }

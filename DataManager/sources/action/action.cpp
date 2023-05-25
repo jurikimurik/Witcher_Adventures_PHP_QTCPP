@@ -37,12 +37,12 @@ Action::Action(ActionType type, const QString &data, int toAction) : m_type(type
     m_idToAction(toAction)
 {}
 
-Action Action::toAction()
+Action Action::toAction() const
 {
     return *this;
 }
 
-QString Action::toString()
+QString Action::toString() const
 {
     QString splitter = DatabaseItem::getSplitter();
     QString properties = QString::number((int)type()) + splitter + data() + splitter + QString::number(idToAction()) + splitter;

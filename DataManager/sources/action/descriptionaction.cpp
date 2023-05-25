@@ -31,13 +31,13 @@ void DescriptionAction::setMusic(const QString &newMusic)
     m_music = newMusic;
 }
 
-Action DescriptionAction::toAction()
+Action DescriptionAction::toAction() const
 {
     QString data = dataSplitter + textData() + dataSplitter + image() + dataSplitter + music() + dataSplitter;
     return Action(ActionType::Description, data, idToAction());
 }
 
-QString DescriptionAction::toString()
+QString DescriptionAction::toString() const
 {
     return toAction().toString();
 }

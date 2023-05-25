@@ -21,7 +21,7 @@ void RewardAction::setItemsIds(const QVector<int> &newItemsIds)
     m_itemsIds = newItemsIds;
 }
 
-Action RewardAction::toAction()
+Action RewardAction::toAction() const
 {
     QString data = dataSplitter + QString::number(money()) + dataSplitter;
     for(const auto& elem : itemsIds())
@@ -32,7 +32,7 @@ Action RewardAction::toAction()
     return Action(ActionType::NONE, data, idToAction());
 }
 
-QString RewardAction::toString()
+QString RewardAction::toString() const
 {
     return toAction().toString();
 }
