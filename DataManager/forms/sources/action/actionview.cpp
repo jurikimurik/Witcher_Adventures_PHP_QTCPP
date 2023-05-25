@@ -99,11 +99,14 @@ void ActionView::setEnemiesFields(int count)
             spinBox->setMinimum(1);
             QComboBox* comboBox = new QComboBox(ui->enemiesWidget);
             comboBox->setObjectName("enemyBox" + QString::number(count+difference));
-            if(!boxes.empty())
+            if(!boxes.empty()) {
                 for(int i = 0; i < boxes.at(0)->count(); ++i)
                 {
                     comboBox->addItem(boxes.at(0)->itemText(i));
                 }
+                comboBox->setPlaceholderText(boxes.at(0)->placeholderText());
+            }
+
 
             connect(comboBox, &QComboBox::activated, this, &ActionView::on_enemyBox1_activated);
             dynamic_cast<QFormLayout*>(ui->enemiesWidget->layout())->addRow(spinBox, comboBox);
@@ -128,11 +131,14 @@ void ActionView::setDiceEnemiesFields(int count)
         while(difference++ < 0) {
             QComboBox* comboBox = new QComboBox(ui->diceWidget);
             comboBox->setObjectName("diceEnemyBox" + QString::number(count+difference));
-            if(!boxes.empty())
+            if(!boxes.empty()) {
                 for(int i = 0; i < boxes.at(0)->count(); ++i)
                 {
                     comboBox->addItem(boxes.at(0)->itemText(i));
                 }
+                comboBox->setPlaceholderText(boxes.at(0)->placeholderText());
+            }
+
 
             connect(comboBox, &QComboBox::activated, this, &ActionView::on_diceEnemyBox1_activated);
             ui->diceWidget->layout()->addWidget(comboBox);

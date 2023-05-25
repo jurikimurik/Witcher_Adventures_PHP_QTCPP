@@ -25,8 +25,6 @@ public:
     ~ActionView();
 
     void openAction(Action action);
-
-
     static ActionView* fromAction(Action action);
 
     Action getData() const;
