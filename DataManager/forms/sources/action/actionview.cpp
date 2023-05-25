@@ -65,8 +65,8 @@ void ActionView::on_diceEnemyBox1_activated(int index)
 {
     // WHEN "NEW ENEMY" IN DICE ACTION HAS BEEN CLICKED
     if(index+1 == ui->diceEnemyBox1->count()) {
-        int fields = ui->itemsWidget->findChildren<QComboBox>("diceEnemyBox").size();
-        setDiceEnemiesFields(fields+1);
+        int fields = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+")).size();
+        setDiceEnemiesFields(fields + 1);
     }
 }
 
@@ -109,12 +109,35 @@ void ActionView::setEnemiesFields(int count)
             dynamic_cast<QFormLayout*>(ui->enemiesWidget->layout())->addRow(spinBox, comboBox);
         }
     }
-
 }
 
 void ActionView::setDiceEnemiesFields(int count)
 {
+    QList<QComboBox*> boxes = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+"));
+    int fields = boxes.size();
+    int difference = fields - count;
 
+    if(difference > 0) {
+        // TOO MANY FIELDS: DELETE FIELDS
+        QList<QComboBox*> boxes = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+"));
+        while(difference-- > 0) {
+            boxes.takeLast()->deleteLater();
+        }
+    } else if (difference < 0) {
+        // TOO LESS FIELDS: ADD NEW FIELDS
+        while(difference++ < 0) {
+            QComboBox* comboBox = new QComboBox(ui->diceWidget);
+            comboBox->setObjectName("diceEnemyBox" + QString::number(count+difference));
+            if(!boxes.empty())
+                for(int i = 0; i < boxes.at(0)->count(); ++i)
+                {
+                    comboBox->addItem(boxes.at(0)->itemText(i));
+                }
+
+            connect(comboBox, &QComboBox::activated, this, &ActionView::on_diceEnemyBox1_activated);
+            ui->diceWidget->layout()->addWidget(comboBox);
+        }
+    }
 }
 
 void ActionView::setActionFields(int count)
@@ -193,10 +216,18 @@ ActionView::ActionView(const Action &data, QWidget *parent) : QWidget(parent),
     //openAction(getData());
 }
 
-void ActionView::on_pushButton_clicked()
+void ActionView::on_enemyRemoveLastButton_clicked()
 {
     int fields = ui->enemiesWidget->findChildren<QComboBox*>(QRegularExpression("enemyBox\\d+")).size();
     if(fields > 1)
         setEnemiesFields(fields - 1);
+}
+
+
+void ActionView::on_diceRemoveLastButton_clicked()
+{
+    int fields = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+")).size();
+    if(fields > 1)
+        setDiceEnemiesFields(fields - 1);
 }
 

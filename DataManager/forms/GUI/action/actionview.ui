@@ -23,7 +23,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -94,7 +94,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="enemyRemoveLastButton">
          <property name="text">
           <string>Usuń ostatniego....</string>
          </property>
@@ -284,6 +284,13 @@
            </widget>
           </item>
          </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="diceRemoveLastButton">
+         <property name="text">
+          <string>Usun ostatniego...</string>
+         </property>
         </widget>
        </item>
       </layout>

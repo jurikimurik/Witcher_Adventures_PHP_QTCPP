@@ -59,7 +59,8 @@ private slots:
     void on_itemBox1_activated(int index);
     void on_diceEnemyBox1_activated(int index);
 
-    void on_pushButton_clicked();
+    void on_enemyRemoveLastButton_clicked();
+    void on_diceRemoveLastButton_clicked();
 
 private:
     void resetTabs();
