@@ -8,7 +8,22 @@ ActionView::~ActionView()
 
 void ActionView::openAction(Action action)
 {
+    resetTabs();
 
+    if(action.type() == ActionType::Description) {
+        DescriptionAction descAct = DescriptionAction::fromString(action.toString());
+        ui->tabWidget->setTabEnabled(0, true);
+        ui->tabWidget->setCurrentWidget(ui->descriptionAction);
+
+        ui->descriptionTextEdit->setText(descAct.textData());
+        ui->descriptionImageBox->addItem(descAct.image());
+        ui->descriptionImageBox->setCurrentIndex(ui->descriptionImageBox->findText(descAct.image()));
+
+        ui->descriptionMusicBox->addItem(descAct.music());
+        ui->descriptionMusicBox->setCurrentIndex(ui->descriptionMusicBox->findText(descAct.music()));
+    } else if(action.type() == ActionType::Battle) {
+        BattleAction battleAction = BattleAction::fromString(action.toString());
+    }
 }
 
 ActionView *ActionView::fromAction(Action action)
@@ -18,7 +33,7 @@ ActionView *ActionView::fromAction(Action action)
 
 void ActionView::on_enemyBox1_activated(int index)
 {
-    //WHEN "NEW ENEMY" IN BATTLE ACTION AHS BEEN CLICKED
+    //WHEN "NEW ENEMY" IN BATTLE ACTION HAS BEEN CLICKED
 }
 
 
@@ -39,15 +54,23 @@ void ActionView::on_d_enemyBox1_activated(int index)
     // WHEN "NEW ENEMY" IN DICE ACTION HAS BEEN CLICKED
 }
 
+void ActionView::resetTabs()
+{
+    int tabCount = ui->tabWidget->count();
+    for(int i = 0; i < tabCount; i++)
+        ui->tabWidget->setTabEnabled(i, false);
+}
+
+
 Action ActionView::getData() const
 {
-    return data;
+    return m_data;
 }
 
 void ActionView::setData(const Action &newData)
 {
-    data = newData;
-    openAction(data);
+    m_data = newData;
+    openAction(m_data);
 }
 
 void ActionView::updateActions(QStringList list)
@@ -68,7 +91,8 @@ void ActionView::updateEnemies(QStringList list)
 
 ActionView::ActionView(const Action &data, QWidget *parent) : QWidget(parent),
     ui(new Ui::ActionView),
-    data(data)
+    m_data(data)
 {
     ui->setupUi(this);
+    openAction(getData());
 }

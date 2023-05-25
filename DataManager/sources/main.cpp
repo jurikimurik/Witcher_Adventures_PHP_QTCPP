@@ -95,9 +95,10 @@ int main(int argc, char *argv[])
     qDebug() << Action::fromString(action1.toString()).toString();
     qDebug() << Action::fromString(action2.toString()).toString();*/
 
-    /*DescriptionAction action("Wyszedl Kalisto na balkon by se jajko poczesac.", "balkon.png", "funnymusic.mp3");
-    qDebug() << action.toString();
-    qDebug() << DescriptionAction::fromString(action.toString()).toString();*/
+    DescriptionAction action("Wyszedl Kalisto na balkon by se jajko poczesac.", "balkon.png", "funnymusic.mp3");
+    Action newAction = action.toAction();
+    qDebug() << newAction.toString();
+    qDebug() << DescriptionAction::fromString(newAction.toString()).toString();
 
     /*AgilityAction action (2, 12);
     qDebug() << action.toString();
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
-    ActionView view;
+    ActionView view(action.toAction());
     view.show();
 
     return a.exec();
