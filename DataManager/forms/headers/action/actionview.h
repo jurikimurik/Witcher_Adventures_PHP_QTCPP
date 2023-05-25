@@ -57,7 +57,9 @@ private slots:
     void on_enemyBox1_activated(int index);
     void on_toActionIdBox1_activated(int index);
     void on_itemBox1_activated(int index);
-    void on_d_enemyBox1_activated(int index);
+    void on_diceEnemyBox1_activated(int index);
+
+    void on_pushButton_clicked();
 
 private:
     void resetTabs();
