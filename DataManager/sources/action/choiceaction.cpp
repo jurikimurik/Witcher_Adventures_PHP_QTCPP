@@ -29,7 +29,7 @@ Action ChoiceAction::toAction() const
     }
     data += dataSplitter;
 
-    return Action(ActionType::NONE,data,idToAction());
+    return Action(ActionType::Choice,data,idToAction());
 }
 
 QString ChoiceAction::toString() const

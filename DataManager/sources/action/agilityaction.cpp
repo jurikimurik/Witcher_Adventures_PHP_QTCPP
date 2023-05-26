@@ -25,7 +25,7 @@ void AgilityAction::setTimePerOne(int newTimePerOne)
 Action AgilityAction::toAction() const
 {
     QString data = dataSplitter + QString::number(difficulty()) + dataSplitter + QString::number(timePerOne()) + dataSplitter;
-    return Action(ActionType::NONE, data, idToAction());
+    return Action(ActionType::Agility, data, idToAction());
 }
 
 QString AgilityAction::toString() const

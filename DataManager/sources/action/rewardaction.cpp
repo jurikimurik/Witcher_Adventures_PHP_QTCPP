@@ -29,7 +29,7 @@ Action RewardAction::toAction() const
         data += QString::number(elem) + "|";
     }
     data += dataSplitter;
-    return Action(ActionType::NONE, data, idToAction());
+    return Action(ActionType::Reward, data, idToAction());
 }
 
 QString RewardAction::toString() const

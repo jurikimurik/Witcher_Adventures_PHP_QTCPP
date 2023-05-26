@@ -52,7 +52,7 @@ Action DiceAction::toAction() const
 
     data += textData() + dataSplitter;
 
-    return Action(ActionType::NONE,data,idToAction());
+    return Action(ActionType::Dice,data,idToAction());
 }
 
 QString DiceAction::toString() const
