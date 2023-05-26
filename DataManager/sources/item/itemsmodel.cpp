@@ -23,6 +23,16 @@ Item *ItemsModel::findByName(QString name)
     return nullptr;
 }
 
+QStringList ItemsModel::getEveryItemIdAndName()
+{
+    QStringList namesAndIds;
+    for(const Item& elem : *this)
+    {
+        namesAndIds.push_back(QString::number(elem.id()) + " - " + elem.name());
+    }
+    return namesAndIds;
+}
+
 QStringList ItemsModel::getEveryItemName()
 {
     QStringList names;

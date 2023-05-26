@@ -108,8 +108,8 @@ int main(int argc, char *argv[])
     /*qDebug() << action.toString();
     qDebug() << BattleAction::fromString(action.toString()).toString();*/
 
-    /*RewardAction action(145, QVector<int>({1, 24, 2, 1, 1, 23}));
-    qDebug() << action.toString();
+    RewardAction rewardAction(145, QVector<int>({1, 24, 2, 1, 1, 23}));
+    /*qDebug() << action.toString();
     qDebug() << RewardAction::fromString(action.toString()).toString();*/
 
     Choice h(-1, QString(), consequence);
@@ -125,14 +125,15 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
-    qDebug() << choiceAction.toString();
-    ActionView view;
-    view.updateConsequences(QStringList({"13 - Troll zabity", "2 - Konrad pokonany"}));
-    view.openAction(choiceAction.toAction());
-    view.show();
-   // view.updateEnemies(charmodel->getAllIdsAndNames());
 
-    //view.updateItems(itemmodel->getEveryItemName());
+    ActionView view;
+    view.show();
+    //view.updateEnemies(charmodel->getAllIdsAndNames());
+    //view.openAction(battleAction.toAction());
+
+
+    view.updateItems(itemmodel->getEveryItemIdAndName());
+    view.openAction(rewardAction.toAction());
 
 
 

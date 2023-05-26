@@ -43,7 +43,7 @@ void ActionView::openAction(Action action)
 
             //If contains id - select that index
             //  - otherwise create new character without name
-            int searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+            int searchedIndex = boxes.at(index)->findText(QString::number(id)  + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateEnemies(QStringList({QString::number(id)}));
                 searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
@@ -54,6 +54,7 @@ void ActionView::openAction(Action action)
             enemyIds.removeAll(id);
             ++index;
         }
+
     } else if(action.type() == ActionType::Choice) {
         ChoiceAction choiceAction = ChoiceAction::fromString(action.toString());
         ui->tabWidget->setTabEnabled(2, true);
@@ -69,7 +70,7 @@ void ActionView::openAction(Action action)
         for(int i = 0; i < choices.size(); ++i)
         {
             Choice choice = choices.at(i);
-            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
+            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateActions(QStringList({QString::number(choice.idToAction())}));
                 searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
@@ -78,7 +79,7 @@ void ActionView::openAction(Action action)
 
             lineEdits.at(i)->setText(choice.text());
 
-            searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains));
+            searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateConsequences(QStringList({QString::number(choice.consequence().id())}));
                 searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains));
@@ -86,6 +87,42 @@ void ActionView::openAction(Action action)
             consBoxes.at(i)->setCurrentIndex(searchedIndex);
         }
 
+    } else if(action.type() == ActionType::Reward) {
+        RewardAction rewardAction = RewardAction::fromString(action.toString());
+        ui->tabWidget->setTabEnabled(3, true);
+        ui->tabWidget->setCurrentWidget(ui->rewardAction);
+
+        ui->moneySpinBox->setValue(rewardAction.money());
+
+        //Generate needed fields + get that fields.
+        QVector<int> itemsIds = rewardAction.itemsIds();
+        //  UNIQUE VALUES NEEDED FOR PROPER GENERATION OF FIELDS
+        setItemsFields(QSet<int>(itemsIds.begin(), itemsIds.end()).size());
+        QList<QComboBox*> boxes = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+"));
+        QList<QSpinBox*> spinBoxes = ui->itemsWidget->findChildren<QSpinBox*>(QRegularExpression("countBox\\d+"));
+
+        int index = 0;
+        while(itemsIds.size() > 0)
+        {
+            int id = itemsIds.first();
+
+            int repeats = std::count(itemsIds.begin(), itemsIds.end(), id);
+
+
+            //If contains id - select that index
+            //  - otherwise create new character without name
+            int searchedIndex = boxes.at(index)->findText(QString::number(id) + " -", Qt::MatchFlags(Qt::MatchContains));
+            if(searchedIndex < 0) {
+                qDebug() << id << repeats;
+                updateItems(QStringList({QString::number(id)}));
+                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+            }
+            boxes.at(index)->setCurrentIndex(searchedIndex);
+            spinBoxes.at(index)->setValue(repeats);
+
+            itemsIds.removeAll(id);
+            ++index;
+        }
     }
 }
 

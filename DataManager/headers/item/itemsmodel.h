@@ -15,6 +15,7 @@ public:
     ItemsModel(QObject* parent = nullptr, QMap<int, Item> database = QMap<int, Item>());
     Item* findById(int id);
     Item* findByName(QString name);
+    QStringList getEveryItemIdAndName();
     QStringList getEveryItemName();
     QStringList getEveryItemIdStr();
     QStringList getEveryItemType();
