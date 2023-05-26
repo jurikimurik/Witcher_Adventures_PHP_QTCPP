@@ -126,17 +126,17 @@ int main(int argc, char *argv[])
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
 
-    ActionView view;
-    view.show();
+    //ActionView view;
+    //view.show();
     //view.updateEnemies(charmodel->getAllIdsAndNames());
     //view.openAction(battleAction.toAction());
-    view.openAction(diceAction.toAction());
+    //view.openAction(diceAction.toAction());
 
     //view.updateItems(itemmodel->getEveryItemIdAndName());
     //view.openAction(rewardAction.toAction());
 
 
-
+    ActionView::fromAction(diceAction.toAction())->show();
     return a.exec();
 }
 

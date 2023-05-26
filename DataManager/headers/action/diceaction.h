@@ -25,6 +25,7 @@ public:
     QString textData() const;
     void setTextData(const QString &newTextData);
 
+
     // Action interface
 public:
     virtual Action toAction() const;

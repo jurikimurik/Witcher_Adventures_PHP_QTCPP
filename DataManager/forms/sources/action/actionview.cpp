@@ -167,7 +167,7 @@ void ActionView::openAction(Action action)
 
 ActionView *ActionView::fromAction(Action action)
 {
-
+    return new ActionView(action);
 }
 
 void ActionView::on_enemyBox1_activated(int index)
