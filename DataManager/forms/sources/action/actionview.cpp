@@ -23,6 +23,36 @@ void ActionView::openAction(Action action)
         ui->descriptionMusicBox->setCurrentIndex(ui->descriptionMusicBox->findText(descAct.music()));
     } else if(action.type() == ActionType::Battle) {
         BattleAction battleAction = BattleAction::fromString(action.toString());
+        ui->tabWidget->setTabEnabled(1, true);
+        ui->tabWidget->setCurrentWidget(ui->battleAction);
+
+        ui->battleTextEdit->setText(battleAction.textData());
+
+        //Generate needed fields + get that fields + spinBoxes.
+        QVector<int> enemyIds = battleAction.enemiesIds();
+        setEnemiesFields(QSet<int>(enemyIds.begin(), enemyIds.end()).size());
+        QList<QComboBox*> boxes = ui->enemiesWidget->findChildren<QComboBox*>(QRegularExpression("enemyBox\\d+"));
+        QList<QSpinBox*> spinBoxes = ui->enemiesWidget->findChildren<QSpinBox*>(QRegularExpression("enemySpinBox\\d+"));
+
+        int index = 0;
+        while(enemyIds.size() > 0)
+        {
+            int id = enemyIds.first();
+            int repeats = std::count(enemyIds.begin(), enemyIds.end(), id);
+
+            //If contains id - select that index
+            //  - otherwise create new character without name
+            int searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+            if(searchedIndex < 0) {
+                updateEnemies(QStringList({QString::number(id)}));
+                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+            }
+            boxes.at(index)->setCurrentIndex(searchedIndex);
+            spinBoxes.at(index)->setValue(repeats);
+
+            enemyIds.removeAll(id);
+            ++index;
+        }
     }
 }
 
@@ -298,7 +328,7 @@ ActionView::ActionView(const Action &data, QWidget *parent) : QWidget(parent),
     m_data(data)
 {
     ui->setupUi(this);
-    //openAction(getData());
+    openAction(getData());
 }
 
 void ActionView::on_enemyRemoveLastButton_clicked()

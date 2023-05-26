@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << AgilityAction::fromString(action.toString()).toString();*/
 
-    /*BattleAction action("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 51, 13}));
+    BattleAction battleAction("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 1, 51, 13, 13, 13}));/*
     qDebug() << action.toString();
     qDebug() << BattleAction::fromString(action.toString()).toString();*/
 
@@ -125,10 +125,10 @@ int main(int argc, char *argv[])
     qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
-    ActionView view(action.toAction());
+    ActionView view(battleAction.toAction());
     view.show();
-    view.updateEnemies(charmodel->getAllIdsAndNames());
-    view.updateItems(itemmodel->getEveryItemName());
+    //view.updateEnemies(charmodel->getAllIdsAndNames());
+    //view.updateItems(itemmodel->getEveryItemName());
 
 
 
