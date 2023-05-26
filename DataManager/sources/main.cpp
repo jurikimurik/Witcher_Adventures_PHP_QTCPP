@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     qDebug() << buff.toString();
     qDebug() << Buff().fromString(buff.toString()).toString();*/
 
-    Character character(24, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
+    Character character(13, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
     Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
     CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));
 
@@ -95,39 +95,43 @@ int main(int argc, char *argv[])
     qDebug() << Action::fromString(action1.toString()).toString();
     qDebug() << Action::fromString(action2.toString()).toString();*/
 
-    DescriptionAction action("Wyszedl Kalisto na balkon by se jajko poczesac.", "balkon.png", "funnymusic.mp3");
+    /*DescriptionAction action("Wyszedl Kalisto na balkon by se jajko poczesac.", "balkon.png", "funnymusic.mp3");
     Action newAction = action.toAction();
     qDebug() << newAction.toString();
-    qDebug() << DescriptionAction::fromString(newAction.toString()).toString();
+    qDebug() << DescriptionAction::fromString(newAction.toString()).toString();*/
 
     /*AgilityAction action (2, 12);
     qDebug() << action.toString();
     qDebug() << AgilityAction::fromString(action.toString()).toString();*/
 
-    BattleAction battleAction("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 1, 51, 13, 13, 13}));/*
-    qDebug() << action.toString();
+    BattleAction battleAction("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 1, 51, 13, 13, 13}));
+    /*qDebug() << action.toString();
     qDebug() << BattleAction::fromString(action.toString()).toString();*/
 
     /*RewardAction action(145, QVector<int>({1, 24, 2, 1, 1, 23}));
     qDebug() << action.toString();
     qDebug() << RewardAction::fromString(action.toString()).toString();*/
 
-    /*Choice h(-1, QString(), consequence);
+    Choice h(-1, QString(), consequence);
     Choice h2(2, "A cos tu jednak jest", consequence1);
     //qDebug() << h.toString();
     //qDebug() << Choice::fromString(h.toString()).toString();
 
-    ChoiceAction action("Musisz wybrac.", QVector<Choice>({h, h2}));
-    qDebug() << action.toString();
+    ChoiceAction choiceAction("Musisz wybrac.", QVector<Choice>({h, h2}));
+    /*qDebug() << action.toString();
     qDebug() << ChoiceAction::fromString(action.toString()).toString();*/
 
     /*DiceAction action(2, 2, QVector<int>({2,4,2}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
     qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
-    ActionView view(battleAction.toAction());
+    qDebug() << choiceAction.toString();
+    ActionView view;
+    view.updateConsequences(QStringList({"13 - Troll zabity", "2 - Konrad pokonany"}));
+    view.openAction(choiceAction.toAction());
     view.show();
-    //view.updateEnemies(charmodel->getAllIdsAndNames());
+   // view.updateEnemies(charmodel->getAllIdsAndNames());
+
     //view.updateItems(itemmodel->getEveryItemName());
 
 

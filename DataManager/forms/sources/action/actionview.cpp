@@ -30,6 +30,7 @@ void ActionView::openAction(Action action)
 
         //Generate needed fields + get that fields + spinBoxes.
         QVector<int> enemyIds = battleAction.enemiesIds();
+        //  UNIQUE VALUES NEEDED FOR PROPER GENERATION OF FIELDS
         setEnemiesFields(QSet<int>(enemyIds.begin(), enemyIds.end()).size());
         QList<QComboBox*> boxes = ui->enemiesWidget->findChildren<QComboBox*>(QRegularExpression("enemyBox\\d+"));
         QList<QSpinBox*> spinBoxes = ui->enemiesWidget->findChildren<QSpinBox*>(QRegularExpression("enemySpinBox\\d+"));
@@ -53,6 +54,38 @@ void ActionView::openAction(Action action)
             enemyIds.removeAll(id);
             ++index;
         }
+    } else if(action.type() == ActionType::Choice) {
+        ChoiceAction choiceAction = ChoiceAction::fromString(action.toString());
+        ui->tabWidget->setTabEnabled(2, true);
+        ui->tabWidget->setCurrentWidget(ui->choiceAction);
+
+        ui->choiceTextEdit->setText(choiceAction.text());
+
+        QVector<Choice> choices = choiceAction.choices();
+        setActionFields(choices.size());
+        QList<QComboBox*> toIdBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+"));
+        QList<QLineEdit*> lineEdits = ui->choicesWidget->findChildren<QLineEdit*>(QRegularExpression("choiceTextEdit\\d+"));
+        QList<QComboBox*> consBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("consequenceBox\\d+"));
+        for(int i = 0; i < choices.size(); ++i)
+        {
+            Choice choice = choices.at(i);
+            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
+            if(searchedIndex < 0) {
+                updateActions(QStringList({QString::number(choice.idToAction())}));
+                searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
+            }
+            toIdBoxes.at(i)->setCurrentIndex(searchedIndex);
+
+            lineEdits.at(i)->setText(choice.text());
+
+            searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains));
+            if(searchedIndex < 0) {
+                updateConsequences(QStringList({QString::number(choice.consequence().id())}));
+                searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains));
+            }
+            consBoxes.at(i)->setCurrentIndex(searchedIndex);
+        }
+
     }
 }
 
