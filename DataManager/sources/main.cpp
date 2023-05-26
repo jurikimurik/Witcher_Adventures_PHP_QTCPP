@@ -121,16 +121,16 @@ int main(int argc, char *argv[])
     /*qDebug() << action.toString();
     qDebug() << ChoiceAction::fromString(action.toString()).toString();*/
 
-    /*DiceAction action(2, 2, QVector<int>({2,4,2}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
-    qDebug() << action.toString();
+    DiceAction diceAction(2, 2, QVector<int>({13,1}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
+    /*qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
 
-    ActionView view(agilityAction.toAction());
+    ActionView view;
     view.show();
     //view.updateEnemies(charmodel->getAllIdsAndNames());
     //view.openAction(battleAction.toAction());
-
+    view.openAction(diceAction.toAction());
 
     //view.updateItems(itemmodel->getEveryItemIdAndName());
     //view.openAction(rewardAction.toAction());

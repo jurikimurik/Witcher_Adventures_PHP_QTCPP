@@ -46,7 +46,7 @@ void ActionView::openAction(Action action)
             int searchedIndex = boxes.at(index)->findText(QString::number(id)  + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateEnemies(QStringList({QString::number(id)}));
-                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             boxes.at(index)->setCurrentIndex(searchedIndex);
             spinBoxes.at(index)->setValue(repeats);
@@ -73,7 +73,7 @@ void ActionView::openAction(Action action)
             int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateActions(QStringList({QString::number(choice.idToAction())}));
-                searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
+                searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             toIdBoxes.at(i)->setCurrentIndex(searchedIndex);
 
@@ -82,7 +82,7 @@ void ActionView::openAction(Action action)
             searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 updateConsequences(QStringList({QString::number(choice.consequence().id())}));
-                searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains));
+                searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             consBoxes.at(i)->setCurrentIndex(searchedIndex);
         }
@@ -115,7 +115,7 @@ void ActionView::openAction(Action action)
             if(searchedIndex < 0) {
                 qDebug() << id << repeats;
                 updateItems(QStringList({QString::number(id)}));
-                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains));
+                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             boxes.at(index)->setCurrentIndex(searchedIndex);
             spinBoxes.at(index)->setValue(repeats);
@@ -130,6 +130,38 @@ void ActionView::openAction(Action action)
 
             ui->agilityDifficultySpinBox->setValue(agilityAction.difficulty());
             ui->agilityTimePerOneSpinBox->setValue(agilityAction.timePerOne());
+    } else if(action.type() == ActionType::Dice) {
+            DiceAction diceAction = DiceAction::fromString(action.toString());
+            ui->tabWidget->setTabEnabled(5, true);
+            ui->tabWidget->setCurrentWidget(ui->diceAction);
+
+            ui->diceTextEdit->setText(diceAction.textData());
+
+            ui->diceDifficultySpinBox->setValue(diceAction.difficulty());
+
+            //Generate needed fields + get that fields + spinBoxes.
+            QVector<int> enemyIds = diceAction.getEnemiesIds();
+            //  UNIQUE VALUES NEEDED FOR PROPER GENERATION OF FIELDS
+            setDiceEnemiesFields(enemyIds.size());
+            QList<QComboBox*> boxes = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+"));
+
+            int index = 0;
+            while(enemyIds.size() > 0)
+            {
+            int id = enemyIds.first();
+
+            //If contains id - select that index
+            //  - otherwise create new character without name
+            int searchedIndex = boxes.at(index)->findText(QString::number(id)  + " -", Qt::MatchFlags(Qt::MatchContains));
+            if(searchedIndex < 0) {
+                updateEnemies(QStringList({QString::number(id)}));
+                searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
+            }
+            boxes.at(index)->setCurrentIndex(searchedIndex);
+
+            enemyIds.removeAll(id);
+            ++index;
+            }
     }
 }
 
