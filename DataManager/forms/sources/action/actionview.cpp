@@ -123,6 +123,13 @@ void ActionView::openAction(Action action)
             itemsIds.removeAll(id);
             ++index;
         }
+    } else if(action.type() == ActionType::Agility) {
+            AgilityAction agilityAction = AgilityAction::fromString(action.toString());
+            ui->tabWidget->setTabEnabled(4, true);
+            ui->tabWidget->setCurrentWidget(ui->agilityAction);
+
+            ui->agilityDifficultySpinBox->setValue(agilityAction.difficulty());
+            ui->agilityTimePerOneSpinBox->setValue(agilityAction.timePerOne());
     }
 }
 
