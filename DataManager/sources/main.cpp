@@ -56,19 +56,19 @@ int main(int argc, char *argv[])
     qDebug() << buff.toString();
     qDebug() << Buff().fromString(buff.toString()).toString();*/
 
-    /*Character character(24, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
+    Character character(24, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
     Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
-    CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));*/
+    CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));
 
-    /*Consequence consequence(13, "Troll zabity", true);
+    Consequence consequence(13, "Troll zabity", true);
     Consequence consequence1(2, "Konrad pokonany", false);
-    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));*/
+    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));
 
     /*ItemType type({"bron biala.", "zwykla bron biala"});
     qDebug() << type.toString();
     qDebug() << ItemType::fromString(type.toString()).toString();*/
 
-    /*Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
+    Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
     Buff buff2(20, Attributes({100, 100, 100, 100, 12, 13, 10}), "Jakies drugie!");
     QVector<Buff> buffs = {buff1, buff2};
 
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
     ItemsModel* itemmodel = new ItemsModel(nullptr, QMap({qMakePair(10, item1), qMakePair(2, item2)}));
 
     DatabaseModel model(itemmodel,charmodel,consmodel);
-    QString str1 = model.toString();
+    /*QString str1 = model.toString();
     QString str2 = DatabaseModel::fromString(model.toString())->toString();
     Q_ASSERT(str1 == str2);*/
 
@@ -127,6 +127,10 @@ int main(int argc, char *argv[])
 
     ActionView view(action.toAction());
     view.show();
+    view.updateEnemies(charmodel->getAllIdsAndNames());
+    view.updateItems(itemmodel->getEveryItemName());
+
+
 
     return a.exec();
 }

@@ -206,6 +206,22 @@ void ActionView::setActionFields(int count)
     }
 }
 
+void ActionView::updateComboBoxes(QString regexName, QStringList newData)
+{
+    //Searching for special QComboBoxes in ui->tabWidget
+    QList<QComboBox*> allBoxes = ui->tabWidget->findChildren<QComboBox*>(QRegularExpression(regexName));
+
+    for(const auto& elem : allBoxes)
+    {
+        int lastIndex = elem->count()-1;
+        QString lastItemText = elem->itemText(lastIndex);
+        elem->removeItem(lastIndex);
+
+        elem->addItems(newData);
+        elem->addItem(lastItemText);
+    }
+}
+
 void ActionView::setItemsFields(int count)
 {
     QList<QComboBox*> boxes = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+"));
@@ -243,36 +259,6 @@ void ActionView::setItemsFields(int count)
     }
 }
 
-QStringList ActionView::enemies() const
-{
-    return m_enemies;
-}
-
-void ActionView::setEnemies(const QStringList &newEnemies)
-{
-    m_enemies = newEnemies;
-}
-
-QStringList ActionView::items() const
-{
-    return m_items;
-}
-
-void ActionView::setItems(const QStringList &newItems)
-{
-    m_items = newItems;
-}
-
-QStringList ActionView::actions() const
-{
-    return m_actions;
-}
-
-void ActionView::setActions(const QStringList &newActions)
-{
-    m_actions = newActions;
-}
-
 
 Action ActionView::getData() const
 {
@@ -287,17 +273,23 @@ void ActionView::setData(const Action &newData)
 
 void ActionView::updateActions(QStringList list)
 {
-
+    updateComboBoxes("toActionIdBox\\d+", list);
 }
 
 void ActionView::updateItems(QStringList list)
 {
+    updateComboBoxes("itemBox\\d+", list);
+}
 
+void ActionView::updateConsequences(QStringList list)
+{
+    updateComboBoxes("consequenceBox\\d+", list);
 }
 
 void ActionView::updateEnemies(QStringList list)
 {
-
+    updateComboBoxes("enemyBox\\d+", list);
+    updateComboBoxes("diceEnemyBox\\d+", list);
 }
 
 

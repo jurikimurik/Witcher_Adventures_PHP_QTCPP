@@ -30,18 +30,12 @@ public:
     Action getData() const;
     void setData(const Action &newData);
 
-    QStringList enemies() const;
-    void setEnemies(const QStringList &newEnemies);
-    QStringList items() const;
-    void setItems(const QStringList &newItems);
-    QStringList actions() const;
-    void setActions(const QStringList &newActions);
-
     //---------------CONNECTION BETWEEN ACTIONVIEW AND EVENTSVIEW---------------
 public slots:
     void updateEnemies(QStringList list);
     void updateActions(QStringList list);
     void updateItems(QStringList list);
+    void updateConsequences(QStringList list);
 
 signals:
     void enemiesIdsNeeded();
@@ -61,7 +55,6 @@ private slots:
     void on_diceRemoveLastButton_clicked();
 
     void on_choiceRemoveLastButton_clicked();
-
     void on_moneyRemoveLastButton_clicked();
 
 private:
@@ -70,14 +63,12 @@ private:
     void setDiceEnemiesFields(int count);
     void setItemsFields(int count);
     void setActionFields(int count);
+    //-----------------------------------------
+    void updateComboBoxes(QString regexName, QStringList newData);
 
 private:
     Ui::ActionView *ui;
     Action m_data;
-
-    QStringList m_enemies;
-    QStringList m_items;
-    QStringList m_actions;
 };
 
 #endif // ACTIONVIEW_H
