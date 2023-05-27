@@ -16,8 +16,12 @@ public:
     QStringList getAllNames();
     QStringList getAllIds();
 
+    static const QString modelSplitter;
     QString toString();
     static EventsModel* fromString(QString str);
+
+
+    static QString getModelSplitter();
 
 public slots:
     void addEvent(const Event& event);

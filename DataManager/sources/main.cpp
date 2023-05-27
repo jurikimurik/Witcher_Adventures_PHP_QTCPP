@@ -17,6 +17,7 @@
 #include "headers/action/diceaction.h"
 #include "forms/headers/action/actionview.h"
 #include "headers/action/event.h"
+#include "headers/action/eventsmodel.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -144,9 +145,17 @@ int main(int argc, char *argv[])
     QVector<Action> actions({agilityAction.toAction(), choiceAction.toAction(), diceAction.toAction()});
     ev1.addActions(actions);
 
-    QString ev1STR = ev1.toString();
-    QString ev1_1STR = Event::fromString(ev1.toString()).toString();
-    Q_ASSERT(ev1STR == ev1_1STR);
+    actions.takeLast();
+    Event ev2("Super-duper opis.", 14, "Jakis glupek mowi dziwne rzeczy.");
+    ev2.addActions(actions);
+
+    EventsModel eventsModel;
+    eventsModel.addEvent(ev1);
+    eventsModel.addEvent(ev2);
+
+    qDebug() << eventsModel.toString();
+    qDebug() << EventsModel::fromString(eventsModel.toString())->toString();
+    Q_ASSERT(eventsModel.toString() == EventsModel::fromString(eventsModel.toString())->toString());
 
 }
 
