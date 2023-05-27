@@ -143,6 +143,11 @@ int main(int argc, char *argv[])
     Event ev1("Jakis tam opis.", 1, "Super-Event");
     QVector<Action> actions({agilityAction.toAction(), choiceAction.toAction(), diceAction.toAction()});
     ev1.addActions(actions);
+
+    QString ev1STR = ev1.toString();
+    QString ev1_1STR = Event::fromString(ev1.toString()).toString();
+    Q_ASSERT(ev1STR == ev1_1STR);
+
 }
 
 
