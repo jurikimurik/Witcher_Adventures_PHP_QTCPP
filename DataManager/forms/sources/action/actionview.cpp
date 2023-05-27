@@ -165,9 +165,16 @@ void ActionView::openAction(Action action)
     }
 }
 
-ActionView *ActionView::fromAction(Action action)
+ActionView *ActionView::fromAction(Action action, QStringList enemies, QStringList actions, QStringList items, QStringList cons)
 {
-    return new ActionView(action);
+    ActionView* view = new ActionView();
+    view->updateEnemies(enemies);
+    view->updateActions(actions);
+    view->updateItems(items);
+    view->updateConsequences(cons);
+
+    view->openAction(action);
+    return view;
 }
 
 void ActionView::on_enemyBox1_activated(int index)

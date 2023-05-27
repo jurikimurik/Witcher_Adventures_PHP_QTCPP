@@ -25,7 +25,8 @@ public:
     ~ActionView();
 
     void openAction(Action action);
-    static ActionView* fromAction(Action action);
+    static ActionView* fromAction(Action action, QStringList enemies = QStringList(), QStringList actions = QStringList(),
+                                  QStringList items = QStringList(), QStringList cons = QStringList());
 
     Action getData() const;
     void setData(const Action &newData);
