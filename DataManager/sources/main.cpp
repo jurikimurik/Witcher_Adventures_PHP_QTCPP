@@ -16,6 +16,7 @@
 #include "headers/action/choiceaction.h"
 #include "headers/action/diceaction.h"
 #include "forms/headers/action/actionview.h"
+#include "headers/action/event.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -136,8 +137,12 @@ int main(int argc, char *argv[])
     //view.openAction(rewardAction.toAction());
 
 
-    ActionView::fromAction(diceAction.toAction())->show();
-    return a.exec();
+    //ActionView::fromAction(diceAction.toAction())->show();
+    //return a.exec();
+
+    Event ev1("Jakis tam opis.", 1, "Super-Event");
+    QVector<Action> actions({agilityAction.toAction(), choiceAction.toAction(), diceAction.toAction()});
+    ev1.addActions(actions);
 }
 
 
