@@ -20,9 +20,9 @@ public:
     static EventsModel* fromString(QString str);
 
 public slots:
-    void addEvent(const Event& action);
-    void updateEvent(const Event& action);
-    void removeEvent(const Event& action);
+    void addEvent(const Event& event);
+    void updateEvent(const Event& event);
+    void removeEvent(const Event& event);
 
 signals:
     void dataUpdated();

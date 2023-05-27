@@ -31,6 +31,11 @@ void Event::addAction(const Action &action)
     push_back(action);
 }
 
+void Event::updateAction(int whichOne, const Action &action)
+{
+    (*this)[whichOne] = action;
+}
+
 void Event::removeAction(int number)
 {
     remove(number);
