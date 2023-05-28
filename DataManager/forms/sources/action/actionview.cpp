@@ -11,7 +11,9 @@ void ActionView::openAction(Action action)
     resetTabs();
 
     if(action.type() == ActionType::Description) {
-        DescriptionAction descAct = DescriptionAction::fromString(action.toString());
+        DescriptionAction descAct;
+        if(action.data() != QString())
+            descAct = DescriptionAction::fromString(action.toString());
         ui->tabWidget->setTabEnabled(0, true);
         ui->tabWidget->setCurrentWidget(ui->descriptionAction);
 
@@ -22,7 +24,9 @@ void ActionView::openAction(Action action)
         ui->descriptionMusicBox->addItem(descAct.music());
         ui->descriptionMusicBox->setCurrentIndex(ui->descriptionMusicBox->findText(descAct.music()));
     } else if(action.type() == ActionType::Battle) {
-        BattleAction battleAction = BattleAction::fromString(action.toString());
+        BattleAction battleAction(QString(), QVector<int>({-1}));
+        if(action.data() != QString())
+            battleAction = BattleAction::fromString(action.toString());
         ui->tabWidget->setTabEnabled(1, true);
         ui->tabWidget->setCurrentWidget(ui->battleAction);
 
@@ -56,7 +60,9 @@ void ActionView::openAction(Action action)
         }
 
     } else if(action.type() == ActionType::Choice) {
-        ChoiceAction choiceAction = ChoiceAction::fromString(action.toString());
+        ChoiceAction choiceAction(QString(), QVector<Choice>({Choice()}));
+        if(action.data() != QString())
+            choiceAction = ChoiceAction::fromString(action.toString());
         ui->tabWidget->setTabEnabled(2, true);
         ui->tabWidget->setCurrentWidget(ui->choiceAction);
 
@@ -88,7 +94,9 @@ void ActionView::openAction(Action action)
         }
 
     } else if(action.type() == ActionType::Reward) {
-        RewardAction rewardAction = RewardAction::fromString(action.toString());
+        RewardAction rewardAction(0, QVector<int>({-1}));
+        if(action.data() != QString())
+           rewardAction = RewardAction::fromString(action.toString());
         ui->tabWidget->setTabEnabled(3, true);
         ui->tabWidget->setCurrentWidget(ui->rewardAction);
 
@@ -124,14 +132,18 @@ void ActionView::openAction(Action action)
             ++index;
         }
     } else if(action.type() == ActionType::Agility) {
-            AgilityAction agilityAction = AgilityAction::fromString(action.toString());
+            AgilityAction agilityAction;
+            if(action.data() != QString())
+                agilityAction = AgilityAction::fromString(action.toString());
             ui->tabWidget->setTabEnabled(4, true);
             ui->tabWidget->setCurrentWidget(ui->agilityAction);
 
             ui->agilityDifficultySpinBox->setValue(agilityAction.difficulty());
             ui->agilityTimePerOneSpinBox->setValue(agilityAction.timePerOne());
     } else if(action.type() == ActionType::Dice) {
-            DiceAction diceAction = DiceAction::fromString(action.toString());
+            DiceAction diceAction(1, 2, QVector<int>({-1}));
+            if(action.data() != QString())
+                diceAction = DiceAction::fromString(action.toString());
             ui->tabWidget->setTabEnabled(5, true);
             ui->tabWidget->setCurrentWidget(ui->diceAction);
 

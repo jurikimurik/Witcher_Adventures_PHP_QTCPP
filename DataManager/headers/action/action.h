@@ -4,6 +4,7 @@
 #include <QString>
 #include "../../headers/basic/databaseitem.h"
 
+
 enum class ActionType {
     NONE = 0,
     Description = 1,
