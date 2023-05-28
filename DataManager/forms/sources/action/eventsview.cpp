@@ -29,6 +29,9 @@ void EventsView::addAction()
     Action newAction((ActionType)index);
 
     m_event.addAction(newAction);
+    save();
+
+    openEvent(ui->eventBox->currentIndex());
     openAction(ui->actionBox->count()-1);
 
 }
@@ -47,6 +50,10 @@ void EventsView::openAction(int index)
     connect(this, &EventsView::actionsChanged, actionView(), &ActionView::updateActions);
     connect(this, &EventsView::itemsChanged, actionView(), &ActionView::updateItems);
     connect(this, &EventsView::consChanged, actionView(), &ActionView::updateConsequences);
+
+    connect(actionView(), &ActionView::actionChanged, this, &EventsView::updateAction);
+
+    ui->actionBox->setCurrentIndex(index);
 }
 
 void EventsView::openEvent(int index)
@@ -60,6 +67,7 @@ void EventsView::openEvent(int index)
     setEvent(m_model->value(id));
 
     ui->actionSelectWidget->setEnabled(true);
+    ui->saveButton->setEnabled(true);
     ui->actionBox->clear();
     for(int i = 0; i < getEvent().size(); ++i)
     {
@@ -67,7 +75,7 @@ void EventsView::openEvent(int index)
     }
 
     if(actionView() != nullptr)
-        actionView()->deleteLater();
+        actionView()->setEnabled(false);
 }
 
 void EventsView::updateAction(const Action &action)
@@ -185,6 +193,8 @@ EventsView::EventsView(EventsModel *model, QWidget *parent) : QWidget(parent),
         ui->eventSelectWidget->setEnabled(true);
     else
         ui->addEventButton->setEnabled(true);
+
+    connect(this, &EventsView::saveEvent, m_model, &EventsModel::updateEvent);
 
 
 }
