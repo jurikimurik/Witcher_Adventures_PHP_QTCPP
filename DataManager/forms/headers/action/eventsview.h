@@ -1,7 +1,9 @@
 #ifndef EVENTSVIEW_H
 #define EVENTSVIEW_H
 
+#include <QTranslator>
 #include <QWidget>
+#include <QInputDialog>
 #include "actionview.h"
 #include "../../../headers/action/eventsmodel.h"
 
@@ -42,6 +44,8 @@ public slots:
     void addAction();
     void openAction(int index);
     void openEvent(int index);
+
+    void updateAction(const Action& action);
 
 signals:
     void saveEvent(const Event& event);

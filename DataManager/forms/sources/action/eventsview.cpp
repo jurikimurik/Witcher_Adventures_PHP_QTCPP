@@ -18,6 +18,18 @@ void EventsView::addEvent()
 
 void EventsView::addAction()
 {
+    QStringList lista = {tr("Brak"), tr("Opis"), tr("Zrecznosc"),
+                         tr("Bitwa"), tr("Nagroda"), tr("Wybor"),
+                         tr("Kosci")};
+    QString wybor = QInputDialog::getItem(this, tr("Typ"), tr("Wybierz typ akcji"), lista, 0, false);
+    if(wybor == lista.at(0))
+        return;
+
+    int index = lista.indexOf(wybor);
+    Action newAction((ActionType)index);
+
+    m_event.addAction(newAction);
+    openAction(ui->actionBox->count()-1);
 
 }
 
@@ -56,6 +68,12 @@ void EventsView::openEvent(int index)
 
     if(actionView() != nullptr)
         actionView()->deleteLater();
+}
+
+void EventsView::updateAction(const Action &action)
+{
+    m_event.updateAction(ui->actionBox->currentIndex(), action);
+    openAction(ui->actionBox->currentIndex());
 }
 
 QStringList EventsView::enemies() const
