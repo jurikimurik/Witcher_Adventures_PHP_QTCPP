@@ -129,10 +129,10 @@ int main(int argc, char *argv[])
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
 
-    //ActionView view;
-    //view.show();
-    //view.updateEnemies(charmodel->getAllIdsAndNames());
-    //view.openAction(battleAction.toAction());
+    ActionView view;
+    view.show();
+    view.updateEnemies(charmodel->getAllIdsAndNames());
+    view.openAction(battleAction.toAction());
     //view.openAction(diceAction.toAction());
 
     //view.updateItems(itemmodel->getEveryItemIdAndName());
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
     //ActionView::fromAction(diceAction.toAction())->show();
     //return a.exec();
 
-    Event ev1("Jakis tam opis.", 1, "Super-Event");
+    /*Event ev1("Jakis tam opis.", 1, "Super-Event");
     QVector<Action> actions({agilityAction.toAction(), choiceAction.toAction(), diceAction.toAction()});
     ev1.addActions(actions);
 
@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
     eventsModel.addEvent(ev2);
 
     EventsView view(&eventsModel);
-    view.show();
+    view.show();*/
 
     return a.exec();
 

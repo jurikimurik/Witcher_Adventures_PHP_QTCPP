@@ -23,7 +23,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -340,7 +340,24 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ActionView</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>455</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>308</x>
+     <y>437</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>save()</slot>
  </slots>

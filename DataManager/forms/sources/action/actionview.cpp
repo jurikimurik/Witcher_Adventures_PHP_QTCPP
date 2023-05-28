@@ -163,6 +163,8 @@ void ActionView::openAction(Action action)
             ++index;
             }
     }
+
+    setData(action);
 }
 
 ActionView *ActionView::fromAction(Action action, QStringList enemies, QStringList actions, QStringList items, QStringList cons)
@@ -414,7 +416,6 @@ Action ActionView::getData() const
 void ActionView::setData(const Action &newData)
 {
     m_data = newData;
-    openAction(m_data);
 }
 
 void ActionView::updateActions(QStringList list)
@@ -440,10 +441,10 @@ void ActionView::updateEnemies(QStringList list)
 
 
 ActionView::ActionView(const Action &data, QWidget *parent) : QWidget(parent),
-    ui(new Ui::ActionView),
-    m_data(data)
+    ui(new Ui::ActionView)
 {
     ui->setupUi(this);
+    setData(data);
     openAction(getData());
 }
 
@@ -476,5 +477,102 @@ void ActionView::on_moneyRemoveLastButton_clicked()
     int fields = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+")).size();
     if(fields > 1)
         setItemsFields(fields - 1);
+}
+
+void ActionView::save()
+{
+    Action action = getData();
+
+    if(action.type() == ActionType::Description) {
+        QString text = ui->descriptionTextEdit->toPlainText();
+        QString image = ui->descriptionImageBox->currentText();
+        QString music = ui->descriptionMusicBox->currentText();
+
+        DescriptionAction descAction(text, image, music);
+        setData(descAction.toAction());
+
+    } else if(action.type() == ActionType::Battle) {
+        QString text = ui->battleTextEdit->toPlainText();
+        QList<QComboBox*> boxes = ui->enemiesWidget->findChildren<QComboBox*>(QRegularExpression("enemyBox\\d+"));
+        QList<QSpinBox*> spinBoxes = ui->enemiesWidget->findChildren<QSpinBox*>(QRegularExpression("enemySpinBox\\d+"));
+
+        QVector<int> enemiesIds;
+        for(int i = 0; i < boxes.size(); ++i)
+        {
+            int enemyId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            for(int r = 0; r < spinBoxes.at(i)->value(); ++r)
+                enemiesIds.push_back(enemyId);
+        }
+
+        BattleAction battleAction(text, enemiesIds);
+        setData(battleAction.toAction());
+
+    } else if(action.type() == ActionType::Choice) {
+        QString text = ui->choiceTextEdit->toPlainText();
+        QList<QComboBox*> toIdBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("toActionIdBox\\d+"));
+        QList<QLineEdit*> lineEdits = ui->choicesWidget->findChildren<QLineEdit*>(QRegularExpression("choiceTextEdit\\d+"));
+        QList<QComboBox*> consBoxes = ui->choicesWidget->findChildren<QComboBox*>(QRegularExpression("consequenceBox\\d+"));
+
+        QVector<Choice> choices;
+        for(int i = 0; i < toIdBoxes.size(); ++i)
+        {
+            int toId = toIdBoxes.at(i)->currentText().split("-").at(0).toInt();
+            QString choiceText = lineEdits.at(i)->text();
+            Consequence cons;
+            int consId = consBoxes.at(i)->currentText().split(" - ").at(0).toInt();
+            if(consId != -1) {
+                cons.setId(consId);
+
+                QStringList list = consBoxes.at(i)->currentText().split(" - ");
+                list.takeFirst();
+                cons.setName(list.join(" - "));
+
+                cons.setOn(true);
+            }
+
+            Choice choice(toId, choiceText, cons);
+            choices.push_back(choice);
+        }
+
+        ChoiceAction choiceAction(text, choices);
+        setData(choiceAction.toAction());
+
+    } else if(action.type() == ActionType::Reward) {
+        int money = ui->moneySpinBox->value();
+        QList<QComboBox*> boxes = ui->itemsWidget->findChildren<QComboBox*>(QRegularExpression("itemBox\\d+"));
+        QList<QSpinBox*> spinBoxes = ui->itemsWidget->findChildren<QSpinBox*>(QRegularExpression("countBox\\d+"));
+
+        QVector<int> itemsIds;
+        for(int i = 0; i < boxes.size(); ++i)
+        {
+            int itemId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            for(int r = 0; r < spinBoxes.at(i)->value(); ++r)
+                itemsIds.push_back(itemId);
+        }
+
+        RewardAction rewardAction(money, itemsIds);
+        setData(rewardAction.toAction());
+    } else if(action.type() == ActionType::Agility) {
+        AgilityAction agilityAction(ui->agilityDifficultySpinBox->value(), ui->agilityTimePerOneSpinBox->value());
+        setData(agilityAction.toAction());
+    } else if(action.type() == ActionType::Dice) {
+        QString text = ui->diceTextEdit->toPlainText();
+        int difficulty = ui->diceDifficultySpinBox->value();
+
+        QList<QComboBox*> boxes = ui->diceWidget->findChildren<QComboBox*>(QRegularExpression("diceEnemyBox\\d+"));
+        QVector<int> enemiesIds;
+        for(int i = 0; i < boxes.size(); ++i)
+        {
+            int enemyId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            enemiesIds.push_back(enemyId);
+        }
+
+        DiceAction diceAction(difficulty, enemiesIds.size()+1, enemiesIds, text);
+        setData(diceAction.toAction());
+    }
+
+    emit actionChanged(getData());
+    openAction(getData());
+
 }
 
