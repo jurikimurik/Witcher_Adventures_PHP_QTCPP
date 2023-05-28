@@ -18,6 +18,7 @@
 #include "forms/headers/action/actionview.h"
 #include "headers/action/event.h"
 #include "headers/action/eventsmodel.h"
+#include "forms/headers/action/eventsview.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -153,9 +154,10 @@ int main(int argc, char *argv[])
     eventsModel.addEvent(ev1);
     eventsModel.addEvent(ev2);
 
-    qDebug() << eventsModel.toString();
-    qDebug() << EventsModel::fromString(eventsModel.toString())->toString();
-    Q_ASSERT(eventsModel.toString() == EventsModel::fromString(eventsModel.toString())->toString());
+    EventsView view(&eventsModel);
+    view.show();
+
+    return a.exec();
 
 }
 

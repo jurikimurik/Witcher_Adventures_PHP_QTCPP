@@ -20,10 +20,19 @@ public:
 
     EventsModel *model() const;
     void setModel(EventsModel *newModel);
-    Event event() const;
+    Event getEvent() const;
     void setEvent(const Event &newEvent);
     ActionView *actionView() const;
     void setActionView(ActionView *newActionView);
+
+    QStringList enemies() const;
+    void setEnemies(const QStringList &newEnemies);
+    QStringList items() const;
+    void setItems(const QStringList &newItems);
+    QStringList actions() const;
+    void setActions(const QStringList &newActions);
+    QStringList cons() const;
+    void setCons(const QStringList &newCons);
 
 public slots:
     void save();
@@ -37,12 +46,22 @@ public slots:
 signals:
     void saveEvent(const Event& event);
 
+    void enemiesChanged(QStringList enemies);
+    void itemsChanged(QStringList items);
+    void actionsChanged(QStringList actions);
+    void consChanged(QStringList consequences);
+
 private:
     Ui::EventsView *ui;
     EventsModel* m_model;
 
     Event m_event;
-    ActionView* m_actionView;
+    ActionView* m_actionView = nullptr;
+
+    QStringList m_enemies;
+    QStringList m_items;
+    QStringList m_actions;
+    QStringList m_cons;
 };
 
 #endif // EVENTSVIEW_H

@@ -175,6 +175,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>eventBox</sender>
+   <signal>activated(int)</signal>
+   <receiver>EventsView</receiver>
+   <slot>openEvent(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionBox</sender>
+   <signal>activated(int)</signal>
+   <receiver>EventsView</receiver>
+   <slot>openAction(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>save()</slot>
@@ -182,5 +214,7 @@
   <slot>removeEvent()</slot>
   <slot>addAction()</slot>
   <slot>removeAction()</slot>
+  <slot>openAction(int)</slot>
+  <slot>openEvent(int)</slot>
  </slots>
 </ui>
