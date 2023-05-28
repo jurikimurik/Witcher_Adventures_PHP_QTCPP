@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QWidget" name="eventSelectWidget" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -45,6 +48,9 @@
    </item>
    <item>
     <widget class="QWidget" name="actionSelectWidget" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -73,10 +79,13 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="actionWidget" native="true"/>
+    <layout class="QVBoxLayout" name="actionLayout"/>
    </item>
    <item>
     <widget class="QPushButton" name="saveButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="text">
       <string>Zapisz</string>
      </property>
@@ -85,5 +94,93 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>saveButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EventsView</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>407</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>282</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addActionButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EventsView</receiver>
+   <slot>addAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>301</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeActionButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EventsView</receiver>
+   <slot>removeAction()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>461</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeEventButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EventsView</receiver>
+   <slot>removeEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>471</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>9</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addEventButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EventsView</receiver>
+   <slot>addEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>307</x>
+     <y>9</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>save()</slot>
+  <slot>addEvent()</slot>
+  <slot>removeEvent()</slot>
+  <slot>addAction()</slot>
+  <slot>removeAction()</slot>
+ </slots>
 </ui>
