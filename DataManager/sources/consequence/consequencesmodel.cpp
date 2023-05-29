@@ -6,7 +6,7 @@ ConsequencesModel::ConsequencesModel(QMap<int, Consequence> database, QObject *p
     : QObject{parent},
       QMap<int, Consequence>(database)
 {
-
+    emit dataUpdated(getAllNamesAndIds());
 }
 
 QStringList ConsequencesModel::getAllNamesAndIds()
@@ -56,7 +56,7 @@ ConsequencesModel* ConsequencesModel::fromString(QString str)
         QStringList properties = elem.split(DatabaseItem::getSplitter());
         int mapId = properties.takeFirst().toInt();
         Consequence cons = Consequence::fromString(properties.join(DatabaseItem::getSplitter()));
-        model->insert(mapId, cons);
+        model->updateConsequence(cons);
     }
     return model;
 }

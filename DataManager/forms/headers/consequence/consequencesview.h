@@ -18,6 +18,8 @@ public:
     explicit ConsequencesView(ConsequencesModel* model = nullptr, QWidget *parent = nullptr);
     ~ConsequencesView();
 
+    ConsequencesModel *model() const;
+
 private slots:
     void addConsequence();
     void updateConsequence();

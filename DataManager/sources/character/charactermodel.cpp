@@ -7,6 +7,7 @@ CharacterModel::CharacterModel(QObject *parent, QMap<int, Character> database)
     : QObject{parent}
 {
     swap(database);
+    emit dataUpdated(getAllIdsAndNames());
 }
 
 QStringList CharacterModel::getAllIds()
@@ -42,7 +43,7 @@ CharacterModel *CharacterModel::fromString(QString str)
         QStringList properties = elem.split(DatabaseItem::getSplitter());
         int mapId = properties.takeFirst().toInt();
         Character character = Character::fromString(properties.join(DatabaseItem::getSplitter()));
-        model->insert(mapId, character);
+        model->addCharacter(character);
     }
     return model;
 }

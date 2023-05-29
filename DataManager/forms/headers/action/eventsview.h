@@ -47,16 +47,23 @@ public slots:
 
     void updateAction(const Action& action);
 
+    void enemiesToUpdate(const QStringList& list);
+    void itemsToUpdate(const QStringList& list);
+    void actionsToUpdate(const QStringList& list);
+    void consToUpdate(const QStringList& list);
+
 signals:
     void saveEvent(const Event& event);
 
-    void enemiesChanged(QStringList enemies);
-    void itemsChanged(QStringList items);
-    void actionsChanged(QStringList actions);
-    void consChanged(QStringList consequences);
+
+    void enemiesChanged(const QStringList& list);
+    void itemsChanged(const QStringList& list);
+    void actionsChanged(const QStringList& list);
+    void consChanged(const QStringList& list);
 
 private:
     void loadEvents();
+    void updateActions();
 
 private:
     Ui::EventsView *ui;

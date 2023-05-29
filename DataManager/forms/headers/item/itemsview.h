@@ -26,6 +26,8 @@ public:
     void searchByName(QString name);
 
 
+    ItemsModel *model() const;
+
 signals:
     void itemChanged(Item newItem);
 

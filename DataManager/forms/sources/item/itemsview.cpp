@@ -186,3 +186,8 @@ void ItemsView::refreshData()
     ui->itemBox->addItem(QTranslator::tr("*DODAJ NOWY PRZEDMIOT*"));
 }
 
+ItemsModel *ItemsView::model() const
+{
+    return m_model;
+}
+

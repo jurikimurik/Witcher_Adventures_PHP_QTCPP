@@ -377,6 +377,8 @@ void ActionView::updateComboBoxes(QString regexName, QStringList newData)
         QString lastItemText = elem->itemText(lastIndex);
         elem->removeItem(lastIndex);
 
+        elem->clear();
+
         elem->addItems(newData);
         elem->addItem(lastItemText);
     }

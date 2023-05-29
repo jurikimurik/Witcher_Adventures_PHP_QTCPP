@@ -3,7 +3,9 @@
 const QString ItemsModel::modelSplitter = "[::ITEMS::]";
 
 ItemsModel::ItemsModel(QObject *parent, QMap<int, Item> data) : QObject(parent), QMap<int, Item>(data)
-{}
+{
+    emit dataSaved(getEveryItemIdAndName());
+}
 
 Item *ItemsModel::findById(int id)
 {
@@ -102,7 +104,7 @@ ItemsModel *ItemsModel::fromString(QString str)
         QStringList properties = elem.split(DatabaseItem::getSplitter());
         int mapId = properties.takeFirst().toInt();
         Item item = Item::fromString(properties.join(DatabaseItem::getSplitter()));
-        model->insert(mapId, item);
+        model->dataChanged(item);
     }
     return model;
 }

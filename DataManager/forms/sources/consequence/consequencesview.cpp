@@ -72,6 +72,11 @@ Consequence ConsequencesView::getConsequenceFromForm()
     return Consequence(id, name, isOn);
 }
 
+ConsequencesModel *ConsequencesView::model() const
+{
+    return m_model;
+}
+
 void ConsequencesView::on_consequenceBox_activated(int index)
 {
     if(index+1 == ui->consequenceBox->count())

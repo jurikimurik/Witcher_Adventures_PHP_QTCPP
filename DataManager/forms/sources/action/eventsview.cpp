@@ -46,7 +46,7 @@ void EventsView::addAction()
 
     openEvent(ui->eventBox->currentIndex());
     openAction(ui->actionBox->count()-1);
-
+    updateActions();
 }
 
 void EventsView::openAction(int index)
@@ -82,6 +82,7 @@ void EventsView::openEvent(int index)
     ui->actionSelectWidget->setEnabled(true);
     ui->saveButton->setEnabled(true);
     ui->actionBox->clear();
+    updateActions();
     for(int i = 0; i < getEvent().size(); ++i)
     {
         ui->actionBox->addItem(QString::number(i));
@@ -89,12 +90,34 @@ void EventsView::openEvent(int index)
 
     if(actionView() != nullptr)
         actionView()->setEnabled(false);
+
+
 }
 
 void EventsView::updateAction(const Action &action)
 {
     m_event.updateAction(ui->actionBox->currentIndex(), action);
     openAction(ui->actionBox->currentIndex());
+}
+
+void EventsView::enemiesToUpdate(const QStringList &list)
+{
+    setEnemies(list);
+}
+
+void EventsView::itemsToUpdate(const QStringList &list)
+{
+    setItems(list);
+}
+
+void EventsView::actionsToUpdate(const QStringList &list)
+{
+    setActions(list);
+}
+
+void EventsView::consToUpdate(const QStringList &list)
+{
+    setCons(list);
 }
 
 void EventsView::loadEvents()
@@ -104,6 +127,16 @@ void EventsView::loadEvents()
     {
         ui->eventBox->addItem(elem);
     }
+}
+
+void EventsView::updateActions()
+{
+    QStringList actions;
+    for(int i = 0; i < ui->actionBox->count(); ++i)
+    {
+        actions.push_back(ui->actionBox->itemText(i));
+    }
+    setActions(actions);
 }
 
 QStringList EventsView::enemies() const
@@ -201,6 +234,7 @@ void EventsView::removeAction()
     openEvent(ui->eventBox->currentIndex());
     if(actions > 0)
         openAction(actions-1);
+    updateActions();
 }
 
 void EventsView::save()
