@@ -8,7 +8,11 @@ EventsView::~EventsView()
 
 void EventsView::removeEvent()
 {
-
+    m_model->removeEvent(getEvent());
+    loadEvents();
+    int eventsCounter = ui->eventBox->count();
+    if(eventsCounter > 0)
+        openEvent(eventsCounter-1);
 }
 
 void EventsView::addEvent()
