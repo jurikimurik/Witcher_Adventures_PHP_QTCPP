@@ -168,7 +168,17 @@ void EventsView::setActionView(ActionView *newActionView)
 
 void EventsView::removeAction()
 {
+    int actions = ui->actionBox->count();
+    if(actions <= 0)
+        return;
 
+    m_event.removeAction(ui->actionBox->currentText().toInt());
+    --actions;
+    save();
+
+    openEvent(ui->eventBox->currentIndex());
+    if(actions > 0)
+        openAction(actions-1);
 }
 
 void EventsView::save()
