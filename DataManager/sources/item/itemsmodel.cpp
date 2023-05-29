@@ -117,3 +117,8 @@ void ItemsModel::dataChanged(Item newItem)
     addItem(newItem);
     emit dataSaved();
 }
+
+void ItemsModel::idsAndNamesNeeded()
+{
+    emit getEveryItemIdAndName();
+}

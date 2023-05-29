@@ -90,6 +90,11 @@ void CharacterModel::deleteCharacter(const Character &charToDelete)
     emit dataUpdated();
 }
 
+void CharacterModel::idsAndNamesNeeded()
+{
+    emit getAllIdsAndNames();
+}
+
 void CharacterModel::addCharacter(const Character &newChar)
 {
     insert(newChar.id(), newChar);

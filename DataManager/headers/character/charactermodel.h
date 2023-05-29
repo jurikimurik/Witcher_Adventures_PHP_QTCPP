@@ -28,9 +28,11 @@ public slots:
     void addCharacter(const Character& newChar);
     void updateCharacter(const Character& updatedChar);
     void deleteCharacter(const Character& charToDelete);
+    void idsAndNamesNeeded();
 
 signals:
     void dataUpdated();
+    void sendIdsAndNames(QStringList list);
 };
 
 #endif // CHARACTERMODEL_H
