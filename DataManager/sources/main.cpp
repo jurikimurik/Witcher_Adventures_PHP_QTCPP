@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     Item item2(2, "Wlocznia", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Nawet cos.", "spear.png");
     ItemsModel* itemmodel = new ItemsModel(nullptr, QMap({qMakePair(10, item1), qMakePair(2, item2)}));
 
-    DatabaseModel model(itemmodel,charmodel,consmodel);
+
     /*QString str1 = model.toString();
     QString str2 = DatabaseModel::fromString(model.toString())->toString();
     Q_ASSERT(str1 == str2);*/
@@ -150,14 +150,18 @@ int main(int argc, char *argv[])
     Event ev2("Super-duper opis.", 14, "Jakis glupek mowi dziwne rzeczy.");
     ev2.addActions(actions);
 
-    EventsModel eventsModel;
-    eventsModel.addEvent(ev1);
-    eventsModel.addEvent(ev2);
+    EventsModel* eventsModel = new EventsModel();
+    eventsModel->addEvent(ev1);
+    eventsModel->addEvent(ev2);
 
-    EventsView view(&eventsModel);
-    view.show();
+    //EventsView view(&eventsModel);
+    //view.show();
 
-    return a.exec();
+    DatabaseModel model(itemmodel,charmodel,consmodel,eventsModel);
+    QString modelTXT = model.toString();
+    Q_ASSERT(modelTXT == DatabaseModel::fromString(modelTXT)->toString());
+
+    //return a.exec();
 
 }
 
