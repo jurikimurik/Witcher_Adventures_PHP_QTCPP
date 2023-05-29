@@ -54,15 +54,24 @@ void DatabaseView::assignViewsToModels()
         delete m_charactersView;
     if(m_itemsView != nullptr)
         delete m_consequencesView;
+    if(m_eventsView != nullptr)
+        delete m_eventsView;
 
 
-    m_itemsView = new ItemsView(m_model->itemsModel());
-    m_charactersView = new CharacterView(m_model->charactersModel());
-    m_consequencesView = new ConsequencesView(m_model->consequencesModel());
+    m_itemsView = new ItemsView(m_model->itemsModel(), this);
+    m_charactersView = new CharacterView(m_model->charactersModel(), new BuffView(), this);
+    m_consequencesView = new ConsequencesView(m_model->consequencesModel(), this);
+    m_eventsView = new EventsView(m_model->eventsModel(), this);
 
     ui->items->layout()->addWidget(m_itemsView);
     ui->characters->layout()->addWidget(m_charactersView);
     ui->consequences->layout()->addWidget(m_consequencesView);
+    ui->events->layout()->addWidget(m_eventsView);
+}
+
+void DatabaseView::createConnections()
+{
+    //connect(m_eventsView, &EventsView::)
 }
 
 void DatabaseView::save()
@@ -98,6 +107,16 @@ void DatabaseView::load()
     assignViewsToModels();
 }
 
+EventsView *DatabaseView::eventsView() const
+{
+    return m_eventsView;
+}
+
+void DatabaseView::setEventsView(EventsView *newEventsView)
+{
+    m_eventsView = newEventsView;
+}
+
 
 DatabaseView::DatabaseView(DatabaseModel *model, QWidget *parent) : QMainWindow(parent),
     ui(new Ui::DatabaseView),
@@ -106,4 +125,5 @@ DatabaseView::DatabaseView(DatabaseModel *model, QWidget *parent) : QMainWindow(
     ui->setupUi(this);
 
     assignViewsToModels();
+    createConnections();
 }

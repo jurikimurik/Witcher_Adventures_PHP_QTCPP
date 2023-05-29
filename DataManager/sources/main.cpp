@@ -157,11 +157,11 @@ int main(int argc, char *argv[])
     //EventsView view(&eventsModel);
     //view.show();
 
-    DatabaseModel model(itemmodel,charmodel,consmodel,eventsModel);
-    QString modelTXT = model.toString();
-    Q_ASSERT(modelTXT == DatabaseModel::fromString(modelTXT)->toString());
+    DatabaseModel* model = new DatabaseModel(itemmodel,charmodel,consmodel,eventsModel);
+    DatabaseView* view = new DatabaseView(model);
+    view->show();
 
-    //return a.exec();
+    return a.exec();
 
 }
 

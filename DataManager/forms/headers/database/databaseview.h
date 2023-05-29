@@ -7,7 +7,9 @@
 #include "../item/itemsview.h"
 #include "../character/characterview.h"
 #include "../consequence/consequencesview.h"
+#include "../action/eventsview.h"
 #include "../../../headers/database/databasemodel.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class DatabaseView; }
@@ -30,12 +32,19 @@ public:
     void setConsequencesView(ConsequencesView *newConsequencesView);
     DatabaseModel *model() const;
     void setModel(DatabaseModel *newModel);
+    EventsView *eventsView() const;
+    void setEventsView(EventsView *newEventsView);
 
     void assignViewsToModels();
+    void createConnections();
+
+
 
 public slots:
     void save();
     void load();
+
+
 
 private:
     Ui::DatabaseView *ui;
@@ -43,7 +52,9 @@ private:
     ItemsView* m_itemsView = nullptr;
     CharacterView* m_charactersView = nullptr;
     ConsequencesView* m_consequencesView = nullptr;
+    EventsView* m_eventsView = nullptr;
     DatabaseModel* m_model = nullptr;
+
 
 };
 #endif // DATABASEVIEW_H
