@@ -13,7 +13,16 @@ void EventsView::removeEvent()
 
 void EventsView::addEvent()
 {
+    auto ids = m_model->keys();
+    int maxId = *std::max_element(ids.begin(), ids.end());
+    QString name = QInputDialog::getText(this, tr("Nazwa"), tr("Podaj nazwe wydarzenia: "));
+    if(name.isEmpty())
+        return;
+    Event newEvent(QString(), maxId+1, name);
 
+    m_model->addEvent(newEvent);
+    loadEvents();
+    openEvent(ui->eventBox->count()-1);
 }
 
 void EventsView::addAction()
@@ -82,6 +91,15 @@ void EventsView::updateAction(const Action &action)
 {
     m_event.updateAction(ui->actionBox->currentIndex(), action);
     openAction(ui->actionBox->currentIndex());
+}
+
+void EventsView::loadEvents()
+{
+    ui->eventBox->clear();
+    for(const auto& elem : m_model->getAllNamesAndIds())
+    {
+        ui->eventBox->addItem(elem);
+    }
 }
 
 QStringList EventsView::enemies() const
@@ -192,10 +210,7 @@ EventsView::EventsView(EventsModel *model, QWidget *parent) : QWidget(parent),
 {
     ui->setupUi(this);
 
-    for(const auto& elem : m_model->getAllNamesAndIds())
-    {
-        ui->eventBox->addItem(elem);
-    }
+    loadEvents();
 
     //If there is some events, all three components will be enabled
     //  - otherwise only "create new event" will be enable

@@ -56,6 +56,9 @@ signals:
     void consChanged(QStringList consequences);
 
 private:
+    void loadEvents();
+
+private:
     Ui::EventsView *ui;
     EventsModel* m_model;
 
