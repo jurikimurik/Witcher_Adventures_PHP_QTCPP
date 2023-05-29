@@ -80,23 +80,19 @@ void CharacterModel::updateCharacter(const Character &updatedChar)
 {
     if(value(updatedChar.id()).id() != -1) {
         insert(updatedChar.id(), updatedChar);
-        emit dataUpdated();
+        emit dataUpdated(getAllIdsAndNames());
     }
 }
 
 void CharacterModel::deleteCharacter(const Character &charToDelete)
 {
     remove(charToDelete.id());
-    emit dataUpdated();
+    emit dataUpdated(getAllIdsAndNames());
 }
 
-void CharacterModel::idsAndNamesNeeded()
-{
-    emit getAllIdsAndNames();
-}
 
 void CharacterModel::addCharacter(const Character &newChar)
 {
     insert(newChar.id(), newChar);
-    emit dataUpdated();
+    emit dataUpdated(getAllIdsAndNames());
 }

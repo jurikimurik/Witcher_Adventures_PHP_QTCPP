@@ -69,18 +69,13 @@ QString ConsequencesModel::getModelSplitter()
 void ConsequencesModel::updateConsequence(const Consequence &cons)
 {
     insert(cons.id(), cons);
-    emit dataUpdated();
+    emit dataUpdated(getAllNamesAndIds());
 }
 
 void ConsequencesModel::deleteConsequence(const Consequence &cons)
 {
     remove(cons.id());
-    emit dataUpdated();
-}
-
-void ConsequencesModel::idsAndNamesNeeded()
-{
-    emit getAllNamesAndIds();
+    emit dataUpdated(getAllNamesAndIds());
 }
 
 QStringList ConsequencesModel::getAllNames()

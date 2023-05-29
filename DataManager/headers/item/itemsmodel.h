@@ -31,11 +31,9 @@ public:
 
 public slots:
     void dataChanged(Item newItem);
-    void idsAndNamesNeeded();
 
 signals:
-    void dataSaved();
-    void sendIdsAndNames(QStringList list);
+    void dataSaved(QStringList list);
 };
 
 #endif // ITEMSMODEL_H

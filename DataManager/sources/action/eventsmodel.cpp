@@ -52,13 +52,13 @@ EventsModel *EventsModel::fromString(QString str)
 void EventsModel::addEvent(const Event &event)
 {
     insert(event.id(), event);
-    emit dataUpdated();
+    emit dataUpdated(getAllNamesAndIds());
 }
 
 void EventsModel::removeEvent(const Event &event)
 {
     remove(event.id());
-    emit dataUpdated();
+    emit dataUpdated(getAllNamesAndIds());
 }
 
 void EventsModel::updateEvent(const Event &event)

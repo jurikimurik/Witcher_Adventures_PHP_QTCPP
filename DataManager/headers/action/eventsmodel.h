@@ -29,7 +29,7 @@ public slots:
     void removeEvent(const Event& event);
 
 signals:
-    void dataUpdated();
+    void dataUpdated(QStringList list);
 
 };
 

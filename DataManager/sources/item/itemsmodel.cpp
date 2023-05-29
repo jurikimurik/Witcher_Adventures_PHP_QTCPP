@@ -115,10 +115,5 @@ QString ItemsModel::getModelSplitter()
 void ItemsModel::dataChanged(Item newItem)
 {
     addItem(newItem);
-    emit dataSaved();
-}
-
-void ItemsModel::idsAndNamesNeeded()
-{
-    emit getEveryItemIdAndName();
+    emit dataSaved(getEveryItemIdAndName());
 }

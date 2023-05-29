@@ -27,11 +27,9 @@ public:
 public slots:
     void updateConsequence(const Consequence& cons);
     void deleteConsequence(const Consequence& cons);
-    void idsAndNamesNeeded();
 
 signals:
-    void dataUpdated();
-    void sendIdsAndNames(QStringList list);
+    void dataUpdated(QStringList list);
 };
 
 #endif // CONSEQUENCESMODEL_H
