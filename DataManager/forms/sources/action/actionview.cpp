@@ -76,9 +76,12 @@ void ActionView::openAction(Action action)
         for(int i = 0; i < choices.size(); ++i)
         {
             Choice choice = choices.at(i);
-            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()) + " -", Qt::MatchFlags(Qt::MatchContains));
+            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             if(searchedIndex < 0) {
-                updateActions(QStringList({QString::number(choice.idToAction())}));
+                QStringList newActions = actions();
+                newActions.push_back(QString::number(choice.idToAction()));
+                updateActions(newActions);
+
                 searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             toIdBoxes.at(i)->setCurrentIndex(searchedIndex);
@@ -367,6 +370,8 @@ void ActionView::setActionFields(int count)
             layout->addWidget(consBox, row, 2);
         }
     }
+
+    updateActions(actions());
 }
 
 void ActionView::updateComboBoxes(QString regexName, QStringList newData)
@@ -385,6 +390,16 @@ void ActionView::updateComboBoxes(QString regexName, QStringList newData)
         elem->addItems(newData);
         elem->addItem(lastItemText);
     }
+}
+
+QStringList ActionView::actions() const
+{
+    return m_actions;
+}
+
+void ActionView::setActions(const QStringList &newActions)
+{
+    m_actions = newActions;
 }
 
 void ActionView::setItemsFields(int count)
@@ -437,6 +452,7 @@ void ActionView::setData(const Action &newData)
 
 void ActionView::updateActions(QStringList list)
 {
+    setActions(list);
     updateComboBoxes("toActionIdBox\\d+", list);
     updateComboBoxes("toActionBox", list);
 }
@@ -547,7 +563,6 @@ void ActionView::save()
 
                 cons.setOn(true);
             }
-
             Choice choice(toId, choiceText, cons);
             choices.push_back(choice);
         }

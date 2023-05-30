@@ -32,6 +32,9 @@ public:
     void setData(const Action &newData);
 
     //---------------CONNECTION BETWEEN ACTIONVIEW AND EVENTSVIEW---------------
+    QStringList actions() const;
+    void setActions(const QStringList &newActions);
+
 public slots:
     void updateEnemies(QStringList list);
     void updateActions(QStringList list);
@@ -72,6 +75,7 @@ private:
 private:
     Ui::ActionView *ui;
     Action m_data;
+    QStringList m_actions;
 };
 
 #endif // ACTIONVIEW_H
