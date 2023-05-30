@@ -176,6 +176,9 @@ void ActionView::openAction(Action action)
             }
     }
 
+    if(action.idToAction() > -1)
+            ui->toActionBox->setCurrentText(QString::number(action.idToAction()));
+
     setData(action);
 }
 
@@ -369,7 +372,7 @@ void ActionView::setActionFields(int count)
 void ActionView::updateComboBoxes(QString regexName, QStringList newData)
 {
     //Searching for special QComboBoxes in ui->tabWidget
-    QList<QComboBox*> allBoxes = ui->tabWidget->findChildren<QComboBox*>(QRegularExpression(regexName));
+    QList<QComboBox*> allBoxes = findChildren<QComboBox*>(QRegularExpression(regexName));
 
     for(const auto& elem : allBoxes)
     {
@@ -435,6 +438,7 @@ void ActionView::setData(const Action &newData)
 void ActionView::updateActions(QStringList list)
 {
     updateComboBoxes("toActionIdBox\\d+", list);
+    updateComboBoxes("toActionBox", list);
 }
 
 void ActionView::updateItems(QStringList list)
@@ -584,6 +588,14 @@ void ActionView::save()
         DiceAction diceAction(difficulty, enemiesIds.size()+1, enemiesIds, text);
         setData(diceAction.toAction());
     }
+
+    if(!ui->toActionBox->currentText().isEmpty()) {
+        action = getData();
+        action.setIdToAction(ui->toActionBox->currentText().toInt());
+        setData(action);
+    }
+
+
 
     emit actionChanged(getData());
     openAction(getData());
