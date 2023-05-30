@@ -98,7 +98,7 @@ void ItemsView::save()
     QVector<Buff> buffs = getAllBuffs();
 
     m_model->remove(currentItemId);
-    m_model->addItem(Item(id, name, type, cost, buffs, desc, image));
+    m_model->dataChanged(Item(id, name, type, cost, buffs, desc, image));
     refreshData();
 }
 

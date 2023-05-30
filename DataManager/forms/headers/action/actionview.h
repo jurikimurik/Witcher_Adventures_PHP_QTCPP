@@ -38,6 +38,11 @@ public:
     QStringList consequences() const;
     void setConsequences(const QStringList &newConsequences);
 
+    QStringList items() const;
+    void setItems(const QStringList &newItems);
+    QStringList enemies() const;
+    void setEnemies(const QStringList &newEnemies);
+
 public slots:
     void updateEnemies(QStringList list);
     void updateActions(QStringList list);
@@ -78,6 +83,8 @@ private:
 private:
     Ui::ActionView *ui;
     Action m_data;
+    QStringList m_items;
+    QStringList m_enemies;
     QStringList m_actions;
     QStringList m_consequences;
 };

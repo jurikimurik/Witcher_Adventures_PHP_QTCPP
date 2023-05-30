@@ -10,6 +10,8 @@ void ActionView::openAction(Action action)
 {
     resetTabs();
 
+
+
     if(action.type() == ActionType::Description) {
         DescriptionAction descAct;
         if(action.data() != QString())
@@ -49,7 +51,9 @@ void ActionView::openAction(Action action)
             //  - otherwise create new character without name
             int searchedIndex = boxes.at(index)->findText(QString::number(id)  + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
-                updateEnemies(QStringList({QString::number(id)}));
+                QStringList newEnemies = enemies();
+                newEnemies.push_back(QString::number(id));
+                updateEnemies(newEnemies);
                 searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             boxes.at(index)->setCurrentIndex(searchedIndex);
@@ -133,7 +137,9 @@ void ActionView::openAction(Action action)
             //  - otherwise create new character without name
             int searchedIndex = boxes.at(index)->findText(QString::number(id) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
-                updateItems(QStringList({QString::number(id)}));
+                QStringList newItems = items();
+                newItems.push_back(QString::number(id));
+                updateItems(newItems);
                 searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             boxes.at(index)->setCurrentIndex(searchedIndex);
@@ -177,7 +183,9 @@ void ActionView::openAction(Action action)
             //  - otherwise create new character without name
             int searchedIndex = boxes.at(index)->findText(QString::number(id)  + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
-                updateEnemies(QStringList({QString::number(id)}));
+                QStringList newEnemies = enemies();
+                newEnemies.push_back(QString::number(id));
+                updateEnemies(newEnemies);
                 searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
             boxes.at(index)->setCurrentIndex(searchedIndex);
@@ -401,6 +409,26 @@ void ActionView::updateComboBoxes(QString regexName, QStringList newData)
     }
 }
 
+QStringList ActionView::items() const
+{
+    return m_items;
+}
+
+void ActionView::setItems(const QStringList &newItems)
+{
+    m_items = newItems;
+}
+
+QStringList ActionView::enemies() const
+{
+    return m_enemies;
+}
+
+void ActionView::setEnemies(const QStringList &newEnemies)
+{
+    m_enemies = newEnemies;
+}
+
 QStringList ActionView::consequences() const
 {
     return m_consequences;
@@ -478,6 +506,7 @@ void ActionView::updateActions(QStringList list)
 
 void ActionView::updateItems(QStringList list)
 {
+    setItems(list);
     updateComboBoxes("itemBox\\d+", list);
 }
 
@@ -489,6 +518,7 @@ void ActionView::updateConsequences(QStringList list)
 
 void ActionView::updateEnemies(QStringList list)
 {
+    setEnemies(list);
     updateComboBoxes("enemyBox\\d+", list);
     updateComboBoxes("diceEnemyBox\\d+", list);
 }

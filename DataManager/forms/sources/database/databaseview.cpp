@@ -107,6 +107,7 @@ void DatabaseView::load()
     delete m_model;
     m_model = DatabaseModel::fromString(data);
     assignViewsToModels();
+    createConnections();
 }
 
 EventsView *DatabaseView::eventsView() const
