@@ -50,9 +50,6 @@ public slots:
     void updateConsequences(QStringList list);
 
 signals:
-    void enemiesIdsNeeded();
-    void actionIdsNeeded();
-    void itemIdsNeeded();
 
     void actionChanged(const Action &action);
     //--------------------------------------------------------------------------

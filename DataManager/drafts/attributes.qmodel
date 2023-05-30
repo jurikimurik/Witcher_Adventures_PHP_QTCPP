@@ -89,63 +89,63 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{6cd29b51-8254-44a8-bd0b-1d8a0155d456}</uid>
+                    <uid>{e2096f84-1fb7-4321-bc96-59ef2d3057b8}</uid>
                     <type>1</type>
                     <declaration>int maxHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5296d6c4-4642-4eae-8eb0-35cefd78bab9}</uid>
+                    <uid>{b4eac460-b1f8-4c4f-97c4-c2b8e53369ff}</uid>
                     <type>1</type>
                     <declaration>int maxMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4ca2053a-97c2-4316-bbd4-e8c19acf7269}</uid>
+                    <uid>{b7484b72-25e0-42d8-b1cd-a4476eec6122}</uid>
                     <type>1</type>
                     <declaration>int currentHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{923b5125-4ec8-4e8f-b07f-19f775ca8c01}</uid>
+                    <uid>{798b4b12-c941-46ad-9b1c-0bf2b0e38c8f}</uid>
                     <type>1</type>
                     <declaration>int currentMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{16929d01-6986-49e6-9faf-8ed43ba74ca8}</uid>
+                    <uid>{40816a45-6194-4b47-8ed2-95b7f3cbbd48}</uid>
                     <type>1</type>
                     <declaration>int attack</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{70ddec8b-5ec6-4554-8d41-c1280ca5d270}</uid>
+                    <uid>{1e578f21-770f-4868-b894-3c63312a48ff}</uid>
                     <type>1</type>
                     <declaration>int defense</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{99a5d1ef-715d-4140-98e1-48a73fb7615a}</uid>
+                    <uid>{2bc5f048-5184-4100-b214-7f4b9ba24428}</uid>
                     <type>1</type>
                     <declaration>int agility</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3cd0d856-c50a-43bc-b481-ffb8650822bb}</uid>
+                    <uid>{1bfe3402-bfb8-427c-89a4-2a8923006e8f}</uid>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6e100675-1b7b-4b86-bd8e-7038d77dd98f}</uid>
+                    <uid>{9ea3d22a-2cb7-4f05-927a-7f84521abc91}</uid>
                     <type>2</type>
                     <properties>64</properties>
                     <declaration>Attributes fromString(QString str)</declaration>

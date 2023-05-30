@@ -102,7 +102,7 @@ DISTFILES += \
     drafts/attributes.qmodel \
     drafts/characters.qmodel \
     drafts/consequences.qmodel \
-    drafts/databaseomodeldraft.qmodel \
+    drafts/databaseomodel.qmodel \
     drafts/databaseview.qmodel \
     drafts/items.qmodel \
     notes/TODO
