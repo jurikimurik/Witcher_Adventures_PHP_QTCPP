@@ -49,10 +49,14 @@ void ItemsView::openItem(int id)
     for(const auto& elem : m_controller->getAllTypesNames()) {
         if(elem == item.type().typeName)
             isNewType = false;
-        ui->typeBox->addItem(elem);
+        if(!elem.isEmpty())
+            ui->typeBox->addItem(elem);
     }
-    if(isNewType)
+    if(isNewType) {
         m_controller->newType(item.type());
+    }
+    else
+        ui->typeBox->setCurrentText(item.type().typeName);
 
     ui->descEdit->setText(item.description());
     ui->costEdit->setText(QString::number(item.money()));
@@ -143,7 +147,8 @@ void ItemsView::refreshItemTypeData()
     ui->typeBox->clear();
     for(const auto& elem : m_controller->getAllTypesNames())
     {
-        ui->typeBox->addItem(elem);
+        if(!elem.isEmpty())
+            ui->typeBox->addItem(elem);
     }
     ui->typeBox->addItem(QTranslator::tr("*DODAJ NOWY TYP*"));
 }

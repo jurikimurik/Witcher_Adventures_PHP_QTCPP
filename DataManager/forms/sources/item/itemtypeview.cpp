@@ -35,7 +35,8 @@ void ItemTypeView::refresh()
     ui->itemTypeBox->clear();
     for(const auto& elem : m_model->getAllTypesNames())
     {
-        ui->itemTypeBox->addItem(elem);
+        if(!elem.isEmpty())
+            ui->itemTypeBox->addItem(elem);
     }
     openType(ui->itemTypeBox->currentText());
 }
