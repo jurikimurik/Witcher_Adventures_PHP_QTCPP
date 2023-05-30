@@ -17,7 +17,7 @@
    <item>
     <widget class="QWidget" name="eventSelectWidget" native="true">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -27,10 +27,17 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QComboBox" name="eventBox"/>
+       <widget class="QComboBox" name="eventBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="addEventButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Dodaj wydarzenie</string>
         </property>
@@ -38,6 +45,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="removeEventButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Usun wydarzenie</string>
         </property>

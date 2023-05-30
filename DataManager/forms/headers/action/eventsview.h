@@ -64,6 +64,7 @@ signals:
 private:
     void loadEvents();
     void updateActions();
+    void checkAccessibleOptions();
 
 private:
     Ui::EventsView *ui;

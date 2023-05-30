@@ -22,7 +22,7 @@ void CharacterView::openCharacter()
 {
     ui->propWidget->setEnabled(false);
 
-    int id = ui->characterBox->currentText().split("-").at(0).toInt();
+    int id = ui->characterBox->currentText().split(" - ").at(0).toInt();
     Character charFromDatabase = m_model->value(id);
 
     ui->idEdit->setText(QString::number(charFromDatabase.id()));

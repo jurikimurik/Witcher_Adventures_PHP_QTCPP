@@ -59,25 +59,25 @@ int main(int argc, char *argv[])
     qDebug() << buff.toString();
     qDebug() << Buff().fromString(buff.toString()).toString();*/
 
-    Character character(13, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
+    /*Character character(13, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
     Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
     CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));
 
     Consequence consequence(13, "Troll zabity", true);
     Consequence consequence1(2, "Konrad pokonany", false);
-    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));
+    ConsequencesModel *consmodel = new ConsequencesModel(QMap({qMakePair(13, consequence), qMakePair(2, consequence1)}));*/
 
     /*ItemType type({"bron biala.", "zwykla bron biala"});
     qDebug() << type.toString();
     qDebug() << ItemType::fromString(type.toString()).toString();*/
 
-    Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
+    /*Buff buff1(20, Attributes({100, 100, 100, 100, 14, 15, 16}), "Statystyki 1");
     Buff buff2(20, Attributes({100, 100, 100, 100, 12, 13, 10}), "Jakies drugie!");
     QVector<Buff> buffs = {buff1, buff2};
 
     Item item1(10, "Miecz Draugrow", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Some description.", "sword.png");
     Item item2(2, "Wlocznia", ItemType({"bron biala", "Zywkla bron biala"}),20,buffs,"Nawet cos.", "spear.png");
-    ItemsModel* itemmodel = new ItemsModel(nullptr, QMap({qMakePair(10, item1), qMakePair(2, item2)}));
+    ItemsModel* itemmodel = new ItemsModel(nullptr, QMap({qMakePair(10, item1), qMakePair(2, item2)}));*/
 
 
     /*QString str1 = model.toString();
@@ -103,28 +103,28 @@ int main(int argc, char *argv[])
     qDebug() << newAction.toString();
     qDebug() << DescriptionAction::fromString(newAction.toString()).toString();*/
 
-    AgilityAction agilityAction (2, 12);
-    /*qDebug() << action.toString();
+    /*AgilityAction agilityAction (2, 12);
+    qDebug() << action.toString();
     qDebug() << AgilityAction::fromString(action.toString()).toString();*/
 
-    BattleAction battleAction("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 1, 51, 13, 13, 13}));
-    /*qDebug() << action.toString();
+    /*BattleAction battleAction("Wychodzi na ciebie ekipa rozwsieczonych zeglarzy. Bedzie bojka.", QVector<int>({1, 1, 51, 13, 13, 13}));
+    qDebug() << action.toString();
     qDebug() << BattleAction::fromString(action.toString()).toString();*/
 
-    RewardAction rewardAction(145, QVector<int>({1, 24, 2, 1, 1, 23}));
-    /*qDebug() << action.toString();
+   /* RewardAction rewardAction(145, QVector<int>({1, 24, 2, 1, 1, 23}));
+    qDebug() << action.toString();
     qDebug() << RewardAction::fromString(action.toString()).toString();*/
 
-    Choice h(-1, QString(), consequence);
-    Choice h2(2, "A cos tu jednak jest", consequence1);
+    /*Choice h(-1, QString(), consequence);
+    Choice h2(2, "A cos tu jednak jest", consequence1);*/
     //qDebug() << h.toString();
     //qDebug() << Choice::fromString(h.toString()).toString();
 
-    ChoiceAction choiceAction("Musisz wybrac.", QVector<Choice>({h, h2}));
+    //ChoiceAction choiceAction("Musisz wybrac.", QVector<Choice>({h, h2}));
     /*qDebug() << action.toString();
     qDebug() << ChoiceAction::fromString(action.toString()).toString();*/
 
-    DiceAction diceAction(2, 2, QVector<int>({13,1}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
+    //DiceAction diceAction(2, 2, QVector<int>({13,1}), "Grywasz w kosci z Ignacym, Julka i Olafem.");
     /*qDebug() << action.toString();
     qDebug() << DiceAction::fromString(action.toString()).toString();*/
 
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
     //ActionView::fromAction(diceAction.toAction())->show();
     //return a.exec();
 
-    Event ev1("Jakis tam opis.", 1, "Super-Event");
+   /* Event ev1("Jakis tam opis.", 1, "Super-Event");
     QVector<Action> actions({agilityAction.toAction(), choiceAction.toAction(), diceAction.toAction()});
     ev1.addActions(actions);
 
@@ -152,13 +152,16 @@ int main(int argc, char *argv[])
 
     EventsModel* eventsModel = new EventsModel();
     eventsModel->addEvent(ev1);
-    eventsModel->addEvent(ev2);
+    eventsModel->addEvent(ev2);*/
 
     //EventsView view(&eventsModel);
     //view.show();
 
-    DatabaseModel* model = new DatabaseModel(itemmodel,charmodel,consmodel,eventsModel);
+    /*DatabaseModel* model = new DatabaseModel(itemmodel,charmodel,consmodel,eventsModel);
     DatabaseView* view = new DatabaseView(model);
+    view->show();*/
+
+    DatabaseView* view = new DatabaseView();
     view->show();
 
     return a.exec();
