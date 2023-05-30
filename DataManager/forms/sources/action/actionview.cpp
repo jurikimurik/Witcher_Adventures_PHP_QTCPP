@@ -88,12 +88,21 @@ void ActionView::openAction(Action action)
 
             lineEdits.at(i)->setText(choice.text());
 
-            searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()) + " -", Qt::MatchFlags(Qt::MatchContains));
-            if(searchedIndex < 0) {
-                updateConsequences(QStringList({QString::number(choice.consequence().id())}));
-                searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
+            consBoxes.at(i)->addItem("-1");
+            if(choice.consequence().id() > -1) {
+                searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()) + " -", Qt::MatchFlags(Qt::MatchContains));
+                if(searchedIndex < 0) {
+                    QStringList newConsequences = consequences();
+                    newConsequences.push_back(QString::number(choice.consequence().id()) + " -");
+                    updateConsequences(newConsequences);
+                    searchedIndex = consBoxes.at(i)->findText(QString::number(choice.consequence().id()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
+                }
+                consBoxes.at(i)->setCurrentIndex(searchedIndex);
+            } else {
+                consBoxes.at(i)->setCurrentText("-1");
             }
-            consBoxes.at(i)->setCurrentIndex(searchedIndex);
+
+
         }
 
     } else if(action.type() == ActionType::Reward) {
@@ -124,7 +133,6 @@ void ActionView::openAction(Action action)
             //  - otherwise create new character without name
             int searchedIndex = boxes.at(index)->findText(QString::number(id) + " -", Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
-                qDebug() << id << repeats;
                 updateItems(QStringList({QString::number(id)}));
                 searchedIndex = boxes.at(index)->findText(QString::number(id), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
             }
@@ -372,6 +380,7 @@ void ActionView::setActionFields(int count)
     }
 
     updateActions(actions());
+    updateConsequences(consequences());
 }
 
 void ActionView::updateComboBoxes(QString regexName, QStringList newData)
@@ -390,6 +399,16 @@ void ActionView::updateComboBoxes(QString regexName, QStringList newData)
         elem->addItems(newData);
         elem->addItem(lastItemText);
     }
+}
+
+QStringList ActionView::consequences() const
+{
+    return m_consequences;
+}
+
+void ActionView::setConsequences(const QStringList &newConsequences)
+{
+    m_consequences = newConsequences;
 }
 
 QStringList ActionView::actions() const
@@ -464,6 +483,7 @@ void ActionView::updateItems(QStringList list)
 
 void ActionView::updateConsequences(QStringList list)
 {
+    setConsequences(list);
     updateComboBoxes("consequenceBox\\d+", list);
 }
 
@@ -553,7 +573,10 @@ void ActionView::save()
             int toId = toIdBoxes.at(i)->currentText().split("-").at(0).toInt();
             QString choiceText = lineEdits.at(i)->text();
             Consequence cons;
-            int consId = consBoxes.at(i)->currentText().split(" - ").at(0).toInt();
+            int consId = -1;
+            if(consBoxes.at(i)->currentText() != "-1" || !consBoxes.at(i)->currentText().isEmpty())
+                consId = consBoxes.at(i)->currentText().split(" - ").at(0).toInt();
+
             if(consId != -1) {
                 cons.setId(consId);
 
