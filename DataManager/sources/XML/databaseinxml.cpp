@@ -75,9 +75,10 @@ void DatabaseInXML::saveToFile(const QString &file)
     auto consequences = consModel->values();
     for(const auto& elem : consequences)
     {
-        writer.writeStartElement(QString::number(elem.id())); //Consequence
+        writer.writeStartElement("Consequence"); //Consequence
+        writer.writeAttribute("ID", QString::number(elem.id()));
         writer.writeAttribute("Name", elem.name());
-        writer.writeAttribute("IsOn", QString::number(elem.isOn()));
+        writer.writeCharacters(QString::number(elem.isOn()));
 
         writer.writeEndElement();       //Consequence
     }
@@ -194,9 +195,15 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
                     }
                 } else if(reader.name() == QLatin1String("CONSEQUENCES")) {
                     //Consequences
+                    QList<Consequence> consequences;
                     while(reader.readNextStartElement()) {
                         qDebug() << "CONSEQUENCES" << reader.name();
+                        int id = reader.attributes().value("ID").toInt();
+                        QString name = reader.attributes().value("Name").toString();
+                        bool isOn = reader.readElementText().toInt();
 
+                        consequences.push_back(Consequence(id, name, isOn));
+                        qDebug() << consequences.last().toString();
                     }
 
                 } else if(reader.name() == QLatin1String("CHARACTERS")) {
