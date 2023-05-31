@@ -16,6 +16,7 @@ SOURCES += \
     forms/sources/item/itemtypeview.cpp \
     forms/sources/item/buffview.cpp \
     forms/sources/item/itemsview.cpp \
+    sources/XML/databaseinxml.cpp \
     sources/action/action.cpp \
     sources/action/agilityaction.cpp \
     sources/action/basic/choice.cpp \
@@ -51,6 +52,7 @@ HEADERS += \
     forms/headers/item/itemtypeview.h \
     forms/headers/item/buffview.h \
     forms/headers/item/itemsview.h \
+    headers/XML/databaseinxml.h \
     headers/action/action.h \
     headers/action/agilityaction.h \
     headers/action/basic/choice.h \
@@ -102,6 +104,7 @@ DISTFILES += \
     drafts/attributes.qmodel \
     drafts/characters.qmodel \
     drafts/consequences.qmodel \
+    drafts/databaseinxml.qmodel \
     drafts/databaseomodel.qmodel \
     drafts/databaseview.qmodel \
     drafts/items.qmodel \
