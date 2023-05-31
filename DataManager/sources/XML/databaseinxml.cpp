@@ -58,6 +58,21 @@ void DatabaseInXML::saveToFile(const QString &file)
     }
     writer.writeEndElement(); // ItemsModel
 
+    writer.writeStartElement(ConsequencesModel::getModelSplitter());    // Consequences
+
+    //Consequences
+    ConsequencesModel* consModel = m_model->consequencesModel();
+    QList<Consequence> consequences = consModel->values();
+    for(const auto& elem : consequences)
+    {
+        writer.writeStartElement(QString::number(elem.id())); //Consequence
+        writer.writeAttribute("Name", elem.name());
+        writer.writeAttribute("IsOn", QString::number(elem.isOn()));
+
+        writer.writeEndElement();       // Consequence
+    }
+
+    writer.writeEndElement();                                           // Consequences
 
     writer.writeEndDocument(); //All document
 }
