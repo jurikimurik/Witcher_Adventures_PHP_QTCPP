@@ -31,26 +31,34 @@ void DatabaseInXML::saveToFile(const QString &file)
     auto items = itemModel->values();
     for(const auto& elem : items)
     {
-        writer.writeStartElement(QString::number(elem.id())); //Item
+        writer.writeStartElement("Item"); //Item
+        writer.writeAttribute("ID", QString::number(elem.id()));
         writer.writeAttribute("Name", elem.name());
-
-        writer.writeStartElement(elem.type().typeName);         //ItemType
-        writer.writeAttribute("Description", elem.type().typeDescription);
-        writer.writeEndElement();                               //ItemType
-
         writer.writeAttribute("Description", elem.description());
         writer.writeAttribute("Image", elem.imageName());
         writer.writeAttribute("Money", QString::number(elem.money()));
 
+        writer.writeStartElement("Type"); //ItemType
+        writer.writeAttribute("Name", elem.type().typeName);
+        writer.writeCharacters(elem.type().typeDescription);
+        writer.writeEndElement();        //ItemType
+
+
+
         //BUFFS HERE
         for(const auto& buff : elem.buffs())
         {
-            writer.writeStartElement(buff.name());  // BUFF
+            writer.writeStartElement("Buff");
+            writer.writeAttribute("Name",buff.name());  // BUFF
             writer.writeAttribute("Duration", QString::number(buff.duration()));
 
             writer.writeStartElement("Attributes"); // ATTRIBUTES
-            for(int i = 0; i < AttributesNames.size(); ++i)
-                writer.writeAttribute(AttributesNames.at(i), QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
+            for(int i = 0; i < AttributesNames.size(); ++i) {
+                writer.writeCharacters(QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
+                if(i+1 != AttributesNames.size())
+                    writer.writeCharacters(",");
+            }
+
             writer.writeEndElement();   // ATTRIBUTES
 
             writer.writeEndElement();   // BUFF
@@ -153,32 +161,60 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
 
                 if(reader.name() == QLatin1String("ITEMS")) {
                     //Items
+                    QList<Item> items;
                     while(reader.readNextStartElement()) {
+                        int id = reader.attributes().value("ID").toInt();
+                        QString name = reader.attributes().value("Name").toString();
+                        QString description = reader.attributes().value("Description").toString();
+                        QString image = reader.attributes().value("Image").toString();
+                        int money = reader.attributes().value("Money").toInt();
 
+                        reader.readNextStartElement();
+                        QString typeName = reader.attributes().value("Name").toString();
+                        QString typeDescription = reader.readElementText();
+                        ItemType itemType({typeName, typeDescription});
 
+                        QList<Buff> buffs;
+                        while(reader.readNextStartElement() && reader.name() == QLatin1String("Buff"))
+                        {
+                            QString buffName = reader.attributes().value("Name").toString();
+                            int duration = reader.attributes().value("Duration").toInt();
+
+                            reader.readNextStartElement(); // OPEN ATTRIBUTES
+                            QStringList attributes = reader.readElementText().split(",");
+                            Attributes newAttributes;
+                            for(int i = 0; i < AttributesPointers.size(); ++i)
+                            {
+                                newAttributes.*AttributesPointers.at(i) = attributes.at(i).toInt();
+                            }
+                            buffs.push_back(Buff(duration, newAttributes, buffName));
+                            reader.readNextStartElement();  // CLOSE ATTRIBUTES
+                        }
+                        items.push_back(Item(id, name, itemType, money, buffs, description, image));
                     }
                 } else if(reader.name() == QLatin1String("CONSEQUENCES")) {
                     //Consequences
                     while(reader.readNextStartElement()) {
-
+                        qDebug() << "CONSEQUENCES" << reader.name();
 
                     }
 
                 } else if(reader.name() == QLatin1String("CHARACTERS")) {
                     //Characters
                     while(reader.readNextStartElement()) {
-
+                        qDebug() << "CHARACTERS" << reader.name();
 
                     }
 
                 } else if(reader.name() == QLatin1String("EVENTS")) {
                     //Events
                     while(reader.readNextStartElement()) {
-
+                        qDebug() << "EVENTS" << reader.name();
 
                     }
 
                 } else {
+                    qDebug() << "SKIP" << reader.name();
                     reader.skipCurrentElement();
                 }
             }
@@ -202,6 +238,8 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
         newModel->setCharactersModel(newCharacterModel);
     if(newEventsModel != nullptr)
         newModel->setEventsModel(newEventsModel);
+
+    qDebug() << reader.errorString();
 
     return newModel;
 }
