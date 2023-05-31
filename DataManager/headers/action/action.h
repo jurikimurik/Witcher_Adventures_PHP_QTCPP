@@ -22,7 +22,7 @@ private:
     QString m_data;
     int m_idToAction;
 
-protected:
+public:
     static const QString dataSplitter;
 
 public:
