@@ -165,6 +165,7 @@ int main(int argc, char *argv[])
     QString file = QFileDialog::getSaveFileName();
     DatabaseInXML databaseInXML(model);
     databaseInXML.saveToFile(file);
+    databaseInXML.readFromFile(file);
 
     //return a.exec();
 

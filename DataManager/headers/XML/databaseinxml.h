@@ -19,7 +19,7 @@ public:
 
 public slots:
     void saveToFile(const QString& file);
-    void readFromFile(const QString& file);
+    DatabaseModel* readFromFile(const QString& file);
 
 private:
     DatabaseModel* m_model;

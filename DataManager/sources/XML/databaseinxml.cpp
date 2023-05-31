@@ -22,7 +22,9 @@ void DatabaseInXML::saveToFile(const QString &file)
     writer.setAutoFormatting(true);
     writer.writeStartDocument();
 
-    writer.writeStartElement(ItemsModel::getModelSplitter()); // ItemsModel
+    writer.writeStartElement("DATABASE");    // Database
+
+    writer.writeStartElement("ITEMS"); // ItemsModel
 
     //Items
     ItemsModel* itemModel = m_model->itemsModel();
@@ -58,7 +60,7 @@ void DatabaseInXML::saveToFile(const QString &file)
     }
     writer.writeEndElement(); // ItemsModel
 
-    writer.writeStartElement(ConsequencesModel::getModelSplitter());    //Consequences
+    writer.writeStartElement("CONSEQUENCES");    //Consequences
 
     //Consequences
     ConsequencesModel* consModel = m_model->consequencesModel();
@@ -74,8 +76,9 @@ void DatabaseInXML::saveToFile(const QString &file)
 
     writer.writeEndElement();                                           //Consequences
 
-    writer.writeStartElement(CharacterModel::getModelSplitter());   //Characters
+    writer.writeStartElement("CHARACTERS");   //Characters
 
+    // Characters
     CharacterModel* charModel = m_model->charactersModel();
     auto characters = charModel->values();
     for(const auto& elem : characters)
@@ -100,7 +103,8 @@ void DatabaseInXML::saveToFile(const QString &file)
 
     writer.writeEndElement();   //Characters
 
-    writer.writeStartElement(EventsModel::getModelSplitter());  //Events
+    writer.writeStartElement("EVENTS");  //Events
+    // Events
     EventsModel* eventsModel = m_model->eventsModel();
     auto events = eventsModel->values();
     for(const auto& elem : events)
@@ -123,12 +127,83 @@ void DatabaseInXML::saveToFile(const QString &file)
 
     writer.writeEndElement();   //Events
 
+    writer.writeEndElement();   //Database
+
     writer.writeEndDocument(); //All document
 }
 
-void DatabaseInXML::readFromFile(const QString &file)
+DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
 {
+    QFile xmlFile(file);
+    if(!xmlFile.open(QIODevice::ReadOnly))
+        throw std::runtime_error("Can't open file " + file.toStdString() + " for reading!");
 
+    DatabaseModel* newModel = new DatabaseModel();
+
+    ItemsModel* newItemModel = nullptr;
+    ConsequencesModel* newConsequencesModel  = nullptr;
+    CharacterModel* newCharacterModel = nullptr;
+    EventsModel* newEventsModel  = nullptr;
+
+    QXmlStreamReader reader(&xmlFile);
+    if(reader.readNextStartElement()) {
+        if(reader.name() == QLatin1String("DATABASE")) {
+
+            while(reader.readNextStartElement()) {
+
+                if(reader.name() == QLatin1String("ITEMS")) {
+                    //Items
+                    while(reader.readNextStartElement()) {
+
+
+                    }
+                } else if(reader.name() == QLatin1String("CONSEQUENCES")) {
+                    //Consequences
+                    while(reader.readNextStartElement()) {
+
+
+                    }
+
+                } else if(reader.name() == QLatin1String("CHARACTERS")) {
+                    //Characters
+                    while(reader.readNextStartElement()) {
+
+
+                    }
+
+                } else if(reader.name() == QLatin1String("EVENTS")) {
+                    //Events
+                    while(reader.readNextStartElement()) {
+
+
+                    }
+
+                } else {
+                    reader.skipCurrentElement();
+                }
+            }
+
+
+        } else {
+            qDebug() << reader.name();
+            qDebug() << "Is bad.";
+            throw std::runtime_error("Wrong version of XML file!");
+        }
+
+    } else if(reader.hasError()) {
+        qDebug() << reader.errorString();
+    }
+
+    if(newItemModel != nullptr)
+        newModel->setItemsModel(newItemModel);
+    if(newConsequencesModel != nullptr)
+        newModel->setConsequencesModel(newConsequencesModel);
+    if(newCharacterModel != nullptr)
+        newModel->setCharactersModel(newCharacterModel);
+    if(newEventsModel != nullptr)
+        newModel->setEventsModel(newEventsModel);
+
+    return newModel;
 }
 
 DatabaseInXML::DatabaseInXML(DatabaseModel *model, QObject *parent) : QObject(parent),
