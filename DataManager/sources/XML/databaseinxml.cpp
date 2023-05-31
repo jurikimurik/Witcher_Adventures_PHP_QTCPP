@@ -26,7 +26,7 @@ void DatabaseInXML::saveToFile(const QString &file)
 
     //Items
     ItemsModel* itemModel = m_model->itemsModel();
-    QList<Item> items = itemModel->values();
+    auto items = itemModel->values();
     for(const auto& elem : items)
     {
         writer.writeStartElement(QString::number(elem.id())); //Item
@@ -58,21 +58,47 @@ void DatabaseInXML::saveToFile(const QString &file)
     }
     writer.writeEndElement(); // ItemsModel
 
-    writer.writeStartElement(ConsequencesModel::getModelSplitter());    // Consequences
+    writer.writeStartElement(ConsequencesModel::getModelSplitter());    //Consequences
 
     //Consequences
     ConsequencesModel* consModel = m_model->consequencesModel();
-    QList<Consequence> consequences = consModel->values();
+    auto consequences = consModel->values();
     for(const auto& elem : consequences)
     {
         writer.writeStartElement(QString::number(elem.id())); //Consequence
         writer.writeAttribute("Name", elem.name());
         writer.writeAttribute("IsOn", QString::number(elem.isOn()));
 
-        writer.writeEndElement();       // Consequence
+        writer.writeEndElement();       //Consequence
     }
 
-    writer.writeEndElement();                                           // Consequences
+    writer.writeEndElement();                                           //Consequences
+
+    writer.writeStartElement(CharacterModel::getModelSplitter());   //Characters
+
+    CharacterModel* charModel = m_model->charactersModel();
+    auto characters = charModel->values();
+    for(const auto& elem : characters)
+    {
+        writer.writeStartElement(QString::number(elem.id()));   // Character
+        writer.writeAttribute("Name", elem.name());
+        writer.writeAttribute("Image", elem.imageName());
+
+        Buff buff = elem.attributes();
+        writer.writeStartElement(buff.name());  // BUFF
+        writer.writeAttribute("Duration", QString::number(buff.duration()));
+
+        writer.writeStartElement("Attributes"); // ATTRIBUTES
+        for(int i = 0; i < AttributesNames.size(); ++i)
+            writer.writeAttribute(AttributesNames.at(i), QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
+        writer.writeEndElement();   // ATTRIBUTES
+
+        writer.writeEndElement();   // BUFF
+
+        writer.writeEndElement();   // Character
+    }
+
+    writer.writeEndElement();   //Characters
 
     writer.writeEndDocument(); //All document
 }
