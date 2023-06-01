@@ -18,129 +18,21 @@ void DatabaseInXML::saveToFile(const QString &file)
     if(!xmlFile.open(QIODevice::WriteOnly))
         throw std::runtime_error("Can't open file " + file.toStdString() + " for writing!");
 
-    QXmlStreamWriter writer(&xmlFile);
+    QXmlStreamWriter& writer = this->writer();
+    writer.setDevice(&xmlFile);
+
     writer.setAutoFormatting(true);
     writer.writeStartDocument();
 
     writer.writeStartElement("DATABASE");    // Database
 
-    writer.writeStartElement("ITEMS"); // ItemsModel
+    saveItems();
 
-    //Items
-    ItemsModel* itemModel = m_model->itemsModel();
-    auto items = itemModel->values();
-    for(const auto& elem : items)
-    {
-        writer.writeStartElement("Item"); //Item
-        writer.writeAttribute("ID", QString::number(elem.id()));
-        writer.writeAttribute("Name", elem.name());
-        writer.writeAttribute("Description", elem.description());
-        writer.writeAttribute("Image", elem.imageName());
-        writer.writeAttribute("Money", QString::number(elem.money()));
+    saveConsequences();
 
-        writer.writeStartElement("Type"); //ItemType
-        writer.writeAttribute("Name", elem.type().typeName);
-        writer.writeCharacters(elem.type().typeDescription);
-        writer.writeEndElement();        //ItemType
+    saveCharacters();
 
-
-
-        //BUFFS HERE
-        for(const auto& buff : elem.buffs())
-        {
-            writer.writeStartElement("Buff");
-            writer.writeAttribute("Name",buff.name());  // BUFF
-            writer.writeAttribute("Duration", QString::number(buff.duration()));
-
-            writer.writeStartElement("Attributes"); // ATTRIBUTES
-            for(int i = 0; i < AttributesNames.size(); ++i) {
-                writer.writeCharacters(QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
-                if(i+1 != AttributesNames.size())
-                    writer.writeCharacters(",");
-            }
-
-            writer.writeEndElement();   // ATTRIBUTES
-
-            writer.writeEndElement();   // BUFF
-        }
-
-        writer.writeEndElement();   //Item
-    }
-    writer.writeEndElement(); // ItemsModel
-
-    writer.writeStartElement("CONSEQUENCES");    //Consequences
-
-    //Consequences
-    ConsequencesModel* consModel = m_model->consequencesModel();
-    auto consequences = consModel->values();
-    for(const auto& elem : consequences)
-    {
-        writer.writeStartElement("Consequence"); //Consequence
-        writer.writeAttribute("ID", QString::number(elem.id()));
-        writer.writeAttribute("Name", elem.name());
-        writer.writeCharacters(QString::number(elem.isOn()));
-
-        writer.writeEndElement();       //Consequence
-    }
-
-    writer.writeEndElement();                                           //Consequences
-
-    writer.writeStartElement("CHARACTERS");   //Characters
-
-    // Characters
-    CharacterModel* charModel = m_model->charactersModel();
-    auto characters = charModel->values();
-    for(const auto& elem : characters)
-    {
-        writer.writeStartElement("Character"); //Character
-        writer.writeAttribute("ID",QString::number(elem.id()));
-        writer.writeAttribute("Name", elem.name());
-        writer.writeAttribute("Image", elem.imageName());
-
-        Buff buff = elem.attributes();
-        writer.writeStartElement("Buff");
-        writer.writeAttribute("Name",buff.name());  // BUFF
-        writer.writeAttribute("Duration", QString::number(buff.duration()));
-
-        writer.writeStartElement("Attributes"); // ATTRIBUTES
-        for(int i = 0; i < AttributesNames.size(); ++i) {
-            writer.writeCharacters(QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
-            if(i+1 != AttributesNames.size())
-                writer.writeCharacters(",");
-        }
-        writer.writeEndElement();   // ATTRIBUTES
-        writer.writeEndElement();   // BUFF
-
-        writer.writeEndElement();   //Character
-    }
-
-    writer.writeEndElement();   //Characters
-
-    writer.writeStartElement("EVENTS");  //Events
-    // Events
-    EventsModel* eventsModel = m_model->eventsModel();
-    auto events = eventsModel->values();
-    for(const auto& elem : events)
-    {
-        writer.writeStartElement("Event"); //Event
-        writer.writeAttribute("ID", QString::number(elem.id()));
-        writer.writeAttribute("Name", elem.name());
-        writer.writeAttribute("Description", elem.description());
-
-        for(const auto& action : elem)
-        {
-            writer.writeStartElement("Action"); //Action
-            writer.writeAttribute("Type",QString::number((int)action.type()));
-            writer.writeAttribute("To", QString::number(action.idToAction()));
-            writer.writeAttribute("Splitter", action.dataSplitter);
-            writer.writeTextElement("Data", action.data());
-            writer.writeEndElement();   //Action
-        }
-
-        writer.writeEndElement();   //Event
-    }
-
-    writer.writeEndElement();   //Events
+    saveEvents();
 
     writer.writeEndElement();   //Database
 
@@ -291,6 +183,186 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
     qDebug() << reader.errorString();
 
     return newModel;
+}
+
+void DatabaseInXML::saveItems()
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("ITEMS"); // ItemsModel
+
+    //Items
+    ItemsModel* itemModel = m_model->itemsModel();
+    auto items = itemModel->values();
+    for(const auto& elem : items)
+    {
+        saveItem(elem);
+    }
+    writer.writeEndElement(); // ItemsModel
+}
+
+void DatabaseInXML::saveItem(const Item& elem)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Item"); //Item
+    writer.writeAttribute("ID", QString::number(elem.id()));
+    writer.writeAttribute("Name", elem.name());
+    writer.writeAttribute("Description", elem.description());
+    writer.writeAttribute("Image", elem.imageName());
+    writer.writeAttribute("Money", QString::number(elem.money()));
+
+    saveType(elem.type());
+
+
+    //BUFFS HERE
+    for(const auto& buff : elem.buffs())
+    {
+        saveBuff(buff);
+    }
+
+    writer.writeEndElement();   //Item
+}
+
+void DatabaseInXML::saveType(const ItemType &type)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Type"); //ItemType
+    writer.writeAttribute("Name", type.typeName);
+    writer.writeCharacters(type.typeDescription);
+    writer.writeEndElement();        //ItemType
+}
+
+void DatabaseInXML::saveBuff(const Buff& buff)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Buff");
+    writer.writeAttribute("Name",buff.name());  // BUFF
+    writer.writeAttribute("Duration", QString::number(buff.duration()));
+
+    saveAttributes(buff.changedAttributes());
+
+    writer.writeEndElement();   // BUFF
+}
+
+void DatabaseInXML::saveAttributes(const Attributes& attributes)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Attributes"); // ATTRIBUTES
+    for(int i = 0; i < AttributesNames.size(); ++i) {
+        writer.writeCharacters(QString::number(attributes.*AttributesPointers.at(i)));
+        if(i+1 != AttributesNames.size())
+            writer.writeCharacters(",");
+    }
+
+    writer.writeEndElement();   // ATTRIBUTES
+}
+
+void DatabaseInXML::saveConsequences()
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("CONSEQUENCES");    //Consequences
+
+    //Consequences
+    ConsequencesModel* consModel = m_model->consequencesModel();
+    auto consequences = consModel->values();
+    for(const auto& elem : consequences)
+    {
+        saveConsequence(elem);
+    }
+
+    writer.writeEndElement();                                           //Consequences
+}
+
+void DatabaseInXML::saveConsequence(const Consequence &elem)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Consequence"); //Consequence
+    writer.writeAttribute("ID", QString::number(elem.id()));
+    writer.writeAttribute("Name", elem.name());
+    writer.writeCharacters(QString::number(elem.isOn()));
+
+    writer.writeEndElement();       //Consequence
+}
+
+void DatabaseInXML::saveCharacters()
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("CHARACTERS");   //Characters
+
+    // Characters
+    CharacterModel* charModel = m_model->charactersModel();
+    auto characters = charModel->values();
+    for(const auto& elem : characters)
+    {
+       saveCharacter(elem);
+    }
+
+    writer.writeEndElement();   //Characters
+}
+
+void DatabaseInXML::saveCharacter(const Character &elem)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Character"); //Character
+    writer.writeAttribute("ID",QString::number(elem.id()));
+    writer.writeAttribute("Name", elem.name());
+    writer.writeAttribute("Image", elem.imageName());
+
+    Buff buff = elem.attributes();
+    saveBuff(buff);
+
+    writer.writeEndElement();   //Character
+}
+
+void DatabaseInXML::saveEvents()
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("EVENTS");  //Events
+    // Events
+    EventsModel* eventsModel = m_model->eventsModel();
+    auto events = eventsModel->values();
+    for(const auto& elem : events)
+    {
+       saveEvent(elem);
+    }
+
+    writer.writeEndElement();   //Events
+}
+
+void DatabaseInXML::saveEvent(const Event &elem)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Event"); //Event
+    writer.writeAttribute("ID", QString::number(elem.id()));
+    writer.writeAttribute("Name", elem.name());
+    writer.writeAttribute("Description", elem.description());
+
+    for(const auto& action : elem)
+    {
+       saveAction(action);
+    }
+
+    writer.writeEndElement();   //Event
+}
+
+void DatabaseInXML::saveAction(const Action &action)
+{
+    QXmlStreamWriter& writer = this->writer();
+    writer.writeStartElement("Action"); //Action
+    writer.writeAttribute("Type",QString::number((int)action.type()));
+    writer.writeAttribute("To", QString::number(action.idToAction()));
+    writer.writeAttribute("Splitter", action.dataSplitter);
+    writer.writeTextElement("Data", action.data());
+    writer.writeEndElement();   //Action
+}
+
+QXmlStreamReader& DatabaseInXML::reader()
+{
+    return m_reader;
+}
+
+QXmlStreamWriter& DatabaseInXML::writer()
+{
+    return m_writer;
 }
 
 DatabaseInXML::DatabaseInXML(DatabaseModel *model, QObject *parent) : QObject(parent),
