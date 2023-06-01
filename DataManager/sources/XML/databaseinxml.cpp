@@ -92,20 +92,24 @@ void DatabaseInXML::saveToFile(const QString &file)
     auto characters = charModel->values();
     for(const auto& elem : characters)
     {
-        writer.writeStartElement(QString::number(elem.id()));   //Character
+        writer.writeStartElement("Character"); //Character
+        writer.writeAttribute("ID",QString::number(elem.id()));
         writer.writeAttribute("Name", elem.name());
         writer.writeAttribute("Image", elem.imageName());
 
         Buff buff = elem.attributes();
-        writer.writeStartElement(buff.name());  //BUFF
+        writer.writeStartElement("Buff");
+        writer.writeAttribute("Name",buff.name());  // BUFF
         writer.writeAttribute("Duration", QString::number(buff.duration()));
 
-        writer.writeStartElement("Attributes"); //ATTRIBUTES
-        for(int i = 0; i < AttributesNames.size(); ++i)
-            writer.writeAttribute(AttributesNames.at(i), QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
-        writer.writeEndElement();   //ATTRIBUTES
-
-        writer.writeEndElement();   //BUFF
+        writer.writeStartElement("Attributes"); // ATTRIBUTES
+        for(int i = 0; i < AttributesNames.size(); ++i) {
+            writer.writeCharacters(QString::number(buff.changedAttributes().*AttributesPointers.at(i)));
+            if(i+1 != AttributesNames.size())
+                writer.writeCharacters(",");
+        }
+        writer.writeEndElement();   // ATTRIBUTES
+        writer.writeEndElement();   // BUFF
 
         writer.writeEndElement();   //Character
     }
@@ -197,20 +201,36 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
                     //Consequences
                     QList<Consequence> consequences;
                     while(reader.readNextStartElement()) {
-                        qDebug() << "CONSEQUENCES" << reader.name();
                         int id = reader.attributes().value("ID").toInt();
                         QString name = reader.attributes().value("Name").toString();
                         bool isOn = reader.readElementText().toInt();
 
                         consequences.push_back(Consequence(id, name, isOn));
-                        qDebug() << consequences.last().toString();
                     }
 
                 } else if(reader.name() == QLatin1String("CHARACTERS")) {
                     //Characters
+                    QList<Character> characters;
                     while(reader.readNextStartElement()) {
-                        qDebug() << "CHARACTERS" << reader.name();
+                        int id = reader.attributes().value("ID").toInt();
+                        QString name = reader.attributes().value("Name").toString();
+                        QString image = reader.attributes().value("Image").toString();
 
+                        reader.readNextStartElement(); // GO TO BUFF
+                        QString buffName = reader.attributes().value("Name").toString();
+                        int duration = reader.attributes().value("Duration").toInt();
+
+                        reader.readNextStartElement(); // OPEN ATTRIBUTES
+                        QStringList attributes = reader.readElementText().split(",");
+                        Attributes newAttributes;
+                        for(int i = 0; i < AttributesPointers.size(); ++i)
+                        {
+                            newAttributes.*AttributesPointers.at(i) = attributes.at(i).toInt();
+                        }
+                        reader.readNextStartElement();  // CLOSE ATTRIBUTES
+                        reader.readNextStartElement();  // CLOSE BUFF
+
+                        characters.push_back(Character(id, name, image, Buff(duration, newAttributes, buffName)));
                     }
 
                 } else if(reader.name() == QLatin1String("EVENTS")) {
