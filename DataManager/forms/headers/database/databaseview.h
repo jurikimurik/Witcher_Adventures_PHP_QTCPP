@@ -9,6 +9,7 @@
 #include "../consequence/consequencesview.h"
 #include "../action/eventsview.h"
 #include "../../../headers/database/databasemodel.h"
+#include "../../../headers/XML/databaseinxml.h"
 
 
 QT_BEGIN_NAMESPACE

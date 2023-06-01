@@ -78,15 +78,21 @@ void DatabaseView::createConnections()
 
 void DatabaseView::save()
 {
-    QString path = QFileDialog::getSaveFileName(this, QTranslator::tr("Zapisz plik"), QString(),QTranslator::tr("Baza danych (*.wdb)"));
-    QFile file(path);
+    QString path = QFileDialog::getSaveFileName(this, QTranslator::tr("Zapisz plik"), QString(),QTranslator::tr("Baza danych (*.wdb);;XML plik (*.xml)"));
+    if(path.split(".").last() == "xml") {
+        DatabaseInXML xmlDatabase(m_model, this);
+        xmlDatabase.saveToFile(path);
+    } else {
+        QFile file(path);
 
-    if(!file.open(QIODevice::WriteOnly))
-        throw std::runtime_error("Can't open file for writing.");
+        if(!file.open(QIODevice::WriteOnly))
+            throw std::runtime_error("Can't open file for writing.");
 
-    QTextStream stream(&file);
-    stream << m_model->toString();
-    file.close();
+        QTextStream stream(&file);
+        stream << m_model->toString();
+        file.close();
+    }
+
 }
 
 void DatabaseView::load()
