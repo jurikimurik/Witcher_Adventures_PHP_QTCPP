@@ -122,16 +122,18 @@ void DatabaseInXML::saveToFile(const QString &file)
     auto events = eventsModel->values();
     for(const auto& elem : events)
     {
-        writer.writeStartElement(QString::number(elem.id()));   //Event
+        writer.writeStartElement("Event"); //Event
+        writer.writeAttribute("ID", QString::number(elem.id()));
         writer.writeAttribute("Name", elem.name());
         writer.writeAttribute("Description", elem.description());
 
         for(const auto& action : elem)
         {
-            writer.writeStartElement(QString::number((int)action.type()));  //Action
-            writer.writeTextElement("Data", action.data());
+            writer.writeStartElement("Action"); //Action
+            writer.writeAttribute("Type",QString::number((int)action.type()));
             writer.writeAttribute("To", QString::number(action.idToAction()));
             writer.writeAttribute("Splitter", action.dataSplitter);
+            writer.writeTextElement("Data", action.data());
             writer.writeEndElement();   //Action
         }
 
@@ -235,9 +237,29 @@ DatabaseModel *DatabaseInXML::readFromFile(const QString &file)
 
                 } else if(reader.name() == QLatin1String("EVENTS")) {
                     //Events
+                    QList<Event> events;
                     while(reader.readNextStartElement()) {
                         qDebug() << "EVENTS" << reader.name();
 
+                        int id = reader.attributes().value("ID").toInt();
+                        QString name = reader.attributes().value("Name").toString();
+                        QString description = reader.attributes().value("Description").toString();
+
+                        QList<Action> actions;
+                        while(reader.readNextStartElement() && reader.name() == QLatin1String("Action"))
+                        {
+                            ActionType type = (ActionType) reader.attributes().value("Type").toInt();
+                            int toAction = reader.attributes().value("To").toInt();
+                            //SPLITTER IS NOT INTERESTING FOR US
+                            reader.readNextStartElement(); // Going to "Data"
+                            QString data = reader.readElementText();
+                            reader.readNextStartElement(); // CLOSE "Data"
+
+                            actions.push_back(Action(type, data, toAction));
+                        }
+                        Event newEvent(description, id, name);
+                        newEvent.addActions(actions);
+                        events.push_back(newEvent);
                     }
 
                 } else {
