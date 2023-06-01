@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 
     Character character(13, "Sergij Krakowski", "bandit.png", Buff(20, Attributes({100, 100, 100, 100, 14, 13, 2}), "Statystyki"));
     Character character2(1, "Kalisto", "witcher.png", Buff(-1, Attributes({100, 100, 100, 100, 43, 12, 33}), "Stats"));
-    CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(24, character), qMakePair(1, character2)}));
+    CharacterModel *charmodel = new CharacterModel(nullptr, QMap({qMakePair(13, character), qMakePair(1, character2)}));
 
     Consequence consequence(13, "Troll zabity", true);
     Consequence consequence1(2, "Konrad pokonany", false);
@@ -165,7 +165,16 @@ int main(int argc, char *argv[])
     QString file = QFileDialog::getSaveFileName();
     DatabaseInXML databaseInXML(model);
     databaseInXML.saveToFile(file);
-    databaseInXML.readFromFile(file);
+    DatabaseModel* secondModel = databaseInXML.readFromFile(file);
+
+    if(model->toString() == secondModel->toString())
+        qDebug() << "Everything is fine";
+    else {
+        qDebug() << model->toString();
+        qDebug() << secondModel->toString();
+        qDebug() << "Bad.";
+    }
+
 
     //return a.exec();
 
