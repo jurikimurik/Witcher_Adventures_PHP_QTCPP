@@ -43,6 +43,7 @@ DatabaseModel *DatabaseView::model() const
 
 void DatabaseView::setModel(DatabaseModel *newModel)
 {
+    delete m_model;
     m_model = newModel;
 }
 
@@ -82,38 +83,46 @@ void DatabaseView::save()
     if(path.split(".").last() == "xml") {
         DatabaseInXML xmlDatabase(m_model, this);
         xmlDatabase.saveToFile(path);
-    } else {
-        QFile file(path);
-
-        if(!file.open(QIODevice::WriteOnly))
-            throw std::runtime_error("Can't open file for writing.");
-
-        QTextStream stream(&file);
-        stream << m_model->toString();
-        file.close();
+        return;
     }
+
+
+    QFile file(path);
+
+    if(!file.open(QIODevice::WriteOnly))
+        throw std::runtime_error("Can't open file for writing.");
+
+    QTextStream stream(&file);
+    stream << m_model->toString();
+    file.close();
 
 }
 
 void DatabaseView::load()
 {
-    QString path = QFileDialog::getOpenFileName(this, QTranslator::tr("Otworz plik"), QString(), QTranslator::tr("Baza danych (*.wdb)"));
-    QFile file(path);
+    QString path = QFileDialog::getOpenFileName(this, QTranslator::tr("Otworz plik"), QString(), QTranslator::tr("Baza danych (*.wdb);;XML plik (*.xml)"));
+    if(path.split(".").last() == "xml") {
+        DatabaseInXML xmlDatabase(m_model, this);
+        setModel(xmlDatabase.readFromFile(path));
+    } else {
+        QFile file(path);
 
-    if(!file.open(QIODevice::ReadOnly))
-        throw std::runtime_error("Can't open file for reading.");
-
-
-    QString data;
-    QTextStream stream(&file);
-    data = stream.readAll();
-    file.close();
+        if(!file.open(QIODevice::ReadOnly))
+            throw std::runtime_error("Can't open file for reading.");
 
 
-    delete m_model;
-    m_model = DatabaseModel::fromString(data);
+        QString data;
+        QTextStream stream(&file);
+        data = stream.readAll();
+        file.close();
+
+        setModel(DatabaseModel::fromString(data));
+    }
     assignViewsToModels();
     createConnections();
+
+
+
 }
 
 EventsView *DatabaseView::eventsView() const
