@@ -2,6 +2,7 @@
 
 namespace database\basic;
 
+use consequence\Consequence;
 use item\Item;
 use item\ItemType;
 
@@ -35,6 +36,25 @@ class ItemDatabase
         }
 
         return new Item(-1, "NONE", new ItemType("NOTHING", "NOTHING"), "NONE", "NONE", 0, array());
+    }
+
+    public function removeById(int $id)
+    {
+        for($i = 0; $i < count($this->data); $i++)
+        {
+            /** @var Item $item */
+            $item = $this->data[$i];
+            if($item->getId() === $id)
+            {
+                $this->remove($i);
+            }
+        }
+    }
+
+    public function update(Item $item)
+    {
+        $this->removeById($item->getId());
+        $this->add($item);
     }
 
 

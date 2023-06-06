@@ -4,6 +4,7 @@ namespace character;
 
 require_once ("../basic/DatabaseItem.php");
 require_once ("../special/Buff.php");
+use special\Buff;
 
 class Character extends \DatabaseItem
 {

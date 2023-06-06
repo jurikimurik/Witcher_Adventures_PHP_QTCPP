@@ -2,16 +2,20 @@
 
 namespace action;
 
-class Event
+require_once ("../basic/DatabaseItem.php");
+
+class Event extends \DatabaseItem
 {
     private string $description;
     private array $actions;
 
-    public function __construct(array $actions, string $description = "")
+    public function __construct(int $id, string $name, array $actions, string $description)
     {
-        $this->description = $description;
+        parent::__construct($id, $name);
         $this->actions = $actions;
+        $this->description = $description;
     }
+
 
     public function addAction(\Action $action)
     {
