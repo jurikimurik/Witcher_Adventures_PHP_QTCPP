@@ -4,13 +4,21 @@ require_once ("Action.php");
 
 class RewardAction extends Action
 {
-    private $money;
-    private $enemies = array();
+    private int $money;
+    private array $items;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        //TODO: GET DATA FROM ACTION
+
+        $neededData = $data . explode($splitter);
+
+        $this->money = intval($neededData[1]);
+        foreach ($neededData[2].explode("|") as $value)
+        {
+            if(!empty($value))
+                $this->items[] = intval($value);
+        }
     }
 
     /**

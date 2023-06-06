@@ -5,13 +5,28 @@ require_once ("Action.php");
 
 class ChoiceAction extends \Action
 {
-    private $textData;
-    private $choices = array();
+    private string $textData;
+    private array $choices;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        // TODO: GET DATA FROM ACTION
+
+        $neededData = $data.explode($splitter);
+        $this->textData = $neededData[1];
+        foreach ($neededData[2].explode("|") as $str)
+        {
+            if(empty($str))
+                continue;
+
+            $neededStr = $str.explode("~");
+            $toId = intval($neededStr[1]);
+            $text = $neededStr[2];
+            $consequenceId = intval($neededStr[3]);
+            $isOn = intval($neededStr[4]);
+
+            $this->choices[] = new \Choice\Choice($toId, $text, new \consequence\Consequence($consequenceId, "FROM CHOICE", $isOn));
+        }
     }
 
     /**

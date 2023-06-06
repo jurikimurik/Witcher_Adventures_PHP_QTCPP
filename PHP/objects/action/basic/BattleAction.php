@@ -4,13 +4,21 @@ require_once ("Action.php");
 
 class BattleAction extends Action
 {
-    private $textData;
-    private $enemiesIds = array();
+    private string $textData;
+    private array $enemiesIds;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        // TODO: GET DATA FROM ACTION
+
+        $neededData = $data.explode($splitter);
+
+        $this->textData = $neededData[1];
+        foreach ($neededData[2].explode("|") as $value)
+        {
+            if(!empty($value))
+                $this->enemiesIds[] = intval($value);
+        }
     }
 
     /**

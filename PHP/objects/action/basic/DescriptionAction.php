@@ -4,14 +4,19 @@ require_once ("Action.php");
 
 class DescriptionAction extends Action
 {
-    private $textData;
-    private $imageName;
-    private $music;
+    private string $textData;
+    private string $imageName;
+    private string $music;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        // TODO: GET ALL DATA FROM ACTION
+
+        $neededData = $data.explode($splitter);
+
+        $this->textData = $neededData[1];
+        $this->imageName = $neededData[2];
+        $this->music = $neededData[3];
     }
 
     /**

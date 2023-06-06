@@ -4,13 +4,16 @@ require_once ("Action.php");
 
 class AgilityAction extends Action
 {
-    private $difficulty;
-    private $timePerOne;
+    private int $difficulty;
+    private int $timePerOne;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        // TODO: GET DATA FROM ACTION
+        $neededData = $data.explode($splitter);
+
+        $this->difficulty = intval($neededData[1]);
+        $this->timePerOne = intval($neededData[2]);
     }
 
     /**

@@ -4,15 +4,23 @@ require_once ("Action.php");
 
 class DiceAction extends Action
 {
-    private $difficulty;
-    private $players;
-    private $enemies;
-    private $textData;
+    private int $difficulty;
+    private int $players;
+    private array $enemiesIds;
+    private string $textData;
 
     public function __construct($actionType, $data, $toActionId, $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        // TODO: GET DATA FROM ACTION
+
+        $neededData = $data.explode($splitter);
+        $this->difficulty = intval($neededData[1]);
+        $this->players = intval($neededData[2]);
+        foreach ($neededData[3].explode("|") as $value)
+        {
+            $this->enemiesIds[] = intval($value);
+        }
+        $this->textData = $neededData[4];
     }
 
     /**
