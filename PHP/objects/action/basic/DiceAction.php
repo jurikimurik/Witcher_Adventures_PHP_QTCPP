@@ -13,77 +13,83 @@ class DiceAction extends Action
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
 
-        $neededData = $data.explode($splitter);
+        $neededData = explode($splitter, $data);
         $this->difficulty = intval($neededData[1]);
         $this->players = intval($neededData[2]);
-        foreach ($neededData[3].explode("|") as $value)
+        foreach (explode("|", $neededData[3]) as $value)
         {
             $this->enemiesIds[] = intval($value);
         }
         $this->textData = $neededData[4];
     }
 
+    public static function fromAction(Action $action) : DiceAction
+    {
+        return new DiceAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
+    }
+
     /**
-     * @return mixed
+     * @return int
      */
-    public function getDifficulty()
+    public function getDifficulty(): int
     {
         return $this->difficulty;
     }
 
     /**
-     * @param mixed $difficulty
+     * @param int $difficulty
      */
-    public function setDifficulty($difficulty): void
+    public function setDifficulty(int $difficulty): void
     {
         $this->difficulty = $difficulty;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getPlayers()
+    public function getPlayers(): int
     {
         return $this->players;
     }
 
     /**
-     * @param mixed $players
+     * @param int $players
      */
-    public function setPlayers($players): void
+    public function setPlayers(int $players): void
     {
         $this->players = $players;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getEnemies()
+    public function getEnemiesIds(): array
     {
-        return $this->enemies;
+        return $this->enemiesIds;
     }
 
     /**
-     * @param mixed $enemies
+     * @param array $enemiesIds
      */
-    public function setEnemies($enemies): void
+    public function setEnemiesIds(array $enemiesIds): void
     {
-        $this->enemies = $enemies;
+        $this->enemiesIds = $enemiesIds;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTextData()
+    public function getTextData(): string
     {
         return $this->textData;
     }
 
     /**
-     * @param mixed $textData
+     * @param string $textData
      */
-    public function setTextData($textData): void
+    public function setTextData(string $textData): void
     {
         $this->textData = $textData;
     }
+
 }

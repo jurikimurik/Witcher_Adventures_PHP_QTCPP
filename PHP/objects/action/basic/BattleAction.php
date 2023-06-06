@@ -7,18 +7,23 @@ class BattleAction extends Action
     private string $textData;
     private array $enemiesIds;
 
-    public function __construct($actionType, $data, $toActionId, $splitter)
+    public function __construct(int $actionType, string $data, int $toActionId, string $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
 
-        $neededData = $data.explode($splitter);
+        $neededData = explode($splitter, $data);
 
         $this->textData = $neededData[1];
-        foreach ($neededData[2].explode("|") as $value)
+        foreach (explode("|", $neededData[2]) as $value)
         {
             if(!empty($value))
                 $this->enemiesIds[] = intval($value);
         }
+    }
+
+    public static function fromAction(Action $action) : BattleAction
+    {
+        return new BattleAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
     }
 
     /**

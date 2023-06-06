@@ -7,49 +7,56 @@ class RewardAction extends Action
     private int $money;
     private array $items;
 
-    public function __construct($actionType, $data, $toActionId, $splitter)
+    public function __construct(int $actionType,string $data,int $toActionId, string $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
 
-        $neededData = $data . explode($splitter);
+        $neededData = explode($splitter, $data);
+
 
         $this->money = intval($neededData[1]);
-        foreach ($neededData[2].explode("|") as $value)
+        foreach (explode("|", $neededData[2]) as $value)
         {
             if(!empty($value))
                 $this->items[] = intval($value);
         }
     }
 
-    /**
-     * @return array
-     */
-    public function getEnemies(): array
+    public static function fromAction(Action $action) : RewardAction
     {
-        return $this->enemies;
+        return new RewardAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
     }
 
     /**
-     * @param array $enemies
+     * @return int
      */
-    public function setEnemies(array $enemies): void
-    {
-        $this->enemies = $enemies;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMoney()
+    public function getMoney(): int
     {
         return $this->money;
     }
 
     /**
-     * @param mixed $money
+     * @param int $money
      */
-    public function setMoney($money): void
+    public function setMoney(int $money): void
     {
         $this->money = $money;
     }
+
+    /**
+     * @return array
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param array $items
+     */
+    public function setItems(array $items): void
+    {
+        $this->items = $items;
+    }
+
 }

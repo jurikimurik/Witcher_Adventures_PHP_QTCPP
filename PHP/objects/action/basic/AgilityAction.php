@@ -7,13 +7,18 @@ class AgilityAction extends Action
     private int $difficulty;
     private int $timePerOne;
 
-    public function __construct($actionType, $data, $toActionId, $splitter)
+    public function __construct(int $actionType, string $data, int $toActionId, string $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
-        $neededData = $data.explode($splitter);
+        $neededData = explode($splitter, $data);
 
         $this->difficulty = intval($neededData[1]);
         $this->timePerOne = intval($neededData[2]);
+    }
+
+    public static function fromAction(Action $action) : BattleAction
+    {
+        return new BattleAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
     }
 
     /**

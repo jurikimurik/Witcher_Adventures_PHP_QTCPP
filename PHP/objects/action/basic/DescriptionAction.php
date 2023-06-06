@@ -12,12 +12,19 @@ class DescriptionAction extends Action
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
 
-        $neededData = $data.explode($splitter);
+        $neededData = explode($splitter, $data);
 
         $this->textData = $neededData[1];
         $this->imageName = $neededData[2];
         $this->music = $neededData[3];
     }
+
+    public static function fromAction(Action $action) : DescriptionAction
+    {
+        return new DescriptionAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
+    }
+
+
 
     /**
      * @return mixed

@@ -2,7 +2,7 @@
 
 namespace database\basic;
 
-class ActionDatabase
+class EventDatabase
 {
 
 }

@@ -8,18 +8,18 @@ class ChoiceAction extends \Action
     private string $textData;
     private array $choices;
 
-    public function __construct($actionType, $data, $toActionId, $splitter)
+    public function __construct(int $actionType, string $data, int  $toActionId, string $splitter)
     {
         parent::__construct($actionType, $data, $toActionId, $splitter);
 
-        $neededData = $data.explode($splitter);
+        $neededData = explode($splitter, $data);
         $this->textData = $neededData[1];
-        foreach ($neededData[2].explode("|") as $str)
+        foreach (explode("|", $neededData[2]) as $str)
         {
             if(empty($str))
                 continue;
 
-            $neededStr = $str.explode("~");
+            $neededStr = explode("~", $str);
             $toId = intval($neededStr[1]);
             $text = $neededStr[2];
             $consequenceId = intval($neededStr[3]);
@@ -27,6 +27,11 @@ class ChoiceAction extends \Action
 
             $this->choices[] = new \Choice\Choice($toId, $text, new \consequence\Consequence($consequenceId, "FROM CHOICE", $isOn));
         }
+    }
+
+    public static function fromAction(Action $action) : ChoiceAction
+    {
+        return new ChoiceAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
     }
 
     /**
