@@ -2,12 +2,15 @@
 
 namespace character;
 
+require_once ("../basic/DatabaseItem.php");
+require_once ("../special/Buff.php");
+
 class Character extends \DatabaseItem
 {
-    private $imageName;
+    private string $imageName;
     private Buff $attributes;
 
-    public function __construct($id, $name, $imageName, $attributes)
+    public function __construct(int $id, string $name, string $imageName, Buff $attributes)
     {
         parent::__construct($id, $name);
         $this->imageName = $imageName;
@@ -15,17 +18,17 @@ class Character extends \DatabaseItem
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getImageName()
+    public function getImageName(): string
     {
         return $this->imageName;
     }
 
     /**
-     * @param mixed $imageName
+     * @param string $imageName
      */
-    public function setImageName($imageName): void
+    public function setImageName(string $imageName): void
     {
         $this->imageName = $imageName;
     }
@@ -45,4 +48,6 @@ class Character extends \DatabaseItem
     {
         $this->attributes = $attributes;
     }
+
+
 }

@@ -2,47 +2,54 @@
 
 namespace special;
 
+require_once ("../special/Attributes.php");
+
 class Buff
 {
-    private $name;
-    private $duration;
+    private string $name;
+    private int $duration;
     private Attributes $attributes;
 
-    public function __construct($name, $duration, $attributes)
+    public function __construct($name, $duration, Attributes $attributes)
     {
         $this->name = $name;
         $this->duration = $duration;
         $this->attributes = $attributes;
     }
 
+    public function durationDecrease(int $count = 1)
+    {
+        $this->duration -= $count;
+    }
+
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getDuration()
+    public function getDuration(): int
     {
         return $this->duration;
     }
 
     /**
-     * @param mixed $duration
+     * @param int $duration
      */
-    public function setDuration($duration): void
+    public function setDuration(int $duration): void
     {
         $this->duration = $duration;
     }
@@ -62,4 +69,7 @@ class Buff
     {
         $this->attributes = $attributes;
     }
+
+
+
 }

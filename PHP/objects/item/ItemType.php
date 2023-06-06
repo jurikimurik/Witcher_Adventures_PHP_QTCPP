@@ -4,43 +4,45 @@ namespace item;
 
 class ItemType
 {
-    private $typeName;
-    private $typeDescription;
+    private string $typeName;
+    private string $typeDescription;
 
-    public function __construct($typeName, $typeDescription) {
+    public function __construct(string $typeName, string $typeDescription) {
         $this->typeName = $typeName;
         $this->typeDescription = $typeDescription;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTypeName()
+    public function getTypeName(): string
     {
         return $this->typeName;
     }
 
     /**
-     * @param mixed $typeName
+     * @param string $typeName
      */
-    public function setTypeName($typeName): void
+    public function setTypeName(string $typeName): void
     {
         $this->typeName = $typeName;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTypeDescription()
+    public function getTypeDescription(): string
     {
         return $this->typeDescription;
     }
 
     /**
-     * @param mixed $typeDescription
+     * @param string $typeDescription
      */
-    public function setTypeDescription($typeDescription): void
+    public function setTypeDescription(string $typeDescription): void
     {
         $this->typeDescription = $typeDescription;
     }
+
+
 }

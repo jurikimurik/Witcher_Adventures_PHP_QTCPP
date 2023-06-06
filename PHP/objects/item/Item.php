@@ -2,15 +2,17 @@
 
 namespace item;
 
+require_once ("../basic/DatabaseItem.php");
+
 class Item extends \DatabaseItem
 {
     private ItemType $type;
-    private $description;
-    private $imageName;
-    private $money;
-    private $buffs;
+    private string $description;
+    private string $imageName;
+    private int $money;
+    private array $buffs;
 
-    public function __construct($id, $name, $type, $description, $imageName, $money, $buffs)
+    public function __construct(int $id, string $name, ItemType $type, string $description, string $imageName, int $money, array $buffs)
     {
         parent::__construct($id, $name);
         $this->type = $type;
@@ -37,66 +39,68 @@ class Item extends \DatabaseItem
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
     /**
-     * @param mixed $description
+     * @param string $description
      */
-    public function setDescription($description): void
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getImageName()
+    public function getImageName(): string
     {
         return $this->imageName;
     }
 
     /**
-     * @param mixed $imageName
+     * @param string $imageName
      */
-    public function setImageName($imageName): void
+    public function setImageName(string $imageName): void
     {
         $this->imageName = $imageName;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getMoney()
+    public function getMoney(): int
     {
         return $this->money;
     }
 
     /**
-     * @param mixed $money
+     * @param int $money
      */
-    public function setMoney($money): void
+    public function setMoney(int $money): void
     {
         $this->money = $money;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getBuffs()
+    public function getBuffs(): array
     {
         return $this->buffs;
     }
 
     /**
-     * @param mixed $buffs
+     * @param array $buffs
      */
-    public function setBuffs($buffs): void
+    public function setBuffs(array $buffs): void
     {
         $this->buffs = $buffs;
     }
+
+
 }

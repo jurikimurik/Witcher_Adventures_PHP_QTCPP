@@ -4,10 +4,18 @@ namespace special;
 
 class Attributes
 {
-    private $values = array();
-    public function __construct($values)
+    private array $values;
+    public function __construct(array $values)
     {
         $this->values = $values;
+    }
+
+    /**
+     * @return array
+     */
+    public function getValues(): array
+    {
+        return $this->values;
     }
 
     /**
@@ -18,11 +26,4 @@ class Attributes
         $this->values = $values;
     }
 
-    /**
-     * @return array
-     */
-    public function getValues()
-    {
-        return $this->values;
-    }
 }

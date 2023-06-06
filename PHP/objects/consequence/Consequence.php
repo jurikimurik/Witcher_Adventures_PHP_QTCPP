@@ -2,20 +2,31 @@
 
 namespace consequence;
 
+require_once ("../basic/DatabaseItem.php");
+
 class Consequence extends \DatabaseItem
 {
-    private $isOn;
-    public function __construct($id, $name, $isOn)
+    private bool $isOn;
+    public function __construct(int $id, string $name, bool $isOn)
     {
         parent::__construct($id, $name);
         $this->isOn = $isOn;
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
-    public function getIsOn()
+    public function isOn(): bool
     {
         return $this->isOn;
     }
+
+    /**
+     * @param bool $isOn
+     */
+    public function setIsOn(bool $isOn): void
+    {
+        $this->isOn = $isOn;
+    }
+
 }
