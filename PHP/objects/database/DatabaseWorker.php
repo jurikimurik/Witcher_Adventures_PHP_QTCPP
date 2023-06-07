@@ -3,8 +3,11 @@
 namespace database;
 
 
+
 use database\basic\CharacterDatabase;
 require_once ("basic/CharacterDatabase.php");
+require_once (realpath(dirname(__FILE__).'/../character/Character.php'));
+use character\Character;
 
 use database\basic\ConsequenceDatabase;
 require_once ("basic/ConsequenceDatabase.php");
@@ -75,8 +78,6 @@ class DatabaseWorker
             $consequences->add(self::readConsequence($consequence));
         }
 
-        var_dump($consequences);
-
         return $consequences;
     }
 
@@ -86,7 +87,7 @@ class DatabaseWorker
 
         foreach ($value->children() as $children => $character)
         {
-
+            $characters->add(self::readCharacter($character));
         }
 
         return $characters;
@@ -156,5 +157,17 @@ class DatabaseWorker
         $isOn = (bool) intval(strip_tags($consequence));
 
         return new Consequence($id, $name, $isOn);
+    }
+
+    private static function readCharacter(?\SimpleXMLElement $character) : Character
+    {
+        $characterAttributes = $character->attributes();
+
+        $id = intval($characterAttributes['ID']);
+        $name = $characterAttributes['Name'];
+        $image = $characterAttributes['Image'];
+
+        $buff = self::readBuff($character->Buff);
+        return new Character($id, $name, $image, $buff);
     }
 }

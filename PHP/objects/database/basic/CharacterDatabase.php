@@ -8,7 +8,7 @@ use character\Character;
 
 class CharacterDatabase
 {
-    private array $data;
+    private array $data = array();
 
     public function add(Character $character): bool
     {

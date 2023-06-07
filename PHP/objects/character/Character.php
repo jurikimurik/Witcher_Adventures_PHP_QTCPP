@@ -2,8 +2,8 @@
 
 namespace character;
 
-require_once ("../basic/DatabaseItem.php");
-require_once ("../special/Buff.php");
+require_once (realpath(dirname(__FILE__).'/../basic/DatabaseItem.php'));
+require_once (realpath(dirname(__FILE__).'/../special/Buff.php'));
 use special\Buff;
 
 class Character extends \DatabaseItem
