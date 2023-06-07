@@ -6,7 +6,7 @@ use action\Event;
 
 class EventDatabase
 {
-    private array $data;
+    private array $data = array();
 
     public function add(Event $event): bool
     {

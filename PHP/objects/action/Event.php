@@ -2,7 +2,7 @@
 
 namespace action;
 
-require_once ("../basic/DatabaseItem.php");
+require_once (realpath(dirname(__FILE__).'/../basic/DatabaseItem.php'));
 
 class Event extends \DatabaseItem
 {

@@ -4,6 +4,7 @@ namespace database;
 
 
 
+
 use database\basic\CharacterDatabase;
 require_once ("basic/CharacterDatabase.php");
 require_once (realpath(dirname(__FILE__).'/../character/Character.php'));
@@ -17,6 +18,11 @@ use consequence\Consequence;
 
 use database\basic\EventDatabase;
 require_once ("basic/EventDatabase.php");
+
+use action\Event;
+require_once (realpath(dirname(__FILE__).'/../action/basic/Action.php'));
+require_once (realpath(dirname(__FILE__).'/../action/Event.php'));
+
 
 use database\basic\ItemDatabase;
 require_once ("basic/ItemDatabase.php");
@@ -46,6 +52,7 @@ class DatabaseWorker
                 case "CONSEQUENCES": $database->setConsequenceDatabase(self::readConsequencesDatabase($value)); break;
                 case "CHARACTERS": $database->setCharacterDatabase(self::readCharacterDatabase($value)); break;
                 case "EVENTS": $database->setActionDatabase(self::readEventsDatabase($value)); break;
+                default: echo "ITEM IS NOT RECOGNISED"; break;
             }
         }
     }
@@ -99,7 +106,7 @@ class DatabaseWorker
 
         foreach ($value->children() as $children => $event)
         {
-
+            $events->add(self::readEvent($event));
         }
 
         return $events;
@@ -169,5 +176,35 @@ class DatabaseWorker
 
         $buff = self::readBuff($character->Buff);
         return new Character($id, $name, $image, $buff);
+    }
+
+    private static function readAction(?\SimpleXMLElement $action) : \Action
+    {
+        $actionAttributes = $action->attributes();
+        $type = intval($actionAttributes['Type']);
+        $to = intval($actionAttributes['To']);
+        $splitter = $actionAttributes['Splitter'];
+
+        $data = strip_tags($action->Data);
+        return new \Action($type, $data, $to, $splitter);
+    }
+
+    private static function readEvent(?\SimpleXMLElement $event) : Event
+    {
+        $eventAttributes = $event->attributes();
+
+        $id = intval($eventAttributes['ID']);
+        $name = intval($eventAttributes['Name']);
+        $description = $eventAttributes['Description'];
+
+        $actions = array();
+        foreach ($event as $key => $action)
+        {
+            if($key !== "Action") {
+                continue;
+            }
+            $actions[] = self::readAction($action);
+        }
+        return new Event($id, $name, $actions, $description);
     }
 }
