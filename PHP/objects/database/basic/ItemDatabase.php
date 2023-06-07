@@ -2,13 +2,12 @@
 
 namespace database\basic;
 
-use consequence\Consequence;
 use item\Item;
 use item\ItemType;
 
 class ItemDatabase
 {
-    private array $data;
+    private array $data = array();
 
     public function add(Item $item): bool
     {

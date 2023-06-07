@@ -7,6 +7,8 @@ use database\basic\CharacterDatabase;
 use database\basic\ConsequenceDatabase;
 use database\basic\ItemDatabase;
 
+require_once ("DatabaseWorker.php");
+
 class AllDatabase
 {
     private EventDatabase $actionDatabase;

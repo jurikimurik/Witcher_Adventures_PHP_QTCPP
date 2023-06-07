@@ -2,7 +2,7 @@
 
 namespace special;
 
-require_once ("../special/Attributes.php");
+require_once (realpath(dirname(__FILE__).'/../special/Attributes.php'));
 
 class Buff
 {
