@@ -7,7 +7,7 @@ use consequence\Consequence;
 
 class ConsequenceDatabase
 {
-    private array $data;
+    private array $data = array();
 
     public function add(Consequence $consequence): bool
     {

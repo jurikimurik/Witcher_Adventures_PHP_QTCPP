@@ -2,11 +2,15 @@
 
 namespace database;
 
+
 use database\basic\CharacterDatabase;
 require_once ("basic/CharacterDatabase.php");
 
 use database\basic\ConsequenceDatabase;
 require_once ("basic/ConsequenceDatabase.php");
+
+require_once (realpath(dirname(__FILE__).'/../consequence/Consequence.php'));
+use consequence\Consequence;
 
 use database\basic\EventDatabase;
 require_once ("basic/EventDatabase.php");
@@ -68,8 +72,10 @@ class DatabaseWorker
 
         foreach ($value->children() as $children => $consequence)
         {
-
+            $consequences->add(self::readConsequence($consequence));
         }
+
+        var_dump($consequences);
 
         return $consequences;
     }
@@ -139,5 +145,16 @@ class DatabaseWorker
         }
 
         return new Item($id,$name,$itemType,$description,$image,$money,$buffs);
+    }
+
+    private static function readConsequence(?\SimpleXMLElement $consequence) : Consequence
+    {
+        $consAttributes = $consequence->attributes();
+
+        $id = intval($consAttributes['ID']);
+        $name = $consAttributes['Name'];
+        $isOn = (bool) intval(strip_tags($consequence));
+
+        return new Consequence($id, $name, $isOn);
     }
 }
