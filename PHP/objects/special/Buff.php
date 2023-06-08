@@ -17,9 +17,24 @@ class Buff
         $this->attributes = $attributes;
     }
 
-    public function durationDecrease(int $count = 1)
+    public function durationDecrease(int $count = 1): void
     {
         $this->duration -= $count;
+    }
+
+    //Sums up two buffs, but NOT their DURATION!!!
+    public function sumBuffAttributes(Buff $another): void
+    {
+        $newValues = $this->getAttributes()->getValues();
+        $anotherValues = $another->getAttributes()->getValues();
+
+        //FROM 1, BECAUSE 0 IS DURATION
+        for($i = 1; $i < count($newValues); $i++)
+        {
+            $newValues[$i] += intval($anotherValues[$i]);
+        }
+
+        $this->setAttributes(new Attributes($newValues));
     }
 
     /**

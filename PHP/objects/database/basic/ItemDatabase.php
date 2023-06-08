@@ -7,7 +7,7 @@ use item\ItemType;
 
 class ItemDatabase
 {
-    private array $data = array();
+    protected array $data = array();
 
     public function add(Item $item): bool
     {
@@ -46,6 +46,7 @@ class ItemDatabase
             if($item->getId() === $id)
             {
                 $this->remove($i);
+                break;
             }
         }
     }

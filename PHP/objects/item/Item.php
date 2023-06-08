@@ -12,7 +12,8 @@ class Item extends \DatabaseItem
     private int $money;
     private array $buffs;
 
-    public function __construct(int $id, string $name, ItemType $type, string $description, string $imageName, int $money, array $buffs)
+    public function __construct(int $id = -1, string $name = "", ItemType $type = new ItemType("", ""),
+                                string $description = "", string $imageName = "", int $money= 0, array $buffs = array())
     {
         parent::__construct($id, $name);
         $this->type = $type;
