@@ -16,6 +16,30 @@
                 <Attributes>0,0,0,0,30,10,0</Attributes>
             </Buff>
         </Item>
+        <Item ID="3" Name="Lekki Pancerz Szkoły Kota" Description="Pancerz" Image="BRAK" Money="1000">
+            <Type Name="Armour">Simple armour.</Type>
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>0,0,0,0,5,15,5</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="4" Name="Spodnie Wiecznego Ognia" Description="Spodnie" Image="BRAK" Money="400">
+            <Type Name="Pants">Simple pants.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,4,3</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="5" Name="Rękawiczki Szkoły Gryfa" Description="Rękawiczki" Image="BRAK" Money="100">
+            <Type Name="Gloves">Simple gloves.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,10,0</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="6" Name="Buty Kapłanów" Description="Zwykłe buty" Image="BRAK" Money="450">
+            <Type Name="Shoes">Simple shoes.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,10,10</Attributes>
+            </Buff>
+        </Item>
     </ITEMS>
     <CONSEQUENCES>
         <Consequence ID="1" Name="Kalisto skonczyl trening.">1</Consequence>
