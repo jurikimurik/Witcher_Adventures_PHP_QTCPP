@@ -2,6 +2,9 @@
 
 namespace player;
 
+require_once (realpath(dirname(__FILE__)).'/../../objects/character/Character.php');
+
+
 use character\Character;
 use item\Inventory;
 use special\Buff;
@@ -21,7 +24,7 @@ class Player extends Character
     //------------Basic variables---------------
     private Buff $basicAttributes;
     private Buff $currentAttributes;
-    private array $buffs;
+    private array $buffs = array();
     private Inventory $inventory;
 
     //------------Equipped inventory------------
@@ -32,11 +35,22 @@ class Player extends Character
     private Item $gloves;
     //------------------------------------------
 
-    public function __construct(int $id, string $name, string $imageName, Buff $attributes, Inventory $inventory = new Inventory())
+    public function __construct(Character $character, Inventory $inventory = new Inventory())
     {
-        parent::__construct($id, $name, $imageName, $attributes);
-        $this->setBasicAttributes($attributes);
+        parent::__construct($character->getId(), $character->getName(), $character->getImageName(), $character->getAttributes());
+        $this->setBasicAttributes($character->getAttributes());
         $this->inventory = $inventory;
+
+        //Initializing basic fields
+        if(!isset($this->inventory))
+            $this->inventory = new Inventory();
+        $this->weapon = new Item();
+        $this->armour = new Item();
+        $this->pants = new Item();
+        $this->shoes = new Item();
+        $this->gloves = new Item();
+
+
 
         $this->updateAttributes();
     }
