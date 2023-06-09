@@ -9,6 +9,10 @@ require_once ("../../objects/item/Item.php");
 require_once ("../../objects/item/ItemType.php");
 require_once ("../../objects/player/Player.php");
 
+require_once ("../../scripts/tools.php");
+
+
+
 
 if(isset($_POST['itemToUse']))
 {
@@ -30,12 +34,27 @@ if(isset($_SESSION['Player']))
 
 <html lang="pl">
 <form action="inventory.php" method="post">
-    <fieldset>
+    <fieldset style="display: inline-block">
         <legend>Inwentarz</legend>
         <?php
         foreach ($items as $item) {
             /** @var \item\Item $item */
-            echo '<input type = "submit" value="'.$item->getName().'" name="itemToUse">';
+            $descInStr = '';
+            foreach ($item->getBuffs() as $buff)
+            {
+                $descInStr = '<fieldset style="display: inline-block"> <table>';
+                foreach (getBuffStatistics($buff) as $value)
+                {
+                    $descInStr = $descInStr . '<tr><td>'.$value.'</td></tr>';
+                }
+                $descInStr = $descInStr . '</table></fieldset>';
+            }
+
+            echo '<fieldset style="display: inline-block">
+                    <legend>'.$item->getName().'</legend>'.
+                $descInStr
+                    .'<button type="submit" name="itemToUse" value="'.$item->getName().'">Użyj</button>
+                  </fieldset>';
         }
         ?>
     </fieldset>
