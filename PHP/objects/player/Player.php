@@ -56,6 +56,70 @@ class Player extends Character
     }
 
     /**
+     * @return Item
+     */
+    public function getArmour(): Item
+    {
+        return $this->armour;
+    }
+
+    /**
+     * @param Item $armour
+     */
+    public function setArmour(Item $armour): void
+    {
+        $this->armour = $armour;
+    }
+
+    /**
+     * @return Item
+     */
+    public function getPants(): Item
+    {
+        return $this->pants;
+    }
+
+    /**
+     * @param Item $pants
+     */
+    public function setPants(Item $pants): void
+    {
+        $this->pants = $pants;
+    }
+
+    /**
+     * @return Item
+     */
+    public function getShoes(): Item
+    {
+        return $this->shoes;
+    }
+
+    /**
+     * @param Item $shoes
+     */
+    public function setShoes(Item $shoes): void
+    {
+        $this->shoes = $shoes;
+    }
+
+    /**
+     * @return Item
+     */
+    public function getGloves(): Item
+    {
+        return $this->gloves;
+    }
+
+    /**
+     * @param Item $gloves
+     */
+    public function setGloves(Item $gloves): void
+    {
+        $this->gloves = $gloves;
+    }
+
+    /**
      * @return Buff
      */
     public function getBasicAttributes(): Buff
