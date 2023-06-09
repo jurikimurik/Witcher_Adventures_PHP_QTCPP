@@ -85,6 +85,9 @@ class Buff
         $this->attributes = $attributes;
     }
 
-
-
+    public static function getStatisticsText(): array
+    {
+        return array("Długość: ", "Max. HP: ", "Max. MP: ", "Obecne HP: ",
+            "Obecne MP: ", "Atak: ", "Obrona: ", "Zrecznosc: ");
+    }
 }
