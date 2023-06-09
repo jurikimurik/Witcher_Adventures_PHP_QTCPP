@@ -6,6 +6,16 @@ require_once (realpath(dirname(__FILE__) . '/../database/basic/ItemDatabase.php'
 
 class Inventory extends \database\basic\ItemDatabase
 {
+
+    public function __construct(array $itemTable = array())
+    {
+        foreach ($itemTable as $item)
+        {
+            /** @var Item $item */
+            $this->add($item);
+        }
+    }
+
     public function count() : int
     {
         return count($this->data);
