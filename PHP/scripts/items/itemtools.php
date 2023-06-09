@@ -19,3 +19,22 @@ function getItemsByType(\database\basic\ItemDatabase $database, string $type) : 
 
     return $items;
 }
+
+function getListOfItemsByType(\player\Player $player, Item $equippedItem, string $itemType) : string
+{
+    if($equippedItem->getId() <= -1)
+    {
+        $text = '<option value="">Brak</option>';
+    } else {
+        $text = '<option value="'.$equippedItem->getId().'">'.$equippedItem->getName().'</option>';
+    }
+
+
+    foreach (getItemsByType($player->getInventory(), $itemType) as $item)
+    {
+        /** @var Item $item */
+        if($item->getId() != $equippedItem->getId())
+            $text = $text . '<option value="'.$item->getId().'">'.$item->getName().'</option>';
+    }
+    return $text;
+}
