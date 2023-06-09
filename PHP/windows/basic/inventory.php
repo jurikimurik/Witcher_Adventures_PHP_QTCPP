@@ -2,6 +2,7 @@
 session_start();
 
 use item\Inventory;
+use item\Item;
 use player\Player;
 
 require_once ("../../objects/item/Inventory.php");
@@ -38,7 +39,7 @@ if(isset($_SESSION['Player']))
         <legend>Inwentarz</legend>
         <?php
         foreach ($items as $item) {
-            /** @var \item\Item $item */
+            /** @var Item $item */
             $descInStr = '';
             foreach ($item->getBuffs() as $buff)
             {
@@ -58,25 +59,50 @@ if(isset($_SESSION['Player']))
         }
         ?>
     </fieldset>
-    <fieldset>
+<br>
+    <fieldset style="display: inline-block">
         <legend>Ekwipunek</legend>
         <table>
             <tr>
-                <td>Napiersnik:</td>
+                <td>Napiersnik:<select name="armourList">
+                        <?php
+                            echo getListOfItemsByType($player, $player->getArmour(), "Armour");
+                        ?>
+                    </select></td>
             </tr>
             <tr>
-                <td>Spodnie:</td>
+                <td>Spodnie:<select name="pantsList">
+                        <?php
+                            echo getListOfItemsByType($player, $player->getPants(), "Pants");
+                        ?>
+                    </select></td>
             </tr>
             <tr>
-                <td>Buty:</td>
+                <td>Buty:<select name="shoesList">
+                        <?php
+                        echo getListOfItemsByType($player, $player->getShoes(), "Shoes");
+                        ?>
+                    </select></td>
             </tr>
             <tr>
-                <td>Rękawiczki:</td>
+                <td>Rękawiczki:<select name="gloves">
+                        <?php
+                        echo getListOfItemsByType($player, $player->getGloves(), "Gloves");
+                        ?>
+                    </select></td>
             </tr>
         </table>
+        <button type="submit" name="newEquipment">Ubierz nowy stroj</button>
     </fieldset>
-    <fieldset>
+<br>
+    <fieldset style="display: inline-block">
         <legend>Statystyki</legend>
+        <?php
+        foreach (getBuffStatistics($player->getCurrentAttributes()) as $value)
+        {
+            echo $value . '</br>';
+        }
+        ?>
     </fieldset>
 </form>
 </html>
