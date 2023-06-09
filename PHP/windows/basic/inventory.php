@@ -64,32 +64,40 @@ if(isset($_SESSION['Player']))
         <legend>Ekwipunek</legend>
         <table>
             <tr>
-                <td>Napiersnik:<select name="armourList">
-                        <?php
-                            echo getListOfItemsByType($player, $player->getArmour(), "Armour");
-                        ?>
-                    </select></td>
+                <td>Napiersnik:<label>
+                        <select name="armourList">
+                                <?php
+                                    echo getListOfItemsByType($player, $player->getArmour(), "Armour");
+                                ?>
+                            </select>
+                    </label></td>
             </tr>
             <tr>
-                <td>Spodnie:<select name="pantsList">
-                        <?php
-                            echo getListOfItemsByType($player, $player->getPants(), "Pants");
-                        ?>
-                    </select></td>
+                <td>Spodnie:<label>
+                        <select name="pantsList">
+                                <?php
+                                    echo getListOfItemsByType($player, $player->getPants(), "Pants");
+                                ?>
+                            </select>
+                    </label></td>
             </tr>
             <tr>
-                <td>Buty:<select name="shoesList">
-                        <?php
-                        echo getListOfItemsByType($player, $player->getShoes(), "Shoes");
-                        ?>
-                    </select></td>
+                <td>Buty:<label>
+                        <select name="shoesList">
+                                <?php
+                                echo getListOfItemsByType($player, $player->getShoes(), "Shoes");
+                                ?>
+                            </select>
+                    </label></td>
             </tr>
             <tr>
-                <td>Rękawiczki:<select name="gloves">
-                        <?php
-                        echo getListOfItemsByType($player, $player->getGloves(), "Gloves");
-                        ?>
-                    </select></td>
+                <td>Rękawiczki:<label>
+                        <select name="gloves">
+                                <?php
+                                echo getListOfItemsByType($player, $player->getGloves(), "Gloves");
+                                ?>
+                            </select>
+                    </label></td>
             </tr>
         </table>
         <button type="submit" name="newEquipment">Ubierz nowy stroj</button>
