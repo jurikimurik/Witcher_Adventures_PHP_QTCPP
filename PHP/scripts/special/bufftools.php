@@ -1,5 +1,7 @@
 <?php
 
+require_once (realpath(dirname(__FILE__).'/../../objects/special/Buff.php'));
+
 use special\Buff;
 
 function getBuffStatistics(Buff $buff, bool $hideZero = true) : array
