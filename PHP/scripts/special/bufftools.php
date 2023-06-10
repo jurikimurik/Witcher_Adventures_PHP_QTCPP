@@ -25,3 +25,13 @@ function getBuffStatistics(Buff $buff, bool $hideZero = true) : array
 
     return array_filter($descriptions);
 }
+
+function getBuffStatisticsBlock(Buff $buff, $hideZero = true) : string
+{
+    $descInStr = '<fieldset style="display: inline-block"> <table>';
+    foreach (getBuffStatistics($buff, $hideZero) as $value)
+    {
+        $descInStr = $descInStr . '<tr><td>'.$value.'</td></tr>';
+    }
+    return $descInStr . '</table></fieldset>';
+}

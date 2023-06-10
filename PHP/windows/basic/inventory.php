@@ -43,12 +43,7 @@ if(isset($_SESSION['Player']))
             $descInStr = '';
             foreach ($item->getBuffs() as $buff)
             {
-                $descInStr = '<fieldset style="display: inline-block"> <table>';
-                foreach (getBuffStatistics($buff) as $value)
-                {
-                    $descInStr = $descInStr . '<tr><td>'.$value.'</td></tr>';
-                }
-                $descInStr = $descInStr . '</table></fieldset>';
+                $descInStr = getBuffStatisticsBlock($buff);
             }
 
             echo '<fieldset style="display: inline-block">
