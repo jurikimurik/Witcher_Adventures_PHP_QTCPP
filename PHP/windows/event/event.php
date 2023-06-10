@@ -24,8 +24,11 @@ $database = unserialize($_SESSION['Database']);
 $event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
 /** @var Event $event */
 
-if(!isset($_SESSION['CurrentActionIndex'])) {}
+if(!isset($_SESSION['CurrentActionIndex']))
+{
     $_SESSION['CurrentActionIndex'] = 0;
+}
+
 
 $action = $event->getAction($_SESSION['CurrentActionIndex']);
 
