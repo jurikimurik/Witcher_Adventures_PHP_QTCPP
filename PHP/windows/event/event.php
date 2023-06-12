@@ -2,19 +2,15 @@
 
 use action\Event;
 use database\AllDatabase;
+require_once ("../../objects/database/AllDatabase.php");
+
 
 session_start();
-
-require_once ("actions/agilityaction.php");
-require_once ("actions/battleaction.php");
-require_once ("actions/choiceaction.php");
-require_once ("actions/descriptionaction.php");
-require_once ("actions/diceaction.php");
-require_once ("actions/rewardaction.php");
 
 if(!isset($_SESSION['CurrentEventIndex']))
 {
     header("Location: ../../index.php");
+    exit();
 }
 
 /** @var AllDatabase $database */
@@ -55,3 +51,4 @@ switch ($action->getActionType()) {
 }
 
 header($toWindow);
+exit();
