@@ -16,9 +16,9 @@ class AgilityAction extends Action
         $this->timePerOne = intval($neededData[2]);
     }
 
-    public static function fromAction(Action $action) : BattleAction
+    public static function fromAction(Action $action) : AgilityAction
     {
-        return new BattleAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
+        return new AgilityAction($action->getActionType(), $action->getData(), $action->getToActionId(), $action->getSplitter());
     }
 
     /**
