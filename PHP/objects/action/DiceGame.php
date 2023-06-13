@@ -4,14 +4,15 @@ namespace action;
 
 use character\Character;
 use database\basic\CharacterDatabase;
+use DiceAction;
 use player\Player;
 
 class DiceGame
 {
-    private \DiceAction $action;
+    private DiceAction $action;
     private array $allPlayerDices = array();   //ASSOCIATIVE ARRAY
 
-    public function __construct(\DiceAction $action, CharacterDatabase $database, Player $player)
+    public function __construct(DiceAction $action, CharacterDatabase &$database, Player $player)
     {
         $this->action = $action;
 
@@ -28,35 +29,43 @@ class DiceGame
 
 
     //------------------GAME MECHANICS------------------
-    public function addDice(string $playerName = "")
+    public function addDice(string $playerName = "", $count = 1) : void
     {
-        if(isset($playerName))
+        for($i = 0; $i < $count; $i++)
         {
-            // GIVE DICE ONLY FOR HIM
-            $this->allPlayerDices[$playerName][] = 3;
-        } else {
-            // GIVE DICE TO EVERYBODY
-            foreach ($this->allPlayerDices as $name => $array)
+            if(isset($playerName))
             {
-                $this->allPlayerDices[$name][] = 3;
+                // GIVE DICE ONLY FOR HIM
+                $this->allPlayerDices[$playerName][] = 3;
+            } else {
+                // GIVE DICE TO EVERYBODY
+                foreach ($this->allPlayerDices as $name => $array)
+                {
+                    $this->allPlayerDices[$name][] = 3;
+                }
             }
         }
     }
-    public function removeDice(string $playerName = "")
+    public function removeDice(string $playerName = "", $count = 1) : void
     {
-        if(isset($playerName))
+        for($i = 0; $i < $count; $i++)
         {
-            // REMOVE DICE ONLY FOR HIM
-            array_splice($this->allPlayerDices[$playerName],count($this->allPlayerDices[$playerName])-1,1);
-        } else {
-            // REMOVE DICE TO EVERYBODY
-            foreach ($this->allPlayerDices as $name => $array)
+            if(isset($playerName))
             {
-                array_splice($this->allPlayerDices[$name],count($this->allPlayerDices[$name])-1,1);
+                // REMOVE DICE ONLY FOR HIM
+                if(count($this->allPlayerDices[$playerName]) > 0)
+                    array_splice($this->allPlayerDices[$playerName],count($this->allPlayerDices[$playerName])-1,1);
+            } else {
+                // REMOVE DICE TO EVERYBODY
+                foreach ($this->allPlayerDices as $name => $array)
+                {
+                    if(count($this->allPlayerDices[$name]) > 0)
+                        array_splice($this->allPlayerDices[$name],count($this->allPlayerDices[$name])-1,1);
+                }
             }
         }
     }
-    public function rollTheDice(string $playerName = "")
+    public function rollTheDice(string $playerName = "") : void
     {
         if(isset($playerName))
         {
@@ -83,7 +92,26 @@ class DiceGame
         }
     }
 
+    public function whoWon() : string
+    {
+        $playersScore = array();    // ASSOCIATIVE TABLE (NAME => SCORE)
+        foreach ($this->allPlayerDices as $name => $array)
+        {
+            $playersScore[$name] = array_sum($array);
+        }
 
+        $maxValue = 0;
+        $winner = "Nikt";
+        foreach ($playersScore as $name => $score)
+        {
+            if($score > $maxValue) {
+                $maxValue = $score;
+                $winner = $name;
+            }
+        }
+
+        return $winner;
+    }
 
     //------------------VISUALS-------------------------
     public function getVisualTextBlock() : string
@@ -113,6 +141,14 @@ class DiceGame
             $visualString = $visualString . $playerDiceBlock;
         }
         return $visualString;
+    }
+
+    public function getVisualWinner() : string
+    {
+        return "<fieldset>
+                            <legend>Zwyciężca</legend>".
+                            $this->whoWon()
+                            ."</fieldset>";
     }
 
 
