@@ -4,15 +4,19 @@ namespace action;
 
 use character\Character;
 use database\basic\CharacterDatabase;
+use player\Player;
 
 class DiceGame
 {
     private \DiceAction $action;
     private array $allPlayerDices = array();   //ASSOCIATIVE ARRAY
 
-    public function __construct(\DiceAction $action, CharacterDatabase $database)
+    public function __construct(\DiceAction $action, CharacterDatabase $database, Player $player)
     {
         $this->action = $action;
+
+        //Getting name of player from provided object
+        $this->allPlayerDices[$player->getName()] = array();
 
         //Getting all names of enemies from database
         foreach ($database as $character)
@@ -24,6 +28,8 @@ class DiceGame
 
 
     //------------------GAME MECHANICS------------------
+
+    //------------------VISUALS-------------------------
     public function getVisualTextBlock() : string
     {
         $textData = $this->action->getTextData();
@@ -35,7 +41,23 @@ class DiceGame
                 </fieldset>";
     }
 
-
+    public function getVisualAllPlayerDices() : string
+    {
+        $visualString = "";
+        foreach ($this->allPlayerDices as $name => $array)
+        {
+            $playerDiceBlock = "";
+            $playerDiceBlock = $playerDiceBlock . "<fieldset>
+                                <legend>$name</legend>";
+            foreach ($array as $diceNumber)
+            {
+                $playerDiceBlock = $playerDiceBlock . "|$diceNumber|";
+            }
+            $playerDiceBlock = $playerDiceBlock . "</fieldset>";
+            $visualString = $visualString . $playerDiceBlock;
+        }
+        return $visualString;
+    }
 
 
 }
