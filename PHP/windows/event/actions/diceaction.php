@@ -16,6 +16,9 @@ if(isset($_POST['next']))
 require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/action/DiceGame.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/DiceAction.php'));
+require_once (realpath(dirname(__FILE__).'/../../../objects/player/Player.php'));
+require_once (realpath(dirname(__FILE__).'/../../../objects/item/Inventory.php'));
+
 
 /** @var AllDatabase $database */
 $database = unserialize($_SESSION['Database']);
@@ -26,7 +29,10 @@ $diceAction = DiceAction::fromAction($action);
 echo '<html lang="pl">';
 
 if(!isset($_SESSION['DiceGame'])) {
-    $diceGame = new DiceGame($diceAction, $database->getCharacterDatabase(), unserialize($_SESSION['Player']));
+    $player = unserialize($_SESSION['Player']);
+    /** @var Player $player */
+
+    $diceGame = new DiceGame($diceAction, $database->getCharacterDatabase(), $player);
     $diceGame->addDice("", 6);
     echo '<form action="diceaction.php" method="post">'.
                 $diceGame->getVisualTextBlock().
@@ -39,12 +45,12 @@ if(!isset($_SESSION['DiceGame'])) {
     $diceGame->rollTheDice();
 
     echo $diceGame->getVisualAllPlayerDices();
-    echo $diceGame->getVisualWinner();
+    //echo $diceGame->getVisualWinner();
 
     $player = unserialize($_SESSION['Player']);
     /** @var Player $player */
 
-    if($diceGame->whoWon() === $player->getName())
+    /*if($diceGame->whoWon() === $player->getName())
     {
         echo
         "<form action='diceaction.php' method='post'>
@@ -61,7 +67,7 @@ if(!isset($_SESSION['DiceGame'])) {
             <button name='playerWon' value='false'>O nie! Stracilem pieniądze!</button>
             </fieldset>
         </form>";
-    }
+    }*/
 }
 
 $_SESSION['DiceGame'] = serialize($diceGame);

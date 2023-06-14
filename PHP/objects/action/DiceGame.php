@@ -20,7 +20,7 @@ class DiceGame
         $this->allPlayerDices[$player->getName()] = array();
 
         //Getting all names of enemies from database
-        foreach ($database as $character)
+        foreach ($database->getData() as $character)
         {
             /** @var Character $character */
             $this->allPlayerDices[$character->getName()] = array();
@@ -33,7 +33,7 @@ class DiceGame
     {
         for($i = 0; $i < $count; $i++)
         {
-            if(isset($playerName))
+            if(!empty($playerName))
             {
                 // GIVE DICE ONLY FOR HIM
                 $this->allPlayerDices[$playerName][] = 3;
@@ -50,7 +50,7 @@ class DiceGame
     {
         for($i = 0; $i < $count; $i++)
         {
-            if(isset($playerName))
+            if(!empty($playerName))
             {
                 // REMOVE DICE ONLY FOR HIM
                 if(count($this->allPlayerDices[$playerName]) > 0)
@@ -67,7 +67,7 @@ class DiceGame
     }
     public function rollTheDice(string $playerName = "") : void
     {
-        if(isset($playerName))
+        if(!empty($playerName))
         {
             // ROLL THE DICE FOR SPECIFIED PLAYER
             $allDices = array();
