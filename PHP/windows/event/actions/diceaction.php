@@ -6,7 +6,7 @@ use player\Player;
 
 session_start();
 
-if(isset($_POST['next']))
+if(isset($_POST['playerWon']))
 {
     $_SESSION['CurrentActionIndex']++;
     var_dump($_SESSION['CurrentActionIndex']);
@@ -18,6 +18,7 @@ require_once (realpath(dirname(__FILE__).'/../../../objects/action/DiceGame.php'
 require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/DiceAction.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/player/Player.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/item/Inventory.php'));
+require_once (realpath(dirname(__FILE__).'/../../../elements/dice.php'));
 
 
 /** @var AllDatabase $database */
@@ -45,12 +46,12 @@ if(!isset($_SESSION['DiceGame'])) {
     $diceGame->rollTheDice();
 
     echo $diceGame->getVisualAllPlayerDices();
-    //echo $diceGame->getVisualWinner();
+    echo $diceGame->getVisualWinner();
 
     $player = unserialize($_SESSION['Player']);
     /** @var Player $player */
 
-    /*if($diceGame->whoWon() === $player->getName())
+    if($diceGame->whoWon() === $player->getName())
     {
         echo
         "<form action='diceaction.php' method='post'>
@@ -67,7 +68,7 @@ if(!isset($_SESSION['DiceGame'])) {
             <button name='playerWon' value='false'>O nie! Stracilem pieniądze!</button>
             </fieldset>
         </form>";
-    }*/
+    }
 }
 
 $_SESSION['DiceGame'] = serialize($diceGame);

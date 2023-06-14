@@ -135,7 +135,7 @@ class DiceGame
                                 <legend>$name</legend>";
             foreach ($array as $diceNumber)
             {
-                $playerDiceBlock = $playerDiceBlock . "|$diceNumber|";
+                $playerDiceBlock = $playerDiceBlock . getDice($diceNumber);
             }
             $playerDiceBlock = $playerDiceBlock . "</fieldset>";
             $visualString = $visualString . $playerDiceBlock;

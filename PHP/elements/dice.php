@@ -1,6 +1,6 @@
 <?php
 
-function getDice ($value = -1) {
+function getDice ($value = -1): string  {
     if($value === -1)
     {
     $value = rand(1, 6);
