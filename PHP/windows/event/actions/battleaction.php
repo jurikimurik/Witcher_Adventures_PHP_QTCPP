@@ -1,5 +1,6 @@
 <?php
 
+use action\BattleGame;
 use database\AllDatabase;
 
 session_start();
@@ -24,9 +25,22 @@ $action = $event->getAction($_SESSION['CurrentActionIndex']);
 $battleAction = BattleAction::fromAction($action);
 $player = unserialize($_SESSION['Player']);
 
-if(isset($_SESSION['BattleInProcess']))
+if(isset($_POST['PlayerBattleMove']))
 {
+    $_SESSION['PlayerBattleMove'] = $_POST['PlayerBattleMove'];
+    unset($_POST['PlayerBattleMove']);
+}
+
+
+if(isset($_POST['BattleEnd'])) {
     $battleGame = unserialize($_SESSION['BattleGame']);
+    /** @var BattleGame $battleGame */
+
+    echo $battleGame->getVisualBattleEnd();
+    echo $battleGame->getVisualActionsForm();
+} else if(isset($_SESSION['BattleInProcess'])) {
+    $battleGame = unserialize($_SESSION['BattleGame']);
+    /** @var BattleGame $battleGame */
 
     $battleGame->playerMove($_SESSION['PlayerBattleMove']);
     $battleGame->charactersTurn();
@@ -34,7 +48,7 @@ if(isset($_SESSION['BattleInProcess']))
     echo $battleGame->getVisualCharacters();
     echo $battleGame->getVisualActionsForm();
 } else {
-    $battleGame = new \action\BattleGame($action, $player);
+    $battleGame = new BattleGame($action, $player);
     echo "<html lang='pl'>
     <form action='battleaction.php' method='post'>".
         $battleGame->getVisualTextBlock().
