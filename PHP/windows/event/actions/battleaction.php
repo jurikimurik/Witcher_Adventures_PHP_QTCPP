@@ -2,6 +2,7 @@
 
 use action\BattleGame;
 use database\AllDatabase;
+use player\Player;
 
 session_start();
 
@@ -24,6 +25,7 @@ $event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
 $action = $event->getAction($_SESSION['CurrentActionIndex']);
 $battleAction = BattleAction::fromAction($action);
 $player = unserialize($_SESSION['Player']);
+/** @var Player $player */
 
 if(isset($_POST['PlayerBattleMove']))
 {
@@ -42,7 +44,7 @@ if(isset($_POST['BattleEnd'])) {
     $battleGame = unserialize($_SESSION['BattleGame']);
     /** @var BattleGame $battleGame */
 
-    $battleGame->playerMove($_SESSION['PlayerBattleMove']);
+    $battleGame->playerMove($player, $_SESSION['PlayerBattleMove']);
     $battleGame->charactersTurn();
 
     echo $battleGame->getVisualCharacters();
