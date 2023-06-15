@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once (realpath(dirname(__FILE__).'/../../../scripts/action/actiontools.php'));
+require_once (realpath(dirname(__FILE__).'/../../../scripts/actions/actiontools.php'));
 
 checkAndLoadNext('Next');
 

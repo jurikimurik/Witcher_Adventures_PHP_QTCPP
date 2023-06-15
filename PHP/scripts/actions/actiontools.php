@@ -1,5 +1,4 @@
 <?php
-
 function checkAndLoadNext($postData) : bool
 {
     if(isset($_POST[$postData]))
@@ -7,42 +6,52 @@ function checkAndLoadNext($postData) : bool
         $_SESSION['CurrentActionIndex']++;
         unset($_POST[$postData]);
         clearActionData();
-        header("Location: ../../windows/event.php");
+        header("Location: ../../../windows/event/event.php");
         return true;
     } else {
         return false;
     }
 }
 
-function clearActionData()
+function clearActionData() : void
 {
     //Agility action
     unset($_SESSION['AgilityGame']);
-    //Battle action
 
+    //Battle action
+    unset($_SESSION['BattleInProcess']);
+    unset($_SESSION['PlayerBattleMove']);
+    unset($_SESSION['BattleGame']);
     //Choice action
+    //---NONE---
+
     //Description action
+    //---NONE---
+
     //Dice action
+    unset($_SESSION['DiceGame']);
+
     //Reward action
+    //---NONE---
 }
 
 function loadAllActions() : void
 {
-    require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/AgilityGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/BattleGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/DiceGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/AgilityAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/BattleAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/ChoiceAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/DescriptionAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/DiceAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/RewardAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/Choice/Choice.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/player/Player.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../objects/item/Inventory.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../scripts/special/bufftools.php'));
-    require_once (realpath(dirname(__FILE__).'/../../../elements/dice.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/database/AllDatabase.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/AgilityGame.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/BattleGame.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/DiceGame.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/AgilityAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/BattleAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/ChoiceAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/DescriptionAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/DiceAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/RewardAction.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/Choice/Choice.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/player/Player.php'));
+    require_once (realpath(dirname(__FILE__).'/../../objects/item/Inventory.php'));
+    require_once (realpath(dirname(__FILE__).'/../../scripts/special/bufftools.php'));
+    require_once (realpath(dirname(__FILE__).'/../../elements/dice.php'));
 }
 
 function getCurrentDatabase() : \database\AllDatabase
