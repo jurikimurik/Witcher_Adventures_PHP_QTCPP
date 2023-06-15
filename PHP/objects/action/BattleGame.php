@@ -33,7 +33,7 @@ class BattleGame
             /** @var Character $enemy */
             $enemy = $this->enemies[$i];
 
-            if($enemy->getAttributes()->getAttributes()[2] <= 0)
+            if($enemy->getAttributes()->getAttributes()->getValues()[2] <= 0)
             {
                 array_splice($this->enemies, $i, 1);
                 $i = -1;
@@ -45,7 +45,7 @@ class BattleGame
 
     public function charactersTurn() : void
     {
-        for ($i = 0; $i <= count($this->enemies); $i++)
+        for ($i = 0; $i < count($this->enemies); $i++)
         {
             /** @var Character $enemy */
             $enemy = $this->enemies[$i];
@@ -77,9 +77,9 @@ class BattleGame
         }
 
         switch ($actionText) {
-            case "Attack:": $this->attack($this->player, $character); break;
-            //case "Defend:"; $this->defend($this->player); break;
-            default: var_dump("NIEZROZUMIALA AKCJA!");
+            case "Attack": $this->attack($this->player, $character); break;
+            //case "Defend"; $this->defend($this->player); break;
+            default: var_dump("NIEZROZUMIALA AKCJA!" . $actionText);
         }
 
 
@@ -106,7 +106,7 @@ class BattleGame
             return;
         }
 
-        $damage = (($attack * 2) + rand(0, $attack/10)) - ($defend * 2);
+        $damage = (int) (($attack * 2) + rand(0, $attack/10)) - ($defend * 2);
 
         $buff = $defender->getAttributes();
         $attributes = $buff->getAttributes();
@@ -132,10 +132,13 @@ class BattleGame
         if($this->player->getAttributes()->getAttributes()->getValues()[2] >= 0)
         {
             $visualString = $visualString . "Wygrałeś!";
+            $battleWin = 1;
         } else {
             $visualString = $visualString . "Przegrałeś!";
+            $battleWin = 0;
         }
-        $visualString = $visualString . "<button name='next'>Koniec bitwy!</button>";
+
+        $visualString = $visualString . "<button name='next' value='$battleWin'>Koniec bitwy!</button>";
         return $visualString;
     }
 
