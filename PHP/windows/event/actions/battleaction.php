@@ -14,6 +14,7 @@ if(isset($_POST['next']))
 }
 
 require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
+require_once (realpath(dirname(__FILE__).'/../../../objects/action/BattleGame.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/BattleAction.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/player/Player.php'));
 require_once (realpath(dirname(__FILE__).'/../../../objects/item/Inventory.php'));
@@ -39,18 +40,19 @@ if(isset($_POST['BattleEnd'])) {
     /** @var BattleGame $battleGame */
 
     echo $battleGame->getVisualBattleEnd();
-    echo $battleGame->getVisualActionsForm();
+    echo $battleGame->getVisualButtonActionsForm();
 } else if(isset($_SESSION['BattleInProcess'])) {
     $battleGame = unserialize($_SESSION['BattleGame']);
     /** @var BattleGame $battleGame */
 
-    $battleGame->playerMove($player, $_SESSION['PlayerBattleMove']);
+    $battleGame->playerMove($_SESSION['PlayerBattleMove']);
     $battleGame->charactersTurn();
+    $_SESSION['Player'] = serialize($battleGame->getPlayer());
 
     echo $battleGame->getVisualCharacters();
-    echo $battleGame->getVisualActionsForm();
+    echo $battleGame->getVisualButtonActionsForm();
 } else {
-    $battleGame = new BattleGame($action, $player);
+    $battleGame = new BattleGame($battleAction,$database->getCharacterDatabase(), $player);
     echo "<html lang='pl'>
     <form action='battleaction.php' method='post'>".
         $battleGame->getVisualTextBlock().

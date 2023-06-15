@@ -19,6 +19,7 @@ class Buff
 
     public function durationDecrease(int $count = 1): void
     {
+        if($this->duration >= 1)
         $this->duration -= $count;
     }
 
