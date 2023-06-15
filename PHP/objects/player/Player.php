@@ -3,6 +3,7 @@
 namespace player;
 
 require_once (realpath(dirname(__FILE__)).'/../../objects/character/Character.php');
+require_once (realpath(dirname(__FILE__)).'/../../objects/item/Inventory.php');
 
 
 use character\Character;

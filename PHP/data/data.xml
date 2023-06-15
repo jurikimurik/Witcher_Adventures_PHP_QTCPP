@@ -53,7 +53,7 @@
         </Character>
         <Character ID="2" Name="Troll" Image="">
             <Buff Name="Statystyki" Duration="-1">
-                <Attributes>350,0,350,0,30,20,0</Attributes>
+                <Attributes>350,0,350,0,0,0,0</Attributes>
             </Buff>
         </Character>
     </CHARACTERS>
@@ -63,19 +63,19 @@
                 <Data>|---|Kalisto wychodzi na dwór i zaczyna walczyć. Do broni!|---||---||---|</Data>
             </Action>
             <Action Type="2" To="2" Splitter="|---|">
-                <Data>|---|1|---|5|---|</Data>
+                <Data>|---|3|---|5|---|</Data>
             </Action>
             <Action Type="3" To="3" Splitter="|---|">
-                <Data>|---|A tutaj tekst bitwy!|---|2|2|1||---|</Data>
+                <Data>|---|A tutaj tekst bitwy!|---|2||---|</Data>
             </Action>
             <Action Type="4" To="4" Splitter="|---|">
-                <Data>|---|1000|---|2||---|</Data>
+                <Data>|---|1000|---|3|4|5|6||---|</Data>
             </Action>
             <Action Type="5" To="5" Splitter="|---|">
                 <Data>|---|Jakis tam tekst|---|~1~Cos tam~1~1~|~2~A tu inny~-1~0~||---|</Data>
             </Action>
             <Action Type="6" To="-1" Splitter="|---|">
-                <Data>|---|2|---|3|---|1|2||---|Zaczynamy gre w kosci!|---|</Data>
+                <Data>|---|2|---|1|---|2||---|Zaczynamy gre w kosci!|---|</Data>
             </Action>
         </Event>
     </EVENTS>

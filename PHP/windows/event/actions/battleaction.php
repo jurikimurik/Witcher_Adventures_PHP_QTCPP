@@ -7,20 +7,17 @@ use player\Player;
 session_start();
 require_once (realpath(dirname(__FILE__).'/../../../scripts/actions/actiontools.php'));
 
-if(isset($_POST['next']))
+//IF LOSE
+if(isset($_POST['next']) && $_POST['next'] == 0)
 {
-    if($_POST['next'] == 1) {
-        $_SESSION['CurrentActionIndex']++;
-        var_dump($_SESSION['CurrentActionIndex']);
-        unset($_POST['next']);
-    } else {
-        session_destroy();
-        header("Location: ../../../index.php");
-    }
-
+    session_destroy();
+    header("Location: ../../../index.php");
 }
+checkAndLoadNext('next');
 
 loadAllActions();
+
+loadInventory();
 
 $battleAction = BattleAction::fromAction(getCurrentAction());
 $player = getCurrentPlayer();

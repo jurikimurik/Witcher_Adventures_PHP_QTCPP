@@ -1,13 +1,32 @@
 <?php
+session_start();
+
+require_once ("../../objects/database/AllDatabase.php");
+require_once ("../../objects/player/Player.php");
+require_once ("../../scripts/actions/actiontools.php");
+
 
 if(isset($_POST['New_Game']))
 {
-    echo 'New Game';
+    $database = new \database\AllDatabase();
+    $_SESSION['Database'] = serialize($database);
+
+    $player = new \player\Player($database->getCharacterDatabase()->get(1));
+
+    $_SESSION['Player'] = serialize($player);
+
+    $_SESSION['CurrentEventIndex'] = 1;
+    $_SESSION['CurrentActionIndex'] = 0;
+
+    header("Location: ../event/event.php");
+    exit();
+
 } else if (isset($_POST['Load_Game']))
 {
-    echo 'Load Game';
+    echo 'Load Game (IN PROGRESS)';
 } else if (isset($_POST['Options'])) {
-    echo 'Options';
+    rememberURLForBack();
+    header("Location: options.php");
 }
 
 ?>

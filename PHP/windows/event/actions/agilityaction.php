@@ -4,9 +4,7 @@ use database\AllDatabase;
 
 session_start();
 require_once (realpath(dirname(__FILE__).'/../../../scripts/actions/actiontools.php'));
-
 checkAndLoadNext('next');
-
 loadAllActions();
 
 $agilityAction = AgilityAction::fromAction(getCurrentAction());

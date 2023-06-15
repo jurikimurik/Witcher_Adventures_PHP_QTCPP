@@ -112,7 +112,8 @@ class BattleGame
         $attributes = $buff->getAttributes();
 
         $array = $attributes->getValues();
-        $array[2] = $array[2] - $damage;
+        if($damage >= 0)
+            $array[2] = $array[2] - $damage;
         $attributes->setValues($array);
 
         $buff->setAttributes($attributes);
@@ -169,7 +170,7 @@ class BattleGame
             $enemyName = $enemy->getName();
             $visualString = $visualString . "<button name='PlayerBattleMove' value='Attack:$i'>Atakuj $enemyName!</button> <br>";
         }
-        $visualString = $visualString . "<button name='PlayerBattleMove' value='Defend:this'>Broń się</button> <br>";
+        //$visualString = $visualString . "<button name='PlayerBattleMove' value='Defend:this'>Broń się</button> <br>";
 
         return $visualString;
     }

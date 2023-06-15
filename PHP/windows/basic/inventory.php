@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once ("../../scripts/actions/actiontools.php");
 
 use item\Inventory;
 use item\Item;
@@ -12,24 +13,54 @@ require_once ("../../objects/player/Player.php");
 
 require_once ("../../scripts/tools.php");
 
+if(isset($_POST['backButton']))
+{
+    $url = getBackURL();
+    header("Location: $url");
+    exit();
+}
 
+$player = unserialize($_SESSION['Player']);
+/** @var Player $player */
 
+$inventory = $player->getInventory();
+$items = $inventory->getData();
+
+if(isset($_POST['newEquipment']))
+{
+    $armourId = $_POST['armourList'];
+    $pantsId = $_POST['pantsList'];
+    $shoesId = $_POST['shoesList'];
+    $glovesId = $_POST['glovesList'];
+
+    if(!empty($armourId))
+        $player->setArmour($inventory->get($armourId));
+
+    if(!empty($pantsId))
+        $player->setArmour($inventory->get($pantsId));
+
+    if(!empty($shoesId))
+        $player->setArmour($inventory->get($shoesId));
+
+    if(!empty($glovesId))
+        $player->setArmour($inventory->get($glovesId));
+
+    unset($_POST['newEquipment']);
+}
 
 if(isset($_POST['itemToUse']))
 {
-    echo $_POST['itemToUse'];
+    $buffs = $inventory->get($_POST['itemToUse'])->getBuffs();
+    foreach ($buffs as $buff) {
+        $player->addBuff($buff);
+        $inventory->use($_POST['itemToUse']);
+    }
+
     unset($_POST['itemToUse']);
 }
 
-if(isset($_SESSION['Player']))
-{
-    $player = unserialize($_SESSION['Player']);
-    /** @var Player $player */
-
-    $inventory = $player->getInventory();
-
-    $items = $inventory->getData();
-}
+$player->setInventory($inventory);
+$_SESSION['Player'] = serialize($player);
 
 ?>
 
@@ -49,7 +80,7 @@ if(isset($_SESSION['Player']))
             echo '<fieldset style="display: inline-block">
                     <legend>'.$item->getName().'</legend>'.
                 $descInStr
-                    .'<button type="submit" name="itemToUse" value="'.$item->getName().'">Użyj</button>
+                    .'<button type="submit" name="itemToUse" value="'.$item->getId().'">Użyj</button>
                   </fieldset>';
         }
         ?>
@@ -87,7 +118,7 @@ if(isset($_SESSION['Player']))
             </tr>
             <tr>
                 <td>Rękawiczki:<label>
-                        <select name="gloves">
+                        <select name="glovesList">
                                 <?php
                                 echo getListOfItemsByType($player, $player->getGloves(), "Gloves");
                                 ?>
@@ -107,6 +138,7 @@ if(isset($_SESSION['Player']))
         }
         ?>
     </fieldset>
+    <button name="backButton">Wróć</button>
 </form>
 </html>
 

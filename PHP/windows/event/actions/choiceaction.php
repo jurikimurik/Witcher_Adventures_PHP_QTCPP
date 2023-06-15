@@ -6,9 +6,15 @@ require_once (realpath(dirname(__FILE__).'/../../../scripts/actions/actiontools.
 use Choice\Choice;
 use database\AllDatabase;
 
-checkAndLoadNext('next');
+if(isset($_POST['choiceButton']))
+{
+    $_SESSION['CurrentActionIndex'] = $_POST['choiceButton']-1;
+    checkAndLoadNext('choiceButton');
+}
 
 loadAllActions();
+
+loadInventory();
 
 $choiceAction = ChoiceAction::fromAction(getCurrentAction());
 $text = $choiceAction->getTextData();

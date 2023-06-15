@@ -9,6 +9,8 @@ use database\AllDatabase;
 
 loadAllActions();
 
+loadInventory();
+
 $descriptionAction = DescriptionAction::fromAction(getCurrentAction());
 $text = $descriptionAction->getTextData();
 $music = $descriptionAction->getMusic();

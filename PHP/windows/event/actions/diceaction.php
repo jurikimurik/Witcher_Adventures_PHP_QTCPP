@@ -11,6 +11,8 @@ checkAndLoadNext('playerWon');
 
 loadAllActions();
 
+loadInventory();
+
 $diceAction = DiceAction::fromAction(getCurrentAction());
 
 echo '<html lang="pl">';

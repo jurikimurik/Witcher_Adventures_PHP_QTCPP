@@ -16,9 +16,13 @@ if(!isset($_SESSION['CurrentEventIndex']))
 /** @var AllDatabase $database */
 $database = unserialize($_SESSION['Database']);
 
-
 $event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
-/** @var Event $event */
+    if($event->getId() == -1)
+    {
+        echo "Wygrałeś!";
+        header("../../index.php");
+        exit();
+    }
 
 if(!isset($_SESSION['CurrentActionIndex']))
 {
@@ -27,6 +31,12 @@ if(!isset($_SESSION['CurrentActionIndex']))
 
 
 $action = $event->getAction($_SESSION['CurrentActionIndex']);
+    if($action->getActionType() == 0)
+    {
+        $_SESSION['CurrentEventIndex']++;
+        header('Location: event.php');
+        exit();
+    }
 
 $toWindow = 'Location: ../../index.php';
 

@@ -44,7 +44,7 @@ class DatabaseWorker
 {
     public static function readDatabase(string $filename, AllDatabase &$database)
     {
-        $xml = simplexml_load_file("data/".$filename);
+        $xml = simplexml_load_file(realpath(dirname(__FILE__).'/../../data/'.$filename));
 
         foreach ($xml as $key => $value) {
             switch ($key) {

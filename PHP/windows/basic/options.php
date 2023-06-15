@@ -1,14 +1,15 @@
 <?php
+session_start();
+
+require_once ("../../scripts/actions/actiontools.php");
 
 if(isset($_POST['LoadDatabase']))
 {
-    echo 'Load Database';
-} else if(isset($_POST['musicVolume'])) {
-    echo $_POST['musicVolume'];
-} else if(isset($_POST['soundsVolume'])) {
-    echo $_POST['soundsVolume'];
+    echo 'Load Database (IN PROGRESS)';
 } else if (isset($_POST['Back'])) {
-    echo 'Back';
+    $BackURL = getBackURL();
+    header("Location: $BackURL");
+    exit();
 }
 
 ?>

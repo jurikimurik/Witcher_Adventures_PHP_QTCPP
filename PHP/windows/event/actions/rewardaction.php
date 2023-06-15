@@ -11,7 +11,7 @@ $rewardAction = RewardAction::fromAction(getCurrentAction());
 $itemDatabase = getCurrentDatabase()->getItemDatabase();
 $money = $rewardAction->getMoney();
 $itemsID = $rewardAction->getItems();
-
+$player = getCurrentPlayer();
 ?>
 
 <html lang="pl">
@@ -19,6 +19,8 @@ $itemsID = $rewardAction->getItems();
     <fieldset>
         <legend>Znalazleś!</legend>
         <?php
+        $inventory = $player->getInventory();
+
         if($money > 0)
             echo "Pieniądze: " . $money;
         foreach ($itemsID as $itemID)
@@ -33,7 +35,14 @@ $itemsID = $rewardAction->getItems();
             echo '<fieldset style="display: inline-block">
                     <legend>'.$item->getName().'</legend>'.
                 $descInStr.'</fieldset>';
+            if(!isset($_SESSION['RewardCollected']))
+                $inventory->add(getCurrentDatabase()->getItemDatabase()->get($itemID));
         }
+
+        $player->setInventory($inventory);
+        $_SESSION['Player'] = serialize($player);
+
+        $_SESSION['RewardCollected'] = true;
         ?>
     </fieldset>
     <button type="submit" name="next">Ruszamy dalej!</button>
