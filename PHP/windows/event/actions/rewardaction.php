@@ -1,28 +1,14 @@
 <?php
 session_start();
+require_once (realpath(dirname(__FILE__).'/../../../scripts/action/actiontools.php'));
 use database\AllDatabase;
 
-if(isset($_POST['next']))
-{
-    $_SESSION['CurrentActionIndex']++;
-    var_dump($_SESSION['CurrentActionIndex']);
-    unset($_POST['next']);
-}
+checkAndLoadNext('next');
 
-require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/RewardAction.php'));
-require_once (realpath(dirname(__FILE__).'/../../../scripts/special/bufftools.php'));
+loadAllActions();
 
-/** @var AllDatabase $database */
-$database = unserialize($_SESSION['Database']);
-$itemDatabase = $database->getItemDatabase();
-
-$event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
-
-$action = $event->getAction($_SESSION['CurrentActionIndex']);
-
-$rewardAction = RewardAction::fromAction($action);
-
+$rewardAction = RewardAction::fromAction(getCurrentAction());
+$itemDatabase = getCurrentDatabase()->getItemDatabase();
 $money = $rewardAction->getMoney();
 $itemsID = $rewardAction->getItems();
 

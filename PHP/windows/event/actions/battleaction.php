@@ -5,6 +5,7 @@ use database\AllDatabase;
 use player\Player;
 
 session_start();
+require_once (realpath(dirname(__FILE__).'/../../../scripts/action/actiontools.php'));
 
 if(isset($_POST['next']))
 {
@@ -19,19 +20,10 @@ if(isset($_POST['next']))
 
 }
 
-require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/BattleGame.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/BattleAction.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/player/Player.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/item/Inventory.php'));
+loadAllActions();
 
-
-/** @var AllDatabase $database */
-$database = unserialize($_SESSION['Database']);
-$event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
-$action = $event->getAction($_SESSION['CurrentActionIndex']);
-$battleAction = BattleAction::fromAction($action);
-$player = unserialize($_SESSION['Player']);
+$battleAction = BattleAction::fromAction(getCurrentAction());
+$player = getCurrentPlayer();
 /** @var Player $player */
 
 if(isset($_POST['BattleInProcess']))
@@ -67,7 +59,7 @@ if(isset($_POST['BattleEnd'])) {
     echo $battleGame->getVisualButtonActionsForm();
     echo "</form></html>";
 } else {
-    $battleGame = new BattleGame($battleAction,$database->getCharacterDatabase(), $player);
+    $battleGame = new BattleGame($battleAction,getCurrentDatabase()->getCharacterDatabase(), $player);
 
     echo "<html lang='pl'>
     <form action='battleaction.php' method='post'>".

@@ -1,38 +1,18 @@
 <?php
 
 session_start();
+require_once (realpath(dirname(__FILE__).'/../../../scripts/action/actiontools.php'));
 
 use Choice\Choice;
 use database\AllDatabase;
 
-if(isset($_POST['choiceButton']))
-    echo $_POST['choiceButton'];
+checkAndLoadNext('next');
 
-if(isset($_POST['next']))
-{
-    $_SESSION['CurrentActionIndex']++;
-    var_dump($_SESSION['CurrentActionIndex']);
-    unset($_POST['next']);
-}
+loadAllActions();
 
-require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/Choice/Choice.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/ChoiceAction.php'));
-require_once (realpath(dirname(__FILE__).'/../../../scripts/special/bufftools.php'));
-
-/** @var AllDatabase $database */
-$database = unserialize($_SESSION['Database']);
-$itemDatabase = $database->getItemDatabase();
-
-$event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
-
-$action = $event->getAction($_SESSION['CurrentActionIndex']);
-
-$choiceAction = ChoiceAction::fromAction($action);
-
+$choiceAction = ChoiceAction::fromAction(getCurrentAction());
 $text = $choiceAction->getTextData();
 $choices = $choiceAction->getChoices();
-
 ?>
 
 <html lang="pl">

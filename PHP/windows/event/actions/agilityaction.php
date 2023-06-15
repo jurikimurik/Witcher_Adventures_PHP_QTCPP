@@ -3,23 +3,13 @@
 use database\AllDatabase;
 
 session_start();
+require_once (realpath(dirname(__FILE__).'/../../../scripts/action/actiontools.php'));
 
-if(isset($_POST['next']))
-{
-    $_SESSION['CurrentActionIndex']++;
-    var_dump($_SESSION['CurrentActionIndex']);
-    unset($_POST['next']);
-}
+checkAndLoadNext('next');
 
-require_once (realpath(dirname(__FILE__).'/../../../objects/database/AllDatabase.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/AgilityGame.php'));
-require_once (realpath(dirname(__FILE__).'/../../../objects/action/basic/AgilityAction.php'));
+loadAllActions();
 
-/** @var AllDatabase $database */
-$database = unserialize($_SESSION['Database']);
-$event = $database->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
-$action = $event->getAction($_SESSION['CurrentActionIndex']);
-$agilityAction = AgilityAction::fromAction($action);
+$agilityAction = AgilityAction::fromAction(getCurrentAction());
 
 if(!isset($_SESSION['AgilityGame'])) {
     $agilityGame = new \action\AgilityGame($agilityAction);
