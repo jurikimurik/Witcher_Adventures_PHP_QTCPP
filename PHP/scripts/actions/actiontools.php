@@ -32,7 +32,7 @@ function clearActionData() : void
     unset($_SESSION['DiceGame']);
 
     //Reward action
-    //---NONE---
+    unset($_SESSION['RewardCollected']);
 }
 
 function loadAllActions() : void
@@ -72,4 +72,57 @@ function getCurrentAction() : Action
 function getCurrentPlayer() : \player\Player
 {
     return unserialize($_SESSION['Player']);
+}
+
+function rememberURLForBack() : void
+{
+    $_SESSION['BackURL'] = getCurrentURL();
+}
+
+function getBackURL() : string
+{
+    if(isset($_SESSION['BackURL']))
+        return $_SESSION['BackURL'];
+    else {
+        return getCurrentURL();
+    }
+
+}
+
+function getCurrentURL() : string
+{
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        $url = "https://";
+    else
+        $url = "http://";
+    // Append the host(domain name, ip) to the URL.
+    $url.= $_SERVER['HTTP_HOST'];
+
+    // Append the requested resource location to the URL
+    $url.= $_SERVER['REQUEST_URI'];
+
+    return $url;
+}
+
+function loadInventory() : void
+{
+    rememberURLForBack();
+    $inventoryButton = getVisualInventoryButton();
+    echo "<form method='post'>$inventoryButton</form>";
+    if(isset($_POST['openInventory']))
+    {
+        $path = '../../basic/inventory.php';
+        header("Location: $path");
+    }
+}
+
+function getVisualInventoryButton() : string
+{
+    $value = getCurrentURL();
+
+    return "<fieldset>
+<legend>Inventarz</legend>
+<button name = 'openInventory' value='$value'>.Otwórz</button>
+</fieldset>";
+
 }
