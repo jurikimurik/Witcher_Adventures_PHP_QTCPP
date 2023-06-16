@@ -1,9 +1,9 @@
 <?php
 session_start();
-
-require_once ("../../objects/database/AllDatabase.php");
-require_once ("../../objects/player/Player.php");
-require_once ("../../scripts/actions/actiontools.php");
+define('__ROOT__', dirname(__FILE__, 2));
+//require_once(__ROOT__.'/../objects/database/AllDatabase.php');
+//require_once(__ROOT__.'/../objects/player/Player.php');
+require_once(__ROOT__.'/../scripts/actions/actiontools.php');
 
 
 if(isset($_POST['New_Game']))
