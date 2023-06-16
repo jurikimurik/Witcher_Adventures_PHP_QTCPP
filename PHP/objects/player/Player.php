@@ -2,8 +2,8 @@
 
 namespace player;
 
-require_once (realpath(dirname(__FILE__)).'/../../objects/character/Character.php');
-require_once (realpath(dirname(__FILE__)).'/../../objects/item/Inventory.php');
+require_once(__ROOT__.'/objects/character/Character.php');
+require_once(__ROOT__.'/objects/item/Inventory.php');
 
 
 use character\Character;

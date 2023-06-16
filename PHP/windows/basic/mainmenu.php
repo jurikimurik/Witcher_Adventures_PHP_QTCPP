@@ -1,7 +1,7 @@
 <?php
 session_start();
 define('__ROOT__', dirname(__FILE__, 3));
-/require_once(__ROOT__.'/objects/database/AllDatabase.php');
+require_once(__ROOT__.'/objects/database/AllDatabase.php');
 require_once(__ROOT__.'/objects/player/Player.php');
 require_once(__ROOT__.'/scripts/actions/actiontools.php');
 

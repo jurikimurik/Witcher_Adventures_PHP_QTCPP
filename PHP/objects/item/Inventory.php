@@ -2,7 +2,7 @@
 
 namespace item;
 
-require_once (realpath(dirname(__FILE__) . '/../database/basic/ItemDatabase.php'));
+require_once(__ROOT__.'/objects/database/basic/ItemDatabase.php');
 
 class Inventory extends \database\basic\ItemDatabase
 {
