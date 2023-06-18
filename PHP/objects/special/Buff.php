@@ -1,8 +1,8 @@
 <?php
 
 namespace special;
-
-require_once (realpath(dirname(__FILE__).'/../special/Attributes.php'));
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/special/Attributes.php');
 
 class Buff
 {

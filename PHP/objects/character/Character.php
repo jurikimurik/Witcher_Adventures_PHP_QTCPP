@@ -1,9 +1,9 @@
 <?php
 
 namespace character;
-
-require_once(__ROOT__.'/objects/basic/DatabaseItem.php');
-require_once(__ROOT__.'/objects/special/Buff.php');
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/basic/DatabaseItem.php');
+require_once($ROOT.'/objects/special/Buff.php');
 use special\Buff;
 
 class Character extends \DatabaseItem

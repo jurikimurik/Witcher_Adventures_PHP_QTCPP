@@ -5,6 +5,10 @@ namespace database\basic;
 use item\Item;
 use item\ItemType;
 
+$ROOT = dirname(__FILE__, 4);
+require_once($ROOT.'/objects/item/Item.php');
+require_once($ROOT.'/objects/item/ItemType.php');
+
 class ItemDatabase
 {
     protected array $data = array();

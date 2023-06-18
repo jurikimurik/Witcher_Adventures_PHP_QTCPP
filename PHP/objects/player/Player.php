@@ -1,9 +1,9 @@
 <?php
 
 namespace player;
-
-require_once(__ROOT__.'/objects/character/Character.php');
-require_once(__ROOT__.'/objects/item/Inventory.php');
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/character/Character.php');
+require_once($ROOT.'/objects/item/Inventory.php');
 
 
 use character\Character;

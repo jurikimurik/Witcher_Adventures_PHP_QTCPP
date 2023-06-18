@@ -1,8 +1,8 @@
 <?php
 
 namespace consequence;
-
-require_once (realpath(dirname(__FILE__).'/../basic/DatabaseItem.php'));
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/basic/DatabaseItem.php');
 
 class Consequence extends \DatabaseItem
 {

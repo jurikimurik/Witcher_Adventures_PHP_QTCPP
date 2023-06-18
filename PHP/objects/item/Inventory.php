@@ -1,8 +1,8 @@
 <?php
 
 namespace item;
-
-require_once(__ROOT__.'/objects/database/basic/ItemDatabase.php');
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
 
 class Inventory extends \database\basic\ItemDatabase
 {

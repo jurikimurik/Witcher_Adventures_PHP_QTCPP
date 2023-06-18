@@ -6,34 +6,35 @@ namespace database;
 
 
 use database\basic\CharacterDatabase;
-require_once ("basic/CharacterDatabase.php");
-require_once (realpath(dirname(__FILE__).'/../character/Character.php'));
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/database/basic/CharacterDatabase.php');
+require_once($ROOT.'/objects/character/Character.php');
 use character\Character;
 
 use database\basic\ConsequenceDatabase;
-require_once ("basic/ConsequenceDatabase.php");
+require_once($ROOT.'/objects/database/basic/ConsequenceDatabase.php');
 
-require_once (realpath(dirname(__FILE__).'/../consequence/Consequence.php'));
+require_once($ROOT.'/objects/consequence/Consequence.php');
 use consequence\Consequence;
 
 use database\basic\EventDatabase;
-require_once ("basic/EventDatabase.php");
+require_once($ROOT.'/objects/database/basic/EventDatabase.php');
 
 use action\Event;
-require_once (realpath(dirname(__FILE__).'/../action/basic/Action.php'));
-require_once (realpath(dirname(__FILE__).'/../action/Event.php'));
+require_once($ROOT.'/objects/action/basic/Action.php');
+require_once($ROOT.'/objects/action/Event.php');
 
 
 use database\basic\ItemDatabase;
-require_once ("basic/ItemDatabase.php");
+require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
 
-require_once(realpath(dirname(__FILE__) . '/../item/Item.php'));
-require_once(realpath(dirname(__FILE__) . '/../item/ItemType.php'));
+require_once($ROOT.'/objects/item/Item.php');
+require_once($ROOT.'/objects/item/ItemType.php');
 
 use item\Item;
 use item\ItemType;
 
-require_once (realpath(dirname(__FILE__).'/../special/Buff.php'));
+require_once($ROOT.'/objects/special/Buff.php');
 
 use special\Attributes;
 use special\Buff;
