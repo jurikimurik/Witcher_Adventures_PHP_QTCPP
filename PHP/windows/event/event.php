@@ -2,7 +2,9 @@
 
 use action\Event;
 use database\AllDatabase;
-require_once ("../../objects/database/AllDatabase.php");
+
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/database/AllDatabase.php');
 
 
 session_start();

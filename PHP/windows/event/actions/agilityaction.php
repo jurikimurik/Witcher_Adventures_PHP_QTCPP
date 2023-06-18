@@ -3,7 +3,8 @@
 use database\AllDatabase;
 
 session_start();
-require_once (realpath(dirname(__FILE__).'/../../../scripts/actions/actiontools.php'));
+$ROOT = dirname(__FILE__, 4);
+require_once($ROOT.'/scripts/actions/actiontools.php');
 checkAndLoadNext('next');
 loadAllActions();
 
