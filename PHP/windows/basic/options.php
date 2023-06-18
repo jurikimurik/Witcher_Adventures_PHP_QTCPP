@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-require_once ("../../scripts/actions/actiontools.php");
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/scripts/actions/actiontools.php');
 
 if(isset($_POST['LoadDatabase']))
 {

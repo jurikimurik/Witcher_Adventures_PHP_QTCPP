@@ -1,17 +1,18 @@
 <?php
 session_start();
-require_once ("../../scripts/actions/actiontools.php");
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/scripts/actions/actiontools.php');
 
 use item\Inventory;
 use item\Item;
 use player\Player;
 
-require_once ("../../objects/item/Inventory.php");
-require_once ("../../objects/item/Item.php");
-require_once ("../../objects/item/ItemType.php");
-require_once ("../../objects/player/Player.php");
+require_once($ROOT.'/objects/item/Inventory.php');
+require_once($ROOT.'/objects/item/Item.php');
+require_once($ROOT.'/objects/item/ItemType.php');
+require_once($ROOT.'/objects/player/Player.php');
 
-require_once ("../../scripts/tools.php");
+require_once($ROOT.'/scripts/tools.php');
 
 if(isset($_POST['backButton']))
 {
