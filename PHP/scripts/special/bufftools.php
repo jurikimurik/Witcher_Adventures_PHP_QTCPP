@@ -1,6 +1,6 @@
 <?php
-
-require_once (realpath(dirname(__FILE__).'/../../objects/special/Buff.php'));
+$ROOT = $ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/objects/special/Buff.php');
 
 use special\Buff;
 

@@ -1,9 +1,9 @@
 <?php
-
+$ROOT = $ROOT = dirname(__FILE__, 3);
 use item\Item;
 
-require_once (realpath(dirname(__FILE__) . '/../../objects/database/basic/ItemDatabase.php'));
-require_once (realpath(dirname(__FILE__) . '/../../objects/item/Item.php'));
+require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
+require_once($ROOT.'/objects/item/Item.php');
 
 function getItemsByType(\database\basic\ItemDatabase $database, string $type) : array
 {

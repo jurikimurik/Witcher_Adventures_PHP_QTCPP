@@ -37,21 +37,22 @@ function clearActionData() : void
 
 function loadAllActions() : void
 {
-    require_once (realpath(dirname(__FILE__).'/../../objects/database/AllDatabase.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/AgilityGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/BattleGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/DiceGame.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/AgilityAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/BattleAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/ChoiceAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/DescriptionAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/DiceAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/RewardAction.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/action/basic/Choice/Choice.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/player/Player.php'));
-    require_once (realpath(dirname(__FILE__).'/../../objects/item/Inventory.php'));
-    require_once (realpath(dirname(__FILE__).'/../../scripts/special/bufftools.php'));
-    require_once (realpath(dirname(__FILE__).'/../../elements/dice.php'));
+    $ROOT = $ROOT = dirname(__FILE__, 3);
+    require_once($ROOT.'/objects/database/AllDatabase.php');
+    require_once($ROOT.'/objects/action/AgilityGame.php');
+    require_once($ROOT.'/objects/action/BattleGame.php');
+    require_once($ROOT.'/objects/action/DiceGame.php');
+    require_once($ROOT.'/objects/action/basic/AgilityAction.php');
+    require_once($ROOT.'/objects/action/basic/BattleAction.php');
+    require_once($ROOT.'/objects/action/basic/ChoiceAction.php');
+    require_once($ROOT.'/objects/action/basic/DescriptionAction.php');
+    require_once($ROOT.'/objects/action/basic/DiceAction.php');
+    require_once($ROOT.'/objects/action/basic/RewardAction.php');
+    require_once($ROOT.'/objects/action/basic/Choice/Choice.php');
+    require_once($ROOT.'/objects/player/Player.php');
+    require_once($ROOT.'/objects/item/Inventory.php');
+    require_once($ROOT.'/scripts/special/bufftools.php');
+    require_once($ROOT.'/elements/dice.php');
 }
 
 function getCurrentDatabase() : \database\AllDatabase
