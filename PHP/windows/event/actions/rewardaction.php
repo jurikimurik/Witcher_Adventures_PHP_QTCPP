@@ -27,6 +27,9 @@ $player = getCurrentPlayer();
         foreach ($itemsID as $itemID)
         {
             $item = $itemDatabase->get($itemID);
+            if($item->getId() <= -1)
+                continue;
+
             $descInStr = '';
             foreach ($item->getBuffs() as $buff)
             {
