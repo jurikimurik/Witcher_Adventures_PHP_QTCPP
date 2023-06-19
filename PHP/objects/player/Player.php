@@ -51,8 +51,6 @@ class Player extends Character
         $this->shoes = new Item();
         $this->gloves = new Item();
 
-
-
         $this->updateAttributes();
     }
 
@@ -69,7 +67,11 @@ class Player extends Character
      */
     public function setArmour(Item $armour): void
     {
+        if($this->armour->getId() === $armour->getId())
+            return;
+
         $this->armour = $armour;
+        $this->updateAttributes();
     }
 
     /**
@@ -85,7 +87,11 @@ class Player extends Character
      */
     public function setPants(Item $pants): void
     {
+        if($this->pants->getId() === $pants->getId())
+            return;
+
         $this->pants = $pants;
+        $this->updateAttributes();
     }
 
     /**
@@ -101,7 +107,11 @@ class Player extends Character
      */
     public function setShoes(Item $shoes): void
     {
+        if($this->shoes->getId() === $shoes->getId())
+            return;
+
         $this->shoes = $shoes;
+        $this->updateAttributes();
     }
 
     /**
@@ -117,7 +127,11 @@ class Player extends Character
      */
     public function setGloves(Item $gloves): void
     {
+        if($this->gloves->getId() === $gloves->getId())
+            return;
+
         $this->gloves = $gloves;
+        $this->updateAttributes();
     }
 
     /**
@@ -141,11 +155,9 @@ class Player extends Character
     //------------Basic methods-----------------
     public function updateAttributes(): void
     {
-        // Cleaning up everything
-        $this->setCurrentAttributes($this->basicAttributes);
 
         //Adding attributes
-        $attributes = $this->getCurrentAttributes();
+        $attributes = $this->getBasicAttributes();
         foreach($this->weapon->getBuffs() as $buff)
         {
             $attributes->sumBuffAttributes($buff);
@@ -171,6 +183,7 @@ class Player extends Character
         {
             $attributes->sumBuffAttributes($buff);
         }
+        $this->setCurrentAttributes($attributes);
     }
 
     public function addBuff(Buff $buff): void
