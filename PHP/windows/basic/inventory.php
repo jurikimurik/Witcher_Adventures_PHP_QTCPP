@@ -34,17 +34,18 @@ if(isset($_POST['newEquipment']))
     $shoesId = $_POST['shoesList'];
     $glovesId = $_POST['glovesList'];
 
+
     if(!empty($armourId))
         $player->setArmour($inventory->get($armourId));
 
     if(!empty($pantsId))
-        $player->setArmour($inventory->get($pantsId));
+        $player->setPants($inventory->get($pantsId));
 
     if(!empty($shoesId))
-        $player->setArmour($inventory->get($shoesId));
+        $player->setShoes($inventory->get($shoesId));
 
     if(!empty($glovesId))
-        $player->setArmour($inventory->get($glovesId));
+        $player->setGloves($inventory->get($glovesId));
 
     unset($_POST['newEquipment']);
 }
