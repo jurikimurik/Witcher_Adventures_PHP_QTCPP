@@ -1,7 +1,6 @@
 <?php
 session_start();
 $ROOT = dirname(__FILE__, 3);
-require_once($ROOT.'/scripts/actions/actiontools.php');
 
 use item\Inventory;
 use item\Item;
@@ -29,35 +28,21 @@ $items = $inventory->getData();
 
 if(isset($_POST['newEquipment']))
 {
-    $armourId = $_POST['armourList'];
-    $pantsId = $_POST['pantsList'];
-    $shoesId = $_POST['shoesList'];
-    $glovesId = $_POST['glovesList'];
-
-
-    if(!empty($armourId))
-        $player->setArmour($inventory->get($armourId));
-
-    if(!empty($pantsId))
-        $player->setPants($inventory->get($pantsId));
-
-    if(!empty($shoesId))
-        $player->setShoes($inventory->get($shoesId));
-
-    if(!empty($glovesId))
-        $player->setGloves($inventory->get($glovesId));
-
+    equipNewEquipment($player, $inventory, $_POST['armourList'], $_POST['pantsList'], $_POST['shoesList'], $_POST['glovesList']);
     unset($_POST['newEquipment']);
 }
 
 if(isset($_POST['itemToUse']))
 {
-    $buffs = $inventory->get($_POST['itemToUse'])->getBuffs();
-    foreach ($buffs as $buff) {
-        $player->addBuff($buff);
-        $inventory->use($_POST['itemToUse']);
+    $item = $inventory->get($_POST['itemToUse']);
+    if(!isArmour($item))
+    {
+        $buffs = $item->getBuffs();
+        foreach ($buffs as $buff) {
+            $player->addBuff($buff);
+            $inventory->use($_POST['itemToUse']);
+        }
     }
-
     unset($_POST['itemToUse']);
 }
 
