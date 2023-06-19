@@ -5,6 +5,19 @@ use item\Item;
 require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
 require_once($ROOT.'/objects/item/Item.php');
 
+function isArmour(Item $item) : bool
+{
+    $typeName = $item->getType()->getTypeName();
+    if(str_contains(strtolower($typeName), "armour") ||
+        str_contains(strtolower($typeName), "pants") ||
+        str_contains(strtolower($typeName), "gloves") ||
+        str_contains(strtolower($typeName), "shoes"))
+
+        return true;
+    else
+        return false;
+}
+
 function getItemsByType(\database\basic\ItemDatabase $database, string $type) : array
 {
     $items = array();
