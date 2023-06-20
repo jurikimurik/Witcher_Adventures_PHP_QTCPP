@@ -12,8 +12,7 @@ $agilityAction = AgilityAction::fromAction(getCurrentAction());
 
 if(!isset($_SESSION['AgilityGame'])) {
     $agilityGame = new \action\AgilityGame($agilityAction);
-}
-else {
+} else {
     $agilityGame = unserialize($_SESSION['AgilityGame']);
 
     if(isset($_POST['answerButton']))
@@ -47,6 +46,9 @@ else {
 ?>
 
 <html lang="pl">
+<head>
+    <meta http-equiv="refresh" content="<?php echo $agilityAction->getTimePerOne()?>;URL='<?php echo $_SERVER['PHP_SELF']?>'">
+</head>
 <form action="agilityaction.php" method="post">
     <?php
     if(isset($agilityGame)) {
