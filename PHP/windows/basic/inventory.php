@@ -37,11 +37,7 @@ if(isset($_POST['itemToUse']))
     $item = $inventory->get($_POST['itemToUse']);
     if(!isArmour($item))
     {
-        $buffs = $item->getBuffs();
-        foreach ($buffs as $buff) {
-            $player->addBuff($buff);
-            $inventory->use($_POST['itemToUse']);
-        }
+        $player->useItemFromInventory($_POST['itemToUse']);
     }
     unset($_POST['itemToUse']);
 }

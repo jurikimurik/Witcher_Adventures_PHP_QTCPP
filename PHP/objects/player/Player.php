@@ -251,6 +251,19 @@ class Player extends Character
         $this->updateAttributes();
         return true;
     }
+
+    function useItemFromInventory(int $id) : void
+    {
+        $item = $this->inventory->get($id);
+        if($item->getId() === -1)
+            return;
+
+        $buffs = $item->getBuffs();
+        foreach ($buffs as $buff) {
+            $this->addBuff($buff);
+            $this->inventory->use($id);
+        }
+    }
     //------------------------------------------
     /**
      * @return Item
