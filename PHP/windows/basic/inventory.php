@@ -4,7 +4,6 @@ $ROOT = dirname(__FILE__, 3);
 
 use item\Inventory;
 use item\Item;
-use player\Player;
 
 require_once($ROOT.'/objects/item/Inventory.php');
 require_once($ROOT.'/objects/item/Item.php');
@@ -20,8 +19,7 @@ if(isset($_POST['backButton']))
     exit();
 }
 
-$player = unserialize($_SESSION['Player']);
-/** @var Player $player */
+$player = getCurrentPlayer();
 
 $inventory = $player->getInventory();
 $items = $inventory->getData();
@@ -43,7 +41,7 @@ if(isset($_POST['itemToUse']))
 }
 
 $player->setInventory($inventory);
-$_SESSION['Player'] = serialize($player);
+savePlayer($player);
 
 ?>
 
