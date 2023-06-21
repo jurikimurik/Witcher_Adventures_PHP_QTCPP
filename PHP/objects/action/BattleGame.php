@@ -2,6 +2,7 @@
 
 namespace action;
 
+use BattleAction;
 use character\Character;
 use database\basic\CharacterDatabase;
 use item\Item;
@@ -9,16 +10,17 @@ use player\Player;
 use special\Attributes;
 use special\Buff;
 
+$ROOT = dirname(__FILE__, 3);
+require_once($ROOT.'/scripts/tools.php');
+
 class BattleGame
 {
     private array $enemies = array();
-    private Player $player;
-    private \BattleAction $action;
+    private BattleAction $action;
 
-    public function __construct(\BattleAction $battleAction, CharacterDatabase &$database, Player $player)
+    public function __construct(BattleAction $battleAction, CharacterDatabase &$database)
     {
         $this->action = $battleAction;
-        $this->player = $player;
 
         foreach ($battleAction->getEnemiesIds() as $id)
         {
@@ -45,6 +47,8 @@ class BattleGame
 
     public function charactersTurn() : void
     {
+        $player = getCurrentPlayer();
+
         for ($i = 0; $i < count($this->enemies); $i++)
         {
             /** @var Character $enemy */
@@ -55,14 +59,16 @@ class BattleGame
 
             $this->enemies[$i] = $enemy;
 
-            $this->attack($enemy, $this->player);
+            $this->attack($enemy, $player);
         }
 
-
+        savePlayer($player);
     }
 
     public function playerMove(string $PlayerBattleMove) : void
     {
+        $player = getCurrentPlayer();
+
         $moveData = explode(":", $PlayerBattleMove);
 
         $actionText = $moveData[0];
@@ -72,26 +78,25 @@ class BattleGame
 
         $character = "";
         switch ($actionForWho) {
-            case "this": $character = $this->player; break;
+            case "this": $character = $player; break;
             default: $character = $this->enemies[intval($actionForWho)];
         }
 
         switch ($actionText) {
-            case "Attack": $this->attack($this->player, $character); break;
-            //case "Defend"; $this->defend($this->player); break;
+            case "Attack": $this->attack($player, $character); break;
+            //case "Defend"; $this->defend($player); break;
             default: var_dump("NIEZROZUMIALA AKCJA!" . $actionText);
         }
 
 
         //APPLY EFFECTS
         switch ($actionForWho) {
-            case "this": $this->player = $character; break;
+            case "this": $player = $character; break;
             default: $this->enemies[intval($actionForWho)] = $character;
         }
 
-        $buff = $this->player->getAttributes();
-        $buff->durationDecrease();
-        $this->player->setAttributes($buff);
+        $player->decreaseBuffs();
+        savePlayer($player);
     }
 
     private function attack(Character &$attacker, Character &$defender) : void
@@ -129,8 +134,10 @@ class BattleGame
     //-----------VISUALS------------------
     public function getVisualBattleEnd() : string
     {
+        $player = getCurrentPlayer();
+
         $visualString = "";
-        if($this->player->getAttributes()->getAttributes()->getValues()[2] >= 0)
+        if($player->getAttributes()->getAttributes()->getValues()[2] >= 0)
         {
             $visualString = $visualString . "Wygrałeś!";
             $battleWin = 1;
@@ -141,14 +148,6 @@ class BattleGame
 
         $visualString = $visualString . "<button name='next' value='$battleWin'>Koniec bitwy!</button>";
         return $visualString;
-    }
-
-    /**
-     * @return Player
-     */
-    public function getPlayer(): Player
-    {
-        return $this->player;
     }
 
     public function getVisualButtonActionsForm() : string
@@ -176,6 +175,8 @@ class BattleGame
     }
     public function getVisualCharacters() : string
     {
+        $player = getCurrentPlayer();
+
         $this->checkEnemies();
 
         $visualString = "";
@@ -190,8 +191,8 @@ class BattleGame
         }
 
         $visualString = $visualString . '<fieldset>
-                    <legend>'.$this->player->getName().'</legend>'.
-            'HP:'.$this->player->getAttributes()->getAttributes()->getValues()[2].
+                    <legend>'.$player->getName().'</legend>'.
+            'HP:'.$player->getAttributes()->getAttributes()->getValues()[2].
             '</fieldset>';
 
         return $visualString;
@@ -210,7 +211,8 @@ class BattleGame
 
     public function isEnd(): bool
     {
-        if(count($this->enemies) == 0 || $this->player->getAttributes()->getAttributes()->getValues()[2] <= 0)
+        $player = getCurrentPlayer();
+        if(count($this->enemies) == 0 || $player->getAttributes()->getAttributes()->getValues()[2] <= 0)
             return true;
         else
             return false;
