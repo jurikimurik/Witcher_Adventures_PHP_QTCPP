@@ -23,3 +23,13 @@ function equipNewEquipment(Player &$player, Inventory &$inventory, mixed $armour
     if(!empty($glovesId))
         $player->setGloves($inventory->get($glovesId));
 }
+
+function getCurrentPlayer() : Player
+{
+    return unserialize($_SESSION['Player']);
+}
+
+function savePlayer(Player $player) : void
+{
+    $_SESSION['Player'] = serialize($player);
+}
