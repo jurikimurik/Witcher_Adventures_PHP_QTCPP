@@ -21,8 +21,6 @@ loadAllActions();
 loadInventory();
 
 $battleAction = BattleAction::fromAction(getCurrentAction());
-$player = getCurrentPlayer();
-/** @var Player $player */
 
 if(isset($_POST['BattleInProcess']))
 {
@@ -50,14 +48,13 @@ if(isset($_POST['BattleEnd'])) {
     if(!empty($_SESSION['PlayerBattleMove']))
         $battleGame->playerMove($_SESSION['PlayerBattleMove']);
     $battleGame->charactersTurn();
-    $_SESSION['Player'] = serialize($battleGame->getPlayer());
 
     echo $battleGame->getVisualCharacters();
     echo "<html lang='pl'><form action='battleaction.php' method='post'>";
     echo $battleGame->getVisualButtonActionsForm();
     echo "</form></html>";
 } else {
-    $battleGame = new BattleGame($battleAction,getCurrentDatabase()->getCharacterDatabase(), $player);
+    $battleGame = new BattleGame($battleAction,getCurrentDatabase()->getCharacterDatabase());
 
     echo "<html lang='pl'>
     <form action='battleaction.php' method='post'>".
