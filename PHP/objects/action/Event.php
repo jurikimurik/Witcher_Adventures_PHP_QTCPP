@@ -1,10 +1,13 @@
 <?php
 
 namespace action;
+use Action;
+use DatabaseItem;
+
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/objects/basic/DatabaseItem.php');
 
-class Event extends \DatabaseItem
+class Event extends DatabaseItem
 {
     private string $description;
     private array $actions;
@@ -17,17 +20,17 @@ class Event extends \DatabaseItem
     }
 
 
-    public function addAction(\Action $action)
+    public function addAction(Action $action)
     {
         $action[] = $action;
     }
 
-    public function getAction(int $which) : \Action
+    public function getAction(int $which) : Action
     {
         if($which < count($this->actions)) {
             return $this->actions[$which];
         } else {
-            return new \Action(0, "", 0, "");
+            return new Action(0, "", 0, "");
         }
     }
 

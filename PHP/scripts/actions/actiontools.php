@@ -1,4 +1,8 @@
 <?php
+
+use action\Event;
+use database\AllDatabase;
+
 function checkAndLoadNext($postData) : bool
 {
     if(isset($_POST[$postData]))
@@ -55,12 +59,12 @@ function loadAllActions() : void
     require_once($ROOT.'/elements/dice.php');
 }
 
-function getCurrentDatabase() : \database\AllDatabase
+function getCurrentDatabase() : AllDatabase
 {
     return unserialize($_SESSION['Database']);
 }
 
-function getCurrentEvent() : \action\Event
+function getCurrentEvent() : Event
 {
     return getCurrentDatabase()->getActionDatabase()->get($_SESSION['CurrentEventIndex']);
 }
@@ -68,11 +72,6 @@ function getCurrentEvent() : \action\Event
 function getCurrentAction() : Action
 {
     return getCurrentEvent()->getAction($_SESSION['CurrentActionIndex']);
-}
-
-function getCurrentPlayer() : \player\Player
-{
-    return unserialize($_SESSION['Player']);
 }
 
 function rememberURLForBack() : void

@@ -1,10 +1,12 @@
 <?php
 
 namespace item;
+use DatabaseItem;
+
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/objects/basic/DatabaseItem.php');
 
-class Item extends \DatabaseItem
+class Item extends DatabaseItem
 {
     private ItemType $type;
     private string $description;

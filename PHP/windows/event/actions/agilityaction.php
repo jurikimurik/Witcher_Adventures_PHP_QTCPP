@@ -1,5 +1,6 @@
 <?php
 
+use action\AgilityGame;
 use database\AllDatabase;
 
 session_start();
@@ -11,7 +12,7 @@ loadAllActions();
 $agilityAction = AgilityAction::fromAction(getCurrentAction());
 
 if(!isset($_SESSION['AgilityGame'])) {
-    $agilityGame = new \action\AgilityGame($agilityAction);
+    $agilityGame = new AgilityGame($agilityAction);
 } else {
     $agilityGame = unserialize($_SESSION['AgilityGame']);
 

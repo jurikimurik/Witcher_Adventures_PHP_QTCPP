@@ -1,14 +1,17 @@
 <?php
 
+use database\AllDatabase;
+use player\Player;
+
 function startNewGame() : void
 {
     if(session_status() == PHP_SESSION_NONE)
         session_start();
 
-    $database = new \database\AllDatabase();
+    $database = new AllDatabase();
     $_SESSION['Database'] = serialize($database);
 
-    $player = new \player\Player($database->getCharacterDatabase()->get(1));
+    $player = new Player($database->getCharacterDatabase()->get(1));
 
     $_SESSION['Player'] = serialize($player);
 

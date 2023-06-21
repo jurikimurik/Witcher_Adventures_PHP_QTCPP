@@ -2,6 +2,8 @@
 
 namespace action;
 
+use AgilityAction;
+
 class AgilityGame
 {
     public static array $answers = array("Góra", "Dół", "Lewo", "Prawo", "Zaczep się", "Skacz", "Sprintuj","Wyskocz");
@@ -13,7 +15,7 @@ class AgilityGame
     private int $points = 0;
     private string $answer = "";
 
-    public function __construct(\AgilityAction &$action)
+    public function __construct(AgilityAction &$action)
     {
         $this->difficulty = $action->getDifficulty();
         $this->timePerOne = $action->getTimePerOne();

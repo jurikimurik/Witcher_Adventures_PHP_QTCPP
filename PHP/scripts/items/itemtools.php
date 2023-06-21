@@ -1,6 +1,9 @@
 <?php
 $ROOT = $ROOT = dirname(__FILE__, 3);
+
+use database\basic\ItemDatabase;
 use item\Item;
+use player\Player;
 
 require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
 require_once($ROOT.'/objects/item/Item.php');
@@ -18,7 +21,7 @@ function isArmour(Item $item) : bool
         return false;
 }
 
-function getItemsByType(\database\basic\ItemDatabase $database, string $type) : array
+function getItemsByType(ItemDatabase $database, string $type) : array
 {
     $items = array();
     $type = strtolower($type);
@@ -33,7 +36,7 @@ function getItemsByType(\database\basic\ItemDatabase $database, string $type) : 
     return $items;
 }
 
-function getListOfItemsByType(\player\Player $player, Item $equippedItem, string $itemType) : string
+function getListOfItemsByType(Player $player, Item $equippedItem, string $itemType) : string
 {
     if($equippedItem->getId() <= -1)
     {

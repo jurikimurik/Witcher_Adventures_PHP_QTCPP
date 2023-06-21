@@ -5,6 +5,7 @@ namespace database;
 
 
 
+use Action;
 use database\basic\CharacterDatabase;
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/objects/database/basic/CharacterDatabase.php');
@@ -36,6 +37,7 @@ use item\ItemType;
 
 require_once($ROOT.'/objects/special/Buff.php');
 
+use SimpleXMLElement;
 use special\Attributes;
 use special\Buff;
 
@@ -65,7 +67,7 @@ class DatabaseWorker
 
     //--------------------------METHODS FOR READING EACH DATABASE--------------------------
 
-    private static function readItemDatabase(?\SimpleXMLElement $value) : ItemDatabase
+    private static function readItemDatabase(?SimpleXMLElement $value) : ItemDatabase
     {
         $items = new ItemDatabase();
 
@@ -77,7 +79,7 @@ class DatabaseWorker
         return $items;
     }
 
-    private static function readConsequencesDatabase(?\SimpleXMLElement $value) : ConsequenceDatabase
+    private static function readConsequencesDatabase(?SimpleXMLElement $value) : ConsequenceDatabase
     {
         $consequences = new ConsequenceDatabase();
 
@@ -89,7 +91,7 @@ class DatabaseWorker
         return $consequences;
     }
 
-    private static function readCharacterDatabase(?\SimpleXMLElement $value) : CharacterDatabase
+    private static function readCharacterDatabase(?SimpleXMLElement $value) : CharacterDatabase
     {
         $characters = new CharacterDatabase();
 
@@ -101,7 +103,7 @@ class DatabaseWorker
         return $characters;
     }
 
-    private static function readEventsDatabase(?\SimpleXMLElement $value) : EventDatabase
+    private static function readEventsDatabase(?SimpleXMLElement $value) : EventDatabase
     {
         $events = new EventDatabase();
 
@@ -115,7 +117,7 @@ class DatabaseWorker
 
     //---------------MORE SPECIALIZED FUNCTIONS FOR READING---------------
 
-    private static function readBuff(?\SimpleXMLElement $buff) : Buff
+    private static function readBuff(?SimpleXMLElement $buff) : Buff
     {
         $buffName = strip_tags($buff->attributes()['Name']);
         $buffDuration = intval(strip_tags($buff->attributes()['Duration']));
@@ -130,7 +132,7 @@ class DatabaseWorker
         return new Buff($buffName, $buffDuration, new Attributes($attributesIntArray));
     }
 
-    private static function readItem(?\SimpleXMLElement $item) : Item
+    private static function readItem(?SimpleXMLElement $item) : Item
     {
         $attributes = $item->attributes();
 
@@ -156,7 +158,7 @@ class DatabaseWorker
         return new Item($id,$name,$itemType,$description,$image,$money,$buffs);
     }
 
-    private static function readConsequence(?\SimpleXMLElement $consequence) : Consequence
+    private static function readConsequence(?SimpleXMLElement $consequence) : Consequence
     {
         $consAttributes = $consequence->attributes();
 
@@ -167,7 +169,7 @@ class DatabaseWorker
         return new Consequence($id, $name, $isOn);
     }
 
-    private static function readCharacter(?\SimpleXMLElement $character) : Character
+    private static function readCharacter(?SimpleXMLElement $character) : Character
     {
         $characterAttributes = $character->attributes();
 
@@ -179,7 +181,7 @@ class DatabaseWorker
         return new Character($id, $name, $image, $buff);
     }
 
-    private static function readAction(?\SimpleXMLElement $action) : \Action
+    private static function readAction(?SimpleXMLElement $action) : Action
     {
         $actionAttributes = $action->attributes();
         $type = intval($actionAttributes['Type']);
@@ -187,10 +189,10 @@ class DatabaseWorker
         $splitter = $actionAttributes['Splitter'];
 
         $data = strip_tags($action->Data);
-        return new \Action($type, $data, $to, $splitter);
+        return new Action($type, $data, $to, $splitter);
     }
 
-    private static function readEvent(?\SimpleXMLElement $event) : Event
+    private static function readEvent(?SimpleXMLElement $event) : Event
     {
         $eventAttributes = $event->attributes();
 

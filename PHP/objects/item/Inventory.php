@@ -1,10 +1,12 @@
 <?php
 
 namespace item;
+use database\basic\ItemDatabase;
+
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
 
-class Inventory extends \database\basic\ItemDatabase
+class Inventory extends ItemDatabase
 {
 
     public function __construct(array $itemTable = array())

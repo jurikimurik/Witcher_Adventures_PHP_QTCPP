@@ -4,9 +4,11 @@ namespace character;
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/objects/basic/DatabaseItem.php');
 require_once($ROOT.'/objects/special/Buff.php');
+
+use DatabaseItem;
 use special\Buff;
 
-class Character extends \DatabaseItem
+class Character extends DatabaseItem
 {
     private string $imageName;
     private Buff $attributes;
