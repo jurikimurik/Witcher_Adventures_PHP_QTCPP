@@ -11,15 +11,6 @@ use item\Inventory;
 use special\Buff;
 use item\Item;
 
-enum EquipmentType {
-    case WEAPON;
-    case ARMOUR;
-    case GLOVES;
-    case PANTS;
-    case SHOES;
-    case NONE;
-}
-
 class Player extends Character
 {
     //------------Basic variables---------------
@@ -189,6 +180,7 @@ class Player extends Character
     public function addBuff(Buff $buff): void
     {
         $this->buffs[] = $buff;
+        $this->updateAttributes();
     }
 
     public function decreaseBuffs($count = 1): void
@@ -261,8 +253,8 @@ class Player extends Character
         $buffs = $item->getBuffs();
         foreach ($buffs as $buff) {
             $this->addBuff($buff);
-            $this->inventory->use($id);
         }
+        $this->inventory->use($id);
     }
     //------------------------------------------
     /**
