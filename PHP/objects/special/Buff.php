@@ -29,10 +29,30 @@ class Buff
         $newValues = $this->getAttributes()->getValues();
         $anotherValues = $another->getAttributes()->getValues();
 
-        //FROM 1, BECAUSE 0 IS DURATION
-        for($i = 1; $i < count($newValues); $i++)
+        // 0 - MAX HP, 1 - MAX MP, 2 - CURRENT HP, 3 - CURRENT MP, 4 - ATTACK, 5 - DEFENSE, 6 - AGILITY
+        for($i = 0; $i < count($newValues); $i++)
         {
-            $newValues[$i] += intval($anotherValues[$i]);
+            if($i === 2) {
+
+                // ---- ADDING CURRENT HP
+                if($newValues[2] + intval($anotherValues[2]) > $newValues[0])
+                    $newValues[2] = $newValues[0];
+                else
+                    $newValues[2] += intval($anotherValues[2]);
+
+            } else if ($i === 3) {
+
+                // ---- ADDING CURRENT MP
+                if($newValues[3] + intval($anotherValues[3]) > $newValues[1])
+                    $newValues[3] = $newValues[1];
+                else
+                    $newValues[3] += intval($anotherValues[1]);
+
+            } else {
+
+                // ---- ANOTHER VALUES
+                $newValues[$i] += intval($anotherValues[$i]);
+            }
         }
 
         $this->setAttributes(new Attributes($newValues));
