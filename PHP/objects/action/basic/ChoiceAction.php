@@ -1,5 +1,8 @@
 <?php
 
+use Choice\Choice;
+use consequence\Consequence;
+
 require_once ("Action.php");
 
 
@@ -25,7 +28,7 @@ class ChoiceAction extends \Action
             $consequenceId = intval($neededStr[3]);
             $isOn = intval($neededStr[4]);
 
-            $this->choices[] = new \Choice\Choice($toId, $text, new \consequence\Consequence($consequenceId, "FROM CHOICE", $isOn));
+            $this->choices[] = new Choice($toId, $text, new Consequence($consequenceId, "FROM CHOICE", $isOn));
         }
     }
 
@@ -35,7 +38,7 @@ class ChoiceAction extends \Action
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTextData()
     {

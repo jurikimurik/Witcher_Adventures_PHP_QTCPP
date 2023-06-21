@@ -27,7 +27,7 @@ class DescriptionAction extends Action
 
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTextData()
     {
@@ -43,7 +43,7 @@ class DescriptionAction extends Action
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getImageName()
     {
@@ -59,7 +59,7 @@ class DescriptionAction extends Action
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getMusic()
     {

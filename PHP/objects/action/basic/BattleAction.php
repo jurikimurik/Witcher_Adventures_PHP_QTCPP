@@ -27,7 +27,7 @@ class BattleAction extends Action
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getTextData()
     {

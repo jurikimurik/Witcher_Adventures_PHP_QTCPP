@@ -22,7 +22,7 @@ class AgilityAction extends Action
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getTimePerOne()
     {
@@ -38,7 +38,7 @@ class AgilityAction extends Action
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getDifficulty()
     {
