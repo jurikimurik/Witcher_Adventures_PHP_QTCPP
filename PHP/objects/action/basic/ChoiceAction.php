@@ -6,7 +6,7 @@ use consequence\Consequence;
 require_once ("Action.php");
 
 
-class ChoiceAction extends \Action
+class ChoiceAction extends Action
 {
     private string $textData;
     private array $choices;
@@ -40,15 +40,15 @@ class ChoiceAction extends \Action
     /**
      * @return string
      */
-    public function getTextData()
+    public function getTextData(): string
     {
         return $this->textData;
     }
 
     /**
-     * @param mixed $textData
+     * @param string $textData
      */
-    public function setTextData($textData): void
+    public function setTextData(string $textData): void
     {
         $this->textData = $textData;
     }

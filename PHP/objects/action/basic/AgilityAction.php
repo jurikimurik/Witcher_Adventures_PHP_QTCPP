@@ -24,7 +24,7 @@ class AgilityAction extends Action
     /**
      * @return int
      */
-    public function getTimePerOne()
+    public function getTimePerOne(): int
     {
         return $this->timePerOne;
     }
@@ -32,7 +32,7 @@ class AgilityAction extends Action
     /**
      * @param mixed $timePerOne
      */
-    public function setTimePerOne($timePerOne): void
+    public function setTimePerOne(mixed $timePerOne): void
     {
         $this->timePerOne = $timePerOne;
     }
@@ -40,7 +40,7 @@ class AgilityAction extends Action
     /**
      * @return int
      */
-    public function getDifficulty()
+    public function getDifficulty(): int
     {
         return $this->difficulty;
     }
@@ -48,7 +48,7 @@ class AgilityAction extends Action
     /**
      * @param mixed $difficulty
      */
-    public function setDifficulty($difficulty): void
+    public function setDifficulty(mixed $difficulty): void
     {
         $this->difficulty = $difficulty;
     }

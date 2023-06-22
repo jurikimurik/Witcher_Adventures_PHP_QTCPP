@@ -9,15 +9,15 @@ class Choice
     /**
      * @return mixed
      */
-    public function getIdToAction()
+    public function getIdToAction(): mixed
     {
         return $this->idToAction;
     }
 
     /**
-     * @param mixed $idToAction
+     * @param int $idToAction
      */
-    public function setIdToAction($idToAction): void
+    public function setIdToAction(int $idToAction): void
     {
         $this->idToAction = $idToAction;
     }
@@ -25,13 +25,13 @@ class Choice
     /**
      * @return mixed
      */
-    public function getText()
+    public function getText(): mixed
     {
         return $this->text;
     }
 
     /**
-     * @param mixed $text
+     * @param string $text
      */
     public function setText($text): void
     {
@@ -53,8 +53,8 @@ class Choice
     {
         $this->consequence = $consequence;
     }
-    private $idToAction;
-    private $text;
+    private int $idToAction;
+    private string $text;
     private Consequence $consequence;
 
     public function __construct($idToAction, $text, Consequence $consequence)

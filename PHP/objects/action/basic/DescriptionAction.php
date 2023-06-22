@@ -29,15 +29,15 @@ class DescriptionAction extends Action
     /**
      * @return string
      */
-    public function getTextData()
+    public function getTextData(): string
     {
         return $this->textData;
     }
 
     /**
-     * @param mixed $textData
+     * @param string $textData
      */
-    public function setTextData($textData): void
+    public function setTextData(string $textData): void
     {
         $this->textData = $textData;
     }
@@ -45,15 +45,15 @@ class DescriptionAction extends Action
     /**
      * @return string
      */
-    public function getImageName()
+    public function getImageName(): string
     {
         return $this->imageName;
     }
 
     /**
-     * @param mixed $imageName
+     * @param string $imageName
      */
-    public function setImageName($imageName): void
+    public function setImageName(string $imageName): void
     {
         $this->imageName = $imageName;
     }
@@ -61,15 +61,15 @@ class DescriptionAction extends Action
     /**
      * @return string
      */
-    public function getMusic()
+    public function getMusic(): string
     {
         return $this->music;
     }
 
     /**
-     * @param mixed $music
+     * @param string $music
      */
-    public function setMusic($music): void
+    public function setMusic(string $music): void
     {
         $this->music = $music;
     }

@@ -29,15 +29,15 @@ class BattleAction extends Action
     /**
      * @return string
      */
-    public function getTextData()
+    public function getTextData(): string
     {
         return $this->textData;
     }
 
     /**
-     * @param mixed $textData
+     * @param string $textData
      */
-    public function setTextData($textData): void
+    public function setTextData(string $textData): void
     {
         $this->textData = $textData;
     }
