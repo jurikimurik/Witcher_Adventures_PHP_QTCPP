@@ -86,7 +86,7 @@ class AllDatabase
         $this->itemDatabase = $itemDatabase;
     }
 
-    private function loadDatabase()
+    private function loadDatabase(): void
     {
         DatabaseWorker::readDatabase("data.xml", $this);
     }

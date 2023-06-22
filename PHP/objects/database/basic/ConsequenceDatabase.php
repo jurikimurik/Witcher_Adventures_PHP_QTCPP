@@ -2,7 +2,6 @@
 
 namespace database\basic;
 
-use character\Character;
 use consequence\Consequence;
 
 class ConsequenceDatabase
@@ -19,7 +18,7 @@ class ConsequenceDatabase
         }
     }
 
-    public function remove(int $which)
+    public function remove(int $which): void
     {
         if($which < count($this->data))
             array_splice($this->data,$which,1);
@@ -37,7 +36,7 @@ class ConsequenceDatabase
         return new Consequence(-1, "", false);
     }
 
-    public function removeById(int $id)
+    public function removeById(int $id): void
     {
         for($i = 0; $i < count($this->data); $i++)
         {
@@ -50,7 +49,7 @@ class ConsequenceDatabase
         }
     }
 
-    public function update(Consequence $consequence)
+    public function update(Consequence $consequence): void
     {
         $this->removeById($consequence->getId());
         $this->add($consequence);

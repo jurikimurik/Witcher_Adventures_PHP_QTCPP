@@ -18,13 +18,13 @@ class EventDatabase
         }
     }
 
-    public function remove(int $which)
+    public function remove(int $which): void
     {
         if($which < count($this->data))
             array_splice($this->data,$which,1);
     }
 
-    public function removeById(int $id)
+    public function removeById(int $id): void
     {
         for($i = 0; $i < count($this->data); $i++)
         {
@@ -37,7 +37,7 @@ class EventDatabase
         }
     }
 
-    public function update(Event $event)
+    public function update(Event $event): void
     {
         $this->removeById($event->getId());
         $this->add($event);

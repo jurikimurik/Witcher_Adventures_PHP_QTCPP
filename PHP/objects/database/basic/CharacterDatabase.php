@@ -20,7 +20,7 @@ class CharacterDatabase
         }
     }
 
-    public function remove(int $which)
+    public function remove(int $which): void
     {
         if($which < count($this->data))
             array_splice($this->data,$which,1);
@@ -38,7 +38,7 @@ class CharacterDatabase
         return new Character(-1, "", "", new Buff("", 0, new Attributes(array())));
     }
 
-    public function removeById(int $id)
+    public function removeById(int $id): void
     {
         for($i = 0; $i < count($this->data); $i++)
         {
@@ -51,7 +51,7 @@ class CharacterDatabase
         }
     }
 
-    public function update(Character $character)
+    public function update(Character $character): void
     {
         $this->removeById($character->getId());
         $this->add($character);

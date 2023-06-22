@@ -23,7 +23,7 @@ class ItemDatabase
         }
     }
 
-    public function remove(int $which)
+    public function remove(int $which): void
     {
         if($which < count($this->data))
             array_splice($this->data,$which,1);
@@ -41,7 +41,7 @@ class ItemDatabase
         return new Item(-1, "NONE", new ItemType("NOTHING", "NOTHING"), "NONE", "NONE", 0, array());
     }
 
-    public function removeById(int $id)
+    public function removeById(int $id): void
     {
         for($i = 0; $i < count($this->data); $i++)
         {
@@ -55,7 +55,7 @@ class ItemDatabase
         }
     }
 
-    public function update(Item $item)
+    public function update(Item $item): void
     {
         $this->removeById($item->getId());
         $this->add($item);

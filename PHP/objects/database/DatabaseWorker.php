@@ -45,7 +45,7 @@ use special\Buff;
 
 class DatabaseWorker
 {
-    public static function readDatabase(string $filename, AllDatabase &$database)
+    public static function readDatabase(string $filename, AllDatabase &$database): void
     {
         $xml = simplexml_load_file(realpath(dirname(__FILE__).'/../../data/'.$filename));
 
