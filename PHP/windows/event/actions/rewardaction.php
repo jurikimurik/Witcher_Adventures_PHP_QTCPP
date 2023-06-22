@@ -2,7 +2,6 @@
 session_start();
 $ROOT = dirname(__FILE__, 4);
 require_once($ROOT.'/scripts/actions/actiontools.php');
-use database\AllDatabase;
 
 checkAndLoadNext('next');
 

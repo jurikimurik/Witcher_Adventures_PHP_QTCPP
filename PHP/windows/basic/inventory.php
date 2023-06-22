@@ -2,7 +2,6 @@
 session_start();
 $ROOT = dirname(__FILE__, 3);
 
-use item\Inventory;
 use item\Item;
 
 require_once($ROOT.'/objects/item/Inventory.php');

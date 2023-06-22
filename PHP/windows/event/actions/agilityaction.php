@@ -1,7 +1,6 @@
 <?php
 
 use action\AgilityGame;
-use database\AllDatabase;
 
 session_start();
 $ROOT = dirname(__FILE__, 4);
@@ -16,12 +15,7 @@ if(!isset($_SESSION['AgilityGame'])) {
 } else {
     $agilityGame = unserialize($_SESSION['AgilityGame']);
 
-    if(isset($_POST['answerButton']))
-    {
-        $playerAnswer = $_POST['answerButton'];
-    } else {
-        $playerAnswer = "";
-    }
+    $playerAnswer = $_POST['answerButton'] ?? "";
         unset($_POST['answerButton']);
 
         $agilityGame->checkAnswer($playerAnswer);
@@ -49,6 +43,7 @@ if(!isset($_SESSION['AgilityGame'])) {
 <html lang="pl">
 <head>
     <meta http-equiv="refresh" content="<?php echo $agilityAction->getTimePerOne()?>;URL='<?php echo $_SERVER['PHP_SELF']?>'">
+    <title></title>
 </head>
 <form action="agilityaction.php" method="post">
     <?php

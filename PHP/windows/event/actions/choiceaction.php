@@ -5,7 +5,6 @@ $ROOT = dirname(__FILE__, 4);
 require_once($ROOT.'/scripts/actions/actiontools.php');
 
 use Choice\Choice;
-use database\AllDatabase;
 
 if(isset($_POST['choiceButton']))
 {

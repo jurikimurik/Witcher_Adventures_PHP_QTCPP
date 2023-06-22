@@ -1,7 +1,6 @@
 <?php
 
 use action\DiceGame;
-use database\AllDatabase;
 use player\Player;
 
 session_start();

@@ -5,9 +5,6 @@ require_once($ROOT.'/scripts/actions/actiontools.php');
 
 checkAndLoadNext('Next');
 
-use action\Event;
-use database\AllDatabase;
-
 loadAllActions();
 
 loadInventory();

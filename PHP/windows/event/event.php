@@ -1,6 +1,5 @@
 <?php
 
-use action\Event;
 use database\AllDatabase;
 
 $ROOT = dirname(__FILE__, 3);

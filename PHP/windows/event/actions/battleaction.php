@@ -1,8 +1,6 @@
 <?php
 
 use action\BattleGame;
-use database\AllDatabase;
-use player\Player;
 
 session_start();
 $ROOT = dirname(__FILE__, 4);
