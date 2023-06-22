@@ -5,10 +5,6 @@ namespace action;
 use BattleAction;
 use character\Character;
 use database\basic\CharacterDatabase;
-use item\Item;
-use player\Player;
-use special\Attributes;
-use special\Buff;
 
 $ROOT = dirname(__FILE__, 3);
 require_once($ROOT.'/scripts/tools.php');
@@ -76,11 +72,10 @@ class BattleGame
         if(count($moveData) > 0)
             $actionForWho = $moveData[1];
 
-        $character = "";
-        switch ($actionForWho) {
-            case "this": $character = $player; break;
-            default: $character = $this->enemies[intval($actionForWho)];
-        }
+        $character = match ($actionForWho) {
+            "this" => $player,
+            default => $this->enemies[intval($actionForWho)],
+        };
 
         switch ($actionText) {
             case "Attack": $this->attack($player, $character); break;
@@ -146,8 +141,7 @@ class BattleGame
             $battleWin = 0;
         }
 
-        $visualString = $visualString . "<button name='next' value='$battleWin'>Koniec bitwy!</button>";
-        return $visualString;
+        return $visualString . "<button name='next' value='$battleWin'>Koniec bitwy!</button>";
     }
 
     public function getVisualButtonActionsForm() : string
@@ -190,12 +184,10 @@ class BattleGame
                 "</fieldset>";
         }
 
-        $visualString = $visualString . '<fieldset>
+        return $visualString . '<fieldset>
                     <legend>'.$player->getName().'</legend>'.
             'HP:'.$player->getAttributes()->getAttributes()->getValues()[2].
             '</fieldset>';
-
-        return $visualString;
     }
 
     public function getVisualTextBlock() : string

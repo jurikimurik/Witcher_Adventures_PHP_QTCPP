@@ -20,7 +20,7 @@ class Event extends DatabaseItem
     }
 
 
-    public function addAction(Action $action)
+    public function addAction(Action $action): void
     {
         $action[] = $action;
     }
@@ -34,7 +34,7 @@ class Event extends DatabaseItem
         }
     }
 
-    public function removeAction(int $which)
+    public function removeAction(int $which): void
     {
         if($which >= count($this->actions))
             return;

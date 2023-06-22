@@ -7,8 +7,8 @@ use AgilityAction;
 class AgilityGame
 {
     public static array $answers = array("Góra", "Dół", "Lewo", "Prawo", "Zaczep się", "Skacz", "Sprintuj","Wyskocz");
-    private int $difficulty = 0;
-    private int $timePerOne = 0;
+    private int $difficulty;
+    private int $timePerOne;
     private int $allTurns = 0;
     private int $maxPoints = 0;
     private int $turn = 0;
