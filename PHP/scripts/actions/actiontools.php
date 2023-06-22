@@ -81,11 +81,7 @@ function rememberURLForBack() : void
 
 function getBackURL() : string
 {
-    if(isset($_SESSION['BackURL']))
-        return $_SESSION['BackURL'];
-    else {
-        return getCurrentURL();
-    }
+    return $_SESSION['BackURL'] ?? getCurrentURL();
 
 }
 

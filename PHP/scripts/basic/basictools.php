@@ -1,9 +1,10 @@
 <?php
 
 use database\AllDatabase;
+use JetBrains\PhpStorm\NoReturn;
 use player\Player;
 
-function startNewGame() : void
+#[NoReturn] function startNewGame() : void
 {
     if(session_status() == PHP_SESSION_NONE)
         session_start();

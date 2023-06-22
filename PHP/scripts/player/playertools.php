@@ -3,7 +3,6 @@
 $ROOT = $ROOT = dirname(__FILE__, 3);
 
 use item\Inventory;
-use item\Item;
 use player\Player;
 
 require_once($ROOT.'/objects/database/basic/ItemDatabase.php');
