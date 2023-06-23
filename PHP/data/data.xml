@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DATABASE>
+    <ITEMS>
+        <Item ID="1" Name="Srebrny miecz szkoły Gryfa" Description="Zwykły srebrny miecz szkoły Gryfa." Image="BRAK" Money="800">
+            <Type Name="Weapon">Close ranged weapon.</Type>
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>0,0,0,0,30,20,0</Attributes>
+            </Buff>
+            <Buff Name="Abrakadabra" Duration="2">
+                <Attributes>0,0,0,0,10,0,0</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="2" Name="Stalowy miecz szkoły Gryfa" Description="Zwykły stalowy wiedzmiński miecz." Image="BRAK" Money="700">
+            <Type Name="Weapon">Close ranged weapon.</Type>
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>0,0,0,0,30,10,0</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="3" Name="Lekki Pancerz Szkoły Kota" Description="Pancerz" Image="BRAK" Money="1000">
+            <Type Name="Armour">Simple armour.</Type>
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>0,0,0,0,5,15,5</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="4" Name="Spodnie Wiecznego Ognia" Description="Spodnie" Image="BRAK" Money="400">
+            <Type Name="Pants">Simple pants.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,4,3</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="5" Name="Rękawiczki Szkoły Gryfa" Description="Rękawiczki" Image="BRAK" Money="100">
+            <Type Name="Gloves">Simple gloves.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,10,0</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="6" Name="Buty Kapłanów" Description="Zwykłe buty" Image="BRAK" Money="450">
+            <Type Name="Shoes">Simple shoes.</Type>
+            <Buff Name="" Duration="-1">
+                <Attributes>0,0,0,0,0,10,10</Attributes>
+            </Buff>
+        </Item>
+        <Item ID="7" Name="Jaskółka" Description="Wiedżmiński eliskir" Image="BRAK" Money="100">
+            <Type Name="Eliksir Wiedżmiński">Eliksiry wiedżmińskie.</Type>
+            <Buff Name="Leczenie" Duration="1">
+                <Attributes>0,0,10,0,0,0,0</Attributes>
+            </Buff>
+        </Item>
+    </ITEMS>
+    <CONSEQUENCES>
+        <Consequence ID="1" Name="Kalisto skonczyl trening.">1</Consequence>
+        <Consequence ID="2" Name="Kalisto wyruszył.">1</Consequence>
+    </CONSEQUENCES>
+    <CHARACTERS>
+        <Character ID="1" Name="Kalisto" Image="">
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>100,100,100,100,15,10,5</Attributes>
+            </Buff>
+        </Character>
+        <Character ID="2" Name="Troll" Image="">
+            <Buff Name="Statystyki" Duration="-1">
+                <Attributes>350,0,50,20,10,10,0</Attributes>
+            </Buff>
+        </Character>
+    </CHARACTERS>
+    <EVENTS>
+        <Event ID="1" Name="Początek" Description="">
+            <Action Type="1" To="1" Splitter="|---|">
+                <Data>|---|Kalisto wychodzi na dwór i zaczyna walczyć. Do broni!|---||---||---|</Data>
+            </Action>
+            <Action Type="2" To="2" Splitter="|---|">
+                <Data>|---|3|---|5|---|</Data>
+            </Action>
+            <Action Type="3" To="3" Splitter="|---|">
+                <Data>|---|A tutaj tekst bitwy!|---|2||---|</Data>
+            </Action>
+            <Action Type="4" To="4" Splitter="|---|">
+                <Data>|---|1000|---|3|4|5|6|7|7|7||---|</Data>
+            </Action>
+            <Action Type="6" To="5" Splitter="|---|">
+                <Data>|---|2|---|1|---|2||---|Zaczynamy gre w kosci!|---|</Data>
+            </Action>
+            <Action Type="5" To="-1" Splitter="|---|">
+                <Data>|---|Jakis tam tekst|---|~1~Cos tam~1~1~|~2~A tu inny~-1~0~||---|</Data>
+            </Action>
+        </Event>
+    </EVENTS>
+</DATABASE>
