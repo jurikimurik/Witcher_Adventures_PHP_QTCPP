@@ -27,6 +27,7 @@ public:
 
 public:
     Action(ActionType type = ActionType::NONE, const QString &data = QString(), int toAction = -1);
+    virtual ~Action();
 
     virtual Action toAction() const;
     virtual QString toString() const;

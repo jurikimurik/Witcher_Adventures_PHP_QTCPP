@@ -37,6 +37,11 @@ Action::Action(ActionType type, const QString &data, int toAction) : m_type(type
     m_idToAction(toAction)
 {}
 
+Action::~Action()
+{
+
+}
+
 Action Action::toAction() const
 {
     return *this;
