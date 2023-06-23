@@ -11,12 +11,12 @@ public:
     Character(int id = -1, const QString &name = QString(), const QString &imageName = QString(), const Buff &attributes = Buff());
     QString imageName() const;
     void setImageName(const QString &newImageName);
-    Buff attributes() const;
-    void setAttributes(const Buff &newAttributes);
+    Buff basicStatistics() const;
+    void setBasicStatistics(const Buff &newAttributes);
 
 private:
     QString m_imageName;
-    Buff m_attributes;
+    Buff m_basicStatistics;
 
     // DatabaseItem interface
 public:

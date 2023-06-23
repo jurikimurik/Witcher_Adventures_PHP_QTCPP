@@ -175,7 +175,7 @@ void DatabaseInXML::saveCharacter(const Character &elem)
     writer.writeAttribute("Name", elem.name());
     writer.writeAttribute("Image", elem.imageName());
 
-    Buff buff = elem.attributes();
+    Buff buff = elem.basicStatistics();
     saveBuff(buff);
 
     writer.writeEndElement();   //Character

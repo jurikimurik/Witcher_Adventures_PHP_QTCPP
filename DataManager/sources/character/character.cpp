@@ -11,14 +11,14 @@ void Character::setImageName(const QString &newImageName)
     m_imageName = newImageName;
 }
 
-Buff Character::attributes() const
+Buff Character::basicStatistics() const
 {
-    return m_attributes;
+    return m_basicStatistics;
 }
 
-void Character::setAttributes(const Buff &newAttributes)
+void Character::setBasicStatistics(const Buff &newAttributes)
 {
-    m_attributes = newAttributes;
+    m_basicStatistics = newAttributes;
 }
 
 QString Character::toString()
@@ -26,7 +26,7 @@ QString Character::toString()
     QString properties = DatabaseItem::toString();
     QString splitter = DatabaseItem::getSplitter();
 
-    properties += m_imageName + splitter + m_attributes.toString();
+    properties += m_imageName + splitter + m_basicStatistics.toString();
     return properties;
 }
 
@@ -38,5 +38,5 @@ Character Character::fromString(QString str)
 
 Character::Character(int id, const QString &name, const QString &imageName, const Buff &attributes) : DatabaseItem(id, name),
     m_imageName(imageName),
-    m_attributes(attributes)
+    m_basicStatistics(attributes)
 {}
