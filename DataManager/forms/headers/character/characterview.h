@@ -29,7 +29,8 @@ public slots:
     void addNewCharacter();
     void updateCharacter();
     void deleteCharacter();
-    void openCharacter();
+    void openCharacter(int whichOne = 0);
+    void newCharacter();
 
 private:
     Ui::CharacterView *ui;

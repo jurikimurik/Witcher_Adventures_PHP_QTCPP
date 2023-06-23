@@ -18,8 +18,14 @@ void CharacterView::deleteCharacter()
     emit deleteCharacterSignal(character);
 }
 
-void CharacterView::openCharacter()
+void CharacterView::openCharacter(int whichOne)
 {
+    //If *NEW CHARACTER* CLICKED
+    if(whichOne == ui->characterBox->count()-1) {
+        newCharacter();
+        return;
+    }
+
     ui->propWidget->setEnabled(false);
 
     int id = ui->characterBox->currentText().split(" - ").at(0).toInt();
@@ -27,7 +33,20 @@ void CharacterView::openCharacter()
 
     ui->idEdit->setText(QString::number(charFromDatabase.id()));
     ui->nameEdit->setText(charFromDatabase.name());
-    m_buffView->setBuff(charFromDatabase.attributes());
+    m_buffView->setBuff(charFromDatabase.basicStatistics());
+
+    ui->propWidget->setEnabled(true);
+}
+
+void CharacterView::newCharacter()
+{
+    ui->propWidget->setEnabled(false);
+
+    Character someCharacter = Character(-1, "", "", Buff());
+
+    ui->idEdit->setText(QString::number(someCharacter.id()));
+    ui->nameEdit->setText(someCharacter.name());
+    m_buffView->setBuff(someCharacter.basicStatistics());
 
     ui->propWidget->setEnabled(true);
 }
@@ -43,6 +62,7 @@ void CharacterView::updateData()
     ui->characterBox->clear();
     for(const auto& elem : m_model->getAllIdsAndNames())
          ui->characterBox->addItem(elem);
+    ui->characterBox->addItem(tr("*UTWÓRZ NOWĄ POSTAĆ*"));
     openCharacter();
 }
 
