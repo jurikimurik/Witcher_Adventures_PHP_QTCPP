@@ -71,7 +71,7 @@
                          <object>{5006b645-1248-40bb-9841-18263dc34355}</object>
                          <name>CharacterModel</name>
                          <pos>x:210;y:515</pos>
-                         <rect>x:-305;y:-125;w:610;h:250</rect>
+                         <rect>x:-305;y:-130;w:610;h:260</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -672,14 +672,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{85720dfb-2aec-48b2-9cce-f84d4716d4d9}</uid>
+                    <uid>{dd8268c9-3f6e-493b-a8bb-61aaab6afaa5}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{229d354e-12bd-427b-b653-b9676aa05197}</uid>
+                    <uid>{f3f0beb6-91af-4205-8917-0e3a1547850d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit CharacterModel(QObject *parent = nullptr, QMap&lt;int, Character&gt; database = QMap&lt;int, Character&gt;())</declaration>
@@ -687,7 +687,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e573bf29-6a97-46de-af2f-54d595dd9544}</uid>
+                    <uid>{37823490-cc3e-45a8-bb5a-a197867f9c4f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllIdsAndNames()</declaration>
@@ -695,7 +695,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{af1f6212-9dd2-4e92-bb4b-03bd2b078d5a}</uid>
+                    <uid>{be0b4c93-1e2b-410e-8aec-7d1daa9dd627}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllIds()</declaration>
@@ -703,7 +703,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b75c9fcd-06c4-4e31-80cd-a59ca9935631}</uid>
+                    <uid>{e418d1e8-b3e8-4d54-8f29-8057ce0ca15c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QStringList getAllNames()</declaration>
@@ -711,7 +711,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7a9e2eae-963e-4560-bd32-9ae4fc7c3413}</uid>
+                    <uid>{ca318c24-ec16-44ad-a0f7-30ad71782463}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
@@ -719,7 +719,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a1c35098-25ec-4872-8dcf-2224c7c5eeb6}</uid>
+                    <uid>{3916ee5a-15b0-4fa7-ad09-1392df244cea}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -728,7 +728,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d708f050-e401-4eff-9393-639ae25032a4}</uid>
+                    <uid>{ed746260-02b6-4d16-83dc-957dcb2d04f3}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <properties>64</properties>
@@ -737,7 +737,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7fc23b41-61aa-4c60-9b07-880c11e0f992}</uid>
+                    <uid>{350dff44-c2f5-4fe4-834f-3a52b4ab0d65}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -746,7 +746,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e42d5ee0-6bb8-4a94-8390-85ebc19d8c6a}</uid>
+                    <uid>{c17706d4-2230-40be-810e-0abb8d98dc51}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void addCharacter(const Character&amp; newChar)</declaration>
@@ -754,7 +754,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fdb7f535-7aa2-46e9-b0b7-e2f7e520b4ee}</uid>
+                    <uid>{8423ad56-1e87-42f4-a59e-694b613db41b}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateCharacter(const Character&amp; updatedChar)</declaration>
@@ -762,7 +762,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e0f23ec1-b369-40ee-bbd7-501f92430c28}</uid>
+                    <uid>{a9c22f0b-ee8b-4b33-b8ab-1a06026acc8b}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void deleteCharacter(const Character&amp; charToDelete)</declaration>
@@ -770,7 +770,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2495129b-d530-4446-ae98-190370172fec}</uid>
+                    <uid>{4e91883b-faff-4d45-a6ee-15e35fc8f2ff}</uid>
+                    <visibility>7</visibility>
+                    <type>2</type>
+                    <declaration>void sendData()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d0079efe-0088-4fed-9d23-bb3869d284ea}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataUpdated(QStringList list)</declaration>
