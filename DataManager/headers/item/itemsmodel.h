@@ -32,6 +32,8 @@ public:
 public slots:
     void dataChanged(Item newItem);
 
+    void sendData();
+
 signals:
     void dataSaved(QStringList list);
 };

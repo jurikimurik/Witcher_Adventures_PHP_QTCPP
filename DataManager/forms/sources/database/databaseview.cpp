@@ -73,8 +73,13 @@ void DatabaseView::assignViewsToModels()
 void DatabaseView::createConnections()
 {
     connect(m_charactersView->model(), &CharacterModel::dataUpdated, m_eventsView, &EventsView::enemiesToUpdate);
+    connect(m_eventsView, &EventsView::requestData, m_charactersView->model(), &CharacterModel::sendData);
+
     connect(m_consequencesView->model(), &ConsequencesModel::dataUpdated, m_eventsView, &EventsView::consToUpdate);
+    connect(m_eventsView, &EventsView::requestData, m_consequencesView->model(), &ConsequencesModel::sendData);
+
     connect(m_itemsView->model(), &ItemsModel::dataSaved, m_eventsView, &EventsView::itemsToUpdate);
+    connect(m_eventsView, &EventsView::requestData, m_itemsView->model(), &ItemsModel::sendData);
 }
 
 void DatabaseView::save()

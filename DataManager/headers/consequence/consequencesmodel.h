@@ -28,6 +28,8 @@ public slots:
     void updateConsequence(const Consequence& cons);
     void deleteConsequence(const Consequence& cons);
 
+    void sendData();
+
 signals:
     void dataUpdated(QStringList list);
 };

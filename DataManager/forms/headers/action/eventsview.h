@@ -61,6 +61,8 @@ signals:
     void actionsChanged(const QStringList& list);
     void consChanged(const QStringList& list);
 
+    void requestData();
+
 private:
     void loadEvents();
     void updateActions();

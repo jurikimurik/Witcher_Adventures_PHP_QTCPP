@@ -78,6 +78,11 @@ void ConsequencesModel::deleteConsequence(const Consequence &cons)
     emit dataUpdated(getAllNamesAndIds());
 }
 
+void ConsequencesModel::sendData()
+{
+    emit dataUpdated(getAllNamesAndIds());
+}
+
 QStringList ConsequencesModel::getAllNames()
 {
     QStringList list;

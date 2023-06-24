@@ -73,6 +73,8 @@ void EventsView::openAction(int index)
 
 void EventsView::openEvent(int index)
 {
+    emit requestData();
+
     if(ui->eventBox->itemText(index).isEmpty())
         return;
 
@@ -271,5 +273,5 @@ EventsView::EventsView(EventsModel *model, QWidget *parent) : QWidget(parent),
     checkAccessibleOptions();
     connect(this, &EventsView::saveEvent, m_model, &EventsModel::updateEvent);
 
-
+    emit requestData();
 }

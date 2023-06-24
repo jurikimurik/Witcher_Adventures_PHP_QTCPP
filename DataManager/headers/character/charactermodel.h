@@ -29,6 +29,8 @@ public slots:
     void updateCharacter(const Character& updatedChar);
     void deleteCharacter(const Character& charToDelete);
 
+    void sendData();
+
 signals:
     void dataUpdated(QStringList list);
 };

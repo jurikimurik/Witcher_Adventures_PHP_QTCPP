@@ -91,6 +91,11 @@ void CharacterModel::deleteCharacter(const Character &charToDelete)
     emit dataUpdated(getAllIdsAndNames());
 }
 
+void CharacterModel::sendData()
+{
+    emit dataUpdated(getAllIdsAndNames());
+}
+
 
 void CharacterModel::addCharacter(const Character &newChar)
 {
