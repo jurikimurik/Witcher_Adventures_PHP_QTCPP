@@ -10,8 +10,6 @@ void ActionView::openAction(Action action)
 {
     resetTabs();
 
-
-
     if(action.type() == ActionType::Description) {
         DescriptionAction descAct;
         if(action.data() != QString())

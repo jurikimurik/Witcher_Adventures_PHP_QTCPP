@@ -77,6 +77,7 @@ private:
     //-----------------------------------------
     void updateComboBoxes(QString regexName, QStringList newData);
 
+
 private:
     Ui::ActionView *ui;
     Action m_data;
