@@ -92,7 +92,7 @@
                          <object>{8392ecf2-aafb-41b4-b704-f099ef9f0e74}</object>
                          <name>CharacterView</name>
                          <pos>x:-65;y:210</pos>
-                         <rect>x:-380;y:-160;w:760;h:320</rect>
+                         <rect>x:-380;y:-170;w:760;h:340</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -519,7 +519,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{6c7f4d63-9a34-4543-830a-96212f962cea}</uid>
+                    <uid>{c9e08126-3f60-4dc4-a5f6-4b9877eaf6de}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Character(int id = -1, const QString &amp;name = QString(), const QString &amp;imageName = QString(), const Buff &amp;attributes = Buff())</declaration>
@@ -527,7 +527,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{375adddd-460a-4d40-a0bb-c2576214d50e}</uid>
+                    <uid>{312331e9-d14c-4737-b678-ffcc9461599a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -536,7 +536,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1bfd6b4f-ec30-4df4-8a0a-8e17e0edce22}</uid>
+                    <uid>{9af8adc9-a7c2-4dee-80f5-fa52676ef498}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setImageName(const QString &amp;newImageName)</declaration>
@@ -544,24 +544,24 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{25a44d2c-a6e3-4c03-a02f-65bb616ca933}</uid>
+                    <uid>{b360414d-6d69-4634-a101-435dee6c6e21}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
-                    <declaration>Buff attributes()</declaration>
+                    <declaration>Buff basicStatistics()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8a66b946-f735-4b2e-82f6-7136487fdefd}</uid>
+                    <uid>{7a2ddd3a-be02-4b27-82c9-6125142bc47b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void setAttributes(const Buff &amp;newAttributes)</declaration>
+                    <declaration>void setBasicStatistics(const Buff &amp;newAttributes)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4bdbb19a-11b4-4bba-ba0a-81a34c30ce80}</uid>
+                    <uid>{78cc273b-ad6c-417f-98dd-6d160f0dd0cd}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_imageName</declaration>
@@ -569,15 +569,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9e07a9c6-184a-4c51-b949-26a14d5b1836}</uid>
+                    <uid>{2ade0931-e9f6-4cf8-81aa-40258938509d}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>Buff m_attributes</declaration>
+                    <declaration>Buff m_basicStatistics</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fa4cccf7-817f-457e-9aa8-840d5be26559}</uid>
+                    <uid>{9f675dd1-b02d-4d29-b989-a02c07deef01}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>1</properties>
@@ -586,7 +586,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fbee74b2-584e-4c0e-b821-b403d5731bd3}</uid>
+                    <uid>{726b1f14-277e-444b-a8f8-2fb3226c25e8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -1022,14 +1022,14 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{f28663bf-8f6f-4ae4-98d6-461530278fb9}</uid>
+                    <uid>{c5a03df6-da2f-4393-81bf-c9f18ff548b3}</uid>
                     <type>1</type>
                     <declaration>Q_OBJECT</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3dfeebaa-afa6-4d5f-94ed-b55e9c2eac1e}</uid>
+                    <uid>{5c079318-15fa-4622-8790-8bd089874787}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit CharacterView(CharacterModel *model = new CharacterModel(), BuffView *buffView = new BuffView(), QWidget *parent = nullptr)</declaration>
@@ -1037,7 +1037,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{015e79df-cf04-40ac-932d-a5b15742086a}</uid>
+                    <uid>{06c11840-8951-43fa-a695-ddef10903d1f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>~CharacterView()</declaration>
@@ -1045,7 +1045,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{73527852-04ba-431d-bd66-4842f8234bf0}</uid>
+                    <uid>{17bdf7e4-7b81-44a9-8414-367f934f96e6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1054,7 +1054,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{23fb13f3-1f27-4810-822a-690d675403c1}</uid>
+                    <uid>{94b0827f-00df-40c8-a75d-4e06088db463}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setModel(CharacterModel *newModel)</declaration>
@@ -1062,7 +1062,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8539ed68-6ea5-4e43-9d64-0f59cfed5031}</uid>
+                    <uid>{e4323cb4-57a8-432d-bd12-847338ecc634}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1071,7 +1071,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0ce8ff34-b541-492c-a3dc-2421856d7cc0}</uid>
+                    <uid>{e2245961-e816-4aaf-976c-35c3104c13bb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setBuffView(BuffView *newBuffView)</declaration>
@@ -1079,7 +1079,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9cf214eb-ef2a-4c87-8c38-435b15f31aa6}</uid>
+                    <uid>{8d5ffee3-54a3-4a56-b2e6-6851505302c8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Character getCharacterFromForm()</declaration>
@@ -1087,7 +1087,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{eac98549-07ca-4fa4-98fc-979d71060643}</uid>
+                    <uid>{2ad016e5-f35c-4e3b-a278-530a02f05129}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateData()</declaration>
@@ -1095,7 +1095,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{897add49-9cec-4129-a967-3f2b0d5f835b}</uid>
+                    <uid>{15ab605f-0504-4c4b-a70d-155eea8327fe}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void addNewCharacter()</declaration>
@@ -1103,7 +1103,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f17aadba-0d57-49c1-9403-4e79845149ab}</uid>
+                    <uid>{f7698987-f79b-4f0b-8135-f5cbb61c41bd}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void updateCharacter()</declaration>
@@ -1111,7 +1111,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a69184ac-180b-42d7-94b5-66f0aeb5c9d3}</uid>
+                    <uid>{94159f54-cbf1-4a2d-99ef-8350b8027598}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <declaration>void deleteCharacter()</declaration>
@@ -1119,15 +1119,23 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{658ad5a6-df4f-4439-a1ef-6b11dce43b4c}</uid>
+                    <uid>{ab058028-1d30-44b9-ae3d-d98b157a1e33}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
-                    <declaration>void openCharacter()</declaration>
+                    <declaration>void openCharacter(int whichOne = 0)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7a37e572-3f0a-4caf-af77-92017a82c50c}</uid>
+                    <uid>{13a5214b-d857-4b66-871f-195463768d80}</uid>
+                    <visibility>7</visibility>
+                    <type>2</type>
+                    <declaration>void newCharacter()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a6ed2720-bb97-47ff-996c-c2b39f710de4}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Ui::CharacterView *ui</declaration>
@@ -1135,7 +1143,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bae80c18-5876-46c3-b084-5c60ca18ace2}</uid>
+                    <uid>{3b184399-8318-4b27-a489-eb664aaa7c6b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>CharacterModel* m_model</declaration>
@@ -1143,7 +1151,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7108094a-b721-4f8f-929d-2c5d6b67ff14}</uid>
+                    <uid>{20432348-d365-4047-bb46-4eb010aa927a}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>BuffView* m_buffView</declaration>
@@ -1151,7 +1159,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c5a02e31-dbd3-42d4-89d6-8fd7cdfff143}</uid>
+                    <uid>{cf37209d-47e4-4121-821a-6c83560af991}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void addCharacterSignal(const Character&amp; newChar)</declaration>
@@ -1159,7 +1167,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{084b028b-c41e-4314-b29d-c78a18d275e4}</uid>
+                    <uid>{bb403ecc-d2a1-4303-b3cf-08be3792861f}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void updateCharacterSignal(const Character&amp; updatedChar)</declaration>
@@ -1167,7 +1175,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{043cbc16-623b-4e06-a28b-a017967ce883}</uid>
+                    <uid>{6971e03c-3bea-4931-95f3-2f974e89b67e}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void deleteCharacterSignal(const Character&amp; charToDelete)</declaration>
