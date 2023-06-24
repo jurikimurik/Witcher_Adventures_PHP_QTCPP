@@ -86,11 +86,11 @@ void EventsView::openEvent(int index)
     ui->actionSelectWidget->setEnabled(true);
     ui->saveButton->setEnabled(true);
     ui->actionBox->clear();
-    updateActions();
     for(int i = 0; i < getEvent().size(); ++i)
     {
         ui->actionBox->addItem(QString::number(i));
     }
+    updateActions();
 
     if(actionView() != nullptr)
         actionView()->setEnabled(false);
