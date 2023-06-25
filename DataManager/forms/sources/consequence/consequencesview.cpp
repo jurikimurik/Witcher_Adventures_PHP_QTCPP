@@ -10,6 +10,8 @@ ConsequencesView::ConsequencesView(ConsequencesModel *model, QWidget *parent) :
         m_model = new ConsequencesModel(QMap<int, Consequence>(), this->parent());
     ui->setupUi(this);
 
+    ui->idEdit->setValidator(new QIntValidator(-1, 9999, this));
+
     connect(this, &ConsequencesView::consequenceChanged, m_model, &ConsequencesModel::updateConsequence);
     connect(this, &ConsequencesView::consequenceDelete, m_model, &ConsequencesModel::deleteConsequence);
     connect(m_model, &ConsequencesModel::dataUpdated, this, &ConsequencesView::refreshData);

@@ -9,7 +9,7 @@ ItemsView::ItemsView(ItemsModel* model,  QWidget *parent) :
 
     //Installing validator for some fields
     ui->idEdit->setValidator(new QIntValidator(-1, 9999, ui->idEdit));
-    ui->costEdit->setValidator(new QIntValidator(0, 999999999, this));
+    ui->costEdit->setValidator(new QIntValidator(0, 99999999, this));
 
     m_controller = new ItemTypeController(nullptr, nullptr, this->parent());
     connect(m_controller, &ItemTypeController::itemTypeDataUpdated, this, &ItemsView::refreshItemTypeData);

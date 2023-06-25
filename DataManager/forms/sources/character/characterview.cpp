@@ -106,6 +106,8 @@ CharacterView::CharacterView(CharacterModel *model, BuffView *buffView, QWidget 
 
     ui->propWidget->layout()->addWidget(m_buffView);
 
+    ui->idEdit->setValidator(new QIntValidator(-1, 9999, this));
+
     connect(m_model, &CharacterModel::dataUpdated, this, &CharacterView::updateData);
     connect(this, &CharacterView::addCharacterSignal, m_model, &CharacterModel::addCharacter);
     connect(this, &CharacterView::updateCharacterSignal, m_model, &CharacterModel::updateCharacter);
