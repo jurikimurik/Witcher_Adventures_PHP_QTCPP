@@ -26,9 +26,12 @@ void Event::moveAction(int from, int where)
     swapItemsAt(from, where);
 }
 
-void Event::addAction(const Action &action)
+void Event::addAction(const Action &action, int where)
 {
-    push_back(action);
+    if(where == -1 || where == size() || isEmpty())
+        push_back(action);
+    else
+        insert(where, action);
 }
 
 void Event::updateAction(int whichOne, const Action &action)

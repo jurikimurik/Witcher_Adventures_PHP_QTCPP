@@ -14,7 +14,7 @@ public:
     virtual ~Event();
 
     void moveAction(int from, int where);
-    void addAction(const Action& action);
+    void addAction(const Action &action, int where = -1);
     template <typename T> void addActions(const T& actions);
     void updateAction(int whichOne, const Action& action);
     void removeAction(int number);

@@ -43,11 +43,16 @@ void EventsView::addAction()
     int index = lista.indexOf(wybor);
     Action newAction((ActionType)index);
 
-    m_event.addAction(newAction);
+    int currentAction = ui->actionBox->currentText().toInt();
+
+    m_event.addAction(newAction, currentAction+1);
     save();
 
     openEvent(ui->eventBox->currentIndex());
-    openAction(ui->actionBox->count()-1);
+    if(currentAction+1 >= m_event.size())
+        openAction(m_event.size()-1);
+    else
+        openAction(currentAction+1);
     updateActions();
 }
 
