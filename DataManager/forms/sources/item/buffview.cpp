@@ -28,6 +28,8 @@ BuffView::~BuffView()
 
 Buff BuffView::getBuff()
 {
+    //Data will be updated automatically via saveBuff().
+    saveBuff();
     return m_model->buff();
 }
 
@@ -42,8 +44,8 @@ void BuffView::loadBuff()
     //CLEAR ALL
     ui->nameEdit->setText("");
     ui->durationEdit->setText("");
-    while(ui->formLayout->rowCount() != 3)
-        ui->formLayout->removeRow(3);
+    while(ui->formLayout->rowCount() != 2)
+        ui->formLayout->removeRow(2);
 
     Buff currentBuff = m_model->buff();
     ui->nameEdit->setText(currentBuff.name());
@@ -72,6 +74,7 @@ void BuffView::loadBuff()
         //  - Using of AttributesPointers for accessing special data in Attributes
         QString number = QString::number(attr.*AttributesPointers[i]);
         edit->setText(number);
+
         ui->formLayout->addRow(AttributesNames.at(i), edit);
     }
 }
