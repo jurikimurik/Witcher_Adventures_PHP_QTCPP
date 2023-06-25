@@ -59,7 +59,16 @@ void BuffView::loadBuff()
         // Create new field with special object name, f.e. "attr1"
         QLineEdit* edit = new QLineEdit(this);
         edit->setObjectName("attr" + QString::number(i));
-        edit->setValidator(new QIntValidator(this));
+
+        //Setting up restrictions for input fields.
+        switch(AttributesRestrictions[i]) {
+            case NO_RESTRICTION_ATR: break; //No validator needed.
+            case INT_ATR: edit->setValidator(new QIntValidator(-9999, 9999, this)); break;
+            case INT_POSITIVE_ATR: edit->setValidator(new QIntValidator(0, 9999, this)); break;
+            case INT_NEGATIVE_ATR: edit->setValidator(new QIntValidator(-9999, -1, this));
+            case STRING_ATR: break; //No validator needed.
+            default: throw std::runtime_error("RESTRICTION NOT RECOGNIZED!"); break;
+        }
         //  - Using of AttributesPointers for accessing special data in Attributes
         QString number = QString::number(attr.*AttributesPointers[i]);
         edit->setText(number);
