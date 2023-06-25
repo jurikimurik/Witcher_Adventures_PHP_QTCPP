@@ -49,8 +49,29 @@
                          </base-DElement>
                          <object>{e022cb07-0f43-4ea6-826c-db872a78b589}</object>
                          <name>Attributes</name>
-                         <pos>x:250;y:335</pos>
-                         <rect>x:-115;y:-90;w:230;h:180</rect>
+                         <pos>x:-135;y:360</pos>
+                         <rect>x:-190;y:-110;w:380;h:220</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{788d710f-6a4c-4ffe-a1a3-147b78a9f0ed}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{df748a24-c268-4a02-8219-fd126f4b2f87}</object>
+                         <name>AttributesRestrictionsEnum</name>
+                         <pos>x:-140;y:595</pos>
+                         <rect>x:-85;y:-60;w:170;h:120</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -60,7 +81,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1684083152696</last-modified>
+                  <last-modified>1687697737615</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -89,66 +110,90 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{e2096f84-1fb7-4321-bc96-59ef2d3057b8}</uid>
+                    <uid>{dd102e6a-ffdf-46d8-8b41-9b9937c8f98a}</uid>
                     <type>1</type>
                     <declaration>int maxHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b4eac460-b1f8-4c4f-97c4-c2b8e53369ff}</uid>
+                    <uid>{24cf39ae-425e-4b97-bc30-55ff6860ed8b}</uid>
                     <type>1</type>
                     <declaration>int maxMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b7484b72-25e0-42d8-b1cd-a4476eec6122}</uid>
+                    <uid>{89597f66-6127-4ae7-8877-6ce6bd311124}</uid>
                     <type>1</type>
                     <declaration>int currentHP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{798b4b12-c941-46ad-9b1c-0bf2b0e38c8f}</uid>
+                    <uid>{b14907b2-e2bc-4cda-8859-68a494ba76f2}</uid>
                     <type>1</type>
                     <declaration>int currentMP</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{40816a45-6194-4b47-8ed2-95b7f3cbbd48}</uid>
+                    <uid>{89357313-83ba-4472-a973-32464d5bfcf5}</uid>
                     <type>1</type>
                     <declaration>int attack</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1e578f21-770f-4868-b894-3c63312a48ff}</uid>
+                    <uid>{c2ef85a9-0948-43d8-9b0b-257d26695889}</uid>
                     <type>1</type>
                     <declaration>int defense</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2bc5f048-5184-4100-b214-7f4b9ba24428}</uid>
+                    <uid>{936c1c39-93da-4a06-8c26-3818f7d0dca7}</uid>
                     <type>1</type>
                     <declaration>int agility</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1bfe3402-bfb8-427c-89a4-2a8923006e8f}</uid>
+                    <uid>{29959838-60f3-47b5-884a-a74c792ba9b8}</uid>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9ea3d22a-2cb7-4f05-927a-7f84521abc91}</uid>
+                    <uid>{54ad47fa-269e-4c52-a3d8-1be05b22c661}</uid>
                     <type>2</type>
                     <properties>64</properties>
                     <declaration>Attributes fromString(QString str)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{aaded1e3-6f2c-4069-9bd7-648bf6f38062}</uid>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QStringList AttributesNames</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b7169b54-cd98-4ffe-b59b-9100a8a8cb12}</uid>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QVector&lt;int Attributes::*&gt; AttributesPointers</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7a91f379-4796-4b6f-98a2-0f74c4b6bf24}</uid>
+                    <type>1</type>
+                    <properties>64</properties>
+                    <declaration>const QVector&lt;attributesRestrictions&gt; AttributesRestrictions</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -188,6 +233,88 @@
                     <uid>{1dc6f257-b9c6-49c3-9fb4-9bc25baabfc0}</uid>
                     <type>1</type>
                     <declaration>Attributes attributesChange</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{a8b573de-e8a2-46b1-bb3a-b3a944e46fec}</uid>
+             <target>
+              <instance type="MItem">
+               <MItem>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{a8b573de-e8a2-46b1-bb3a-b3a944e46fec}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>New It</name>
+                 </MObject>
+                </base-MObject>
+                <variety>sdfa</variety>
+               </MItem>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{df748a24-c268-4a02-8219-fd126f4b2f87}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{df748a24-c268-4a02-8219-fd126f4b2f87}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>AttributesRestrictionsEnum</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{ec6db73b-ada1-4a9f-93ca-e2c6d29723bf}</uid>
+                    <type>1</type>
+                    <declaration>NO_RESTRICTION_ATR</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c14809f0-40c9-4a27-832c-54fd62974313}</uid>
+                    <type>1</type>
+                    <declaration>INT_ATR</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{88f9a6f9-a084-4cf4-a673-bb0ef048a2de}</uid>
+                    <type>1</type>
+                    <declaration>INT_POSITIVE_ATR</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ff55a07d-428d-4152-8a36-ed97aab56f17}</uid>
+                    <type>1</type>
+                    <declaration>INT_NEGATIVE_ATR</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{46dc3689-91f8-4b1c-a2f1-06d0238ab10e}</uid>
+                    <type>1</type>
+                    <declaration>STRING_ATR</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
