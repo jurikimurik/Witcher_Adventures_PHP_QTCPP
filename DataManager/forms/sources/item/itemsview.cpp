@@ -12,6 +12,8 @@ ItemsView::ItemsView(ItemsModel* model,  QWidget *parent) :
     ui->costEdit->setValidator(new QIntValidator(0, 99999999, this));
 
     m_controller = new ItemTypeController(nullptr, nullptr, this->parent());
+    //Loading every item type on the start
+    m_controller->loadEveryTypeFromModel(model);
     connect(m_controller, &ItemTypeController::itemTypeDataUpdated, this, &ItemsView::refreshItemTypeData);
     refreshItemTypeData();
 
@@ -43,16 +45,6 @@ void ItemsView::openItem(int id)
 
     ui->nameEdit->setText(item.name());
 
-    // Working on QComboBox connected with ItemTypes
-    bool isNewType = true;
-    for(const auto& elem : m_controller->getAllTypesNames()) {
-        if(elem == item.type().typeName)
-            isNewType = false;
-    }
-    if(isNewType) {
-        m_controller->newType(item.type());
-    }
-    refreshItemTypeData();
     ui->typeBox->setCurrentText(item.type().typeName);
 
 

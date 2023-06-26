@@ -16,7 +16,17 @@ ItemType ItemTypeModel::getItemType(QString name)
 
 void ItemTypeModel::addItemType(ItemType type)
 {
+    //Checking if we already have that type
+    for(int i = 0; i < size(); ++i)
+    {
+        if(type.typeName == at(i).typeName) {
+            updateItemType(type);
+            return;
+        }
+    }
+    //If no, so this is a new type.
     push_back(type);
+
     emit dataUpdated();
 }
 

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "../../forms/headers/item/itemtypeview.h"
+#include "../../headers/item/itemsmodel.h"
 
 class ItemTypeController : public QObject
 {
@@ -16,6 +17,7 @@ public slots:
     void closeWindow();
     void dataHasBeenUpdated();
     void newType(ItemType type);
+    void loadEveryTypeFromModel(ItemsModel* model);
 public:
     QStringList getAllTypesNames();
     ItemType getItemType(QString name);

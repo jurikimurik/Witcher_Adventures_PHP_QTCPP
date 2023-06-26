@@ -39,7 +39,15 @@ void ItemTypeController::dataHasBeenUpdated()
 
 void ItemTypeController::newType(ItemType type)
 {
-     m_model->addItemType(type);
+    m_model->addItemType(type);
+}
+
+void ItemTypeController::loadEveryTypeFromModel(ItemsModel *model)
+{
+    for(const Item& item : model->values())
+    {
+        m_model->addItemType(item.type());
+    }
 }
 
 QStringList ItemTypeController::getAllTypesNames()
