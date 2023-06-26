@@ -52,6 +52,9 @@ public slots:
     void actionsToUpdate(const QStringList& list);
     void consToUpdate(const QStringList& list);
 
+    void saveEventName(const QString& name);
+    void saveActionName(const QString& name);
+
 signals:
     void saveEvent(const Event& event);
 

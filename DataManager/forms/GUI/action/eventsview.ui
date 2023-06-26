@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>583</width>
+    <width>670</width>
     <height>429</height>
    </rect>
   </property>
@@ -30,6 +30,31 @@
        <widget class="QComboBox" name="eventBox">
         <property name="enabled">
          <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="eventNameEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="statusTip">
+         <string/>
+        </property>
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="accessibleName">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Nazwa wydarzenia</string>
         </property>
        </widget>
       </item>
@@ -70,6 +95,19 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QComboBox" name="actionBox"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="actionNameEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="placeholderText">
+         <string>Nazwa akcji</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="addActionButton">
@@ -128,8 +166,8 @@
    <slot>addAction()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>301</x>
-     <y>98</y>
+     <x>484</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>332</x>
@@ -144,8 +182,8 @@
    <slot>removeAction()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>461</x>
-     <y>100</y>
+     <x>645</x>
+     <y>114</y>
     </hint>
     <hint type="destinationlabel">
      <x>509</x>
@@ -160,8 +198,8 @@
    <slot>removeEvent()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>471</x>
-     <y>47</y>
+     <x>645</x>
+     <y>54</y>
     </hint>
     <hint type="destinationlabel">
      <x>499</x>
@@ -176,8 +214,8 @@
    <slot>addEvent()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>272</x>
-     <y>42</y>
+     <x>484</x>
+     <y>54</y>
     </hint>
     <hint type="destinationlabel">
      <x>307</x>
@@ -217,6 +255,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>eventNameEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>EventsView</receiver>
+   <slot>saveEventName(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNameEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>EventsView</receiver>
+   <slot>saveActionName(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>save()</slot>
@@ -226,5 +296,7 @@
   <slot>removeAction()</slot>
   <slot>openAction(int)</slot>
   <slot>openEvent(int)</slot>
+  <slot>saveEventName(QString)</slot>
+  <slot>saveActionName(QString)</slot>
  </slots>
 </ui>

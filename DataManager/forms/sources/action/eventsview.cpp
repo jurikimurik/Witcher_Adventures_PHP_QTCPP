@@ -129,6 +129,16 @@ void EventsView::consToUpdate(const QStringList &list)
     setCons(list);
 }
 
+void EventsView::saveActionName(const QString &name)
+{
+
+}
+
+void EventsView::saveEventName(const QString &name)
+{
+
+}
+
 void EventsView::loadEvents()
 {
     ui->eventBox->clear();
