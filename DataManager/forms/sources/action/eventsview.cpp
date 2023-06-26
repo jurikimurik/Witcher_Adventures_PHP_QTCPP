@@ -100,6 +100,8 @@ void EventsView::openEvent(int index)
     if(actionView() != nullptr)
         actionView()->setEnabled(false);
 
+    ui->eventNameEdit->setText(m_model->value(id).name());
+    ui->eventBox->setCurrentIndex(index);
 
 }
 
@@ -136,7 +138,16 @@ void EventsView::saveActionName(const QString &name)
 
 void EventsView::saveEventName(const QString &name)
 {
+    Event currentEvent = getEvent();
+    if(currentEvent.id() == -1)
+        return;
 
+    int index = ui->eventBox->currentIndex();
+    currentEvent.setName(name);
+
+    model()->addEvent(currentEvent);
+    loadEvents();
+    openEvent(index);
 }
 
 void EventsView::loadEvents()
@@ -167,9 +178,11 @@ void EventsView::checkAccessibleOptions()
     if(ui->eventBox->count() > 0) {
         ui->removeEventButton->setEnabled(true);
         ui->eventBox->setEnabled(true);
+        ui->eventNameEdit->setEnabled(true);
     } else {
         ui->removeEventButton->setEnabled(false);
         ui->eventBox->setEnabled(false);
+        ui->eventNameEdit->setEnabled(false);
     }
     ui->addEventButton->setEnabled(true);
 }
