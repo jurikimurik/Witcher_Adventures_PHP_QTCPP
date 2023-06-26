@@ -44,19 +44,17 @@ void ItemsView::openItem(int id)
     ui->nameEdit->setText(item.name());
 
     // Working on QComboBox connected with ItemTypes
-    ui->typeBox->clear();
     bool isNewType = true;
     for(const auto& elem : m_controller->getAllTypesNames()) {
         if(elem == item.type().typeName)
             isNewType = false;
-        if(!elem.isEmpty())
-            ui->typeBox->addItem(elem);
     }
     if(isNewType) {
         m_controller->newType(item.type());
     }
-    else
-        ui->typeBox->setCurrentText(item.type().typeName);
+    refreshItemTypeData();
+    ui->typeBox->setCurrentText(item.type().typeName);
+
 
     ui->descEdit->setText(item.description());
     ui->costEdit->setText(QString::number(item.money()));
