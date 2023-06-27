@@ -38,7 +38,7 @@ QString Character::toString()
     QString splitter = DatabaseItem::getSplitter();
     QString arraySplitter = DatabaseItem::getArraySplitter();
 
-    properties += m_imageName + splitter + m_basicStatistics.toString() + splitter;
+    properties += m_imageName + splitter + m_basicStatistics.toString() + splitter + arraySplitter;
     for(Buff& buff : buffs())
     {
         properties += buff.toString() + arraySplitter;
