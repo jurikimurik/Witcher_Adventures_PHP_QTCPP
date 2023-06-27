@@ -35,12 +35,20 @@ void CharacterView::openCharacter(int whichOne)
     ui->nameEdit->setText(charFromDatabase.name());
     m_buffView->setBuff(charFromDatabase.basicStatistics());
 
+    removeAllBuffs();
+    for(const auto& elem : charFromDatabase.buffs())
+    {
+        addBuff(elem);
+    }
+
     ui->propWidget->setEnabled(true);
 }
 
 void CharacterView::newCharacter()
 {
     ui->propWidget->setEnabled(false);
+
+    removeAllBuffs();
 
     Character someCharacter = Character(-1, "", "", Buff());
 
@@ -53,12 +61,38 @@ void CharacterView::newCharacter()
 
 void CharacterView::addBuff(Buff buff)
 {
-    qDebug() << "CharacterView::addBuff()";
+    BuffView* view = new BuffView(buff, ui->buffsWidget);
+    view->setObjectName("Buff");
+    ui->buffsWidget->layout()->addWidget(view);
 }
 
 void CharacterView::removeBuff()
 {
-    qDebug() << "CharacterView::removeBuff()";
+    auto ptr = ui->buffsWidget->findChild<BuffView*>("Buff");
+    if(ptr != nullptr) {
+        ptr->deleteLater();
+    }
+
+}
+
+void CharacterView::removeAllBuffs()
+{
+    auto ptrList = ui->buffsWidget->findChildren<BuffView*>("Buff");
+    for(const auto& elem : ptrList)
+    {
+        elem->deleteLater();
+    }
+}
+
+QVector<Buff> CharacterView::getAllBuffs()
+{
+    QVector<Buff> buffs;
+    auto ptrList = ui->buffsWidget->findChildren<BuffView*>("Buff");
+    for(const auto& elem : ptrList)
+    {
+        buffs.push_back(elem->getBuff());
+    }
+    return buffs;
 }
 
 void CharacterView::addNewCharacter()
@@ -103,8 +137,9 @@ Character CharacterView::getCharacterFromForm()
     int id = ui->idEdit->text().toInt();
     QString name = ui->nameEdit->text();
     Buff attributes = m_buffView->getBuff();
+    QVector<Buff> buffs = getAllBuffs();
 
-    return Character(id, name, QString(), attributes);
+    return Character(id, name, QString(), attributes, buffs);
 }
 
 CharacterView::CharacterView(CharacterModel *model, BuffView *buffView, QWidget *parent) : QWidget(parent),

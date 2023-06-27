@@ -24,6 +24,7 @@ public:
 
     Character getCharacterFromForm();
 
+
 public slots:
     void updateData();
     void addNewCharacter();
@@ -31,6 +32,7 @@ public slots:
     void deleteCharacter();
     void openCharacter(int whichOne = 0);
     void newCharacter();
+
     void addBuff(Buff buff = Buff());
     void removeBuff();
 
@@ -39,7 +41,10 @@ private:
     CharacterModel* m_model;
     BuffView* m_buffView;
 
+private:
 
+    QVector<Buff> getAllBuffs();
+    void removeAllBuffs();
 signals:
     void addCharacterSignal(const Character& newChar);
     void updateCharacterSignal(const Character& updatedChar);
