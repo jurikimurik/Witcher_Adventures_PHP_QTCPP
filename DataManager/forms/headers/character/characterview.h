@@ -31,6 +31,8 @@ public slots:
     void deleteCharacter();
     void openCharacter(int whichOne = 0);
     void newCharacter();
+    void addBuff(Buff buff = Buff());
+    void removeBuff();
 
 private:
     Ui::CharacterView *ui;

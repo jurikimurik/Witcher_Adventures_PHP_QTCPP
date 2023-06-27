@@ -51,6 +51,16 @@ void CharacterView::newCharacter()
     ui->propWidget->setEnabled(true);
 }
 
+void CharacterView::addBuff(Buff buff)
+{
+    qDebug() << "CharacterView::addBuff()";
+}
+
+void CharacterView::removeBuff()
+{
+    qDebug() << "CharacterView::removeBuff()";
+}
+
 void CharacterView::addNewCharacter()
 {
     const Character& character = getCharacterFromForm();
