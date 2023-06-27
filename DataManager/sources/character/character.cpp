@@ -1,5 +1,6 @@
 #include "../../headers/character/character.h"
 
+#include <QDebug>
 
 QString Character::imageName() const
 {
@@ -59,9 +60,10 @@ Character Character::fromString(QString str)
     Buff basicAttributes = Buff::fromString(strBuffs.takeFirst());
 
     QVector<Buff> buffs;
-    for(QString strBuff : props.takeFirst())
+    for(QString& strBuff : strBuffs)
     {
-        buffs += Buff::fromString(strBuff);
+        if(!strBuff.isEmpty())
+            buffs += Buff::fromString(strBuff);
     }
     return Character(id, name, imageName, basicAttributes, buffs);
 }
