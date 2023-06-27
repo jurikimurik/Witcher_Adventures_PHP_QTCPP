@@ -21,22 +21,53 @@ void Character::setBasicStatistics(const Buff &newAttributes)
     m_basicStatistics = newAttributes;
 }
 
+QVector<Buff> Character::buffs() const
+{
+    return m_buffs;
+}
+
+void Character::setBuffs(const QVector<Buff> &newBuffs)
+{
+    m_buffs = newBuffs;
+}
+
 QString Character::toString()
 {
     QString properties = DatabaseItem::toString();
     QString splitter = DatabaseItem::getSplitter();
+    QString arraySplitter = DatabaseItem::getArraySplitter();
 
-    properties += m_imageName + splitter + m_basicStatistics.toString();
+    properties += m_imageName + splitter + m_basicStatistics.toString() + splitter;
+    for(Buff& buff : buffs())
+    {
+        properties += buff.toString() + arraySplitter;
+    }
     return properties;
 }
 
 Character Character::fromString(QString str)
 {
     QStringList props = str.split(DatabaseItem::getSplitter());
-    return Character(props.takeFirst().toInt(), props.takeFirst(), props.takeFirst(), Buff::fromString(props.join(DatabaseItem::getSplitter())));
+    int id = props.takeFirst().toInt();
+    QString name = props.takeFirst();
+    QString imageName = props.takeFirst();
+
+    //String for Buff reading
+    QString leftStr = props.join(DatabaseItem::getSplitter());
+    QStringList strBuffs = leftStr.split(DatabaseItem::getArraySplitter());
+
+    Buff basicAttributes = Buff::fromString(strBuffs.takeFirst());
+
+    QVector<Buff> buffs;
+    for(QString strBuff : props.takeFirst())
+    {
+        buffs += Buff::fromString(strBuff);
+    }
+    return Character(id, name, imageName, basicAttributes, buffs);
 }
 
-Character::Character(int id, const QString &name, const QString &imageName, const Buff &attributes) : DatabaseItem(id, name),
+Character::Character(int id, const QString &name, const QString &imageName, const Buff &attributes, const QVector<Buff> &buffs) : DatabaseItem(id, name),
     m_imageName(imageName),
-    m_basicStatistics(attributes)
+    m_basicStatistics(attributes),
+    m_buffs(buffs)
 {}
