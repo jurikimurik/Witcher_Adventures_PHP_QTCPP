@@ -178,6 +178,12 @@ void DatabaseInXML::saveCharacter(const Character &elem)
     Buff buff = elem.basicStatistics();
     saveBuff(buff);
 
+    //BUFFS HERE
+    for(const auto& buff : elem.buffs())
+    {
+       saveBuff(buff);
+    }
+
     writer.writeEndElement();   //Character
 }
 
@@ -408,11 +414,15 @@ Character DatabaseInXML::readCharacter()
     QString name = reader.attributes().value("Name").toString();
     QString image = reader.attributes().value("Image").toString();
 
-    reader.readNextStartElement(); // GO TO BUFF
-    Buff buff = readBuff();
-    reader.readNextStartElement();  // CLOSE BUFF
+    QList<Buff> buffs;
+    while(reader.readNextStartElement() && reader.name() == QLatin1String("Buff"))
+    {
+       buffs.push_back(readBuff());
+    }
 
-    return Character(id, name, image, buff);
+    Buff basicStatistics = buffs.takeFirst();
+
+    return Character(id, name, image, basicStatistics, buffs);
 }
 
 EventsModel *DatabaseInXML::readEventsModel()
