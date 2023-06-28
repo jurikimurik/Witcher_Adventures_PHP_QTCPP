@@ -21,12 +21,13 @@ private:
     ActionType m_type;
     QString m_data;
     int m_idToAction;
+    QString m_name;
 
 public:
     static const QString dataSplitter;
 
 public:
-    Action(ActionType type = ActionType::NONE, const QString &data = QString(), int toAction = -1);
+    Action(ActionType type = ActionType::NONE, const QString &data = QString(), int toAction = -1, QString name = "");
     virtual ~Action();
 
     virtual Action toAction() const;
@@ -39,6 +40,8 @@ public:
     void setData(const QString &newData);
     int idToAction() const;
     void setIdToAction(int newIdToAction);
+    QString name() const;
+    void setName(const QString &newName);
 };
 
 #endif // ACTION_H

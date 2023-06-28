@@ -32,9 +32,20 @@ void Action::setIdToAction(int newIdToAction)
     m_idToAction = newIdToAction;
 }
 
-Action::Action(ActionType type, const QString &data, int toAction) : m_type(type),
+QString Action::name() const
+{
+    return m_name;
+}
+
+void Action::setName(const QString &newName)
+{
+    m_name = newName;
+}
+
+Action::Action(ActionType type, const QString &data, int toAction, QString name) : m_type(type),
     m_data(data),
-    m_idToAction(toAction)
+    m_idToAction(toAction),
+    m_name(name)
 {}
 
 Action::~Action()
@@ -50,7 +61,7 @@ Action Action::toAction() const
 QString Action::toString() const
 {
     QString splitter = DatabaseItem::getSplitter();
-    QString properties = QString::number((int)type()) + splitter + data() + splitter + QString::number(idToAction()) + splitter;
+    QString properties = QString::number((int)type()) + splitter + data() + splitter + QString::number(idToAction()) + splitter + name() + splitter;
 
     return properties;
 }
@@ -61,6 +72,8 @@ Action Action::fromString(QString str)
     ActionType type = (ActionType) props.at(0).toInt();
     QString data = props.at(1);
     int toAction = props.at(2).toInt();
+    QString name = props.value(3);
 
-    return Action(type, data, toAction);
+
+    return Action(type, data, toAction, name);
 }
