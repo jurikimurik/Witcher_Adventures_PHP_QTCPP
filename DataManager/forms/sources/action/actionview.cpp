@@ -10,6 +10,8 @@ void ActionView::openAction(Action action)
 {
     resetTabs();
 
+    ui->actionNameEdit->setText(action.name());
+
     if(action.type() == ActionType::Description) {
         DescriptionAction descAct;
         if(action.data() != QString())
@@ -661,10 +663,9 @@ void ActionView::save()
     if(!ui->toActionBox->currentText().isEmpty()) {
         action = getData();
         action.setIdToAction(ui->toActionBox->currentText().split("-").at(0).toInt());
+        action.setName(ui->actionNameEdit->text());
         setData(action);
     }
-
-
 
     emit actionChanged(getData());
     openAction(getData());

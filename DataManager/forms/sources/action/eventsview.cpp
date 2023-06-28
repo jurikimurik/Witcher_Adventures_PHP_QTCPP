@@ -73,7 +73,19 @@ void EventsView::openAction(int index)
 
     connect(actionView(), &ActionView::actionChanged, this, &EventsView::updateAction);
 
+
     ui->actionBox->setCurrentIndex(index);
+}
+
+void EventsView::updateActionEdits()
+{
+    Event event = getEvent();
+    ui->actionBox->clear();
+    for(int i = 0; i < event.size(); ++i)
+    {
+        ui->actionBox->addItem(QString::number(i) + " - " + event.at(i).name());
+    }
+    updateActions();
 }
 
 void EventsView::openEvent(int index)
@@ -91,12 +103,7 @@ void EventsView::openEvent(int index)
     ui->actionSelectWidget->setEnabled(true);
     ui->saveButton->setEnabled(true);
     ui->actionBox->clear();
-    Event event = getEvent();
-    for(int i = 0; i < event.size(); ++i)
-    {
-        ui->actionBox->addItem(QString::number(i) + " - " + event.at(i).name());
-    }
-    updateActions();
+    updateActionEdits();
 
     if(actionView() != nullptr)
         actionView()->setEnabled(false);
@@ -109,7 +116,9 @@ void EventsView::openEvent(int index)
 void EventsView::updateAction(const Action &action)
 {
     m_event.updateAction(ui->actionBox->currentIndex(), action);
-    openAction(ui->actionBox->currentIndex());
+    int index = ui->actionBox->currentIndex();
+    updateActionEdits();
+    openAction(index);
 }
 
 void EventsView::enemiesToUpdate(const QStringList &list)
@@ -130,21 +139,6 @@ void EventsView::actionsToUpdate(const QStringList &list)
 void EventsView::consToUpdate(const QStringList &list)
 {
     setCons(list);
-}
-
-void EventsView::saveActionName(const QString &name)
-{
-    /*Action currentAction = actionView()->getData();
-    if(currentAction.type() == ActionType::NONE)
-        return;
-
-    int index = ui->actionBox->currentIndex();
-    currentAction.setName(name);*/
-
-    //model()->addEvent(currentEvent);
-    //loadEvents();
-
-    //-openAction(index);
 }
 
 void EventsView::saveEventName(const QString &name)

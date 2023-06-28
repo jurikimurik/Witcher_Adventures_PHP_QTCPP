@@ -53,7 +53,6 @@ public slots:
     void consToUpdate(const QStringList& list);
 
     void saveEventName(const QString& name);
-    void saveActionName(const QString& name);
 
 signals:
     void saveEvent(const Event& event);
@@ -82,6 +81,7 @@ private:
     QStringList m_items;
     QStringList m_actions;
     QStringList m_cons;
+    void updateActionEdits();
 };
 
 #endif // EVENTSVIEW_H

@@ -100,19 +100,6 @@
        <widget class="QComboBox" name="actionBox"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="actionNameEdit">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="placeholderText">
-         <string>Nazwa akcji</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QPushButton" name="addActionButton">
         <property name="text">
          <string>Dodaj akcje</string>
@@ -271,22 +258,6 @@
     <hint type="destinationlabel">
      <x>31</x>
      <y>64</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionNameEdit</sender>
-   <signal>textEdited(QString)</signal>
-   <receiver>EventsView</receiver>
-   <slot>saveActionName(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>271</x>
-     <y>95</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>218</x>
-     <y>125</y>
     </hint>
    </hints>
   </connection>

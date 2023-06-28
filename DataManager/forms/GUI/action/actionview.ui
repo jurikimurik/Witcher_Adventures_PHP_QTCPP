@@ -15,6 +15,13 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <widget class="QLineEdit" name="actionNameEdit">
+     <property name="placeholderText">
+      <string>Nazwa akcji...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="enabled">
       <bool>true</bool>
@@ -23,7 +30,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
