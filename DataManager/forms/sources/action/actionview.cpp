@@ -78,13 +78,13 @@ void ActionView::openAction(Action action)
         for(int i = 0; i < choices.size(); ++i)
         {
             Choice choice = choices.at(i);
-            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
+            int searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
             if(searchedIndex < 0) {
                 QStringList newActions = actions();
                 newActions.push_back(QString::number(choice.idToAction()));
                 updateActions(newActions);
 
-                searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains|Qt::MatchStartsWith|Qt::MatchEndsWith));
+                searchedIndex = toIdBoxes.at(i)->findText(QString::number(choice.idToAction()), Qt::MatchFlags(Qt::MatchContains));
             }
             toIdBoxes.at(i)->setCurrentIndex(searchedIndex);
 
@@ -193,8 +193,11 @@ void ActionView::openAction(Action action)
             }
     }
 
-    if(action.idToAction() > -1)
-            ui->toActionBox->setCurrentText(QString::number(action.idToAction()));
+    if(action.idToAction() > -1) {
+            int searchedIndex = ui->toActionBox->findText(QString::number(action.idToAction()), Qt::MatchContains);
+            ui->toActionBox->setCurrentIndex(searchedIndex);
+    }
+
 
     setData(action);
 }
@@ -657,7 +660,7 @@ void ActionView::save()
 
     if(!ui->toActionBox->currentText().isEmpty()) {
         action = getData();
-        action.setIdToAction(ui->toActionBox->currentText().toInt());
+        action.setIdToAction(ui->toActionBox->currentText().split("-").at(0).toInt());
         setData(action);
     }
 
