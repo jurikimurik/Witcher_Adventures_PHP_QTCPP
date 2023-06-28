@@ -276,7 +276,7 @@
   </connection>
   <connection>
    <sender>actionNameEdit</sender>
-   <signal>textChanged(QString)</signal>
+   <signal>textEdited(QString)</signal>
    <receiver>EventsView</receiver>
    <slot>saveActionName(QString)</slot>
    <hints>

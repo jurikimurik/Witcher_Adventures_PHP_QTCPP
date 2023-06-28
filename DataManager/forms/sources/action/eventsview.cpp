@@ -43,7 +43,7 @@ void EventsView::addAction()
     int index = lista.indexOf(wybor);
     Action newAction((ActionType)index);
 
-    int currentAction = ui->actionBox->currentText().toInt();
+    int currentAction = ui->actionBox->currentIndex();
 
     m_event.addAction(newAction, currentAction+1);
     save();
@@ -91,9 +91,10 @@ void EventsView::openEvent(int index)
     ui->actionSelectWidget->setEnabled(true);
     ui->saveButton->setEnabled(true);
     ui->actionBox->clear();
-    for(int i = 0; i < getEvent().size(); ++i)
+    Event event = getEvent();
+    for(int i = 0; i < event.size(); ++i)
     {
-        ui->actionBox->addItem(QString::number(i));
+        ui->actionBox->addItem(QString::number(i) + " - " + event.at(i).name());
     }
     updateActions();
 
@@ -133,7 +134,17 @@ void EventsView::consToUpdate(const QStringList &list)
 
 void EventsView::saveActionName(const QString &name)
 {
+    /*Action currentAction = actionView()->getData();
+    if(currentAction.type() == ActionType::NONE)
+        return;
 
+    int index = ui->actionBox->currentIndex();
+    currentAction.setName(name);*/
+
+    //model()->addEvent(currentEvent);
+    //loadEvents();
+
+    //-openAction(index);
 }
 
 void EventsView::saveEventName(const QString &name)
@@ -300,6 +311,4 @@ EventsView::EventsView(EventsModel *model, QWidget *parent) : QWidget(parent),
 
     checkAccessibleOptions();
     connect(this, &EventsView::saveEvent, m_model, &EventsModel::updateEvent);
-
-    emit requestData();
 }
