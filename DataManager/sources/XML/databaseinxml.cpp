@@ -224,6 +224,7 @@ void DatabaseInXML::saveAction(const Action &action)
     writer.writeStartElement("Action"); //Action
     writer.writeAttribute("Type",QString::number((int)action.type()));
     writer.writeAttribute("To", QString::number(action.idToAction()));
+    writer.writeAttribute("Name", action.name());
     writer.writeAttribute("Splitter", action.dataSplitter);
     writer.writeTextElement("Data", action.data());
     writer.writeEndElement();   //Action
@@ -467,12 +468,13 @@ Action DatabaseInXML::readAction()
 
     ActionType type = (ActionType) reader.attributes().value("Type").toInt();
     int toAction = reader.attributes().value("To").toInt();
+    QString name = reader.attributes().value("Name").toString();
     //SPLITTER IS NOT INTERESTING FOR US
     reader.readNextStartElement(); // Going to "Data"
     QString data = reader.readElementText();
     reader.readNextStartElement(); // CLOSE "Data"
 
-    return Action(type, data, toAction);
+    return Action(type, data, toAction, name);
 }
 
 DatabaseInXML::DatabaseInXML(DatabaseModel *model, QObject *parent) : QObject(parent),
