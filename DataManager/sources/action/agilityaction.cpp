@@ -69,8 +69,8 @@ AgilityAction AgilityAction::fromString(QString str)
 
     int difficulty = data.at(1).toInt();
     int timePerOne = data.at(2).toInt();
-    int loseActionId = data.value(3).toInt();
-    int winActionId = data.value(4).toInt();
+    int winActionId = data.value(3).toInt();
+    int loseActionId = data.value(4).toInt();
 
     return AgilityAction(difficulty, timePerOne, winActionId, loseActionId);
 }
