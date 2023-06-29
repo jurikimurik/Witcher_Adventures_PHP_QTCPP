@@ -689,12 +689,13 @@ void ActionView::save()
         setData(diceAction.toAction());
     }
 
+    action = getData();
+    action.setName(ui->actionNameEdit->text());
     if(!ui->toActionBox->currentText().isEmpty()) {
-        action = getData();
         action.setIdToAction(ui->toActionBox->currentText().split("-").at(0).toInt());
-        action.setName(ui->actionNameEdit->text());
-        setData(action);
     }
+
+    setData(action);
 
     emit actionChanged(getData());
     openAction(getData());
