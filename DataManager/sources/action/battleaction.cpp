@@ -30,6 +30,9 @@ Action BattleAction::toAction() const
     }
     data += dataSplitter;
 
+    data += QString::number(winActionId()) + dataSplitter;
+    data += QString::number(loseActionId()) + dataSplitter;
+
     return Action(ActionType::Battle, data, idToAction());
 }
 
@@ -38,9 +41,31 @@ QString BattleAction::toString() const
     return toAction().toString();
 }
 
-BattleAction::BattleAction(const QString &textData, const QVector<int> &enemiesIds) : Action(ActionType::Battle),
+int BattleAction::winActionId() const
+{
+    return m_winActionId;
+}
+
+void BattleAction::setWinActionId(int newWinActionId)
+{
+    m_winActionId = newWinActionId;
+}
+
+int BattleAction::loseActionId() const
+{
+    return m_loseActionId;
+}
+
+void BattleAction::setLoseActionId(int newLoseActionId)
+{
+    m_loseActionId = newLoseActionId;
+}
+
+BattleAction::BattleAction(const QString &textData, const QVector<int> &enemiesIds, int winActionId, int loseActionId) : Action(ActionType::Battle),
     m_textData(textData),
-    m_enemiesIds(enemiesIds)
+    m_enemiesIds(enemiesIds),
+    m_winActionId(winActionId),
+    m_loseActionId(loseActionId)
 {}
 
 BattleAction BattleAction::fromString(QString str)
@@ -55,6 +80,8 @@ BattleAction BattleAction::fromString(QString str)
         if(!elem.isEmpty())
             ids.push_back(elem.toInt());
     }
+    int winActionId = data.value(3).toInt();
+    int loseActionId = data.value(4).toInt();
 
-    return BattleAction(text, ids);
+    return BattleAction(text, ids, winActionId, loseActionId);
 }
