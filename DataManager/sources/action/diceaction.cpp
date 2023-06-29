@@ -52,6 +52,10 @@ Action DiceAction::toAction() const
 
     data += textData() + dataSplitter;
 
+    data += QString::number(winActionId()) + dataSplitter;
+
+    data += QString::number(loseActionId()) + dataSplitter;
+
     return Action(ActionType::Dice,data,idToAction());
 }
 
@@ -60,12 +64,34 @@ QString DiceAction::toString() const
     return toAction().toString();
 }
 
-DiceAction::DiceAction(int difficulty, int players, const QVector<int> &enemiesIds, const QString &textData) :
+int DiceAction::winActionId() const
+{
+    return m_winActionId;
+}
+
+void DiceAction::setWinActionId(int newWinActionId)
+{
+    m_winActionId = newWinActionId;
+}
+
+int DiceAction::loseActionId() const
+{
+    return m_loseActionId;
+}
+
+void DiceAction::setLoseActionId(int newLoseActionId)
+{
+    m_loseActionId = newLoseActionId;
+}
+
+DiceAction::DiceAction(int difficulty, int players, const QVector<int> &enemiesIds, const QString &textData, int winActionId, int loseActionId) :
     Action(ActionType::Dice),
     m_difficulty(difficulty),
     m_players(players),
     enemiesIds(enemiesIds),
-    m_textData(textData)
+    m_textData(textData),
+    m_winActionId(winActionId),
+    m_loseActionId(loseActionId)
 {}
 
 DiceAction DiceAction::fromString(QString str)
@@ -86,5 +112,8 @@ DiceAction DiceAction::fromString(QString str)
 
     QString text = data.at(4);
 
-    return DiceAction(difficulty, players, enemiesIds, text);
+    int winActionId = data.value(5).toInt();
+    int loseActionId = data.value(6).toInt();
+
+    return DiceAction(difficulty, players, enemiesIds, text, winActionId, loseActionId);
 }
