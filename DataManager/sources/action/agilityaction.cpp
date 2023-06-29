@@ -24,7 +24,8 @@ void AgilityAction::setTimePerOne(int newTimePerOne)
 
 Action AgilityAction::toAction() const
 {
-    QString data = dataSplitter + QString::number(difficulty()) + dataSplitter + QString::number(timePerOne()) + dataSplitter;
+    QString data = dataSplitter + QString::number(difficulty()) + dataSplitter + QString::number(timePerOne()) + dataSplitter +
+                   QString::number(winActionId()) + dataSplitter + QString::number(loseActionId()) + dataSplitter;
     return Action(ActionType::Agility, data, idToAction());
 }
 
@@ -34,9 +35,31 @@ QString AgilityAction::toString() const
 }
 
 
-AgilityAction::AgilityAction(int difficulty, int timePerOne) : Action(ActionType::Agility),
+int AgilityAction::winActionId() const
+{
+    return m_winActionId;
+}
+
+void AgilityAction::setWinActionId(int newWinActionId)
+{
+    m_winActionId = newWinActionId;
+}
+
+int AgilityAction::loseActionId() const
+{
+    return m_loseActionId;
+}
+
+void AgilityAction::setLoseActionId(int newLoseActionId)
+{
+    m_loseActionId = newLoseActionId;
+}
+
+AgilityAction::AgilityAction(int difficulty, int timePerOne, int winActionId, int loseActionId) : Action(ActionType::Agility),
     m_difficulty(difficulty),
-    m_timePerOne(timePerOne)
+    m_timePerOne(timePerOne),
+    m_winActionId(winActionId),
+    m_loseActionId(loseActionId)
 {}
 
 AgilityAction AgilityAction::fromString(QString str)
@@ -46,6 +69,8 @@ AgilityAction AgilityAction::fromString(QString str)
 
     int difficulty = data.at(1).toInt();
     int timePerOne = data.at(2).toInt();
+    int loseActionId = data.value(3).toInt();
+    int winActionId = data.value(4).toInt();
 
-    return AgilityAction(difficulty, timePerOne);
+    return AgilityAction(difficulty, timePerOne, winActionId, loseActionId);
 }

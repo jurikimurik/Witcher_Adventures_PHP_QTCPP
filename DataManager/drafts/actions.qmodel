@@ -402,8 +402,8 @@
                          </base-DElement>
                          <object>{bf79ec28-520c-4176-b285-c38f58295218}</object>
                          <name>AgilityAction</name>
-                         <pos>x:1100;y:835</pos>
-                         <rect>x:-145;y:-100;w:290;h:200</rect>
+                         <pos>x:1130;y:850</pos>
+                         <rect>x:-255;y:-135;w:510;h:270</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -548,7 +548,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1687965724184</last-modified>
+                  <last-modified>1688037118727</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -2486,7 +2486,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{bf00619f-648b-4dcc-8ac2-1ba2ef2dceff}</uid>
+                    <uid>{3ec9c868-5954-44a3-baaf-938cd71f735e}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_difficulty</declaration>
@@ -2494,7 +2494,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b30c161f-0540-4192-abb0-0be800ee143b}</uid>
+                    <uid>{5be140e4-beaf-4906-b527-97514b8a1fa0}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_timePerOne</declaration>
@@ -2502,15 +2502,31 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{58940bfe-ba86-4f89-8d03-b07626b80e13}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>AgilityAction(int difficulty = 1, int timePerOne = 5)</declaration>
+                    <uid>{e0bc71d5-6a5e-42eb-9921-5ad108b51f72}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>int m_winActionId</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8de129ea-9422-4e0a-8c5c-17a46a3a1f5e}</uid>
+                    <uid>{b7df4d13-300d-41bd-81ea-89d3d2dcde41}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>int m_loseActionId</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{0eab26b6-c67f-438f-824d-b42702931cf6}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>AgilityAction(int difficulty = 1, int timePerOne = 5, int winActionId = -1, int loseActionId = -1)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ab63ab41-d149-4d65-a88a-de7a31242f01}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>64</properties>
@@ -2519,7 +2535,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{536b4999-51c5-4dd5-85c4-992eda6d419c}</uid>
+                    <uid>{9491c5cc-66a7-4aa5-bf09-55c2da75d1cc}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -2528,7 +2544,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{53125a40-4361-4f3d-8d9a-95ff6f928b07}</uid>
+                    <uid>{d4d2389b-d39c-42d3-b58b-7e9379e429d5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDifficulty(int newDifficulty)</declaration>
@@ -2536,7 +2552,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{718847cb-a077-486a-a6c8-89f74d7a260e}</uid>
+                    <uid>{a5eb59a3-fdfd-4575-8d15-b4b8d6e2bdd4}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -2545,7 +2561,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{12762830-efff-4d93-99f8-df8e85153737}</uid>
+                    <uid>{bd2286eb-70b5-4e1f-b80b-1b2dcf5641e9}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setTimePerOne(int newTimePerOne)</declaration>
@@ -2553,7 +2569,41 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fc084b13-cf3b-4402-9ecd-b30a092bf56a}</uid>
+                    <uid>{5892ede8-4619-45ed-924a-22fe4180fb1a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int winActionId()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8c9536e9-895a-47b7-97e2-35ca6fa75495}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setWinActionId(int newWinActionId)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{71219b49-a0ba-4c1d-951a-8ac0cbb3b58d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>4</properties>
+                    <declaration>int loseActionId()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{e5468656-7e1d-4f8d-b6f8-f62c652cde36}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setLoseActionId(int newLoseActionId)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{de916bbc-648d-444a-a0fe-d9d336cd78d2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>5</properties>
@@ -2562,7 +2612,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f7f87c71-355c-4814-ba53-d0629991692d}</uid>
+                    <uid>{6175a80f-ab10-4bbc-b4fe-c01872c34efa}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>5</properties>
