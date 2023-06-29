@@ -165,6 +165,7 @@ void ActionView::openAction(Action action)
 
             int searchedWonIndex = ui->agilityWonBox->findText(QString::number(agilityAction.winActionId()), Qt::MatchFlags(Qt::MatchContains));
             int searchedLoseIndex = ui->agilityLoseBox->findText(QString::number(agilityAction.loseActionId()), Qt::MatchFlags(Qt::MatchContains));
+
             ui->agilityWonBox->setCurrentIndex(searchedWonIndex);
             ui->agilityLoseBox->setCurrentIndex(searchedLoseIndex);
 
@@ -609,7 +610,10 @@ void ActionView::save()
                 enemiesIds.push_back(enemyId);
         }
 
-        BattleAction battleAction(text, enemiesIds);
+        int wonActionId = ui->battleWonBox->currentText().split("-").value(0).toInt();
+        int loseActionId = ui->battleLoseBox->currentText().split("-").value(0).toInt();
+
+        BattleAction battleAction(text, enemiesIds, wonActionId, loseActionId);
         setData(battleAction.toAction());
 
     } else if(action.type() == ActionType::Choice) {
@@ -660,7 +664,11 @@ void ActionView::save()
         RewardAction rewardAction(money, itemsIds);
         setData(rewardAction.toAction());
     } else if(action.type() == ActionType::Agility) {
-        AgilityAction agilityAction(ui->agilityDifficultySpinBox->value(), ui->agilityTimePerOneSpinBox->value());
+
+        int wonActionId = ui->agilityWonBox->currentText().split("-").value(0).toInt();
+        int loseActionId = ui->agilityLoseBox->currentText().split("-").value(0).toInt();
+
+        AgilityAction agilityAction(ui->agilityDifficultySpinBox->value(), ui->agilityTimePerOneSpinBox->value(), wonActionId, loseActionId);
         setData(agilityAction.toAction());
     } else if(action.type() == ActionType::Dice) {
         QString text = ui->diceTextEdit->toPlainText();
@@ -674,7 +682,10 @@ void ActionView::save()
             enemiesIds.push_back(enemyId);
         }
 
-        DiceAction diceAction(difficulty, enemiesIds.size()+1, enemiesIds, text);
+        int wonActionId = ui->diceWonBox->currentText().split("-").value(0).toInt();
+        int loseActionId = ui->diceLoseBox->currentText().split("-").value(0).toInt();
+
+        DiceAction diceAction(difficulty, enemiesIds.size()+1, enemiesIds, text, wonActionId, loseActionId);
         setData(diceAction.toAction());
     }
 
