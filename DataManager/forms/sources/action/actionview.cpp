@@ -63,6 +63,11 @@ void ActionView::openAction(Action action)
             ++index;
         }
 
+        int searchedWonIndex = ui->battleWonBox->findText(QString::number(battleAction.winActionId()), Qt::MatchFlags(Qt::MatchContains));
+        int searchedLoseIndex = ui->battleLoseBox->findText(QString::number(battleAction.loseActionId()), Qt::MatchFlags(Qt::MatchContains));
+        ui->battleWonBox->setCurrentIndex(searchedWonIndex);
+        ui->battleLoseBox->setCurrentIndex(searchedLoseIndex);
+
     } else if(action.type() == ActionType::Choice) {
         ChoiceAction choiceAction(QString(), QVector<Choice>({Choice()}));
         if(action.data() != QString())
@@ -157,6 +162,12 @@ void ActionView::openAction(Action action)
 
             ui->agilityDifficultySpinBox->setValue(agilityAction.difficulty());
             ui->agilityTimePerOneSpinBox->setValue(agilityAction.timePerOne());
+
+            int searchedWonIndex = ui->agilityWonBox->findText(QString::number(agilityAction.winActionId()), Qt::MatchFlags(Qt::MatchContains));
+            int searchedLoseIndex = ui->agilityLoseBox->findText(QString::number(agilityAction.loseActionId()), Qt::MatchFlags(Qt::MatchContains));
+            ui->agilityWonBox->setCurrentIndex(searchedWonIndex);
+            ui->agilityLoseBox->setCurrentIndex(searchedLoseIndex);
+
     } else if(action.type() == ActionType::Dice) {
             DiceAction diceAction(1, 2, QVector<int>({-1}));
             if(action.data() != QString())
@@ -193,6 +204,11 @@ void ActionView::openAction(Action action)
             enemyIds.removeAll(id);
             ++index;
             }
+
+            int searchedWonIndex = ui->diceWonBox->findText(QString::number(diceAction.winActionId()), Qt::MatchFlags(Qt::MatchContains));
+            int searchedLoseIndex = ui->diceLoseBox->findText(QString::number(diceAction.loseActionId()), Qt::MatchFlags(Qt::MatchContains));
+            ui->diceWonBox->setCurrentIndex(searchedWonIndex);
+            ui->diceLoseBox->setCurrentIndex(searchedLoseIndex);
     }
 
     if(action.idToAction() > -1) {
@@ -505,6 +521,8 @@ void ActionView::updateActions(QStringList list)
     setActions(list);
     updateComboBoxes("toActionIdBox\\d+", list);
     updateComboBoxes("toActionBox", list);
+    updateComboBoxes("\\w+WonBox", list);
+    updateComboBoxes("\\w+LoseBox", list);
 }
 
 void ActionView::updateItems(QStringList list)
