@@ -152,7 +152,7 @@ void ItemsView::on_itemBox_activated(int index)
     } else {
         // Every item name in itemBox needs to have name like: "23 - Dragon Sword"
         //  - otherwise, this method needs update
-        int id = ui->itemBox->currentText().split("-").at(0).toInt();
+        int id = ui->itemBox->currentText().split(" - ").at(0).toInt();
         openItem(id);
     }
 }

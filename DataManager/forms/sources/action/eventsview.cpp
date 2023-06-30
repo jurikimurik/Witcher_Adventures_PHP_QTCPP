@@ -96,7 +96,7 @@ void EventsView::openEvent(int index)
         return;
 
     //Getting id from text in QComboBox
-    int id = ui->eventBox->itemText(index).split("-").at(0).toInt();
+    int id = ui->eventBox->itemText(index).split(" - ").at(0).toInt();
 
     setEvent(m_model->value(id));
 

@@ -44,7 +44,7 @@ void ConsequencesView::removeConsequence()
 
 void ConsequencesView::openConsequence()
 {
-    int id = ui->consequenceBox->currentText().split("-").at(0).toInt();
+    int id = ui->consequenceBox->currentText().split(" - ").at(0).toInt();
     Consequence cons = m_model->value(id);
 
     ui->idEdit->setText(QString::number(cons.id()));

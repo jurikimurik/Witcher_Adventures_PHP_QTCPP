@@ -605,13 +605,13 @@ void ActionView::save()
         QVector<int> enemiesIds;
         for(int i = 0; i < boxes.size(); ++i)
         {
-            int enemyId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            int enemyId = boxes.at(i)->currentText().split(" - ").at(0).toInt();
             for(int r = 0; r < spinBoxes.at(i)->value(); ++r)
                 enemiesIds.push_back(enemyId);
         }
 
-        int wonActionId = ui->battleWonBox->currentText().split("-").value(0).toInt();
-        int loseActionId = ui->battleLoseBox->currentText().split("-").value(0).toInt();
+        int wonActionId = ui->battleWonBox->currentText().split(" - ").value(0).toInt();
+        int loseActionId = ui->battleLoseBox->currentText().split(" - ").value(0).toInt();
 
         BattleAction battleAction(text, enemiesIds, wonActionId, loseActionId);
         setData(battleAction.toAction());
@@ -625,7 +625,7 @@ void ActionView::save()
         QVector<Choice> choices;
         for(int i = 0; i < toIdBoxes.size(); ++i)
         {
-            int toId = toIdBoxes.at(i)->currentText().split("-").at(0).toInt();
+            int toId = toIdBoxes.at(i)->currentText().split(" - ").at(0).toInt();
             QString choiceText = lineEdits.at(i)->text();
             Consequence cons;
             int consId = -1;
@@ -656,7 +656,7 @@ void ActionView::save()
         QVector<int> itemsIds;
         for(int i = 0; i < boxes.size(); ++i)
         {
-            int itemId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            int itemId = boxes.at(i)->currentText().split(" - ").at(0).toInt();
             for(int r = 0; r < spinBoxes.at(i)->value(); ++r)
                 itemsIds.push_back(itemId);
         }
@@ -665,8 +665,8 @@ void ActionView::save()
         setData(rewardAction.toAction());
     } else if(action.type() == ActionType::Agility) {
 
-        int wonActionId = ui->agilityWonBox->currentText().split("-").value(0).toInt();
-        int loseActionId = ui->agilityLoseBox->currentText().split("-").value(0).toInt();
+        int wonActionId = ui->agilityWonBox->currentText().split(" - ").value(0).toInt();
+        int loseActionId = ui->agilityLoseBox->currentText().split(" - ").value(0).toInt();
 
         AgilityAction agilityAction(ui->agilityDifficultySpinBox->value(), ui->agilityTimePerOneSpinBox->value(), wonActionId, loseActionId);
         setData(agilityAction.toAction());
@@ -678,12 +678,12 @@ void ActionView::save()
         QVector<int> enemiesIds;
         for(int i = 0; i < boxes.size(); ++i)
         {
-            int enemyId = boxes.at(i)->currentText().split("-").at(0).toInt();
+            int enemyId = boxes.at(i)->currentText().split(" - ").at(0).toInt();
             enemiesIds.push_back(enemyId);
         }
 
-        int wonActionId = ui->diceWonBox->currentText().split("-").value(0).toInt();
-        int loseActionId = ui->diceLoseBox->currentText().split("-").value(0).toInt();
+        int wonActionId = ui->diceWonBox->currentText().split(" - ").value(0).toInt();
+        int loseActionId = ui->diceLoseBox->currentText().split(" - ").value(0).toInt();
 
         DiceAction diceAction(difficulty, enemiesIds.size()+1, enemiesIds, text, wonActionId, loseActionId);
         setData(diceAction.toAction());
@@ -692,7 +692,7 @@ void ActionView::save()
     action = getData();
     action.setName(ui->actionNameEdit->text());
     if(!ui->toActionBox->currentText().isEmpty()) {
-        action.setIdToAction(ui->toActionBox->currentText().split("-").at(0).toInt());
+        action.setIdToAction(ui->toActionBox->currentText().split(" - ").at(0).toInt());
     }
 
     setData(action);
