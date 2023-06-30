@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>531</width>
-    <height>477</height>
+    <height>503</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="descriptionAction">
       <attribute name="title">
@@ -125,10 +125,22 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="battleWonBox"/>
+           <widget class="QComboBox" name="battleWonBox">
+            <item>
+             <property name="text">
+              <string>-1 - *NASTĘPNA AKCJA*</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="battleLoseBox"/>
+           <widget class="QComboBox" name="battleLoseBox">
+            <item>
+             <property name="text">
+              <string>-1 - *ŚMIERĆ*</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -306,10 +318,22 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="agilityWonBox"/>
+        <widget class="QComboBox" name="agilityWonBox">
+         <item>
+          <property name="text">
+           <string>-1 - *NASTĘPNA AKCJA*</string>
+          </property>
+         </item>
+        </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QComboBox" name="agilityLoseBox"/>
+        <widget class="QComboBox" name="agilityLoseBox">
+         <item>
+          <property name="text">
+           <string>-1 - *ŚMIERĆ*</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -378,10 +402,22 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="diceWonBox"/>
+           <widget class="QComboBox" name="diceWonBox">
+            <item>
+             <property name="text">
+              <string>-1 - *NASTEPNA AKCJA*</string>
+             </property>
+            </item>
+           </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="diceLoseBox"/>
+           <widget class="QComboBox" name="diceLoseBox">
+            <item>
+             <property name="text">
+              <string>-1 - *ŚMIERĆ*</string>
+             </property>
+            </item>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -397,7 +433,7 @@
      </property>
      <item>
       <property name="text">
-       <string>*BRAK*</string>
+       <string>-1 - *BRAK*</string>
       </property>
      </item>
     </widget>
