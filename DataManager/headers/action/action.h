@@ -12,7 +12,8 @@ enum class ActionType {
     Battle = 3,
     Reward = 4,
     Choice = 5,
-    Dice = 6
+    Dice = 6,
+    Consequence = 7
 };
 
 class Action

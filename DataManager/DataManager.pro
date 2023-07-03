@@ -16,6 +16,7 @@ SOURCES += \
     forms/sources/item/itemtypeview.cpp \
     forms/sources/item/buffview.cpp \
     forms/sources/item/itemsview.cpp \
+    sources/action/consequenceaction.cpp \
     sources/XML/databaseinxml.cpp \
     sources/action/action.cpp \
     sources/action/agilityaction.cpp \
@@ -58,6 +59,7 @@ HEADERS += \
     headers/action/basic/choice.h \
     headers/action/battleaction.h \
     headers/action/choiceaction.h \
+    headers/action/consequenceaction.h \
     headers/action/descriptionaction.h \
     headers/action/diceaction.h \
     headers/action/event.h \
