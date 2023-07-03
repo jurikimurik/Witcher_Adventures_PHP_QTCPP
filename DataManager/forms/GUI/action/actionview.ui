@@ -428,103 +428,122 @@
       <attribute name="title">
        <string>Consequence</string>
       </attribute>
-      <layout class="QFormLayout" name="formLayout_7">
-       <item row="0" column="0">
-        <widget class="QLabel" name="conditionLabel1">
-         <property name="text">
-          <string>1.</string>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QScrollArea" name="scrollConditionArea1">
+         <property name="widgetResizable">
+          <bool>true</bool>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QWidget" name="conditionWidget1" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_7">
-          <item>
-           <widget class="QLabel" name="ifLabel1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Jeżeli</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox_3"/>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Oraz</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox_2"/>
-          </item>
-          <item>
-           <widget class="QWidget" name="widget" native="true">
-            <layout class="QHBoxLayout" name="horizontalLayout">
-             <item>
-              <widget class="QComboBox" name="comboBox_5">
-               <item>
+         <widget class="QWidget" name="scrollAreaContentWidget1">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>536</width>
+            <height>309</height>
+           </rect>
+          </property>
+          <layout class="QFormLayout" name="formLayout_7">
+           <item row="0" column="0">
+            <widget class="QLabel" name="conditionCountLabel1">
+             <property name="text">
+              <string>1.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QWidget" name="conditionWidget1" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="ifLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Jeżeli</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="conditionBox1_1"/>
+              </item>
+              <item>
+               <widget class="QLabel" name="andLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="text">
                  <string>Oraz</string>
                 </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Lub</string>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="conditionBox1_2"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="newCondtionWidget1" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <item>
+                  <widget class="QComboBox" name="newConditionBox1">
+                   <item>
+                    <property name="text">
+                     <string>Oraz</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Lub</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>(</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>)</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="deleteConditionButton1">
+                   <property name="text">
+                    <string>Usuń ostatni warunek</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="toLabel1">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
-               </item>
-               <item>
                 <property name="text">
-                 <string>(</string>
+                 <string>to przekieruj do:</string>
                 </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>)</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton">
-               <property name="text">
-                <string>Usuń ostatni warunek</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>to przekieruj do:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox"/>
-          </item>
-         </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="conclusionBox1"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -568,8 +587,8 @@
    <slot>save()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>295</x>
-     <y>455</y>
+     <x>307</x>
+     <y>498</y>
     </hint>
     <hint type="destinationlabel">
      <x>308</x>
